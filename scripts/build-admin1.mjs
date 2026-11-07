@@ -67,10 +67,31 @@ const features = lines.features
 
 // Label points from the polygon layer (Natural Earth's own label anchors)
 const LABELS = {
-  India: ["Jammu and Kashmir", "Ladakh", "Himachal Pradesh", "Punjab", "Haryana", "Delhi", "Rajasthan", "Gujarat", "Uttarakhand", "Uttar Pradesh", "Madhya Pradesh", "Maharashtra", "Chandigarh"],
+  India: [
+    "Jammu and Kashmir",
+    "Ladakh",
+    "Himachal Pradesh",
+    "Punjab",
+    "Haryana",
+    "Delhi",
+    "Rajasthan",
+    "Gujarat",
+    "Uttarakhand",
+    "Uttar Pradesh",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Chandigarh",
+  ],
   Pakistan: ["Punjab", "Sind", "Baluchistan", "K.P.", "F.C.T."],
 };
-const DISPLAY = { "Jammu and Kashmir": "Jammu & Kashmir", Sind: "Sindh", Baluchistan: "Balochistan", "K.P.": "Khyber Pakhtunkhwa", "F.C.T.": "Islamabad", Punjab: "Punjab" };
+const DISPLAY = {
+  "Jammu and Kashmir": "Jammu & Kashmir",
+  Sind: "Sindh",
+  Baluchistan: "Balochistan",
+  "K.P.": "Khyber Pakhtunkhwa",
+  "F.C.T.": "Islamabad",
+  Punjab: "Punjab",
+};
 const polys = JSON.parse(readFileSync(`${dir}/ne_10m_admin_1_states_provinces.geojson`, "utf8"));
 const labels = polys.features
   .filter((f) => LABELS[f.properties.admin]?.includes(f.properties.name))
