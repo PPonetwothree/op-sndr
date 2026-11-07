@@ -4,11 +4,21 @@ Locally hosted operational-history simulator reconstructing Operation Sindoor (7
 
 ```bash
 npm install
-npm run dev        # http://127.0.0.1:5173
-npm test           # data validation + event-engine tests
-npm run build      # type-check + production build
-npm run build-data # regenerate basemap and JSON databases from scripts/
+npm run dev          # http://127.0.0.1:5173
 ```
+
+### Quality checks
+
+| Command                             | What it does                                                                           |
+| ----------------------------------- | -------------------------------------------------------------------------------------- |
+| `npm run check`                     | Lint, formatting check, type-check, unit + data tests, production build                |
+| `npm test`                          | Vitest: schema/reference validation, engine, analytics, stated-distance checks         |
+| `npm run test:e2e`                  | Playwright against the production build (first run: `npx playwright install chromium`) |
+| `npm run lint` / `npm run format`   | ESLint / Prettier                                                                      |
+| `npm run build-data`                | Regenerate basemap, JSON databases and pre-rendered symbols from `scripts/`            |
+| `npm run build-boundaries -- <dir>` | Rebuild India-view boundary and contested areas from Natural Earth files               |
+
+CI (`.github/workflows/ci.yml`) runs the same checks on every push and pull request. See [CHANGELOG.md](CHANGELOG.md).
 
 ## Modules
 
