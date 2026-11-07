@@ -29,7 +29,7 @@ test.describe("Provenance, methods and audit", () => {
 
   test("source register shows archive links", async ({ page }) => {
     await openModule(page, "Source Management");
-    expect(await page.getByRole("link", { name: /^Wayback \d{4}-\d{2}-\d{2}$/ }).count()).toBeGreaterThanOrEqual(15);
+    await expect.poll(() => page.getByRole("link", { name: /^Wayback \d{4}-\d{2}-\d{2}$/ }).count()).toBeGreaterThanOrEqual(20);
   });
 
   test("BDA edit is audited with field-level changes and shown in revision history", async ({ page }) => {
