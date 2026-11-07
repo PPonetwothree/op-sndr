@@ -45,7 +45,16 @@ export function SourceList({ ids }: { ids: string[] }) {
             <div className="mono mt-1 text-[10px] text-ink-400">
               {s.publisher} · {formatDateLabel(s.publicationDate)} · {s.id}
             </div>
-            <div className="mt-1 text-[10px] text-ink-500">{RETRIEVAL[s.retrieval]}</div>
+            <div className="mt-1 flex flex-wrap gap-x-2 text-[10px] text-ink-500">
+              <span>{RETRIEVAL[s.retrieval]}</span>
+              {s.archiveUrl ? (
+                <a href={s.archiveUrl} target="_blank" rel="noreferrer" className="text-olive-300 hover:underline">
+                  Archived copy ({s.archivedAt})
+                </a>
+              ) : (
+                <span>No archive capture found</span>
+              )}
+            </div>
           </div>
         );
       })}

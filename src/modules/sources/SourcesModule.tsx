@@ -147,7 +147,7 @@ export function SourcesModule() {
             <table className="w-full text-[11px]">
               <thead>
                 <tr className="text-left text-ink-400">
-                  {["Class", "Source", "Publisher / date", "Retrieval", "Used by", "Notes", ""].map((h) => (
+                  {["Class", "Source", "Publisher / date", "Retrieval", "Archive", "Used by", "Notes", ""].map((h) => (
                     <th key={h} className="border-b border-ink-700 px-2 py-1.5 font-semibold">
                       {h}
                     </th>
@@ -211,6 +211,16 @@ export function SourcesModule() {
                         <div className="mono text-[10px] text-ink-500">{formatDateLabel(s.publicationDate)}</div>
                       </td>
                       <td className="px-2 py-1.5 text-ink-300">{RETRIEVAL[s.retrieval]}</td>
+                      <td className="px-2 py-1.5 text-[10px]">
+                        {s.archiveUrl ? (
+                          <a href={s.archiveUrl} target="_blank" rel="noreferrer" className="text-olive-300 hover:underline">
+                            Wayback {s.archivedAt}
+                          </a>
+                        ) : (
+                          <span className="text-ink-500">none</span>
+                        )}
+                        {s.lastChecked && <div className="text-ink-500">checked {s.lastChecked}</div>}
+                      </td>
                       <td className="mono px-2 py-1.5 text-center text-ink-200">{usage.get(s.id) ?? 0}</td>
                       <td className="max-w-[300px] px-2 py-1.5 text-ink-400">{s.notes}</td>
                       <td className="px-2 py-1.5">

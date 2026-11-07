@@ -11,6 +11,15 @@ export const SourceSchema = z.object({
   evidenceClass: EvidenceClassSchema,
   retrieval: z.enum(["read_in_full", "partially_read", "cited_not_retrieved", "user_added"]),
   notes: z.string().default(""),
+  archiveUrl: z.string().url().optional(), // closest Internet Archive capture (scripts/check-sources.mjs)
+  archivedAt: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/)
+    .optional(),
+  lastChecked: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/)
+    .optional(),
 });
 
 export const UsageStatusSchema = z.enum([

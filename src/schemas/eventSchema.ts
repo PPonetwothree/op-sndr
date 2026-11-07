@@ -69,7 +69,10 @@ export const CitationSchema = z.object({
   field: CitationFieldSchema,
   sourceId: z.string(),
   locator: z.string().min(3), // speaker / section / paragraph within the source
-  excerpt: z.string().min(3).refine((t) => t.trim().split(/\s+/).length <= 30, "Excerpt must be 30 words or fewer"),
+  excerpt: z
+    .string()
+    .min(3)
+    .refine((t) => t.trim().split(/\s+/).length <= 30, "Excerpt must be 30 words or fewer"),
   note: z.string().optional(),
 });
 
@@ -122,7 +125,8 @@ export const CampaignEventSchema = z
       ctx.addIssue({ code: z.ZodIssueCode.custom, message: "A clock time may only be set when it is stated by a source" });
     }
     e.provenance.forEach((c, i) => {
-      if (!e.sources.includes(c.sourceId)) ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["provenance", i], message: `Citation source ${c.sourceId} is not listed in sources` });
+      if (!e.sources.includes(c.sourceId))
+        ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["provenance", i], message: `Citation source ${c.sourceId} is not listed in sources` });
     });
     if (!e.sortTime.startsWith(e.date)) {
       ctx.addIssue({ code: z.ZodIssueCode.custom, message: "sortTime must fall on the event date" });
