@@ -4,6 +4,7 @@ import { EVENTS, BASE_SOURCES } from "@/data";
 import { prepareEvents, filterEvents, indexAtTime, stepIndex, tick, EMPTY_FILTERS, type TimedEvent } from "@/engine/eventEngine";
 import { CAMPAIGN_START } from "@/engine/timelineEngine";
 import { audit } from "./auditStore";
+import { BRIEFING } from "@/data/briefing";
 import type { EventFilters, LayerVisibility, ModuleId, PlaybackSpeed, ScenarioMode, Source } from "@/types";
 
 export const ALL_EVENTS: TimedEvent[] = prepareEvents(EVENTS);
@@ -79,7 +80,11 @@ interface SimState {
   mapView: { center: [number, number]; zoom: number };
   animationNonce: number; // bump to replay the selected event's animation
   mapBounds: LatLngBounds | null; // main map footprint (for the inset)
-  mapCommand: { center: [number, number]; nonce: number } | null; // pan request from the inset
+  mapCommand: { center: [number, number]; zoom?: number; nonce: number } | null; // pan/fly request (inset, briefing)
+  briefingStep: number | null; // guided briefing position (null = not running)
+  startBriefing: (step?: number) => void;
+  briefingGo: (step: number) => void;
+  stopBriefing: () => void;
   setMapBounds: (b: LatLngBounds) => void;
 
   setModule: (m: ModuleId) => void;
@@ -174,6 +179,19 @@ export const useSim = create<SimState>((set, get) => ({
   animationNonce: 0,
   mapBounds: null,
   mapCommand: null,
+  briefingStep: null,
+  startBriefing: (step = 0) => {
+    set({ module: "geospatial", compare: { ...get().compare, enabled: false }, playing: false });
+    get().briefingGo(step);
+  },
+  briefingGo: (step) => {
+    const i = Math.max(0, Math.min(BRIEFING.length - 1, step));
+    const s = BRIEFING[i];
+    set({ briefingStep: i, playing: false });
+    get().selectEvent(s.eventId);
+    set({ mapCommand: { center: s.view.center, zoom: s.view.zoom, nonce: Date.now() } });
+  },
+  stopBriefing: () => set({ briefingStep: null }),
   setMapBounds: (mapBounds) => set({ mapBounds }),
 
   setModule: (module) => set({ module }),

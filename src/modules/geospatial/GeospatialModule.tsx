@@ -1,10 +1,11 @@
 import { useMemo, useRef, useState } from "react";
-import { Columns2, Download, FileSpreadsheet, Image as ImageIcon, LocateFixed, PanelLeftClose, PanelLeftOpen } from "lucide-react";
+import { Columns2, Download, FileSpreadsheet, Image as ImageIcon, LocateFixed, PanelLeftClose, PanelLeftOpen, Presentation } from "lucide-react";
 import { useSim, playlistOf, ALL_EVENTS } from "@/store/simulationStore";
 import { OperationsMap } from "@/components/map/OperationsMap";
 import { MapLegend } from "@/components/map/MapLegend";
 import { LayerPanel } from "@/components/map/LayerPanel";
 import { InsetMap } from "@/components/map/MapFurniture";
+import { BriefingPanel } from "@/components/briefing/BriefingPanel";
 import { ExportFrame } from "@/components/map/ExportFrame";
 import { TimeSlider } from "@/components/timeline/TimeSlider";
 import { EventPanel } from "@/components/timeline/EventPanel";
@@ -40,6 +41,7 @@ export function GeospatialModule() {
   const compare = useSim((s) => s.compare);
   const filters = useSim((s) => s.filters);
   const escalation = useSim((s) => s.escalationHighlight);
+  const briefing = useSim((s) => s.briefingStep !== null);
   const { setCompare, selectEvent, selectTarget } = useSim.getState();
   const [leftOpen, setLeftOpen] = useState(true);
   const [follow, setFollow] = useState(true);
@@ -88,6 +90,14 @@ export function GeospatialModule() {
             <DaySelect label="Second comparison day" value={compare.dayB} onChange={(d) => setCompare({ dayB: d })} />
           </div>
         )}
+        <Button
+          variant={briefing ? "active" : "default"}
+          size="sm"
+          onClick={() => (briefing ? useSim.getState().stopBriefing() : useSim.getState().startBriefing())}
+          title="Step-by-step narrated walkthrough of the campaign"
+        >
+          <Presentation /> {briefing ? "End briefing" : "Guided briefing"}
+        </Button>
         <Button variant={follow ? "active" : "secondary"} size="sm" onClick={() => setFollow(!follow)} title="Pan the map to the selected event">
           <LocateFixed /> Follow
         </Button>
@@ -135,7 +145,8 @@ export function GeospatialModule() {
           <div className="no-export">
             <LayerPanel />
           </div>
-          {selected && !compare.enabled && (
+          <BriefingPanel />
+          {selected && !compare.enabled && !briefing && (
             <div className="no-export pointer-events-none absolute left-1/2 top-3 z-[1000] -translate-x-1/2 border border-warn/50 bg-ink-950/92 px-3 py-1 text-center">
               <div className="mono text-[11px] text-warn">
                 {selected.time ? `${formatDateLabel(selected.date)} · ${selected.time} IST` : `${formatDateLabel(selected.date)} · TIME UNKNOWN`}

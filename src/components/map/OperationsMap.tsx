@@ -41,9 +41,10 @@ function FollowSelected({ enabled }: { enabled: boolean }) {
   const selectedId = useSim((s) => s.selectedEventId);
   const nonce = useSim((s) => s.animationNonce);
   const set = useEventSet();
+  const briefing = useSim((s) => s.briefingStep !== null);
   const last = useRef<string | null>(null);
   useEffect(() => {
-    if (!enabled || !set.selected) return;
+    if (!enabled || briefing || !set.selected) return; // the briefing frames the map itself
     if (last.current === `${selectedId}-${nonce}`) return;
     last.current = `${selectedId}-${nonce}`;
     const e = set.selected;
@@ -59,7 +60,7 @@ function FollowSelected({ enabled }: { enabled: boolean }) {
     const zoom = Math.min(7, map.getBoundsZoom(target));
     // Only move if the location is off-screen or the zoom is far off – avoids jitter during playback.
     if (!map.getBounds().contains(b) || Math.abs(map.getZoom() - zoom) > 1.5) map.flyToBounds(target, { maxZoom: 7, duration: 0.8 });
-  }, [enabled, set.selected, selectedId, nonce, map]);
+  }, [enabled, briefing, set.selected, selectedId, nonce, map]);
   return null;
 }
 

@@ -90,7 +90,9 @@ export function MapBoundsBridge() {
   useMapEvents({ moveend: () => setBounds(map.getBounds()) });
   useEffect(() => setBounds(map.getBounds()), [map, setBounds]);
   useEffect(() => {
-    if (command) map.panTo(command.center, { animate: true });
+    if (!command) return;
+    if (command.zoom !== undefined) map.flyTo(command.center, command.zoom, { duration: 1.1 });
+    else map.panTo(command.center, { animate: true });
   }, [command, map]);
   return null;
 }

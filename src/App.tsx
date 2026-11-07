@@ -37,6 +37,12 @@ export default function App() {
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
       const s = useSim.getState();
+      if (s.briefingStep !== null) {
+        // the guided briefing owns the arrow keys while it runs
+        if (e.key === "ArrowRight") return s.briefingGo(s.briefingStep + 1);
+        if (e.key === "ArrowLeft") return s.briefingGo(s.briefingStep - 1);
+        if (e.key === "Escape") return s.stopBriefing();
+      }
       if (e.code === "Space") {
         e.preventDefault();
         s.togglePlay();
