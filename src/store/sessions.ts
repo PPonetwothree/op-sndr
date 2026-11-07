@@ -4,9 +4,15 @@ import { downloadText } from "@/utils/download";
 import { useBda } from "./bdaStore";
 import { useScenario, type Scenario } from "./scenarioStore";
 import type { BdaRecord } from "@/engine/bdaEngine";
+import { audit, useAudit, type AuditEntry } from "./auditStore";
 
 function fullSnapshot(name: string): SessionSnapshot {
-  return { ...useSim.getState().snapshot(name), bdaEdits: useBda.getState().edits, scenario: useScenario.getState().scenario };
+  return {
+    ...useSim.getState().snapshot(name),
+    bdaEdits: useBda.getState().edits,
+    scenario: useScenario.getState().scenario,
+    audit: useAudit.getState().entries,
+  };
 }
 
 const KEY = "sindoor.sessions.v1";
@@ -42,6 +48,8 @@ export function loadSession(snap: SessionSnapshot) {
   useSim.getState().restore(snap);
   if (snap.bdaEdits) useBda.getState().replaceEdits(snap.bdaEdits as Record<string, BdaRecord>);
   if (snap.scenario) useScenario.getState().replace(snap.scenario as Scenario);
+  if (Array.isArray(snap.audit)) useAudit.getState().replace(snap.audit as AuditEntry[]);
+  audit({ action: "session.load", target: snap.name, summary: `Loaded session "${snap.name}" saved ${snap.savedAt}` });
 }
 
 export function exportSessionJson(name = "session") {

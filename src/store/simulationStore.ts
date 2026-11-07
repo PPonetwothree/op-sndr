@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { EVENTS, BASE_SOURCES } from "@/data";
 import { prepareEvents, filterEvents, indexAtTime, stepIndex, tick, EMPTY_FILTERS, type TimedEvent } from "@/engine/eventEngine";
 import { CAMPAIGN_START } from "@/engine/timelineEngine";
+import { audit } from "./auditStore";
 import type { EventFilters, LayerVisibility, ModuleId, PlaybackSpeed, ScenarioMode, Source } from "@/types";
 
 export const ALL_EVENTS: TimedEvent[] = prepareEvents(EVENTS);
@@ -52,6 +53,7 @@ export interface SessionSnapshot {
   eventSourceLinks?: Record<string, string[]>;
   bdaEdits?: Record<string, unknown>;
   scenario?: unknown;
+  audit?: unknown;
 }
 
 interface SimState {
@@ -249,11 +251,13 @@ export const useSim = create<SimState>((set, get) => ({
   setShowAllEvents: (showAllEvents) => set({ showAllEvents }),
   setEscalationHighlight: (escalationHighlight) => set({ escalationHighlight }),
   addUserSource: (src) => {
+    audit({ action: "source.add", target: src.id, summary: `Added source "${src.title}" [${src.evidenceClass}]` });
     const next = [...get().userSources.filter((s) => s.id !== src.id), src];
     saveUserSources(next);
     set({ userSources: next });
   },
   removeUserSource: (id) => {
+    audit({ action: "source.remove", target: id, summary: `Removed user source ${id}` });
     const next = get().userSources.filter((s) => s.id !== id);
     saveUserSources(next);
     const links = Object.fromEntries(Object.entries(get().eventSourceLinks).map(([k, v]) => [k, v.filter((x) => x !== id)]));
@@ -263,11 +267,13 @@ export const useSim = create<SimState>((set, get) => ({
   linkSource: (eventId, sourceId) => {
     const cur = get().eventSourceLinks[eventId] ?? [];
     if (cur.includes(sourceId)) return;
+    audit({ action: "source.link", target: eventId, summary: `Linked ${sourceId} to ${eventId} (evidence class unchanged)` });
     const links = { ...get().eventSourceLinks, [eventId]: [...cur, sourceId] };
     saveLinks(links);
     set({ eventSourceLinks: links });
   },
   unlinkSource: (eventId, sourceId) => {
+    audit({ action: "source.unlink", target: eventId, summary: `Unlinked ${sourceId} from ${eventId}` });
     const links = { ...get().eventSourceLinks, [eventId]: (get().eventSourceLinks[eventId] ?? []).filter((x) => x !== sourceId) };
     saveLinks(links);
     set({ eventSourceLinks: links });

@@ -10,6 +10,8 @@ import { formatDateLabel } from "@/engine/timelineEngine";
 import { EVIDENCE } from "@/engine/assessmentEngine";
 import type { EvidenceClass, Source } from "@/types";
 import { ModuleHeader } from "../ModuleHeader";
+import { AuditLogPanel } from "@/components/audit/AuditLog";
+import { useAudit } from "@/store/auditStore";
 import { downloadText, toCsv } from "@/utils/download";
 
 const RETRIEVAL: Record<string, string> = {
@@ -129,9 +131,29 @@ export function SourcesModule() {
     return m;
   }, [links]);
 
+  const [tab, setTab] = useState<"register" | "audit">("register");
+  const auditCount = useAudit((s) => s.entries.length);
   return (
     <div className="flex h-full flex-col">
       <ModuleHeader code="S" title="Source Management">
+        <div className="flex overflow-hidden rounded-[3px] border border-ink-700 text-[11px]" role="tablist">
+          {(
+            [
+              ["register", "Source register"],
+              ["audit", `Audit log (${auditCount})`],
+            ] as const
+          ).map(([k, l]) => (
+            <button
+              key={k}
+              role="tab"
+              aria-selected={tab === k}
+              onClick={() => setTab(k)}
+              className={`h-6 px-2 ${tab === k ? "bg-olive-700 text-olive-300" : "bg-ink-800 text-ink-400 hover:text-ink-100"}`}
+            >
+              {l}
+            </button>
+          ))}
+        </div>
         <Button
           variant="secondary"
           size="sm"
@@ -140,115 +162,121 @@ export function SourcesModule() {
           Sources CSV
         </Button>
       </ModuleHeader>
-      <div className="grid flex-1 grid-cols-1 gap-3 overflow-auto p-3 xl:grid-cols-[1fr_420px]">
-        <Card>
-          <CardHeader title={`Source register (${sources.length})`} />
-          <div className="overflow-auto">
-            <table className="w-full text-[11px]">
-              <thead>
-                <tr className="text-left text-ink-400">
-                  {["Class", "Source", "Publisher / date", "Retrieval", "Archive", "Used by", "Notes", ""].map((h) => (
-                    <th key={h} className="border-b border-ink-700 px-2 py-1.5 font-semibold">
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {sources.map((s) => {
-                  const user = s.retrieval === "user_added";
-                  const linkedTo = Object.entries(links)
-                    .filter(([, v]) => v.includes(s.id))
-                    .map(([k]) => k);
-                  return (
-                    <tr key={s.id} className="border-b border-ink-800 align-top">
-                      <td className="px-2 py-1.5">
-                        <EvidenceBadge cls={s.evidenceClass} />
-                      </td>
-                      <td className="max-w-[340px] px-2 py-1.5">
-                        <a href={s.url} target="_blank" rel="noreferrer" className="font-medium text-ink-100 hover:text-olive-300">
-                          {s.title} <ExternalLink className="inline size-2.5" />
-                        </a>
-                        <div className="mono text-[10px] text-ink-500">{s.id}</div>
-                        {user && (
-                          <div className="mt-1 flex flex-wrap items-center gap-1">
-                            {linkedTo.map((ev) => (
-                              <span key={ev} className="mono flex items-center gap-0.5 border border-ink-600 px-1 text-[10px]">
-                                {ev}
-                                <button onClick={() => unlinkSource(ev, s.id)} aria-label={`Unlink ${ev}`} className="text-ink-500 hover:text-hostile">
-                                  ×
-                                </button>
-                              </span>
-                            ))}
-                            <select
-                              value={linkEvent[s.id] ?? ""}
-                              onChange={(e) => setLinkEvent({ ...linkEvent, [s.id]: e.target.value })}
-                              className="h-6 max-w-[200px] border border-ink-600 bg-ink-900 px-1 text-[10px]"
-                            >
-                              <option value="">Link to event…</option>
-                              {ALL_EVENTS.map((e) => (
-                                <option key={e.id} value={e.id}>
-                                  {e.id} {e.title}
-                                </option>
-                              ))}
-                            </select>
-                            <Button
-                              size="sm"
-                              variant="secondary"
-                              disabled={!linkEvent[s.id]}
-                              onClick={() => {
-                                linkSource(linkEvent[s.id], s.id);
-                                setLinkEvent({ ...linkEvent, [s.id]: "" });
-                              }}
-                            >
-                              <Link2 />
-                            </Button>
-                          </div>
-                        )}
-                      </td>
-                      <td className="px-2 py-1.5 text-ink-300">
-                        {s.publisher}
-                        <div className="mono text-[10px] text-ink-500">{formatDateLabel(s.publicationDate)}</div>
-                      </td>
-                      <td className="px-2 py-1.5 text-ink-300">{RETRIEVAL[s.retrieval]}</td>
-                      <td className="px-2 py-1.5 text-[10px]">
-                        {s.archiveUrl ? (
-                          <a href={s.archiveUrl} target="_blank" rel="noreferrer" className="text-olive-300 hover:underline">
-                            Wayback {s.archivedAt}
-                          </a>
-                        ) : (
-                          <span className="text-ink-500">none</span>
-                        )}
-                        {s.lastChecked && <div className="text-ink-500">checked {s.lastChecked}</div>}
-                      </td>
-                      <td className="mono px-2 py-1.5 text-center text-ink-200">{usage.get(s.id) ?? 0}</td>
-                      <td className="max-w-[300px] px-2 py-1.5 text-ink-400">{s.notes}</td>
-                      <td className="px-2 py-1.5">
-                        {user && (
-                          <button onClick={() => removeUserSource(s.id)} aria-label="Remove source" className="text-ink-500 hover:text-hostile">
-                            <Trash2 className="size-3.5" />
-                          </button>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </Card>
-        <div className="space-y-3">
-          <AddSourceForm />
-          <Card className="p-3 text-[11px] leading-relaxed text-ink-400">
-            <div className="label-caps mb-1">Evidence classification</div>
-            {(Object.keys(EVIDENCE) as EvidenceClass[]).map((k) => (
-              <div key={k} className="flex items-center gap-2 py-0.5">
-                <EvidenceBadge cls={k} /> {EVIDENCE[k].desc}
-              </div>
-            ))}
-          </Card>
+      {tab === "audit" ? (
+        <div className="flex-1 overflow-auto p-3">
+          <AuditLogPanel />
         </div>
-      </div>
+      ) : (
+        <div className="grid flex-1 grid-cols-1 gap-3 overflow-auto p-3 xl:grid-cols-[1fr_420px]">
+          <Card>
+            <CardHeader title={`Source register (${sources.length})`} />
+            <div className="overflow-auto">
+              <table className="w-full text-[11px]">
+                <thead>
+                  <tr className="text-left text-ink-400">
+                    {["Class", "Source", "Publisher / date", "Retrieval", "Archive", "Used by", "Notes", ""].map((h) => (
+                      <th key={h} className="border-b border-ink-700 px-2 py-1.5 font-semibold">
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {sources.map((s) => {
+                    const user = s.retrieval === "user_added";
+                    const linkedTo = Object.entries(links)
+                      .filter(([, v]) => v.includes(s.id))
+                      .map(([k]) => k);
+                    return (
+                      <tr key={s.id} className="border-b border-ink-800 align-top">
+                        <td className="px-2 py-1.5">
+                          <EvidenceBadge cls={s.evidenceClass} />
+                        </td>
+                        <td className="max-w-[340px] px-2 py-1.5">
+                          <a href={s.url} target="_blank" rel="noreferrer" className="font-medium text-ink-100 hover:text-olive-300">
+                            {s.title} <ExternalLink className="inline size-2.5" />
+                          </a>
+                          <div className="mono text-[10px] text-ink-500">{s.id}</div>
+                          {user && (
+                            <div className="mt-1 flex flex-wrap items-center gap-1">
+                              {linkedTo.map((ev) => (
+                                <span key={ev} className="mono flex items-center gap-0.5 border border-ink-600 px-1 text-[10px]">
+                                  {ev}
+                                  <button onClick={() => unlinkSource(ev, s.id)} aria-label={`Unlink ${ev}`} className="text-ink-500 hover:text-hostile">
+                                    ×
+                                  </button>
+                                </span>
+                              ))}
+                              <select
+                                value={linkEvent[s.id] ?? ""}
+                                onChange={(e) => setLinkEvent({ ...linkEvent, [s.id]: e.target.value })}
+                                className="h-6 max-w-[200px] border border-ink-600 bg-ink-900 px-1 text-[10px]"
+                              >
+                                <option value="">Link to event…</option>
+                                {ALL_EVENTS.map((e) => (
+                                  <option key={e.id} value={e.id}>
+                                    {e.id} {e.title}
+                                  </option>
+                                ))}
+                              </select>
+                              <Button
+                                size="sm"
+                                variant="secondary"
+                                disabled={!linkEvent[s.id]}
+                                onClick={() => {
+                                  linkSource(linkEvent[s.id], s.id);
+                                  setLinkEvent({ ...linkEvent, [s.id]: "" });
+                                }}
+                              >
+                                <Link2 />
+                              </Button>
+                            </div>
+                          )}
+                        </td>
+                        <td className="px-2 py-1.5 text-ink-300">
+                          {s.publisher}
+                          <div className="mono text-[10px] text-ink-500">{formatDateLabel(s.publicationDate)}</div>
+                        </td>
+                        <td className="px-2 py-1.5 text-ink-300">{RETRIEVAL[s.retrieval]}</td>
+                        <td className="px-2 py-1.5 text-[10px]">
+                          {s.archiveUrl ? (
+                            <a href={s.archiveUrl} target="_blank" rel="noreferrer" className="text-olive-300 hover:underline">
+                              Wayback {s.archivedAt}
+                            </a>
+                          ) : (
+                            <span className="text-ink-500">none</span>
+                          )}
+                          {s.lastChecked && <div className="text-ink-500">checked {s.lastChecked}</div>}
+                        </td>
+                        <td className="mono px-2 py-1.5 text-center text-ink-200">{usage.get(s.id) ?? 0}</td>
+                        <td className="max-w-[300px] px-2 py-1.5 text-ink-400">{s.notes}</td>
+                        <td className="px-2 py-1.5">
+                          {user && (
+                            <button onClick={() => removeUserSource(s.id)} aria-label="Remove source" className="text-ink-500 hover:text-hostile">
+                              <Trash2 className="size-3.5" />
+                            </button>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </Card>
+          <div className="space-y-3">
+            <AddSourceForm />
+            <Card className="p-3 text-[11px] leading-relaxed text-ink-400">
+              <div className="label-caps mb-1">Evidence classification</div>
+              {(Object.keys(EVIDENCE) as EvidenceClass[]).map((k) => (
+                <div key={k} className="flex items-center gap-2 py-0.5">
+                  <EvidenceBadge cls={k} /> {EVIDENCE[k].desc}
+                </div>
+              ))}
+            </Card>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

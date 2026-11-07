@@ -12,6 +12,7 @@ import { InfrastructureSchematic, DamageScale } from "@/components/bda/Infrastru
 import { BdaEditor } from "@/components/bda/BdaEditor";
 import { DamageDistributionChart, InfrastructureStatusChart, ClaimsChart } from "@/components/charts/CampaignCharts";
 import { ModuleHeader } from "../ModuleHeader";
+import { RevisionHistory } from "@/components/audit/AuditLog";
 import { cn } from "@/utils/cn";
 import { exportBdaCsv } from "@/utils/exports";
 
@@ -171,6 +172,7 @@ function RecordView({ r }: { r: BdaRecord }) {
               <EvidenceTimeline r={r} />
             </div>
           </Card>
+          <RevisionHistory target={r.targetId} />
         </>
       )}
     </div>
