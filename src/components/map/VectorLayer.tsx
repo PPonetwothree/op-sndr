@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Polyline, Polygon, Circle, Marker, Tooltip, Pane, useMapEvents, GeoJSON } from "react-leaflet";
+import { Polyline, Polygon, Circle, Marker, Tooltip, Pane, useMapEvents } from "react-leaflet";
 import type { FeatureCollection, MultiLineString } from "geojson";
 import boundariesRaw from "@/data/geo/boundaries.json";
 import { useSim } from "@/store/simulationStore";
@@ -14,10 +14,6 @@ const FRONT_LINES: LatLng[][] = boundaries.features
   .filter((f) => f.properties?.kind === "LoC" || f.properties?.kind === "IB")
   .flatMap((f) => f.geometry.coordinates.map((line) => line.map(([x, y]) => [y, x] as LatLng)));
 const FRONT_SAMPLES = frontSamples(FRONT_LINES, 16);
-const FRONT_FC: FeatureCollection = {
-  type: "FeatureCollection",
-  features: boundaries.features.filter((f) => f.properties?.kind === "LoC" || f.properties?.kind === "IB"),
-};
 
 function styleAllowed(v: EventVector, layers: LayerVisibility) {
   if (!layers.vectors) return false;
@@ -46,25 +42,23 @@ function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: Eve
   if (v.from.startsWith("FRONT:")) {
     return (
       <>
-        <GeoJSON
-          key={`front-${nonce}-${animated}`}
-          data={FRONT_FC}
-          interactive={false}
-          style={{
-            color: st.color,
-            weight: animated ? 5 : 3,
-            opacity: animated ? 0.55 : 0.25,
-            className: animated ? "vec-flow" : undefined,
-            dashArray: "10 14",
-          }}
-        />
+        {FRONT_LINES.map((line, k) => (
+          <Polyline
+            key={`front-${k}-${nonce}-${animated}`}
+            positions={line}
+            interactive={false}
+            className={animated ? "vec-flow" : undefined}
+            pathOptions={{ color: st.color, weight: animated ? 5 : 3, opacity: animated ? 0.55 : 0.25, dashArray: "10 14" }}
+          />
+        ))}
         {FRONT_SAMPLES.map((s, k) => {
           const pts = arcPoints(s.from, s.to, 0.1, 10);
           return (
             <Polyline
-              key={`fs-${k}-${nonce}`}
+              key={`fs-${k}-${nonce}-${animated}`}
               positions={pts}
-              pathOptions={{ color: st.color, weight: 1.6, opacity: animated ? 0.95 : 0.45, dashArray: "3 4", className: animated ? "vec-flow" : undefined }}
+              className={animated ? "vec-flow" : undefined}
+              pathOptions={{ color: st.color, weight: 1.6, opacity: animated ? 0.95 : 0.45, dashArray: "3 4" }}
               interactive={false}
             />
           );
@@ -80,8 +74,9 @@ function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: Eve
   if (v.from === v.to) {
     return (
       <Circle
-        key={`ring-${e.id}-${i}-${nonce}`}
+        key={`ring-${e.id}-${i}-${nonce}-${animated}`}
         center={to}
+        className={animated ? "vec-flow" : undefined}
         radius={animated ? 42_000 : 28_000}
         pathOptions={{
           color: st.color,
@@ -90,7 +85,6 @@ function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: Eve
           dashArray: st.dash ?? (v.style === "indian_defensive" ? "5 4" : undefined),
           fillColor: st.color,
           fillOpacity: animated ? 0.12 : 0.04,
-          className: animated ? "vec-flow" : undefined,
         }}
         interactive={false}
       />
@@ -105,13 +99,14 @@ function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: Eve
       <Polyline
         key={`v-${e.id}-${i}-${nonce}-${animated}`}
         positions={pts}
+        // className must be a constructor option: Leaflet ignores it in setStyle (pathOptions)
+        className={animated ? "vec-draw" : undefined}
         pathOptions={{
           color: st.color,
           weight: animated ? st.weight + 0.8 : st.weight,
           opacity,
           dashArray: animated ? undefined : st.dash,
           lineCap: v.style === "artillery" ? "butt" : "round",
-          className: animated ? "vec-draw" : undefined,
         }}
       >
         <Tooltip sticky className="map-tip">
@@ -122,7 +117,8 @@ function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: Eve
         <Polygon
           key={`h-${e.id}-${i}-${nonce}-${animated}`}
           positions={head}
-          pathOptions={{ color: st.color, weight: 1, fillColor: st.color, fillOpacity: opacity, opacity, className: animated ? "fade-in" : undefined }}
+          className={animated ? "fade-in" : undefined}
+          pathOptions={{ color: st.color, weight: 1, fillColor: st.color, fillOpacity: opacity, opacity }}
           interactive={false}
         />
       )}

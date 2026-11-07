@@ -13,10 +13,12 @@ export default defineConfig({
       output: {
         // Long-lived vendor chunks cache separately from app code and data.
         manualChunks(id) {
-          if (!id.includes("node_modules")) return undefined;
-          if (/[\/](leaflet|react-leaflet|@react-leaflet)[\/]/.test(id)) return "vendor-map";
-          if (/[\/](react|react-dom|scheduler|zustand)[\/]/.test(id)) return "vendor-react";
-          if (/[\/](zod|@radix-ui|lucide-react|clsx|tailwind-merge|class-variance-authority)[\/]/.test(id)) return "vendor-ui";
+          const p = id.split(String.fromCharCode(92)).join("/"); // normalise Windows paths
+          if (!p.includes("/node_modules/")) return undefined;
+          const pkg = (names: string[]) => names.some((n) => p.includes(`/node_modules/${n}/`));
+          if (pkg(["leaflet", "react-leaflet", "@react-leaflet"])) return "vendor-map";
+          if (pkg(["react", "react-dom", "scheduler", "zustand"])) return "vendor-react";
+          if (pkg(["zod", "@radix-ui", "lucide-react", "clsx", "tailwind-merge", "class-variance-authority"])) return "vendor-ui";
           return undefined;
         },
       },
