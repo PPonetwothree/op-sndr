@@ -1,7 +1,7 @@
 {
   "name": "operation-sindoor-simulator",
   "private": true,
-  "version": "0.4.0",
+  "version": "0.5.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -18,7 +18,9 @@
     "test:e2e": "playwright test",
     "check": "npm run lint && npm run format:check && npm run typecheck && npm test && npm run build",
     "check-sources": "node scripts/check-sources.mjs",
-    "build-admin1": "node scripts/build-admin1.mjs"
+    "build-admin1": "node scripts/build-admin1.mjs",
+    "build:offline": "vite build --config vite.offline.config.ts && node scripts/package-offline.mjs",
+    "test:offline": "playwright test --config playwright.offline.config.ts"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
@@ -65,6 +67,7 @@
     "typescript": "~5.6.3",
     "typescript-eslint": "^8.72.1",
     "vite": "^6.0.0",
+    "vite-plugin-singlefile": "^2.3.4",
     "vitest": "^2.1.5"
   }
 }

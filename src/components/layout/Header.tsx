@@ -4,6 +4,7 @@ import { PlaybackControls } from "@/components/timeline/PlaybackControls";
 import { ConfidenceIndicator } from "./ConfidenceIndicator";
 import { SessionMenu } from "./SessionMenu";
 import { ShareButton } from "./ShareButton";
+import { APP_VERSION } from "@/version";
 import { cn } from "@/utils/cn";
 
 export function Header() {
@@ -18,7 +19,14 @@ export function Header() {
           <span className="inline-block h-2.5 w-2.5 bg-olive-500" />
           <h1 className="text-[15px] font-bold tracking-[0.2em] text-ink-100">OPERATION SINDOOR</h1>
         </div>
-        <div className="text-[10px] tracking-wider text-ink-400">HISTORICAL SIMULATION · 7–10 MAY 2025 · MULTI-DOMAIN CAMPAIGN RECONSTRUCTION</div>
+        <div className="text-[10px] tracking-wider text-ink-400">
+          HISTORICAL SIMULATION · 7–10 MAY 2025 · MULTI-DOMAIN CAMPAIGN RECONSTRUCTION
+          {import.meta.env.VITE_OFFLINE_EDITION === "1" && (
+            <span className="ml-2 border border-olive-500/60 px-1 text-olive-300" title="Self-contained file: no server or internet needed">
+              OFFLINE EDITION v{APP_VERSION}
+            </span>
+          )}
+        </div>
       </div>
 
       <div className="h-8 w-px bg-ink-700" />

@@ -4,6 +4,19 @@ All notable changes to this project. Format: [Keep a Changelog](https://keepacha
 
 ## [Unreleased]
 
+## [0.5.0] – 2026-11-08 · Offline edition
+
+### Added
+
+- `npm run build:offline`: one self-contained HTML file (`dist-offline/operation-sindoor-v<version>.html`, ~5.6 MB) with all code, styles, data and the relief image inlined; opens by double-click from any folder or USB stick with no server, Node or internet. A README with opening instructions and a SHA-256 checksum is written beside it.
+- `npm run test:offline`: Playwright opens the file via `file://` with the network blocked – map, relief, every module, briefing, PDF export and persistence; asserts no network requests.
+- CI job builds and tests the offline file and publishes it as a downloadable artifact.
+- "Offline edition" badge in the header of the packaged file.
+
+### Changed
+
+- Relief image moved from `public/` to a bundled asset (`src/assets/relief/hillshade.png`).
+
 ## [0.4.0] – 2026-11-08 · Briefing, links and exercises
 
 ### Added

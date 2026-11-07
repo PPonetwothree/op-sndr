@@ -7,6 +7,14 @@ npm install
 npm run dev          # http://127.0.0.1:5173
 ```
 
+### Offline edition (no server, no internet)
+
+```bash
+npm run build:offline
+```
+
+Produces `dist-offline/operation-sindoor-v<version>.html` – a single ~5.6 MB file with everything inlined – plus a `README.txt` with opening instructions and a SHA-256 checksum. Copy it to any computer or USB stick and double-click it to open in Chrome, Edge or Firefox. Everything works offline except the optional online tile layer and the external source links. Saved work stays in that browser; move it with Session → Export/Import JSON. `npm run test:offline` verifies the file from `file://` with the network blocked; CI publishes it as a build artifact.
+
 ### Quality checks
 
 | Command                             | What it does                                                                           |
@@ -55,7 +63,7 @@ Evidence classes: **GREEN** independently corroborated · **BLUE** official Indi
 - Formations show `FORMATION UNKNOWN – ABSTRACT REPRESENTATION` unless publicly described.
 - Boundaries: **India's official view is the primary outline** (Natural Earth 1:10m India point-of-view layer, dash-dot line). Contested areas are hatched and labelled: PoJK, Gilgit-Baltistan, Aksai Chin, Shaksgam Valley, Siachen, plus an indicative Sir Creek marker (not in Natural Earth, no line drawn). De facto LoC, IB, LAC (western sector) and AGPL are overlaid as labelled dashed lines (Natural Earth 1:10m via `world-atlas`). All approximate – **not a Survey of India map**; replace `src/data/geo/india-official.json` with Survey of India data for authoritative depiction.
 - Regenerate boundaries: download `ne_10m_admin_0_countries_ind.geojson` and `ne_10m_admin_0_disputed_areas.geojson` from github.com/nvkelso/natural-earth-vector (`geojson/`) into a folder, then `npm run build-boundaries -- <folder>`.
-- Terrain relief: Natural Earth 1:10m shaded relief (`SR_HR`), cropped to 58–86°E / 16–40°N, reprojected to Web Mercator and converted to a transparent dark-theme overlay (`public/relief/hillshade.png`, ~2.4 MB, offline).
+- Terrain relief: Natural Earth 1:10m shaded relief (`SR_HR`), cropped to 58–86°E / 16–40°N, reprojected to Web Mercator and converted to a transparent dark-theme overlay (`src/assets/relief/hillshade.png`, ~2.4 MB, bundled).
 - Symbology: APP-6 / MIL-STD-2525C frames via [milsymbol](https://github.com/spatialillusions/milsymbol) for military locations (Indian perspective: struck locations hostile, Indian locations friendly); civilian/LoC/context locations keep simple glyphs. Toggle in Layers.
 - Uncertainty: dashed rings show plotting precision (town 5 km, district 15 km, regional 50 km). Selecting a 7 May camp draws the briefers' stated distance from the LoC/IB against the distance measured on this map; a red label marks a mismatch (Sarjal and Mehmoona Joya were re-positioned to OpenStreetMap village locations named in media reports and now match; Gulpur measures ~23 km against a stated ~30 km and sits within tolerance).
 - Optional online dark tiles © OpenStreetMap © CARTO.

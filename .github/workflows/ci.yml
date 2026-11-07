@@ -47,3 +47,23 @@ jobs:
             playwright-report
             test-results
           retention-days: 7
+
+  offline:
+    name: Offline edition (single HTML file)
+    runs-on: ubuntu-latest
+    needs: check
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build:offline
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:offline # opens the file via file:// with the network blocked
+      - uses: actions/upload-artifact@v4
+        with:
+          name: operation-sindoor-offline
+          path: dist-offline/
+          retention-days: 30

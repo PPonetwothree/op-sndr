@@ -5,7 +5,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 
 export default tseslint.config(
-  { ignores: ["dist", "node_modules", "playwright-report", "test-results", "public"] },
+  { ignores: ["dist", "dist-offline", "node_modules", "playwright-report", "test-results", "public"] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["src/**/*.{ts,tsx}"],
@@ -19,7 +19,7 @@ export default tseslint.config(
   },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ["e2e/**/*.ts", "*.config.ts"],
+    files: ["e2e/**/*.ts", "e2e-offline/**/*.ts", "*.config.ts"],
     languageOptions: { ecmaVersion: 2022, globals: globals.node },
   },
   {

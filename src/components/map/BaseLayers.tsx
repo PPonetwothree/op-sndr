@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { GeoJSON, TileLayer, CircleMarker, Tooltip, Polygon, Circle, Pane, ImageOverlay, useMapEvents } from "react-leaflet";
 import admin1Raw from "@/data/geo/admin1.json";
+import reliefUrl from "@/assets/relief/hillshade.png"; // bundled asset (inlined in the offline build)
 import type { FeatureCollection } from "geojson";
 import countriesRaw from "@/data/geo/countries.json";
 import boundariesRaw from "@/data/geo/boundaries.json";
@@ -42,7 +43,7 @@ export function ReliefLayer({ online }: { online: boolean }) {
   return (
     <Pane name="relief" style={{ zIndex: 260, pointerEvents: "none" }}>
       <ImageOverlay
-        url={`${import.meta.env.BASE_URL}relief/hillshade.png`}
+        url={reliefUrl}
         bounds={[
           [16, 58],
           [40, 86],
