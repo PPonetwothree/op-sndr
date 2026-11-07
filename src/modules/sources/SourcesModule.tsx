@@ -246,6 +246,15 @@ export function SourcesModule() {
                           ) : (
                             <span className="text-ink-500">none</span>
                           )}
+                          {s.archiveUrl && (
+                            <div
+                              className={
+                                s.archiveStatus === "content_verified" ? "text-defensive" : s.archiveStatus === "shell_only" ? "text-warn" : "text-ink-500"
+                              }
+                            >
+                              {s.archiveStatus === "content_verified" ? "text verified" : s.archiveStatus === "shell_only" ? "shell only" : "not checked"}
+                            </div>
+                          )}
                           {s.lastChecked && <div className="text-ink-500">checked {s.lastChecked}</div>}
                         </td>
                         <td className="mono px-2 py-1.5 text-center text-ink-200">{usage.get(s.id) ?? 0}</td>

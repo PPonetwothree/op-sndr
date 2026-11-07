@@ -48,6 +48,8 @@ export function MethodsModule() {
       byRetrieval,
       byClass,
       archived: BASE_SOURCES.filter((s) => s.archiveUrl).length,
+      archiveVerified: BASE_SOURCES.filter((s) => s.archiveStatus === "content_verified").length,
+      archiveShell: BASE_SOURCES.filter((s) => s.archiveStatus === "shell_only").length,
       timed: EVENTS.filter((e) => e.time).length,
     };
   }, []);
@@ -92,8 +94,10 @@ export function MethodsModule() {
               <Li>Cited but not retrieved: {stats.byRetrieval.cited_not_retrieved ?? 0}</Li>
             </ul>
             <P>
-              {stats.archived} of {BASE_SOURCES.length} sources link to an Internet Archive capture so citations survive changes to the original pages. Liveness
-              and archive status are re-checked with <code className="mono">npm run check-sources</code>.
+              {stats.archived} of {BASE_SOURCES.length} sources link to an Internet Archive capture so citations survive changes to the original pages. Each
+              capture is checked for a cited excerpt: {stats.archiveVerified} contain the cited text, and {stats.archiveShell} hold only the page shell because
+              the site loads its text with JavaScript (MEA's current pages do this); the rest have not been checked. Liveness and archive status are re-checked
+              with <code className="mono">npm run check-sources</code>.
             </P>
 
             <H id="evidence">Evidence classification</H>

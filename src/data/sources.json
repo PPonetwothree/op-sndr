@@ -11,7 +11,8 @@
     "notes": "CCS decisions: Indus Waters Treaty in abeyance, ICP Attari closed, SVES visas cancelled, defence advisers declared persona non grata, High Commission strength 55→30. Content confirmed via search excerpt and PIB 14 May backgrounder.",
     "archiveUrl": "https://web.archive.org/web/20260302170844/https://www.mea.gov.in/media-briefings.htm?dtl/39443/Transcript_of_Special_briefing_by_MEA_April_23_2025",
     "archivedAt": "2026-03-02",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "unchecked"
   },
   {
     "id": "SRC-MEA-0507",
@@ -25,7 +26,8 @@
     "notes": "FS Vikram Misri, Col Sofiya Qureshi, Wg Cdr Vyomika Singh. Strike window 01:05–01:30 IST; nine camps named with attributed organisations and stated distances from LoC/IB.",
     "archiveUrl": "https://web.archive.org/web/20250922172613/https://www.mea.gov.in/media-briefings.htm?dtl/39474/Transcript+of+Special+Briefing+on+OPERATION+SINDOOR+May+07+2025",
     "archivedAt": "2025-09-22",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "content_verified"
   },
   {
     "id": "SRC-PIB-0507",
@@ -39,7 +41,8 @@
     "notes": "Nine sites targeted; 'focused, measured and non-escalatory'; no Pakistani military facilities targeted. Content confirmed via search excerpt (direct fetch blocked).",
     "archiveUrl": "https://web.archive.org/web/20251029025418/https://www.pib.gov.in/PressReleasePage.aspx?PRID=2127370",
     "archivedAt": "2025-10-29",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "unchecked"
   },
   {
     "id": "SRC-PIB-0508",
@@ -53,7 +56,8 @@
     "notes": "Fifteen Indian locations named as attempted targets on night of 7–8 May; Integrated Counter UAS Grid; Lahore AD system neutralised; LoC shelling sectors; 16 civilians killed incl. 3 women and 5 children.",
     "archiveUrl": "https://web.archive.org/web/20250602032525/https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/may/doc202558551801.pdf",
     "archivedAt": "2025-06-02",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "content_verified"
   },
   {
     "id": "SRC-MEA-0508",
@@ -67,7 +71,8 @@
     "notes": "Same locations as PIB 8 May; 16 civilians killed and 59 injured (search excerpt). Poonch Gurdwara attack referenced in 9 May briefing.",
     "archiveUrl": "https://web.archive.org/web/20260302170927/https://www.mea.gov.in/media-briefings.htm?dtl/39479/Transcript_of_Special_briefing_on_OPERATION_SINDOOR_May_08_2025",
     "archivedAt": "2026-03-02",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "content_verified"
   },
   {
     "id": "SRC-MEA-0509",
@@ -81,7 +86,8 @@
     "notes": "300–400 drones at 36 locations Leh–Sir Creek; preliminary ID Asisguard Songar; armed UAV at Bathinda neutralised; Indian armed drones at four Pakistani AD sites, one AD radar destroyed; shelling Tangdhar, Uri, Poonch, Mendhar, Rajouri, Akhnoor, Udhampur; Pakistan civil airspace not closed; Poonch Christ School and convent hit by shelling on 7 May.",
     "archiveUrl": "https://web.archive.org/web/20260302170845/https://www.mea.gov.in/media-briefings.htm?dtl/39482/Transcript_of_Special_briefing_on_OPERATION_SINDOOR_May_09_2025",
     "archivedAt": "2026-03-02",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "content_verified"
   },
   {
     "id": "SRC-MEA-0510A",
@@ -95,7 +101,8 @@
     "notes": "26+ locations Srinagar–Naliya; limited damage at IAF stations Udhampur, Pathankot, Adampur, Bhuj; high-speed missiles after 01:40 at Punjab air bases; Indian strikes on Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur, Chunian (air-launched precision weapons) and radar sites Pasrur, Sialkot aviation base; rebuttal of claims re S-400 Adampur, Suratgarh, Sirsa, BrahMos Nagrota; Rajouri ADDC killed.",
     "archiveUrl": "https://web.archive.org/web/20250520023220/https://www.mea.gov.in/media-briefings.htm?dtl/39486/Transcript_of_Special_briefing_on_OPERATION_SINDOOR_May_10_2025",
     "archivedAt": "2025-05-20",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "shell_only"
   },
   {
     "id": "SRC-MEA-0510B",
@@ -107,7 +114,10 @@
     "evidenceClass": "BLUE",
     "retrieval": "read_in_full",
     "notes": "Pakistan DGMO called Indian DGMO at 15:35 IST; cessation of firing and military action on land, air and sea from 17:00 IST; DGMOs to talk again 12 May at 12:00.",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveUrl": "https://web.archive.org/web/20261107204303/https://www.mea.gov.in/media-briefings?dtl/39488/Statement_by_Foreign_Secretary_May_10_2025",
+    "archivedAt": "2026-11-07",
+    "archiveStatus": "shell_only"
   },
   {
     "id": "SRC-MEA-0510C",
@@ -121,7 +131,8 @@
     "notes": "Cmde Raghu R Nair, Col Qureshi, Wg Cdr Singh. Rebuttal of Pakistani claims (S-400, BrahMos, airfields Srinagar/Jammu/Pathankot/Bhuj/Naliya, ammunition depots Chandigarh/Beas); extensive damage claimed at Skardu, Sargodha, Jacobabad, Bholari; loss of Pakistani AD systems and radars.",
     "archiveUrl": "https://web.archive.org/web/20250510234543/https://www.mea.gov.in/media-briefings.htm?dtl/39491/Transcript_of_Special_briefing_by_MOD_on_OPERATION_SINDOOR_May_10_2025",
     "archivedAt": "2025-05-10",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "content_verified"
   },
   {
     "id": "SRC-MEA-0510D",
@@ -133,7 +144,10 @@
     "evidenceClass": "BLUE",
     "retrieval": "read_in_full",
     "notes": "Repeated violations of the DGMO understanding 'over the last few hours'; armed forces responding; instructions to deal strongly with repetition. Clock time of statement not given in transcript.",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveUrl": "https://web.archive.org/web/20261107204338/https://www.mea.gov.in/media-briefings?dtl/39492/Statement_by_Foreign_Secretary_May_10_2025",
+    "archivedAt": "2026-11-07",
+    "archiveStatus": "shell_only"
   },
   {
     "id": "SRC-PIB-1206",
@@ -147,7 +161,8 @@
     "notes": "Photo record of briefing by Lt Gen Rajiv Ghai (DGMO), Air Marshal AK Bharti (DGAO), Vice Adm AN Pramod, Maj Gen SS Sharda. Transcript content not retrieved in this build.",
     "archiveUrl": "https://web.archive.org/web/20250909030656/https://www.pib.gov.in/EventDetail.aspx?ID=1206",
     "archivedAt": "2025-09-09",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "unchecked"
   },
   {
     "id": "SRC-PIB-0514A",
@@ -161,7 +176,8 @@
     "notes": "Rafale, SCALP and HAMMER named; mission 'in just 23 minutes'; 100+ terrorists killed; Yusuf Azhar, Abdul Malik Rauf, Mudassir Ahmad named; '11 airbases' and '20% of Pakistan's air force assets' claims; radar near Gujranwala; Bholari casualties; post-ceasefire drone waves.",
     "archiveUrl": "https://web.archive.org/web/20251101230916/https://www.pib.gov.in/PressReleasePage.aspx?PRID=2128748",
     "archivedAt": "2025-11-01",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "content_verified"
   },
   {
     "id": "SRC-PIB-0514B",
@@ -175,7 +191,8 @@
     "notes": "AD systems used: Pechora, OSA-AK, LLAD guns, Akash; IACCS; loitering munitions against radar and missile systems; debris: PL-15, Turkish 'Yiha' UAVs, long-range rockets, quadcopters, commercial drones; DGMO 12 May layered C-UAS / EW / AD description.",
     "archiveUrl": "https://web.archive.org/web/20250724130218/https://www.pib.gov.in/PressReleasePage.aspx?PRID=2128746",
     "archivedAt": "2025-07-24",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "content_verified"
   },
   {
     "id": "SRC-PIB-0518",
@@ -189,7 +206,8 @@
     "notes": "Tri-service account; Nur Khan and Rahimyar Khan named; Akash, Pechora, OSA-AK; Army AD: MANPADS, LLAD guns, long-range SAMs; Navy CBG with MiG-29K and AEW helicopters; BSF foiled infiltration in Samba (at least two infiltrators neutralised).",
     "archiveUrl": "https://web.archive.org/web/20250518152200/https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/may/doc2025518557001.pdf",
     "archivedAt": "2025-05-18",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "content_verified"
   },
   {
     "id": "SRC-PIB-AKASHTEER",
@@ -203,7 +221,8 @@
     "notes": "Backgrounder on Akashteer air-defence control and reporting system. Publication date to be confirmed against page; content not retrieved in this build.",
     "archiveUrl": "https://web.archive.org/web/20251008004623/https://www.pib.gov.in/PressReleasePage.aspx?PRID=2129132",
     "archivedAt": "2025-10-08",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "unchecked"
   },
   {
     "id": "SRC-MEA-PM0512",
@@ -215,7 +234,10 @@
     "evidenceClass": "BLUE",
     "retrieval": "partially_read",
     "notes": "Key points summarised in PIB 14 May backgrounder: response to terror attacks, no tolerance of nuclear blackmail, no distinction between sponsors and terrorists.",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveUrl": "https://web.archive.org/web/20261107204412/https://www.mea.gov.in/media-briefings?dtl/39498/English_rendering_of_PMs_address_to_the_Nation_May_12_2025",
+    "archivedAt": "2026-11-07",
+    "archiveStatus": "unchecked"
   },
   {
     "id": "SRC-PIB-YER2025",
@@ -241,7 +263,8 @@
     "notes": "The UNSC condemned the attack and called for perpetrators, organisers, financiers and sponsors to be held accountable. Quoted second-hand in the MEA transcript; the UN press release itself was not retrieved.",
     "archiveUrl": "https://web.archive.org/web/20250922172613/https://www.mea.gov.in/media-briefings.htm?dtl/39474/Transcript+of+Special+Briefing+on+OPERATION+SINDOOR+May+07+2025",
     "archivedAt": "2025-09-22",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "content_verified"
   },
   {
     "id": "SRC-OSM-GEOCODE",
@@ -253,7 +276,10 @@
     "evidenceClass": "AMBER",
     "retrieval": "read_in_full",
     "notes": "Village/town positions only (accessed 7 Nov 2026). Corroborates where a named place is – not that a strike occurred or what it hit. Positions checked against briefers' stated distances from the LoC/IB.",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveUrl": "https://web.archive.org/web/20261107204512/https://nominatim.openstreetmap.org/ui/search.html?q=Sarjal%2C+Narowal",
+    "archivedAt": "2026-11-07",
+    "archiveStatus": "unchecked"
   },
   {
     "id": "SRC-MEDIA-PRINT-SARJAL",
@@ -263,9 +289,12 @@
     "url": "https://theprint.in/india/operation-sindoor-jems-communication-network-concealed-in-pakistans-sarjal-destroyed/2618119",
     "sourceType": "media",
     "evidenceClass": "AMBER",
-    "retrieval": "partially_read",
-    "notes": "Places the facility in a primary health centre in Tehra Kalan village, Sarjal, Shakargarh area (Narowal district). Read via search excerpt.",
-    "lastChecked": "2026-11-07"
+    "retrieval": "read_in_full",
+    "notes": "Places the facility in a primary health centre in Tehra Kalan village, Sarjal (Narowal district). Lead paragraph read on the live page; the Internet Archive capture holds only the page shell.",
+    "lastChecked": "2026-11-07",
+    "archiveUrl": "https://web.archive.org/web/20261107204540/https://theprint.in/india/operation-sindoor-jems-communication-network-concealed-in-pakistans-sarjal-destroyed/2618119",
+    "archivedAt": "2026-11-07",
+    "archiveStatus": "content_verified"
   },
   {
     "id": "SRC-MEDIA-OB-9CAMPS",
@@ -279,6 +308,7 @@
     "notes": "Places Mehmoona Joya in the Head Marala area of Sialkot, within the Bhutta Kotli Government Basic Health Unit premises. Read via search excerpt.",
     "archiveUrl": "https://web.archive.org/web/20260711115916/https://www.outlookbusiness.com/news/all-you-need-to-know-about-the-9-terror-hideouts-targeted-by-india-in-operation-sindoor",
     "archivedAt": "2026-07-11",
-    "lastChecked": "2026-11-07"
+    "lastChecked": "2026-11-07",
+    "archiveStatus": "content_verified"
   }
 ]

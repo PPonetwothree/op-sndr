@@ -117,6 +117,12 @@ export const DATA_DICTIONARY: DatasetDoc[] = [
       { field: "notes", type: "text", description: "What the source contributes; caveats." },
       { field: "archiveUrl", type: "URL (optional)", description: "Closest Internet Archive capture, from scripts/check-sources.mjs." },
       { field: "archivedAt", type: "YYYY-MM-DD (optional)", description: "Date of that capture." },
+      {
+        field: "archiveStatus",
+        type: "content_verified | shell_only | unchecked (optional)",
+        description:
+          "Whether the archived capture contains a cited excerpt; shell_only = page loaded its text with JavaScript and the capture holds no content.",
+      },
       { field: "lastChecked", type: "YYYY-MM-DD (optional)", description: "When liveness and archive were last checked." },
     ],
   },

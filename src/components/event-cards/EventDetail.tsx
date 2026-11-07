@@ -14,6 +14,12 @@ import type { TimedEvent } from "@/engine/eventEngine";
 
 const NO_LINKS: string[] = [];
 
+export const ARCHIVE_STATUS: Record<string, string> = {
+  content_verified: "archive contains cited text",
+  shell_only: "archive holds page shell only – text not captured",
+  unchecked: "archive content not checked",
+};
+
 const RETRIEVAL: Record<string, string> = {
   read_in_full: "Read in full for this build",
   partially_read: "Partially read / confirmed via excerpt",
@@ -51,9 +57,13 @@ export function SourceList({ ids }: { ids: string[] }) {
                 <a href={s.archiveUrl} target="_blank" rel="noreferrer" className="text-olive-300 hover:underline">
                   Archived copy ({s.archivedAt})
                 </a>
-              ) : (
-                <span>No archive capture found</span>
+              ) : null}
+              {s.archiveUrl && (
+                <span className={s.archiveStatus === "content_verified" ? "text-defensive" : s.archiveStatus === "shell_only" ? "text-warn" : "text-ink-500"}>
+                  {ARCHIVE_STATUS[s.archiveStatus ?? "unchecked"]}
+                </span>
               )}
+              {!s.archiveUrl && <span>No archive capture found</span>}
             </div>
           </div>
         );

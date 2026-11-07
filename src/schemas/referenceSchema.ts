@@ -16,6 +16,7 @@ export const SourceSchema = z.object({
     .string()
     .regex(/^\d{4}-\d{2}-\d{2}$/)
     .optional(),
+  archiveStatus: z.enum(["content_verified", "shell_only", "unchecked"]).optional(), // does the capture contain the cited text?
   lastChecked: z
     .string()
     .regex(/^\d{4}-\d{2}-\d{2}$/)

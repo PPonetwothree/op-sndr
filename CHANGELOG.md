@@ -4,6 +4,16 @@ All notable changes to this project. Format: [Keep a Changelog](https://keepacha
 
 ## [Unreleased]
 
+### Added
+
+- Submitted the six unarchived sources to the Internet Archive (Save Page Now); 20 of 21 sources now link to a capture. PIB's year-end review could not be archived (PIB returns a block page to the archiver).
+- `check-sources` verifies each capture against a cited excerpt and records `archiveStatus` (content_verified / shell_only / unchecked); falls back to the CDX index and ignores non-200 captures. PDFs are checked with `pdftotext` when available.
+- Archive status shown on source cards, in the register and on the Methods page.
+
+### Fixed
+
+- ThePrint (Sarjal) citation was taken from a search summary that reworded the article; replaced with the verbatim lead sentence checked against the live page.
+
 ## [0.2.0] – 2026-11-08 · Credibility and traceability
 
 ### Added

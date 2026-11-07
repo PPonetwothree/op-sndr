@@ -58,3 +58,9 @@ describe("field-level provenance", () => {
     );
   });
 });
+
+describe("source archives", () => {
+  it("every archived source records whether its capture holds the cited text", () => {
+    BASE_SOURCES.filter((s) => s.archiveUrl).forEach((s) => expect(s.archiveStatus, s.id).toBeDefined());
+  });
+});

@@ -126,8 +126,8 @@ export const PROVENANCE = {
     c(
       "location",
       "SRC-MEDIA-PRINT-SARJAL",
-      "Report headline and lead",
-      "concealed within a primary health centre in Tehra Kalan village in Sarjal",
+      "Lead paragraph (verified against live article, 8 Nov 2026)",
+      "concealed in a primary health centre in Tehra Kalan village in Sarjal",
       "Media report (AMBER)."
     ),
     STRIKE_DAMAGE,
