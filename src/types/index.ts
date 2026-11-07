@@ -48,6 +48,7 @@ export interface LayerVisibility {
   contested: boolean;
   labels: boolean;
   relief: boolean;
+  dayNight: boolean;
   milSymbols: boolean;
   uncertainty: boolean;
   onlineTiles: boolean;

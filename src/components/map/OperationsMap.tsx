@@ -9,6 +9,7 @@ import { MarkerLayer, LAYER_OF } from "./MarkerLayer";
 import { UncertaintyLayer } from "./UncertaintyLayer";
 import { IndiaBoundaryLayer, ContestedAreasLayer } from "./IndiaBoundaryLayers";
 import { VectorLayer } from "./VectorLayer";
+import { NightLayer } from "./NightLayer";
 import { NorthArrow, CoordinateReadout, MapBoundsBridge, Scale } from "./MapFurniture";
 
 const BOUNDS = L.latLngBounds([15, 56], [40, 86]);
@@ -89,6 +90,7 @@ export function OperationsMap({ dayOverride, sync = false, follow = true, captio
         {layers.onlineTiles && <OnlineTiles />}
         <CountryLayer online={layers.onlineTiles} />
         {layers.relief && <ReliefLayer online={layers.onlineTiles} />}
+        {layers.dayNight && !dayOverride && <NightLayer />}
         {layers.sectors && <SectorLayer />}
         {layers.contested && <ContestedAreasLayer labels={layers.labels} />}
         {layers.admin1 && <Admin1Layer />}

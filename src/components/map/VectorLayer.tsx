@@ -35,7 +35,23 @@ function formationKind(e: TimedEvent): "air" | "uav" | "ground" | "naval" {
   return "air";
 }
 
-function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: EventVector; i: number; animated: boolean; nonce: number; zoom: number }) {
+function VectorShape({
+  e,
+  v,
+  i,
+  animated,
+  nonce,
+  zoom,
+  fade = 1,
+}: {
+  e: TimedEvent;
+  v: EventVector;
+  i: number;
+  animated: boolean;
+  nonce: number;
+  zoom: number;
+  fade?: number; // 0–1 age factor for non-selected vectors
+}) {
   const st = VECTOR_STYLES[v.style];
   const scale = Math.pow(2, 5 - zoom);
   // Special: intrusion front along the LoC/IB
@@ -48,7 +64,7 @@ function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: Eve
             positions={line}
             interactive={false}
             className={animated ? "vec-flow" : undefined}
-            pathOptions={{ color: st.color, weight: animated ? 5 : 3, opacity: animated ? 0.55 : 0.25, dashArray: "10 14" }}
+            pathOptions={{ color: st.color, weight: animated ? 5 : 3, opacity: animated ? 0.55 : 0.25 * fade, dashArray: "10 14" }}
           />
         ))}
         {FRONT_SAMPLES.map((s, k) => {
@@ -58,7 +74,7 @@ function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: Eve
               key={`fs-${k}-${nonce}-${animated}`}
               positions={pts}
               className={animated ? "vec-flow" : undefined}
-              pathOptions={{ color: st.color, weight: 1.6, opacity: animated ? 0.95 : 0.45, dashArray: "3 4" }}
+              pathOptions={{ color: st.color, weight: 1.6, opacity: animated ? 0.95 : 0.45 * fade, dashArray: "3 4" }}
               interactive={false}
             />
           );
@@ -81,7 +97,7 @@ function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: Eve
         pathOptions={{
           color: st.color,
           weight: animated ? 2 : 1.2,
-          opacity: animated ? 0.95 : 0.45,
+          opacity: animated ? 0.95 : 0.45 * fade,
           dashArray: st.dash ?? (v.style === "indian_defensive" ? "5 4" : undefined),
           fillColor: st.color,
           fillOpacity: animated ? 0.12 : 0.04,
@@ -93,7 +109,7 @@ function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: Eve
   const bow = v.style === "artillery" ? 0.05 : 0.16 + (i % 3) * 0.04;
   const pts = arcPoints(from, to, bow);
   const head = arrowHead(pts, 0.14 * scale);
-  const opacity = animated ? 1 : 0.4;
+  const opacity = animated ? 1 : 0.75 * fade;
   return (
     <>
       <Polyline
@@ -128,7 +144,16 @@ function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: Eve
 
 export function VectorLayer({ set, layers }: { set: MapEventSet; layers: LayerVisibility }) {
   const nonce = useSim((s) => s.animationNonce);
+  const simTime = useSim((s) => s.simTime);
+  const showAll = useSim((s) => s.showAllEvents);
   const zoom = useZoom();
+  // Age fade: vectors fade with time since the event (simulation clock); newest stand out.
+  // Rounded to 0.05 steps so playback does not restyle every frame.
+  const fadeFor = (e: TimedEvent) => {
+    if (showAll) return 0.6;
+    const ageH = Math.max(0, (simTime - e.t) / 3_600_000);
+    return Math.round(Math.max(0.2, Math.exp(-ageH / 12)) * 20) / 20;
+  };
   const sel = set.selected;
 
   const background = useMemo(() => set.shown.filter((e) => e.id !== sel?.id && e.vectors.length), [set.shown, sel]);
@@ -162,6 +187,7 @@ export function VectorLayer({ set, layers }: { set: MapEventSet; layers: LayerVi
               animated={hl.has(e.id)}
               nonce={hl.has(e.id) ? nonce : 0}
               zoom={zoom}
+              fade={fadeFor(e)}
             />
           ) : null
         )

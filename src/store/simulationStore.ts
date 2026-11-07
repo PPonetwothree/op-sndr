@@ -26,6 +26,7 @@ export const DEFAULT_LAYERS: LayerVisibility = {
   contested: true,
   labels: true,
   relief: true,
+  dayNight: true,
   milSymbols: true,
   uncertainty: true,
   onlineTiles: false,

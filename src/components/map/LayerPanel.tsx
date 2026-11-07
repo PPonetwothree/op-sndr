@@ -34,6 +34,7 @@ const GROUPS: { title: string; items: [keyof LayerVisibility, string][] }[] = [
     title: "Basemap & symbology",
     items: [
       ["relief", "Terrain relief (offline)"],
+      ["dayNight", "Day / night at simulation clock"],
       ["milSymbols", "APP-6 / MIL-STD-2525 symbols"],
       ["uncertainty", "Position uncertainty & stated distances"],
       ["onlineTiles", "Online dark tiles (needs internet)"],
