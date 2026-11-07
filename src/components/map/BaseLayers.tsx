@@ -1,4 +1,6 @@
-import { GeoJSON, TileLayer, CircleMarker, Tooltip, Polygon, Circle, Pane, ImageOverlay } from "react-leaflet";
+import { useState } from "react";
+import { GeoJSON, TileLayer, CircleMarker, Tooltip, Polygon, Circle, Pane, ImageOverlay, useMapEvents } from "react-leaflet";
+import admin1Raw from "@/data/geo/admin1.json";
 import type { FeatureCollection } from "geojson";
 import countriesRaw from "@/data/geo/countries.json";
 import boundariesRaw from "@/data/geo/boundaries.json";
@@ -6,6 +8,7 @@ import { TARGETS } from "@/data";
 
 const countries = countriesRaw as unknown as FeatureCollection;
 const boundaries = boundariesRaw as unknown as FeatureCollection;
+const admin1 = admin1Raw as unknown as FeatureCollection & { labels: { name: string; country: string; lat: number; lng: number; minZoom: number }[] };
 
 const FILL: Record<string, string> = {
   India: "#26301f",
@@ -82,32 +85,54 @@ export function OnlineTiles() {
   );
 }
 
-const REGION_LABELS: [string, [number, number]][] = [
+const COUNTRY_LABELS: [string, [number, number]][] = [
   ["INDIA", [24.6, 77.4]],
   ["PAKISTAN", [29.6, 68.6]],
-  ["JAMMU & KASHMIR", [33.35, 75.75]],
-  ["LADAKH", [34.6, 77.9]],
-  ["PUNJAB", [30.5, 75.9]],
-  ["RAJASTHAN", [26.6, 73.4]],
-  ["GUJARAT", [22.7, 71.5]],
-  ["PUNJAB (PAK)", [30.3, 72.6]],
-  ["SINDH", [26.0, 68.6]],
-  ["KHYBER PAKHTUNKHWA", [34.7, 71.6]],
-  ["BALOCHISTAN", [28.3, 65.8]],
   ["ARABIAN SEA", [21.3, 65.0]],
 ];
 
+/** Country and sea labels plus state / province labels from Natural Earth label points. */
 export function RegionLabels() {
+  const [zoom, setZoom] = useState(5.5);
+  useMapEvents({ zoomend: (e) => setZoom(e.target.getZoom()) });
   return (
     <>
-      {REGION_LABELS.map(([name, pos]) => (
+      {COUNTRY_LABELS.map(([name, pos]) => (
         <CircleMarker key={name} center={pos} radius={0} stroke={false} interactive={false}>
-          <Tooltip permanent direction="center" className="region-label">
+          <Tooltip permanent direction="center" className="region-label country">
             {name}
           </Tooltip>
         </CircleMarker>
       ))}
+      {admin1.labels
+        .filter((l) => zoom >= l.minZoom)
+        .map((l) => (
+          <CircleMarker key={`${l.country}-${l.name}`} center={[l.lat, l.lng]} radius={0} stroke={false} interactive={false}>
+            <Tooltip permanent direction="center" className="region-label">
+              {l.name.toUpperCase()}
+            </Tooltip>
+          </CircleMarker>
+        ))}
     </>
+  );
+}
+
+/** State / UT (India) and province (Pakistan) boundaries – Natural Earth 1:10m admin-1. */
+export function Admin1Layer() {
+  return (
+    <Pane name="admin1" style={{ zIndex: 340 }}>
+      <GeoJSON
+        data={admin1 as unknown as FeatureCollection}
+        style={{ color: "#8b929a", weight: 0.9, opacity: 0.55, dashArray: "5 3 1 3" }}
+        onEachFeature={(f, layer) => {
+          const p = f.properties as { left: string; right: string; country: string };
+          layer.bindTooltip(`${p.left} | ${p.right} <span style="color:#8a9098">(${p.country === "India" ? "state / UT" : "province"} boundary)</span>`, {
+            sticky: true,
+            className: "map-tip",
+          });
+        }}
+      />
+    </Pane>
   );
 }
 

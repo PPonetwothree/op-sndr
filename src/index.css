@@ -108,6 +108,11 @@ body {
   text-transform: uppercase;
   font-weight: 600;
 }
+.leaflet-tooltip.region-label.country {
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  color: rgba(200, 206, 190, 0.35);
+}
 .leaflet-tooltip.region-label::before {
   display: none;
 }

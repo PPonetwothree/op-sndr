@@ -25,6 +25,7 @@ const GROUPS: { title: string; items: [keyof LayerVisibility, string][] }[] = [
       ["sectors", "Operational sectors"],
       ["indiaBoundary", "India boundary (official view)"],
       ["contested", "Contested areas"],
+      ["admin1", "State / province boundaries"],
       ["boundaries", "De facto lines (LoC, IB, LAC, AGPL)"],
       ["labels", "Region labels"],
     ],

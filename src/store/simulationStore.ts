@@ -21,6 +21,7 @@ export const DEFAULT_LAYERS: LayerVisibility = {
   artillery: true,
   boundaries: true,
   indiaBoundary: true,
+  admin1: true,
   contested: true,
   labels: true,
   relief: true,

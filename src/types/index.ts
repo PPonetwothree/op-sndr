@@ -44,6 +44,7 @@ export interface LayerVisibility {
   artillery: boolean;
   boundaries: boolean;
   indiaBoundary: boolean;
+  admin1: boolean;
   contested: boolean;
   labels: boolean;
   relief: boolean;

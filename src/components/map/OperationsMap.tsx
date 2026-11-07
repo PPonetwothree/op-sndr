@@ -4,7 +4,7 @@ import L from "leaflet";
 import { useSim } from "@/store/simulationStore";
 import { TARGET_BY_ID } from "@/data";
 import { useMapEvents as useEventSet } from "@/modules/geospatial/useMapEvents";
-import { CountryLayer, ReliefLayer, BoundaryLayer, OnlineTiles, RegionLabels, SectorLayer, CoverageLayer } from "./BaseLayers";
+import { CountryLayer, Admin1Layer, ReliefLayer, BoundaryLayer, OnlineTiles, RegionLabels, SectorLayer, CoverageLayer } from "./BaseLayers";
 import { MarkerLayer, LAYER_OF } from "./MarkerLayer";
 import { UncertaintyLayer } from "./UncertaintyLayer";
 import { IndiaBoundaryLayer, ContestedAreasLayer } from "./IndiaBoundaryLayers";
@@ -90,6 +90,7 @@ export function OperationsMap({ dayOverride, sync = false, follow = true, captio
         {layers.relief && <ReliefLayer online={layers.onlineTiles} />}
         {layers.sectors && <SectorLayer />}
         {layers.contested && <ContestedAreasLayer labels={layers.labels} />}
+        {layers.admin1 && <Admin1Layer />}
         {layers.indiaBoundary && <IndiaBoundaryLayer />}
         {layers.boundaries && <BoundaryLayer />}
         {layers.coverage && <CoverageLayer />}
