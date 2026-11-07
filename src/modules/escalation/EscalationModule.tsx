@@ -1,18 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
-import { Map as MapIcon, FileDown, Plus, Trash2, ArrowUp, ArrowDown, X } from "lucide-react";
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import { Map as MapIcon, FileDown, X } from "lucide-react";
 import { ESCALATION_LADDER } from "@/data/escalation";
 import { useSim, ALL_EVENTS } from "@/store/simulationStore";
-import { useScenario, type Inject } from "@/store/scenarioStore";
-import { Card, CardHeader, Badge, KV } from "@/components/ui/primitives";
+import { Card, CardHeader, KV } from "@/components/ui/primitives";
 import { Button } from "@/components/ui/button";
 import { SourceList } from "@/components/event-cards/EventDetail";
 import { EvidenceBadge } from "@/components/event-cards/EvidenceBadge";
 import { EscalationLineChart } from "@/components/charts/CampaignCharts";
-import { AXIS, GRID, TOOLTIP } from "@/components/charts/ChartCard";
 import { formatDateLabel } from "@/engine/timelineEngine";
-import { ESCALATION_LEVELS, DOMAIN_LABEL } from "@/engine/assessmentEngine";
 import { ModuleHeader } from "../ModuleHeader";
+import { TabletopExercise } from "@/components/escalation/TabletopExercise";
 import { cn } from "@/utils/cn";
 
 const LEVEL_TINT = ["#5a6068", "#4a86dc", "#bf8219", "#a35bc0", "#d9773a", "#c98a1e", "#d24848", "#1f9a9a"];
@@ -131,140 +128,6 @@ function LevelDetail({ level }: { level: number }) {
   );
 }
 
-function Tabletop() {
-  const { scenario, setMeta, addInject, removeInject, moveInject, clear } = useScenario();
-  const [d, setD] = useState<Omit<Inject, "id" | "step">>({ actor: "Blue", domain: "diplomatic", description: "", level: 0, rationale: "" });
-  const input = "h-7 border border-ink-600 bg-ink-900 px-1.5 text-[12px] outline-none focus:border-olive-500";
-  const data = scenario.injects.map((i) => ({ step: i.step, level: i.level, label: `${i.actor}: ${i.description}` }));
-  return (
-    <div className="space-y-3">
-      <div className="border border-warn/50 bg-warn/10 px-3 py-2 text-[12px] text-warn">
-        HYPOTHETICAL SCENARIO MODE – educational tabletop analysis. Injects here are invented by the user, are stored separately and never alter the historical
-        reconstruction.
-      </div>
-      <Card className="p-3">
-        <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
-          <label className="flex flex-col gap-0.5">
-            <span className="label-caps">Exercise title</span>
-            <input className={input} value={scenario.title} onChange={(e) => setMeta({ title: e.target.value })} />
-          </label>
-          <label className="flex flex-col gap-0.5">
-            <span className="label-caps">Premise</span>
-            <input className={input} value={scenario.premise} onChange={(e) => setMeta({ premise: e.target.value })} />
-          </label>
-        </div>
-        <div className="mt-3 grid grid-cols-2 gap-2 lg:grid-cols-[100px_130px_1fr_1fr_160px_auto] lg:items-end">
-          <label className="flex flex-col gap-0.5">
-            <span className="label-caps">Actor</span>
-            <select className={input} value={d.actor} onChange={(e) => setD({ ...d, actor: e.target.value as Inject["actor"] })}>
-              {["Blue", "Red", "Third party"].map((a) => (
-                <option key={a}>{a}</option>
-              ))}
-            </select>
-          </label>
-          <label className="flex flex-col gap-0.5">
-            <span className="label-caps">Domain</span>
-            <select className={input} value={d.domain} onChange={(e) => setD({ ...d, domain: e.target.value as Inject["domain"] })}>
-              {["air", "land", "sea", "cyber_info", "diplomatic"].map((a) => (
-                <option key={a} value={a}>
-                  {DOMAIN_LABEL[a]}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="flex flex-col gap-0.5">
-            <span className="label-caps">Inject / move</span>
-            <input
-              className={input}
-              value={d.description}
-              onChange={(e) => setD({ ...d, description: e.target.value })}
-              placeholder="e.g. Red announces airspace closure"
-            />
-          </label>
-          <label className="flex flex-col gap-0.5">
-            <span className="label-caps">Discussion rationale</span>
-            <input className={input} value={d.rationale} onChange={(e) => setD({ ...d, rationale: e.target.value })} />
-          </label>
-          <label className="flex flex-col gap-0.5">
-            <span className="label-caps">Resulting rung</span>
-            <select className={input} value={d.level} onChange={(e) => setD({ ...d, level: Number(e.target.value) })}>
-              {ESCALATION_LEVELS.map((n, i) => (
-                <option key={i} value={i}>
-                  L{i} {n}
-                </option>
-              ))}
-            </select>
-          </label>
-          <Button
-            disabled={!d.description.trim()}
-            onClick={() => {
-              addInject(d);
-              setD({ ...d, description: "", rationale: "" });
-            }}
-          >
-            <Plus /> Add inject
-          </Button>
-        </div>
-      </Card>
-      <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
-        <Card>
-          <CardHeader
-            title={`Inject sequence (${scenario.injects.length})`}
-            right={
-              scenario.injects.length > 0 && (
-                <Button variant="ghost" size="sm" onClick={() => confirm("Clear the hypothetical scenario?") && clear()}>
-                  <X /> Clear
-                </Button>
-              )
-            }
-          />
-          <div className="space-y-1 p-2">
-            {scenario.injects.length === 0 && <div className="p-2 text-[11px] text-ink-500">No injects yet.</div>}
-            {scenario.injects.map((i) => (
-              <div key={i.id} className="flex items-center gap-2 border border-ink-700 bg-ink-900 px-2 py-1">
-                <span className="mono w-6 text-[11px] text-ink-400">#{i.step}</span>
-                <Badge color={i.actor === "Blue" ? "#4a86dc" : i.actor === "Red" ? "#d24848" : "#aeb4bb"}>{i.actor}</Badge>
-                <span className="min-w-0 flex-1">
-                  <span className="block text-[12px] text-ink-100">{i.description}</span>
-                  {i.rationale && <span className="block text-[10px] text-ink-500">{i.rationale}</span>}
-                </span>
-                <Badge color="#e3a83b">L{i.level}</Badge>
-                <button onClick={() => moveInject(i.id, -1)} aria-label="Move up" className="text-ink-500 hover:text-ink-100">
-                  <ArrowUp className="size-3" />
-                </button>
-                <button onClick={() => moveInject(i.id, 1)} aria-label="Move down" className="text-ink-500 hover:text-ink-100">
-                  <ArrowDown className="size-3" />
-                </button>
-                <button onClick={() => removeInject(i.id)} aria-label="Delete inject" className="text-ink-500 hover:text-hostile">
-                  <Trash2 className="size-3" />
-                </button>
-              </div>
-            ))}
-          </div>
-        </Card>
-        <Card>
-          <CardHeader title="Hypothetical escalation trace" right={<Badge color="#e3a83b">Hypothetical</Badge>} />
-          <div className="h-[240px] p-2">
-            {data.length ? (
-              <ResponsiveContainer>
-                <LineChart data={data} margin={{ top: 8, right: 12, left: -18, bottom: 0 }}>
-                  <CartesianGrid {...GRID} />
-                  <XAxis dataKey="step" {...AXIS} />
-                  <YAxis domain={[0, 7]} ticks={[0, 1, 2, 3, 4, 5, 6, 7]} {...AXIS} />
-                  <Tooltip {...TOOLTIP} formatter={(v: number) => [`L${v} – ${ESCALATION_LEVELS[v]}`, "Rung"]} labelFormatter={(s) => `Step ${s}`} />
-                  <Line isAnimationActive={false} type="stepAfter" dataKey="level" stroke="#e3a83b" strokeWidth={2} strokeDasharray="5 3" dot={{ r: 3 }} />
-                </LineChart>
-              </ResponsiveContainer>
-            ) : (
-              <div className="p-2 text-[11px] text-ink-500">Add injects to draw the trace.</div>
-            )}
-          </div>
-        </Card>
-      </div>
-    </div>
-  );
-}
-
 export function EscalationModule() {
   const mode = useSim((s) => s.scenarioMode);
   const highlight = useSim((s) => s.escalationHighlight);
@@ -299,7 +162,7 @@ export function EscalationModule() {
       </ModuleHeader>
       <div className="flex-1 overflow-auto p-3">
         {tab === "tabletop" ? (
-          <Tabletop />
+          <TabletopExercise />
         ) : (
           <div className="grid grid-cols-1 gap-3 xl:grid-cols-[420px_1fr]">
             <div className="space-y-3">
