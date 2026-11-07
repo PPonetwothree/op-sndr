@@ -2,6 +2,7 @@
 // Rules: clock times only where a source states them; sortTime is for sequencing only.
 // Regenerate with: node scripts/events.src.mjs
 import { writeFileSync } from "node:fs";
+import { PROVENANCE } from "./provenance.src.mjs";
 
 const E = [];
 let n = 0;
@@ -928,5 +929,10 @@ ev({
   sources: ["SRC-MEA-PM0512", "SRC-PIB-0514A"],
 });
 
+for (const e of E) {
+  e.provenance = PROVENANCE[e.id] ?? [];
+  // a cited source must also be listed on the event
+  for (const cit of e.provenance) if (!e.sources.includes(cit.sourceId)) e.sources.push(cit.sourceId);
+}
 writeFileSync("src/data/events.json", JSON.stringify(E, null, 2));
 console.log("events:", E.length);

@@ -34,3 +34,27 @@ describe("historical database", () => {
     );
   });
 });
+
+describe("field-level provenance", () => {
+  it("every event has at least one citation", () => {
+    EVENTS.forEach((e) => expect(e.provenance.length, e.id).toBeGreaterThan(0));
+  });
+  it("stated times, casualty figures, damage levels and named systems are cited", () => {
+    EVENTS.forEach((e) => {
+      const f = new Set(e.provenance.map((c) => c.field));
+      if (e.time) expect(f.has("time"), `${e.id} time`).toBe(true);
+      if (e.casualties) expect(f.has("casualties"), `${e.id} casualties`).toBe(true);
+      if (e.damageAssessment.status === "claimed" && e.damageAssessment.level !== null) expect(f.has("damage"), `${e.id} damage`).toBe(true);
+      if (e.weaponSystemIds.length) expect(f.has("weapons"), `${e.id} weapons`).toBe(true);
+    });
+  });
+  it("citations reference registered sources listed on the event", () => {
+    const ids = new Set(BASE_SOURCES.map((s) => s.id));
+    EVENTS.forEach((e) =>
+      e.provenance.forEach((c) => {
+        expect(ids.has(c.sourceId), `${e.id} ${c.sourceId}`).toBe(true);
+        expect(e.sources, e.id).toContain(c.sourceId);
+      })
+    );
+  });
+});

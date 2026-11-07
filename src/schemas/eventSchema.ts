@@ -62,6 +62,17 @@ export const DamageAssessmentSummarySchema = z.object({
   confidence: z.enum(["high", "medium", "low", "unknown"]),
 });
 
+export const CitationFieldSchema = z.enum(["time", "location", "description", "casualties", "damage", "weapons", "formation", "attribution"]);
+
+/** A field-level citation: which source supports which field, where, with a short verbatim excerpt. */
+export const CitationSchema = z.object({
+  field: CitationFieldSchema,
+  sourceId: z.string(),
+  locator: z.string().min(3), // speaker / section / paragraph within the source
+  excerpt: z.string().min(3).refine((t) => t.trim().split(/\s+/).length <= 30, "Excerpt must be 30 words or fewer"),
+  note: z.string().optional(),
+});
+
 export const CampaignEventSchema = z
   .object({
     id: z.string().regex(/^EVT-\d{3}$/),
@@ -98,6 +109,7 @@ export const CampaignEventSchema = z
     targetIds: z.array(z.string()).default([]),
     notes: z.string().default(""),
     sample: z.boolean().default(false),
+    provenance: z.array(CitationSchema).default([]),
   })
   .superRefine((e, ctx) => {
     if (e.evidenceClass === "GREEN" && e.evidenceType === "official_claim") {
@@ -109,6 +121,9 @@ export const CampaignEventSchema = z
     if (e.time !== null && e.timeBasis !== "stated") {
       ctx.addIssue({ code: z.ZodIssueCode.custom, message: "A clock time may only be set when it is stated by a source" });
     }
+    e.provenance.forEach((c, i) => {
+      if (!e.sources.includes(c.sourceId)) ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["provenance", i], message: `Citation source ${c.sourceId} is not listed in sources` });
+    });
     if (!e.sortTime.startsWith(e.date)) {
       ctx.addIssue({ code: z.ZodIssueCode.custom, message: "sortTime must fall on the event date" });
     }
@@ -127,3 +142,5 @@ export type EventVector = z.infer<typeof EventVectorSchema>;
 export type Formation = z.infer<typeof FormationSchema>;
 export type DamageAssessmentSummary = z.infer<typeof DamageAssessmentSummarySchema>;
 export type CampaignEvent = z.infer<typeof CampaignEventSchema>;
+export type Citation = z.infer<typeof CitationSchema>;
+export type CitationField = z.infer<typeof CitationFieldSchema>;

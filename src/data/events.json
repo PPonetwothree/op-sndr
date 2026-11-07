@@ -52,6 +52,27 @@
     "sources": [
       "SRC-MEA-0507",
       "SRC-UNSC-0425"
+    ],
+    "provenance": [
+      {
+        "field": "casualties",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Foreign Secretary Vikram Misri, opening statement",
+        "excerpt": "They murdered 26 people, including one national of Nepal"
+      },
+      {
+        "field": "attribution",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Foreign Secretary, opening statement",
+        "excerpt": "A group calling itself The Resistance Front (TRF) has claimed responsibility for the attack."
+      },
+      {
+        "field": "description",
+        "sourceId": "SRC-UNSC-0425",
+        "locator": "UNSC press statement of 25 Apr 2025, as quoted by the Foreign Secretary",
+        "excerpt": "The need to hold perpetrators, organisers, financiers and sponsors of this reprehensible act of terrorism accountable",
+        "note": "Independent body; confirms the attack occurred, not its attribution."
+      }
     ]
   },
   {
@@ -102,6 +123,20 @@
     "sources": [
       "SRC-MEA-0423",
       "SRC-PIB-0514A"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-PIB-0514A",
+        "locator": "Non-Military Measures section",
+        "excerpt": "The Indus Waters Treaty of 1960 will be held in abeyance with immediate effect"
+      },
+      {
+        "field": "description",
+        "sourceId": "SRC-PIB-0514A",
+        "locator": "Non-Military Measures section",
+        "excerpt": "The overall strength of the High Commissions will be brought down to 30 from the present 55"
+      }
     ]
   },
   {
@@ -155,6 +190,33 @@
       "SRC-MEA-0507",
       "SRC-PIB-0507",
       "SRC-PIB-0514A"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), opening",
+        "excerpt": "6 से 7 मई 2025 की रात एक बजकर पाँच मिनट से डेढ़ बजे के बीच",
+        "note": "Gloss: between 01:05 and 01:30 on the night of 6–7 May 2025. Per-site times not given."
+      },
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Foreign Secretary, opening statement",
+        "excerpt": "These actions were measured, non-escalatory, proportionate, and responsible."
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-PIB-0514A",
+        "locator": "What Operation SINDOOR Achieved",
+        "excerpt": "completing the mission in just 23 minutes using Rafale jets, SCALP missiles, and HAMMER bombs"
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Wg Cdr Vyomika Singh, opening remarks",
+        "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
     ]
   },
   {
@@ -213,6 +275,34 @@
     "escalationLevel": 1,
     "sources": [
       "SRC-MEA-0507"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), opening",
+        "excerpt": "6 से 7 मई 2025 की रात एक बजकर पाँच मिनट से डेढ़ बजे के बीच",
+        "note": "Gloss: between 01:05 and 01:30 on the night of 6–7 May 2025. Per-site times not given."
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), camp-by-camp listing",
+        "excerpt": "सवाई नाला कैंप मुज़फ़्फ़राबाद जो कि POJK के लाइन ऑफ़ कंट्रोल से 30 किलोमीटर दूर है",
+        "note": "Gloss: Sawai Nala camp, Muzaffarabad, 30 km from the LoC."
+      },
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Wg Cdr Vyomika Singh, closing remarks",
+        "excerpt": "The point of impact at each of the target was a specific building or a group of buildings."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Wg Cdr Vyomika Singh, opening remarks",
+        "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
     ]
   },
   {
@@ -271,6 +361,28 @@
     "escalationLevel": 1,
     "sources": [
       "SRC-MEA-0507"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), opening",
+        "excerpt": "6 से 7 मई 2025 की रात एक बजकर पाँच मिनट से डेढ़ बजे के बीच",
+        "note": "Gloss: between 01:05 and 01:30 on the night of 6–7 May 2025. Per-site times not given."
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), camp-by-camp listing",
+        "excerpt": "सैयदाना बिलाल कैंप, मुज़फ़्फ़राबाद। यह एक जैश-ए-मोहम्मद का स्टेजिंग एरिया है।",
+        "note": "Gloss: Syedna Bilal camp, Muzaffarabad – a JeM staging area."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Wg Cdr Vyomika Singh, opening remarks",
+        "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
     ]
   },
   {
@@ -328,7 +440,37 @@
     "weaponCategory": "precision weapons – 'niche technology weapons with careful selection of warheads' (briefing); specific weapon not attributed",
     "escalationLevel": 1,
     "sources": [
-      "SRC-MEA-0507"
+      "SRC-MEA-0507",
+      "SRC-OSM-GEOCODE"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), opening",
+        "excerpt": "6 से 7 मई 2025 की रात एक बजकर पाँच मिनट से डेढ़ बजे के बीच",
+        "note": "Gloss: between 01:05 and 01:30 on the night of 6–7 May 2025. Per-site times not given."
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), camp-by-camp listing",
+        "excerpt": "गुलपुर कैंप, कोटली। यह LoC से 30 किलोमीटर दूर था",
+        "note": "Gloss: Gulpur camp, Kotli – 30 km from the LoC."
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-OSM-GEOCODE",
+        "locator": "OpenStreetMap node 2816160080",
+        "excerpt": "گل پور, تحصیل کوٹلی",
+        "note": "Gazetteer position of Gulpur town (village-level, not the facility)."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Wg Cdr Vyomika Singh, opening remarks",
+        "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
     ]
   },
   {
@@ -387,6 +529,28 @@
     "escalationLevel": 1,
     "sources": [
       "SRC-MEA-0507"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), opening",
+        "excerpt": "6 से 7 मई 2025 की रात एक बजकर पाँच मिनट से डेढ़ बजे के बीच",
+        "note": "Gloss: between 01:05 and 01:30 on the night of 6–7 May 2025. Per-site times not given."
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), camp-by-camp listing",
+        "excerpt": "अब्बास कैंप, कोटली। यह LoC से 13 किलोमीटर दूर है",
+        "note": "Gloss: Abbas camp, Kotli – 13 km from the LoC."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Wg Cdr Vyomika Singh, opening remarks",
+        "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
     ]
   },
   {
@@ -445,6 +609,28 @@
     "escalationLevel": 1,
     "sources": [
       "SRC-MEA-0507"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), opening",
+        "excerpt": "6 से 7 मई 2025 की रात एक बजकर पाँच मिनट से डेढ़ बजे के बीच",
+        "note": "Gloss: between 01:05 and 01:30 on the night of 6–7 May 2025. Per-site times not given."
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), camp-by-camp listing",
+        "excerpt": "बरनाला कैंप, बिंबर्ग। यह एलओसी से 9 किलोमीटर दूर है",
+        "note": "Gloss: Barnala camp, Bhimber – 9 km from the LoC."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Wg Cdr Vyomika Singh, opening remarks",
+        "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
     ]
   },
   {
@@ -502,7 +688,37 @@
     "weaponCategory": "precision weapons – 'niche technology weapons with careful selection of warheads' (briefing); specific weapon not attributed",
     "escalationLevel": 1,
     "sources": [
-      "SRC-MEA-0507"
+      "SRC-MEA-0507",
+      "SRC-MEDIA-PRINT-SARJAL"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), opening",
+        "excerpt": "6 से 7 मई 2025 की रात एक बजकर पाँच मिनट से डेढ़ बजे के बीच",
+        "note": "Gloss: between 01:05 and 01:30 on the night of 6–7 May 2025. Per-site times not given."
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), camp-by-camp listing",
+        "excerpt": "सरजाल कैंप, सियालकोट। ये अंतरराष्ट्रीय सीमा से 6 किलोमीटर की दूरी पर है",
+        "note": "Gloss: Sarjal camp, Sialkot – 6 km from the IB."
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-MEDIA-PRINT-SARJAL",
+        "locator": "Report headline and lead",
+        "excerpt": "concealed within a primary health centre in Tehra Kalan village in Sarjal",
+        "note": "Media report (AMBER)."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Wg Cdr Vyomika Singh, opening remarks",
+        "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
     ]
   },
   {
@@ -560,7 +776,37 @@
     "weaponCategory": "precision weapons – 'niche technology weapons with careful selection of warheads' (briefing); specific weapon not attributed",
     "escalationLevel": 1,
     "sources": [
-      "SRC-MEA-0507"
+      "SRC-MEA-0507",
+      "SRC-MEDIA-OB-9CAMPS"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), opening",
+        "excerpt": "6 से 7 मई 2025 की रात एक बजकर पाँच मिनट से डेढ़ बजे के बीच",
+        "note": "Gloss: between 01:05 and 01:30 on the night of 6–7 May 2025. Per-site times not given."
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), camp-by-camp listing",
+        "excerpt": "महमूना जाया कैंप, सियालकोट। यह 12 से 18 किलोमीटर IB से दूर था।",
+        "note": "Gloss: Mehmoona Joya camp, Sialkot – 12 to 18 km from the IB."
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-MEDIA-OB-9CAMPS",
+        "locator": "Camp list, Mehmoona Joya entry",
+        "excerpt": "situated within the premises of the Bhutta Kotli Government Basic Health Unit",
+        "note": "Media report (AMBER)."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Wg Cdr Vyomika Singh, opening remarks",
+        "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
     ]
   },
   {
@@ -619,6 +865,28 @@
     "escalationLevel": 1,
     "sources": [
       "SRC-MEA-0507"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), opening",
+        "excerpt": "6 से 7 मई 2025 की रात एक बजकर पाँच मिनट से डेढ़ बजे के बीच",
+        "note": "Gloss: between 01:05 and 01:30 on the night of 6–7 May 2025. Per-site times not given."
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), camp-by-camp listing",
+        "excerpt": "मरकज़ तैय्यबा, मुरिदके। यह अंतरराष्ट्रीय सीमा से 18 से 25 किलोमीटर दूरी पर है।",
+        "note": "Gloss: Markaz Taiba, Muridke – 18 to 25 km from the IB."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Wg Cdr Vyomika Singh, opening remarks",
+        "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
     ]
   },
   {
@@ -676,7 +944,42 @@
     "weaponCategory": "precision weapons – 'niche technology weapons with careful selection of warheads' (briefing); specific weapon not attributed",
     "escalationLevel": 1,
     "sources": [
-      "SRC-MEA-0507"
+      "SRC-MEA-0507",
+      "SRC-MEA-0509"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), opening",
+        "excerpt": "6 से 7 मई 2025 की रात एक बजकर पाँच मिनट से डेढ़ बजे के बीच",
+        "note": "Gloss: between 01:05 and 01:30 on the night of 6–7 May 2025. Per-site times not given."
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Col Sofiya Qureshi (Hindi), camp-by-camp listing",
+        "excerpt": "मरकज़ सुब्हानअल्लाह, बहावलपुर। यह इंटरनेशनल बाउंड्री से 100 किलोमीटर दूर है।",
+        "note": "Gloss: Markaz Subhan Allah, Bahawalpur – 100 km from the IB."
+      },
+      {
+        "field": "attribution",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Foreign Secretary, answer to Bloomberg",
+        "excerpt": "Bahawalpur is the headquarters of the Jaish-e-Mohammad terrorist group that is proscribed by the United Nations."
+      },
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Wg Cdr Vyomika Singh, closing remarks",
+        "excerpt": "The point of impact at each of the target was a specific building or a group of buildings."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0507",
+        "locator": "Wg Cdr Vyomika Singh, opening remarks",
+        "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
     ]
   },
   {
@@ -741,6 +1044,39 @@
     "escalationLevel": 4,
     "sources": [
       "SRC-MEA-0509"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Foreign Secretary, answer to Times Now",
+        "excerpt": "a shell fired from Pakistan landed just behind the Christ School"
+      },
+      {
+        "field": "casualties",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Foreign Secretary, answer to Times Now",
+        "excerpt": "Both students unfortunately lost their lives and their parents were severely injured."
+      },
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Foreign Secretary, answer to Times Now",
+        "excerpt": "During heavy shelling across the Line of Control in the early morning of 7th May"
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Foreign Secretary, answer to Times Now",
+        "excerpt": "a shell fired from Pakistan landed just behind the Christ School"
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Foreign Secretary, answer to Times Now",
+        "excerpt": "Another Pakistani shell struck a Christian Convent",
+        "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
+      }
     ]
   },
   {
@@ -841,6 +1177,40 @@
     "sources": [
       "SRC-PIB-0508",
       "SRC-MEA-0508"
+    ],
+    "provenance": [
+      {
+        "field": "location",
+        "sourceId": "SRC-PIB-0508",
+        "locator": "Paragraph 4",
+        "excerpt": "Kupwara, Baramulla, Uri, Poonch, Mendhar and Rajouri sectors in Jammu and Kashmir"
+      },
+      {
+        "field": "casualties",
+        "sourceId": "SRC-PIB-0508",
+        "locator": "Paragraph 5",
+        "excerpt": "Sixteen innocent lives have been lost, including three women and five children, due to Pakistani firing."
+      },
+      {
+        "field": "casualties",
+        "sourceId": "SRC-MEA-0508",
+        "locator": "Wg Cdr Vyomika Singh (via search excerpt)",
+        "excerpt": "a total of 16 civilians have been killed, and 59 others have been injured",
+        "note": "Injured figure from the 8 May briefing; transcript read only in part."
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-PIB-0508",
+        "locator": "Paragraph 4",
+        "excerpt": "unprovoked firing across the Line of Control using Mortars and heavy calibre Artillery"
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-PIB-0508",
+        "locator": "Paragraph 5",
+        "excerpt": "Sixteen innocent lives have been lost",
+        "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
+      }
     ]
   },
   {
@@ -1012,6 +1382,26 @@
     "sources": [
       "SRC-PIB-0508",
       "SRC-MEA-0509"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "a failed unprovoked drone and missile attack on 7th May at 0830 hours in the evening"
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-PIB-0508",
+        "locator": "Paragraph 2",
+        "excerpt": "Pakistan attempted to engage a number of military targets in Northern and Western India"
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-PIB-0508",
+        "locator": "Paragraph 2",
+        "excerpt": "These were neutralised by the Integrated Counter UAS Grid and Air Defence systems."
+      }
     ]
   },
   {
@@ -1172,6 +1562,20 @@
     "sources": [
       "SRC-PIB-0508",
       "SRC-PIB-0514B"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-PIB-0508",
+        "locator": "Paragraph 2",
+        "excerpt": "These were neutralised by the Integrated Counter UAS Grid and Air Defence systems."
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-PIB-0514B",
+        "locator": "Air Defence Capabilities",
+        "excerpt": "The Integrated Air Command and Control System (IACCS) of the Indian Air Force brought all these elements together"
+      }
     ]
   },
   {
@@ -1231,6 +1635,20 @@
     "sources": [
       "SRC-PIB-0508",
       "SRC-PIB-0514B"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-PIB-0508",
+        "locator": "Paragraph 3",
+        "excerpt": "Today morning Indian Armed Forces targeted Air Defence Radars and systems at a number of locations in Pakistan."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-PIB-0508",
+        "locator": "Paragraph 3",
+        "excerpt": "It has been reliably learnt that an Air Defence system at Lahore has been neutralised."
+      }
     ]
   },
   {
@@ -1290,6 +1708,20 @@
     "escalationLevel": 5,
     "sources": [
       "SRC-MEA-0509"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "drone intrusions were attempted from Leh to Sir Creek at 36 locations with approximately 300 to 400 drones"
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Preliminary reports suggest them to be of ASISGUARD SONGAR drone of Turkey."
+      }
     ]
   },
   {
@@ -1343,6 +1775,20 @@
     "escalationLevel": 5,
     "sources": [
       "SRC-MEA-0509"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Indian Armed Forces brought down a number of these drones using kinetic and non-kinetic means."
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "using kinetic and non-kinetic means."
+      }
     ]
   },
   {
@@ -1402,6 +1848,20 @@
     "escalationLevel": 5,
     "sources": [
       "SRC-MEA-0509"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "an armed UAV of Pakistan attempted to target Bathinda military station, which was detected and neutralized."
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "an armed UAV of Pakistan attempted to target Bathinda military station"
+      }
     ]
   },
   {
@@ -1451,6 +1911,26 @@
     "escalationLevel": 5,
     "sources": [
       "SRC-MEA-0509"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "armed drones were launched at four air defence sites in Pakistan."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "One of the drones was able to destroy an AD radar."
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "armed drones were launched at four air defence sites in Pakistan."
+      }
     ]
   },
   {
@@ -1558,6 +2038,32 @@
     "escalationLevel": 4,
     "sources": [
       "SRC-MEA-0509"
+    ],
+    "provenance": [
+      {
+        "field": "location",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Tangdhar, Uri, Poonch, Mendhar, Rajouri, Akhnoor and Udhampur in J&K area"
+      },
+      {
+        "field": "casualties",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "which resulted in some losses and injuries to Indian Army personnel."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Pakistan Army also suffered major losses in Indian retaliatory fire."
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "artillery shelling across the Line of Control using heavy-caliber artillery guns and armed drones"
+      }
     ]
   },
   {
@@ -1605,6 +2111,14 @@
     "escalationLevel": 5,
     "sources": [
       "SRC-MEA-0509"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Pakistan did not close its civil airspace despite it launching a failed unprovoked drone and missile attack"
+      }
     ]
   },
   {
@@ -1660,6 +2174,14 @@
     "escalationLevel": 5,
     "sources": [
       "SRC-MEA-0509"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0509",
+        "locator": "Foreign Secretary, closing points",
+        "excerpt": "India targeting the Nankana Sahib Gurdwara through a drone attack. This is again yet another blatant lie"
+      }
     ]
   },
   {
@@ -1714,6 +2236,20 @@
     "escalationLevel": 4,
     "sources": [
       "SRC-PIB-0518"
+    ],
+    "provenance": [
+      {
+        "field": "casualties",
+        "sourceId": "SRC-PIB-0518",
+        "locator": "Introduction, BSF paragraph",
+        "excerpt": "the BSF successfully neutralized at least two infiltrators"
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-PIB-0518",
+        "locator": "Introduction, BSF paragraph",
+        "excerpt": "a major infiltration attempt along the International Border in the Samba district"
+      }
     ]
   },
   {
@@ -1765,6 +2301,20 @@
     "escalationLevel": 3,
     "sources": [
       "SRC-PIB-0518"
+    ],
+    "provenance": [
+      {
+        "field": "formation",
+        "sourceId": "SRC-PIB-0518",
+        "locator": "Introduction, Navy paragraph",
+        "excerpt": "the Navy deployed its Carrier Battle Group (CBG) equipped with MiG-29K fighter jets and airborne early warning helicopters"
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-PIB-0518",
+        "locator": "Introduction, Navy paragraph",
+        "excerpt": "Carrier Battle Group (CBG) equipped with MiG-29K fighter jets and airborne early warning helicopters"
+      }
     ]
   },
   {
@@ -1876,6 +2426,27 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "weapons",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Pakistan employed UCAV, drones, long-range weapons, loitering munitions and fighter aircrafts"
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "from Srinagar till Naliya at more than 26 locations."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Indian Armed Forces successfully neutralised these threats and majority of the vectors.",
+        "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
+      }
     ]
   },
   {
@@ -1932,6 +2503,20 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "several high-speed missile attacks noticed subsequently after 0140 hours in the night at several air bases in Punjab."
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "several high-speed missile attacks"
+      }
     ]
   },
   {
@@ -2010,6 +2595,14 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "limited damage was sustained to equipment and personnel at Indian Air Force stations at Udhampur, Pathankot, Adampur and Bhuj."
+      }
     ]
   },
   {
@@ -2065,6 +2658,21 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "attacked the medicare centre and school premises at the air bases of Srinagar, Awantipora and Udhampur"
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "attacked the medicare centre and school premises",
+        "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
+      }
     ]
   },
   {
@@ -2123,6 +2731,14 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Pakistan military targets at Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur and Chunian were engaged using air-launched precision weapons"
+      }
     ]
   },
   {
@@ -2181,6 +2797,14 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Pakistan military targets at Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur and Chunian were engaged using air-launched precision weapons"
+      }
     ]
   },
   {
@@ -2240,6 +2864,20 @@
     "sources": [
       "SRC-MEA-0510A",
       "SRC-PIB-0518"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Pakistan military targets at Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur and Chunian were engaged using air-launched precision weapons"
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-PIB-0518",
+        "locator": "Introduction, IAF paragraph",
+        "excerpt": "Nur Khan Air Base and the Rahimyar Khan Air Base, with visual evidence of damage presented during official briefings"
+      }
     ]
   },
   {
@@ -2299,6 +2937,20 @@
     "sources": [
       "SRC-MEA-0510A",
       "SRC-PIB-0518"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Pakistan military targets at Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur and Chunian were engaged using air-launched precision weapons"
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-PIB-0518",
+        "locator": "Introduction, IAF paragraph",
+        "excerpt": "Nur Khan Air Base and the Rahimyar Khan Air Base, with visual evidence of damage presented during official briefings"
+      }
     ]
   },
   {
@@ -2357,6 +3009,14 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Pakistan military targets at Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur and Chunian were engaged using air-launched precision weapons"
+      }
     ]
   },
   {
@@ -2415,6 +3075,14 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Pakistan military targets at Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur and Chunian were engaged using air-launched precision weapons"
+      }
     ]
   },
   {
@@ -2473,6 +3141,14 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Radar sites at Pasrur and Sialkot aviation base were also targeted using precision munitions."
+      }
     ]
   },
   {
@@ -2531,6 +3207,14 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Radar sites at Pasrur and Sialkot aviation base were also targeted using precision munitions."
+      }
     ]
   },
   {
@@ -2589,6 +3273,14 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510C"
+    ],
+    "provenance": [
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0510C",
+        "locator": "Wg Cdr Vyomika Singh, evening MoD briefing",
+        "excerpt": "extensive damage to the crucial Pakistani airbases like Skardu in Pakistan occupied Jammu and Kashmir, Sargodha, Jacobabad and Bholari"
+      }
     ]
   },
   {
@@ -2647,6 +3339,14 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510C"
+    ],
+    "provenance": [
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0510C",
+        "locator": "Wg Cdr Vyomika Singh, evening MoD briefing",
+        "excerpt": "extensive damage to the crucial Pakistani airbases like Skardu in Pakistan occupied Jammu and Kashmir, Sargodha, Jacobabad and Bholari"
+      }
     ]
   },
   {
@@ -2705,6 +3405,14 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510C"
+    ],
+    "provenance": [
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0510C",
+        "locator": "Wg Cdr Vyomika Singh, evening MoD briefing",
+        "excerpt": "extensive damage to the crucial Pakistani airbases like Skardu in Pakistan occupied Jammu and Kashmir, Sargodha, Jacobabad and Bholari"
+      }
     ]
   },
   {
@@ -2764,6 +3472,20 @@
     "sources": [
       "SRC-MEA-0510C",
       "SRC-PIB-0514A"
+    ],
+    "provenance": [
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0510C",
+        "locator": "Wg Cdr Vyomika Singh, evening MoD briefing",
+        "excerpt": "extensive damage to the crucial Pakistani airbases like Skardu in Pakistan occupied Jammu and Kashmir, Sargodha, Jacobabad and Bholari"
+      },
+      {
+        "field": "casualties",
+        "sourceId": "SRC-PIB-0514A",
+        "locator": "What Operation SINDOOR Achieved",
+        "excerpt": "High casualties were inflicted at Bhoolari Airbase"
+      }
     ]
   },
   {
@@ -2828,6 +3550,27 @@
     "escalationLevel": 4,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "casualties",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Foreign Secretary, closing points",
+        "excerpt": "Pakistan shelled the town of Rajouri, killing the Additional District Development Commissioner Shri Raj Kumar Thapa"
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Foreign Secretary, closing points",
+        "excerpt": "Pakistan shelled the town of Rajouri"
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Foreign Secretary, closing points",
+        "excerpt": "adding to the civilian casualties and the damage in that state.",
+        "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
+      }
     ]
   },
   {
@@ -2886,6 +3629,20 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Foreign Secretary, closing points",
+        "excerpt": "damage to property and injuries to civilians in Ferozepur and Jalandhar, among other places."
+      },
+      {
+        "field": "casualties",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Foreign Secretary, closing points",
+        "excerpt": "injuries to civilians in Ferozepur and Jalandhar, among other places."
+      }
     ]
   },
   {
@@ -2973,6 +3730,33 @@
     "escalationLevel": 4,
     "sources": [
       "SRC-MEA-0510A"
+    ],
+    "provenance": [
+      {
+        "field": "location",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Heavy exchange of artillery mortars and small-arm fire in Kupwara, Baramulla, Poonch, Rajouri and Akhnoor sectors continued."
+      },
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Pak military has been observed to be moving their troops into forward areas"
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Heavy exchange of artillery mortars and small-arm fire"
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "Indian Army has responded effectively and proportionately, causing extensive damage to Pakistan Army.",
+        "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
+      }
     ]
   },
   {
@@ -3051,6 +3835,26 @@
     "sources": [
       "SRC-MEA-0510A",
       "SRC-MEA-0510C"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "claims of destruction of Indian S-400 system at Adampur, destruction of airfields at Suratgarh and Sirsa"
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "India unequivocally rejects these false narratives being spread by Pakistan."
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-MEA-0510A",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "destruction of Indian S-400 system at Adampur"
+      }
     ]
   },
   {
@@ -3100,6 +3904,14 @@
     "escalationLevel": 7,
     "sources": [
       "SRC-MEA-0510B"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0510B",
+        "locator": "Statement, paragraph 1",
+        "excerpt": "called the Director General of Military Operations of India at 1535 hours IST earlier today."
+      }
     ]
   },
   {
@@ -3150,6 +3962,14 @@
     "sources": [
       "SRC-MEA-0510B",
       "SRC-PIB-0514A"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0510B",
+        "locator": "Statement, paragraph 2",
+        "excerpt": "stop all firing and military action on land and in the air and sea with effect from 1700 hours Indian Standard Time today."
+      }
     ]
   },
   {
@@ -3203,6 +4023,26 @@
     "escalationLevel": 7,
     "sources": [
       "SRC-MEA-0510C"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510C",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "No religious sites, I repeat, no religious sites have been targeted by the Indian Armed Forces."
+      },
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510C",
+        "locator": "Commodore Raghu R Nair",
+        "excerpt": "whilst we will be adhering to the understanding that has been reached today"
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-MEA-0510C",
+        "locator": "Wg Cdr Vyomika Singh",
+        "excerpt": "our S-400 at a northern base was destroyed, which was completely false, and that it was destroyed by a JF-17"
+      }
     ]
   },
   {
@@ -3255,6 +4095,20 @@
     "sources": [
       "SRC-MEA-0510D",
       "SRC-PIB-0514A"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-MEA-0510D",
+        "locator": "Statement, paragraph 1",
+        "excerpt": "there have been repeated violations of the understanding arrived at earlier this evening"
+      },
+      {
+        "field": "description",
+        "sourceId": "SRC-PIB-0514A",
+        "locator": "Pakistani Response after ceasefire",
+        "excerpt": "Wave of UAVs and small drones intruded into Indian civilian and military areas."
+      }
     ]
   },
   {
@@ -3310,6 +4164,20 @@
     "sources": [
       "SRC-PIB-1206",
       "SRC-PIB-0514A"
+    ],
+    "provenance": [
+      {
+        "field": "casualties",
+        "sourceId": "SRC-PIB-0514A",
+        "locator": "What Operation SINDOOR Achieved",
+        "excerpt": "Over 100 terrorists were killed in action."
+      },
+      {
+        "field": "description",
+        "sourceId": "SRC-PIB-0514A",
+        "locator": "What Operation SINDOOR Achieved",
+        "excerpt": "High-value targets eliminated include Yusuf Azhar, Abdul Malik Rauf, Mudassir Ahmad."
+      }
     ]
   },
   {
@@ -3360,6 +4228,14 @@
     "sources": [
       "SRC-MEA-0510B",
       "SRC-PIB-0514A"
+    ],
+    "provenance": [
+      {
+        "field": "time",
+        "sourceId": "SRC-MEA-0510B",
+        "locator": "Statement, paragraph 4",
+        "excerpt": "The Director Generals of Military Operations will talk again on the 12th of May at 1200 hours."
+      }
     ]
   },
   {
@@ -3421,6 +4297,20 @@
     "escalationLevel": 7,
     "sources": [
       "SRC-PIB-0514B"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-PIB-0514B",
+        "locator": "Air Defence Measures of the Indian Army",
+        "excerpt": "Counter Unmanned Aerial Systems, Electronic Warfare assets, and Air Defence Weapons from both Army and Air Force"
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-PIB-0514B",
+        "locator": "Evidence of Neutralized Threats",
+        "excerpt": "Pieces of PL-15 missiles (of Chinese origin)"
+      }
     ]
   },
   {
@@ -3471,6 +4361,14 @@
     "sources": [
       "SRC-MEA-PM0512",
       "SRC-PIB-0514A"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-PIB-0514A",
+        "locator": "PM's address, first point",
+        "excerpt": "if there is a terrorist attack on India, a fitting reply will be given."
+      }
     ]
   }
 ]

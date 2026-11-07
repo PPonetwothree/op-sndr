@@ -4,6 +4,9 @@ import { TARGET_BY_ID, WEAPON_BY_ID } from "@/data";
 import { Badge, KV } from "@/components/ui/primitives";
 import { Button } from "@/components/ui/button";
 import { EvidenceBadge } from "./EvidenceBadge";
+import { CiteMark, EvidenceTrail } from "./Provenance";
+import { useEffect, useRef, useState } from "react";
+import type { CitationField } from "@/types";
 import { damageLabel, DOMAIN_LABEL, EVENT_TYPE_LABEL, ESCALATION_LEVELS, EVIDENCE } from "@/engine/assessmentEngine";
 import { formatDateLabel } from "@/engine/timelineEngine";
 import { anchorLabel, VECTOR_STYLES } from "@/engine/vectorRenderer";
@@ -54,6 +57,14 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
   const replay = () => useSim.setState((s) => ({ animationNonce: s.animationNonce + 1 }));
   const selectTarget = useSim((s) => s.selectTarget);
   const linked = useSim((s) => s.eventSourceLinks[e.id]) ?? NO_LINKS;
+  const [focus, setFocus] = useState<CitationField | null>(null);
+  const trailRef = useRef<HTMLElement>(null);
+  useEffect(() => setFocus(null), [e.id]);
+  const openCite = (f: CitationField) => {
+    setFocus(f);
+    requestAnimationFrame(() => trailRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
+  };
+  const cite = (f: CitationField) => <CiteMark citations={e.provenance} field={f} onOpen={openCite} />;
   const locs = [...new Set([...e.location.locationIds, ...e.targetIds])].map((id) => TARGET_BY_ID.get(id)).filter(Boolean);
   const vectorStyles = [...new Set(e.vectors.map((v) => v.style))];
   const origins = [...new Set(e.vectors.filter((v) => v.from !== v.to && !v.from.startsWith("FRONT:")).map((v) => anchorLabel(v.from)))];
@@ -78,7 +89,10 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
         <div className="mono mt-1 text-[12px] text-warn">
           {formatDateLabel(e.date)} · {e.time ? `${e.time} IST` : "TIME UNKNOWN"}
         </div>
-        <div className="text-[11px] text-ink-400">{e.timeLabel}</div>
+        <div className="text-[11px] text-ink-400">
+          {e.timeLabel}
+          {cite("time")}
+        </div>
         <div className="mt-2 flex flex-wrap gap-1">
           <EvidenceBadge cls={e.evidenceClass} withDesc />
           <Badge color="#aeb4bb">{EVENT_TYPE_LABEL[e.eventType]}</Badge>
@@ -89,13 +103,24 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
       </div>
 
       <div className="flex-1 space-y-3 overflow-auto p-3">
-        <p className="text-[12px] leading-relaxed text-ink-200">{e.description}</p>
+        <p className="text-[12px] leading-relaxed text-ink-200">
+          {e.description}
+          {cite("description")}
+        </p>
 
         <section>
           <div className="label-caps mb-1">Event record</div>
           <KV k="Actor" v={e.actor.replace("_", " ")} />
           <KV k="Reported by" v={e.reportedBy} />
-          <KV k="Location" v={`${e.location.name} (${e.location.region})`} />
+          <KV
+            k="Location"
+            v={
+              <>
+                {`${e.location.name} (${e.location.region})`}
+                {cite("location")}
+              </>
+            }
+          />
           <KV k="Location precision" v={e.location.precision === "undisclosed" ? "UNDISCLOSED – not plotted" : e.location.precision} />
           <KV k="Escalation level" v={`${e.escalationLevel} – ${ESCALATION_LEVELS[e.escalationLevel]}`} />
           <KV k="Evidence type" v={e.evidenceType.replace(/_/g, " ")} />
@@ -103,7 +128,7 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
         </section>
 
         <section>
-          <div className="label-caps mb-1">Weapon-system category</div>
+          <div className="label-caps mb-1">Weapon-system category {cite("weapons")}</div>
           <div className="text-[12px] text-ink-200">{e.weaponCategory || "UNKNOWN"}</div>
           {e.weaponSystemIds.length > 0 && (
             <div className="mt-1.5 flex flex-wrap gap-1">
@@ -121,7 +146,7 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
         </section>
 
         <section>
-          <div className="label-caps mb-1">Formation</div>
+          <div className="label-caps mb-1">Formation {e.formation.representation !== "none" && cite("formation")}</div>
           {e.formation.representation === "none" ? (
             <div className="text-[12px] text-ink-400">Not applicable</div>
           ) : (
@@ -139,7 +164,7 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
         </section>
 
         <section>
-          <div className="label-caps mb-1">Damage / outcome (as reported)</div>
+          <div className="label-caps mb-1">Damage / outcome (as reported) {cite("damage")}</div>
           <KV k="Assessment" v={damageLabel(e)} />
           <KV k="Status" v={e.damageAssessment.status.replace(/_/g, " ")} />
           <KV k="Confidence" v={e.damageAssessment.confidence.toUpperCase()} />
@@ -149,6 +174,7 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
               v={
                 <span>
                   {e.casualties.killed !== null ? `${e.casualties.killed} killed` : "killed: UNKNOWN"}
+                  {cite("casualties")}
                   {e.casualties.injured !== null ? `, ${e.casualties.injured} injured` : ""} — {e.casualties.category}
                   <span className="block text-[10px] text-ink-500">Stated by {e.casualties.statedBy}</span>
                 </span>
@@ -190,6 +216,11 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
             </div>
           </section>
         )}
+
+        <section ref={trailRef}>
+          <div className="label-caps mb-1">Evidence trail · {e.provenance.length} field-level citations</div>
+          <EvidenceTrail key={e.id} citations={e.provenance} focus={focus} />
+        </section>
 
         <section>
           <div className="label-caps mb-1">Sources ({e.sources.length})</div>

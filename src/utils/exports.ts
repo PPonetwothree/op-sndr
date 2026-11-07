@@ -33,6 +33,7 @@ export function exportEventsCsv(events: TimedEvent[], filename = "sindoor-event-
     verified: e.verified,
     escalation_level: e.escalationLevel,
     sources: e.sources,
+    citations: e.provenance.map((c) => `${c.field}: ${c.sourceId} (${c.locator}) "${c.excerpt}"`),
     description: e.description,
     notes: e.notes,
   }));

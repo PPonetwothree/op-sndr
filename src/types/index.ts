@@ -3,6 +3,8 @@
 
 export type {
   CampaignEvent,
+  Citation,
+  CitationField,
   EventLocation,
   EventVector,
   Formation,
