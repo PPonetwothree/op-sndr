@@ -62,7 +62,7 @@ export function CoordinateReadout() {
   return (
     <div
       ref={ref}
-      className="mono absolute bottom-[26px] right-3 z-[1000] border border-ink-600 bg-ink-950/90 px-2 py-1 text-[10px] leading-tight text-ink-300"
+      className="no-export mono absolute bottom-[26px] right-3 z-[1000] border border-ink-600 bg-ink-950/90 px-2 py-1 text-[10px] leading-tight text-ink-300"
       aria-live="off"
     >
       {pos ? (

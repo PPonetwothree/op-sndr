@@ -5,6 +5,7 @@ import { OperationsMap } from "@/components/map/OperationsMap";
 import { MapLegend } from "@/components/map/MapLegend";
 import { LayerPanel } from "@/components/map/LayerPanel";
 import { InsetMap } from "@/components/map/MapFurniture";
+import { ExportFrame } from "@/components/map/ExportFrame";
 import { TimeSlider } from "@/components/timeline/TimeSlider";
 import { EventPanel } from "@/components/timeline/EventPanel";
 import { EventDetail, TargetDetail } from "@/components/event-cards/EventDetail";
@@ -38,18 +39,23 @@ export function GeospatialModule() {
   const [leftOpen, setLeftOpen] = useState(true);
   const [follow, setFollow] = useState(true);
   const [busy, setBusy] = useState(false);
+  const [exporting, setExporting] = useState(false);
   const mapRef = useRef<HTMLDivElement>(null);
   const selected = useMemo(() => ALL_EVENTS.find((e) => e.id === selectedId) ?? null, [selectedId]);
 
   const doPng = async () => {
     if (!mapRef.current) return;
     setBusy(true);
+    setExporting(true);
+    // let React paint the export frame and the opened legend before capturing
+    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(r, 150))));
     try {
       await exportMapPng(mapRef.current);
     } catch (err) {
       alert(`Map export failed: ${(err as Error).message}. If online tiles are on, try with them off.`);
     } finally {
       setBusy(false);
+      setExporting(false);
     }
   };
 
@@ -97,7 +103,7 @@ export function GeospatialModule() {
           {leftOpen && <EventPanel />}
         </aside>
 
-        <section className="relative min-w-0 flex-1" ref={mapRef}>
+        <section className={cn("relative min-w-0 flex-1", exporting && "exporting")} ref={mapRef}>
           {compare.enabled ? (
             <div className="grid h-full grid-cols-2 gap-px bg-ink-700">
               <OperationsMap key="A" dayOverride={compare.dayA} sync caption={formatDateLabel(compare.dayA)} follow={false} />
@@ -106,7 +112,8 @@ export function GeospatialModule() {
           ) : (
             <OperationsMap follow={follow} />
           )}
-          <MapLegend />
+          {!exporting && <MapLegend />}
+          {exporting && <ExportFrame />}
           {!compare.enabled && <InsetMap />}
           {escalation !== null && (
             <div className="no-export absolute right-3 top-[52px] z-[1000] flex items-center gap-2 border border-warn/60 bg-ink-950/92 px-2.5 py-1.5 text-[11px] text-warn">
@@ -124,7 +131,7 @@ export function GeospatialModule() {
             <LayerPanel />
           </div>
           {selected && !compare.enabled && (
-            <div className="pointer-events-none absolute left-1/2 top-3 z-[1000] -translate-x-1/2 border border-warn/50 bg-ink-950/92 px-3 py-1 text-center">
+            <div className="no-export pointer-events-none absolute left-1/2 top-3 z-[1000] -translate-x-1/2 border border-warn/50 bg-ink-950/92 px-3 py-1 text-center">
               <div className="mono text-[11px] text-warn">
                 {selected.time ? `${formatDateLabel(selected.date)} · ${selected.time} IST` : `${formatDateLabel(selected.date)} · TIME UNKNOWN`}
               </div>
