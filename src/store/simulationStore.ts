@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import type { LatLngBounds } from "leaflet";
 import { EVENTS, BASE_SOURCES } from "@/data";
 import { prepareEvents, filterEvents, indexAtTime, stepIndex, tick, EMPTY_FILTERS, type TimedEvent } from "@/engine/eventEngine";
 import { CAMPAIGN_START } from "@/engine/timelineEngine";
@@ -76,6 +77,9 @@ interface SimState {
   eventSourceLinks: Record<string, string[]>; // user-added source links per event (never changes evidence class)
   mapView: { center: [number, number]; zoom: number };
   animationNonce: number; // bump to replay the selected event's animation
+  mapBounds: LatLngBounds | null; // main map footprint (for the inset)
+  mapCommand: { center: [number, number]; nonce: number } | null; // pan request from the inset
+  setMapBounds: (b: LatLngBounds) => void;
 
   setModule: (m: ModuleId) => void;
   setScenarioMode: (m: ScenarioMode) => void;
@@ -167,6 +171,9 @@ export const useSim = create<SimState>((set, get) => ({
   eventSourceLinks: loadLinks(),
   mapView: { center: [29.6, 71.8], zoom: 5.5 },
   animationNonce: 0,
+  mapBounds: null,
+  mapCommand: null,
+  setMapBounds: (mapBounds) => set({ mapBounds }),
 
   setModule: (module) => set({ module }),
   setScenarioMode: (scenarioMode) => set({ scenarioMode }),

@@ -38,7 +38,7 @@ export function MapLegend() {
   const [open, setOpen] = useState(false);
   const mil = useSim((s) => s.layers.milSymbols);
   return (
-    <div className="absolute bottom-3 left-3 z-[1000] w-[300px] border border-ink-600 bg-ink-950/92 text-[11px] shadow-lg">
+    <div className="absolute bottom-[40px] left-3 z-[1000] w-[300px] border border-ink-600 bg-ink-950/92 text-[11px] shadow-lg">
       <button className="flex w-full items-center justify-between px-2.5 py-1.5" onClick={() => setOpen(!open)}>
         <span className="label-caps">Legend</span>
         {open ? <ChevronDown className="size-3.5 text-ink-400" /> : <ChevronUp className="size-3.5 text-ink-400" />}

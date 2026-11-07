@@ -4,6 +4,7 @@ import { useSim, playlistOf, ALL_EVENTS } from "@/store/simulationStore";
 import { OperationsMap } from "@/components/map/OperationsMap";
 import { MapLegend } from "@/components/map/MapLegend";
 import { LayerPanel } from "@/components/map/LayerPanel";
+import { InsetMap } from "@/components/map/MapFurniture";
 import { TimeSlider } from "@/components/timeline/TimeSlider";
 import { EventPanel } from "@/components/timeline/EventPanel";
 import { EventDetail, TargetDetail } from "@/components/event-cards/EventDetail";
@@ -106,8 +107,9 @@ export function GeospatialModule() {
             <OperationsMap follow={follow} />
           )}
           <MapLegend />
+          {!compare.enabled && <InsetMap />}
           {escalation !== null && (
-            <div className="no-export absolute bottom-3 right-3 z-[1000] flex items-center gap-2 border border-warn/60 bg-ink-950/92 px-2.5 py-1.5 text-[11px] text-warn">
+            <div className="no-export absolute right-3 top-[52px] z-[1000] flex items-center gap-2 border border-warn/60 bg-ink-950/92 px-2.5 py-1.5 text-[11px] text-warn">
               Highlighting escalation level {escalation} – {ESCALATION_LEVELS[escalation]}
               <button
                 onClick={() => useSim.getState().setEscalationHighlight(null)}

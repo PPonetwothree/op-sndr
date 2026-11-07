@@ -9,6 +9,7 @@ import { MarkerLayer, LAYER_OF } from "./MarkerLayer";
 import { UncertaintyLayer } from "./UncertaintyLayer";
 import { IndiaBoundaryLayer, ContestedAreasLayer } from "./IndiaBoundaryLayers";
 import { VectorLayer } from "./VectorLayer";
+import { NorthArrow, CoordinateReadout, MapBoundsBridge, Scale } from "./MapFurniture";
 
 const BOUNDS = L.latLngBounds([15, 56], [40, 86]);
 
@@ -99,6 +100,10 @@ export function OperationsMap({ dayOverride, sync = false, follow = true, captio
         {layers.uncertainty && <UncertaintyLayer set={set} visible={(t) => layers[LAYER_OF[t.markerLayer]]} />}
         <MarkerLayer set={set} layers={layers} />
         <ViewSync sync={sync} />
+        <Scale />
+        <NorthArrow />
+        {!dayOverride && <CoordinateReadout />}
+        {!dayOverride && <MapBoundsBridge />}
         <FollowSelected enabled={follow && !dayOverride} />
       </MapContainer>
       {caption && (

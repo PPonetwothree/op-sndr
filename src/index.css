@@ -78,6 +78,13 @@ body {
   color: var(--color-ink-200) !important;
   border-color: var(--color-ink-700) !important;
 }
+.leaflet-control-scale-line {
+  background: rgba(15, 17, 19, 0.85) !important;
+  border-color: var(--color-ink-300) !important;
+  color: var(--color-ink-200) !important;
+  font-family: var(--font-mono);
+  font-size: 10px !important;
+}
 .leaflet-control-attribution {
   background: rgba(15, 17, 19, 0.75) !important;
   color: var(--color-ink-400) !important;
