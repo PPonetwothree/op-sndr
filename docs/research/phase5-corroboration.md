@@ -1,0 +1,37 @@
+# Phase 5 research notes – adversary accounts and independent corroboration
+
+Status: research gathered 8 Nov 2026; **not yet applied to the data**. Each item below was read on the page unless marked otherwise.
+
+## Sources to register
+
+| Proposed ID        | Source                                                                                                                                                                                                                     | Type                                                | Read                                               |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | -------------------------------------------------- |
+| SRC-IND-STIMSON    | Christopher Clary, "Four Days in May: The India-Pakistan Crisis of 2025", Stimson Center working paper, 28 May 2025 – https://www.stimson.org/2025/four-days-in-may-the-india-pakistan-crisis-of-2025/                     | independent (think tank, commercial-imagery review) | yes                                                |
+| SRC-IND-AJ-MURIDKE | Abid Hussain, "Inside Muridke: Did India hit a 'terror base' or a mosque?", Al Jazeera, 8 May 2025 – https://www.aljazeera.com/features/2025/5/8/inside-muridke-did-india-hit-a-terror-base-or-a-mosque                    | independent media, on-site                          | yes                                                |
+| SRC-IND-AJ-CDS     | "India top general admits aerial 'losses'…", Al Jazeera (agencies), 31 May 2025 – https://www.aljazeera.com/news/2025/5/31/india-top-general-admits-losses-in-recent-conflict-with-pakistan                                | media reporting an Indian admission                 | yes                                                |
+| SRC-IND-AJ-IAF     | "India says six Pakistani aircraft shot down during May conflict", Al Jazeera, 9 Aug 2025 – https://www.aljazeera.com/news/2025/8/9/india-says-six-pakistani-aircraft-shot-down-during-kashmir-conflict                    | media reporting an Indian claim                     | yes                                                |
+| SRC-IND-WAPO       | "Indian strikes on Pakistan damaged six airfields, Washington Post finds", 14 May 2025 – https://www.washingtonpost.com/world/2025/05/14/india-pakistan-strikes-conflict-damage/                                           | independent (imagery analysis)                      | **headline only – paywalled; do not cite details** |
+| SRC-PAK-DAWN-0507  | "Pakistan downs 5 Indian jets as retaliation for late-night strikes at 6 sites: officials", Dawn – https://www.dawn.com/news/1908824                                                                                       | Pakistani media quoting DG ISPR                     | yes                                                |
+| SRC-PAK-RP-0510    | "Now you just wait for our response, DG ISPR warns India", Radio Pakistan, 10 May 2025 – https://www.radio.gov.pk/10-05-2025/now-you-just-wait-for-our-response-dg-ispr-warns-india                                        | Pakistani official (state broadcaster)              | yes                                                |
+| SRC-PAK-RP-0513    | "Marka-e-Haq: 40 civilians, 11 personnel of armed forces embraced martyrdom", Radio Pakistan, 13 May 2025 – https://www.radio.gov.pk/13-05-2025/40-civilians-martyred-in-unprovoked-reprehensible-dastardly-indian-attacks | Pakistani official (ISPR statement)                 | yes (ispr.gov.pk itself blocks automated access)   |
+
+## Findings per event
+
+**7 May strikes (EVT-003…012).** Pakistan's DG ISPR (via Dawn) acknowledged strikes at six sites: Subhan mosque, Ahmedpur East/Bahawalpur (4 strikes, mosque destroyed, 5 killed); Bilal mosque, Muzaffarabad (7 impacts, mosque destroyed); Abbas mosque, Kotli (5 impacts, 2 killed); Umm-ul-Qura mosque, Muridke (4 strikes, mosque destroyed, 1 killed); Kotki Lohara village, Sialkot district (2 strikes, "no damage"); near Shakargarh (2 strikes, "minor damage to a dispensary"). Not acknowledged as separate sites: Sawai Nala, Gulpur, Barnala. Al Jazeera on site at Muridke: administrative block and Jamia Ummul Qurah mosque hit, three clerical staff killed; compound founded by Hafiz Saeed. Pakistan's final civilian toll for 6–7 May: 40 killed (7 women, 15 children), 121 injured (Radio Pakistan, 13 May).
+→ Proposed: GREEN (occurrence) for EVT-003, -005, -007, -009, -010, -011, -012, citing the adversary's statement against interest plus Al Jazeera; site identity for Bilal/Abbas/Shakargarh/Kotki Lohara is a name/area match – note it as analytical. EVT-004, -006, -008 stay BLUE ("not acknowledged by Pakistan"). Damage stays as claimed; Pakistan disputes damage at Sialkot and Shakargarh.
+
+**8 May Lahore AD (EVT-017).** Stimson: "overwhelming evidence – videos and subsequent debris"; Pakistan said the attack injured four soldiers and caused "partial damage" to equipment. → GREEN.
+
+**10 May air bases.** Radio Pakistan: DG ISPR said India targeted Nur Khan, Murid and Shorkot (Rafiqui) with air-to-surface missiles; "all assets of the air force are safe". Stimson: commercial imagery confirms attacks at most named bases; runways cratered at Sargodha and Rahim Yar Khan (Sargodha repaired by 11 May); large hangars hit at Sukkur, Bholari and Jacobabad, no clear evidence aircraft were hit; no commercial imagery known for Chunian, Pasrur, Rafiqui; Jeffrey Lewis: bases "suffered some damage" but not disabling.
+→ Proposed: GREEN (occurrence) for Nur Khan, Murid, Rafiqui (Pakistani acknowledgement), Rahim Yar Khan, Sukkur, Sargodha, Bholari, Jacobabad (imagery). BDA `independently_verified` at level 2 (limited) for Sargodha, Rahim Yar Khan, Sukkur, Bholari, Jacobabad – keeping India's "extensive damage" claim visible alongside. Chunian, Pasrur, Sialkot, Skardu stay BLUE.
+
+**Indian side (EVT-029, EVT-046).** Stimson: no commercial imagery showing meaningful damage at Indian facilities; Udhampur ambiguous. Supports India's "limited damage" acknowledgement and its rejection of Pakistan's S-400 claim (GREY event keeps an independent account attached).
+
+**Missing event – 7 May air engagement.** Pakistan claimed five Indian jets downed (Dawn). India's CDS Gen Anil Chauhan (31 May) acknowledged initial aerial losses, called "five" absolutely incorrect, gave no number. IAF chief A.P. Singh (9 Aug) claimed five Pakistani fighters and one large aircraft shot down, mostly by S-400; Pakistan rejects this. → Add as a new 7 May event: Indian aircraft losses GREEN (Indian statement against interest, number unknown); Pakistani losses claim BLUE/disputed. Also update WPN-S400 usage status (official later claim, reported via Al Jazeera).
+
+## Implementation plan (remaining)
+
+1. Schema: `accounts[]` per event (party, sourceId, stance: confirms_occurrence / confirms_damage / disputes_damage / not_acknowledged / denies / claims_other, summary, short excerpt ≤ 15 words for non-official sources).
+2. Rule (test-enforced): GREEN only with ≥ 1 non-Indian confirming account or an Indian statement against interest; never upgrade damage without an independent damage account.
+3. UI: "Accounts compared" panel (India / Pakistan / independent) on event cards and BDA records; Methods section on the adversary-admission rule.
+4. Re-run scorecard; e2e; release 0.6.0.
