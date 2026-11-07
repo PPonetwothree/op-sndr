@@ -21,6 +21,7 @@ const SECTIONS = [
   ["location", "Locations and uncertainty"],
   ["damage", "Damage and claims"],
   ["map", "Map representation"],
+  ["briefing", "Briefing, links and tabletop"],
   ["excluded", "Deliberately excluded"],
   ["limits", "Known limitations"],
   ["cite", "How to cite"],
@@ -213,6 +214,22 @@ export function MethodsModule() {
               <Li>
                 Vector colours are validated for colour-vision deficiency on the dark map; UAV activity is also dashed. Every module is audited with axe-core
                 against WCAG 2.1 AA.
+              </Li>
+            </ul>
+
+            <H id="briefing">Briefing, links and tabletop</H>
+            <ul className="mt-2 list-disc pl-5">
+              <Li>
+                The guided briefing has 16 steps from the Pahalgam prelude to the aftermath. Its narration paraphrases the cited sources and adds no new facts;
+                caveats mark where a statement is a claim. A test checks that every step cites at least one source of its own event.
+              </Li>
+              <Li>
+                Shareable links store only the view (module, briefing step, event or clock, filters, changed layers, map view, escalation highlight) in the URL.
+                They contain no analyst edits, sources or personal data; saved sessions carry those.
+              </Li>
+              <Li>
+                The tabletop exercise is hypothetical: teams propose moves, an umpire rules on each one and sets the resulting rung, and a turn closes only when
+                every move is ruled. It is stored separately and never changes the historical record.
               </Li>
             </ul>
 

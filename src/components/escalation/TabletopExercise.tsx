@@ -177,7 +177,12 @@ export function TabletopExercise() {
         </label>
         <label>
           <span className="label-caps">Umpire name</span>
-          <input className={input} value={umpire} onChange={(e) => setUmpire(e.target.value)} placeholder="Recorded with each ruling (same as audit-log analyst)" />
+          <input
+            className={input}
+            value={umpire}
+            onChange={(e) => setUmpire(e.target.value)}
+            placeholder="Recorded with each ruling (same as audit-log analyst)"
+          />
         </label>
       </Card>
 

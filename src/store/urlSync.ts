@@ -39,6 +39,11 @@ export function applyUrlState(hash = window.location.hash) {
 /** Write the hash whenever relevant state changes (debounced; replaceState, no history spam). */
 export function startUrlSync() {
   let timer: ReturnType<typeof setTimeout> | undefined;
+  // A hash edited by hand or reached via back/forward is applied (replaceState does not fire this).
+  window.addEventListener("hashchange", () => {
+    clearTimeout(timer);
+    applyUrlState(window.location.hash);
+  });
   return useSim.subscribe(() => {
     clearTimeout(timer);
     timer = setTimeout(() => {

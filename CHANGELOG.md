@@ -4,6 +4,15 @@ All notable changes to this project. Format: [Keep a Changelog](https://keepacha
 
 ## [Unreleased]
 
+## [0.4.0] – 2026-11-08 · Briefing, links and exercises
+
+### Added
+
+- Guided briefing: 16 narrated steps from the Pahalgam prelude to the aftermath; each step selects its event, frames the map and lists its sources, with caveats where facts are claims. Chapter jump, previous/next, auto-advance, keys ← → and Esc.
+- Shareable links: view state in the URL hash (only non-default values; every value validated). Restored on load and on hash change; Copy link button in the header.
+- Turn-based tabletop exercise: Blue/Red moves with intended rungs, umpire rulings (accept / modify / reject with note), turn closes only when every move is ruled; umpire log (CSV, exercise JSON) and rung-per-turn trace. v1 scenarios migrate.
+- Tests: briefing script integrity, URL encode/decode (including hostile input), tabletop rules; 5 new e2e tests (38 in total).
+
 ## [0.3.0] – 2026-11-08 · Map and visual quality
 
 ### Added

@@ -54,9 +54,9 @@ test.describe("Modules", () => {
     await expect.poll(() => page.locator("path.vec-flow").count()).toBeGreaterThan(5);
     await openModule(page, "Escalation Matrix");
     await page.getByRole("button", { name: "Hypothetical tabletop" }).click();
-    await page.locator("main label", { hasText: "Inject / move" }).locator("input").fill("Red announces airspace closure");
-    await page.getByRole("button", { name: "Add inject" }).click();
-    await expect(page.locator("main")).toContainText("Red announces airspace closure");
+    await page.getByLabel("Red move", { exact: true }).fill("Red announces airspace closure");
+    await page.getByRole("button", { name: "Submit Red move" }).click();
+    await expect(page.getByTestId("tabletop-move")).toContainText("Red announces airspace closure");
   });
 
   test("after-action: scorecard assigns no scores; PDF and print report", async ({ page }) => {
