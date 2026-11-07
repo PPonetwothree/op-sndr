@@ -3,6 +3,7 @@ import { formatIst } from "@/engine/timelineEngine";
 import { PlaybackControls } from "@/components/timeline/PlaybackControls";
 import { ConfidenceIndicator } from "./ConfidenceIndicator";
 import { SessionMenu } from "./SessionMenu";
+import { ShareButton } from "./ShareButton";
 import { cn } from "@/utils/cn";
 
 export function Header() {
@@ -49,6 +50,7 @@ export function Header() {
 
       <div className="flex-1" />
       <ConfidenceIndicator />
+      <ShareButton />
       <SessionMenu />
     </header>
   );
