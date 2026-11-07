@@ -12,7 +12,6 @@ import { EscalationLineChart } from "@/components/charts/CampaignCharts";
 import { AXIS, GRID, TOOLTIP } from "@/components/charts/ChartCard";
 import { formatDateLabel } from "@/engine/timelineEngine";
 import { ESCALATION_LEVELS, DOMAIN_LABEL } from "@/engine/assessmentEngine";
-import { exportEscalationPdf } from "@/utils/reportExports";
 import { ModuleHeader } from "../ModuleHeader";
 import { cn } from "@/utils/cn";
 
@@ -294,7 +293,7 @@ export function EscalationModule() {
             <X /> Clear highlight (L{highlight})
           </Button>
         )}
-        <Button variant="secondary" size="sm" onClick={exportEscalationPdf}>
+        <Button variant="secondary" size="sm" onClick={() => import("@/utils/reportExports").then((m) => m.exportEscalationPdf())}>
           <FileDown /> Matrix PDF
         </Button>
       </ModuleHeader>

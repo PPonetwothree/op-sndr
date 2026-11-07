@@ -1,6 +1,5 @@
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
-import { downloadText, toCsv } from "./download";
 import { CLAIM_LABEL, type BdaRecord } from "@/engine/bdaEngine";
 import { ESCALATION_LADDER } from "@/data/escalation";
 import { AAR_SECTIONS } from "@/data/afterAction";
@@ -9,33 +8,6 @@ import { EVIDENCE } from "@/engine/assessmentEngine";
 import { formatDateLabel } from "@/engine/timelineEngine";
 import type { TimedEvent } from "@/engine/eventEngine";
 import type { Source } from "@/types";
-
-export function exportBdaCsv(records: BdaRecord[], filename = "sindoor-bda-records.csv") {
-  const rows = records.map((r) => ({
-    target_id: r.targetId,
-    target_name: r.targetName,
-    region: r.region,
-    country: r.country,
-    target_category: r.category,
-    associated_events: r.associatedEventIds,
-    reported_weapon_category: r.reportedWeaponCategory,
-    reported_damage: r.reportedDamage,
-    infrastructure_condition: r.infrastructureCondition,
-    functional_status: r.functionalStatus,
-    secondary_damage: r.secondaryDamage,
-    civilian_impact: r.civilianImpact,
-    damage_level: r.damageLevel ?? "UNKNOWN",
-    claim_status: CLAIM_LABEL[r.claimStatus],
-    independently_verified: r.claimStatus === "independently_verified",
-    confidence: r.confidence,
-    evidence_sources: r.evidenceSourceIds,
-    imagery_links: r.imagery.map((i) => `${i.caption} (${i.sourceId}) ${i.url}`),
-    analyst_notes: r.notes,
-    edited: r.edited,
-    edited_at: r.editedAt ?? "",
-  }));
-  downloadText(filename, "﻿" + toCsv(rows), "text/csv");
-}
 
 // ── PDF helpers ─────────────────────────────────────────────
 const OLIVE: [number, number, number] = [67, 76, 46];

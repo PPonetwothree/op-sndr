@@ -1,21 +1,21 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect, type ComponentType } from "react";
+import { GeospatialModule } from "@/modules/geospatial/GeospatialModule";
 import { Header } from "@/components/layout/Header";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { useSim } from "@/store/simulationStore";
 import { usePlaybackLoop } from "@/store/usePlaybackLoop";
-import { GeospatialModule } from "@/modules/geospatial/GeospatialModule";
-import { OverviewModule } from "@/modules/overview/OverviewModule";
-import { ForcesModule } from "@/modules/forces/ForcesModule";
-import { AssessmentModule } from "@/modules/assessment/AssessmentModule";
-import { EscalationModule } from "@/modules/escalation/EscalationModule";
-import { AfterActionModule } from "@/modules/after-action/AfterActionModule";
-import { SourcesModule } from "@/modules/sources/SourcesModule";
+const OverviewModule = lazy(() => import("@/modules/overview/OverviewModule").then((m) => ({ default: m.OverviewModule })));
+const ForcesModule = lazy(() => import("@/modules/forces/ForcesModule").then((m) => ({ default: m.ForcesModule })));
+const AssessmentModule = lazy(() => import("@/modules/assessment/AssessmentModule").then((m) => ({ default: m.AssessmentModule })));
+const EscalationModule = lazy(() => import("@/modules/escalation/EscalationModule").then((m) => ({ default: m.EscalationModule })));
+const AfterActionModule = lazy(() => import("@/modules/after-action/AfterActionModule").then((m) => ({ default: m.AfterActionModule })));
+const SourcesModule = lazy(() => import("@/modules/sources/SourcesModule").then((m) => ({ default: m.SourcesModule })));
 import type { ModuleId } from "@/types";
 import { DATA_ISSUES } from "@/data";
 import { ErrorBoundary } from "@/components/layout/ErrorBoundary";
 import { MapPatternDefs } from "@/components/map/IndiaBoundaryLayers";
 
-const MODULES: Record<ModuleId, () => JSX.Element> = {
+const MODULES: Record<ModuleId, ComponentType> = {
   overview: OverviewModule,
   geospatial: GeospatialModule,
   forces: ForcesModule,
@@ -65,10 +65,12 @@ export default function App() {
         <Sidebar />
         <main className="min-w-0 flex-1">
           <ErrorBoundary resetKey={module}>
-            {(() => {
-              const M = MODULES[module];
-              return <M />;
-            })()}
+            <Suspense fallback={<div className="p-6 text-[12px] text-ink-400">Loading module…</div>}>
+              {(() => {
+                const M = MODULES[module];
+                return <M />;
+              })()}
+            </Suspense>
           </ErrorBoundary>
         </main>
       </div>

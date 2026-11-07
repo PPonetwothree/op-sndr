@@ -106,7 +106,7 @@ export function MapLegend() {
                 <div className="text-[10px] uppercase tracking-wider text-ink-500">APP-6 / MIL-STD-2525C (Indian perspective)</div>
                 {SIDC_LEGEND.map((m) => (
                   <div key={m.sidc} className="flex items-center gap-2">
-                    <span className="flex w-[22px] justify-center" dangerouslySetInnerHTML={{ __html: symbolSvg(m.sidc, 11) }} />
+                    <span className="flex w-[22px] justify-center" dangerouslySetInnerHTML={{ __html: symbolSvg(m.sidc) }} />
                     <span className="text-ink-300">{m.label}</span>
                   </div>
                 ))}

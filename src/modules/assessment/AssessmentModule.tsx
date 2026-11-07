@@ -13,7 +13,7 @@ import { BdaEditor } from "@/components/bda/BdaEditor";
 import { DamageDistributionChart, InfrastructureStatusChart, ClaimsChart } from "@/components/charts/CampaignCharts";
 import { ModuleHeader } from "../ModuleHeader";
 import { cn } from "@/utils/cn";
-import { exportBdaCsv } from "@/utils/reportExports";
+import { exportBdaCsv } from "@/utils/exports";
 
 function EvidenceTimeline({ r }: { r: BdaRecord }) {
   const sources = allSources(useSim((s) => s.userSources));

@@ -5,7 +5,6 @@ import { useSim, allSources, ALL_EVENTS } from "@/store/simulationStore";
 import { useBdaRecords } from "@/store/bdaStore";
 import { Card, CardHeader, Badge } from "@/components/ui/primitives";
 import { Button } from "@/components/ui/button";
-import { exportCampaignPdf } from "@/utils/reportExports";
 import { ModuleHeader } from "../ModuleHeader";
 import { buildScorecard } from "./scorecard";
 import { PrintReport } from "./PrintReport";
@@ -37,13 +36,10 @@ export function AfterActionModule() {
           disabled={busy}
           onClick={() => {
             setBusy(true);
-            setTimeout(() => {
-              try {
-                exportCampaignPdf({ events: ALL_EVENTS, bda, sources });
-              } finally {
-                setBusy(false);
-              }
-            }, 10);
+            import("@/utils/reportExports")
+              .then((m) => m.exportCampaignPdf({ events: ALL_EVENTS, bda, sources }))
+              .catch((err: Error) => alert(`PDF export failed: ${err.message}`))
+              .finally(() => setBusy(false));
           }}
         >
           <FileDown /> {busy ? "Building…" : "Full campaign PDF"}

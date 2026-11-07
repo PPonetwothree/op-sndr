@@ -1,7 +1,7 @@
-import { toPng } from "html-to-image";
 import { downloadDataUrl, downloadText, toCsv } from "./download";
 import { TARGETS } from "@/data";
 import type { TimedEvent } from "@/engine/eventEngine";
+import { CLAIM_LABEL, type BdaRecord } from "@/engine/bdaEngine";
 
 export function exportEventsCsv(events: TimedEvent[], filename = "sindoor-event-timeline.csv") {
   const rows = events.map((e) => ({
@@ -59,6 +59,7 @@ export function exportTargetsCsv(filename = "sindoor-target-database.csv") {
 }
 
 export async function exportMapPng(el: HTMLElement, filename = "sindoor-map-view.png") {
+  const { toPng } = await import("html-to-image"); // loaded only when exporting
   const dataUrl = await toPng(el, {
     pixelRatio: 2,
     backgroundColor: "#0e1214",
@@ -66,4 +67,31 @@ export async function exportMapPng(el: HTMLElement, filename = "sindoor-map-view
     filter: (node) => !(node instanceof HTMLElement && node.classList?.contains("no-export")),
   });
   downloadDataUrl(filename, dataUrl);
+}
+
+export function exportBdaCsv(records: BdaRecord[], filename = "sindoor-bda-records.csv") {
+  const rows = records.map((r) => ({
+    target_id: r.targetId,
+    target_name: r.targetName,
+    region: r.region,
+    country: r.country,
+    target_category: r.category,
+    associated_events: r.associatedEventIds,
+    reported_weapon_category: r.reportedWeaponCategory,
+    reported_damage: r.reportedDamage,
+    infrastructure_condition: r.infrastructureCondition,
+    functional_status: r.functionalStatus,
+    secondary_damage: r.secondaryDamage,
+    civilian_impact: r.civilianImpact,
+    damage_level: r.damageLevel ?? "UNKNOWN",
+    claim_status: CLAIM_LABEL[r.claimStatus],
+    independently_verified: r.claimStatus === "independently_verified",
+    confidence: r.confidence,
+    evidence_sources: r.evidenceSourceIds,
+    imagery_links: r.imagery.map((i) => `${i.caption} (${i.sourceId}) ${i.url}`),
+    analyst_notes: r.notes,
+    edited: r.edited,
+    edited_at: r.editedAt ?? "",
+  }));
+  downloadText(filename, "﻿" + toCsv(rows), "text/csv");
 }
