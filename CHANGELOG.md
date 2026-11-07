@@ -4,7 +4,21 @@ All notable changes to this project. Format: [Keep a Changelog](https://keepacha
 
 ## [Unreleased]
 
+## [0.3.0] – 2026-11-08 · Map and visual quality
+
 ### Added
+
+- State/UT (India) and province (Pakistan) boundaries from Natural Earth 1:10m admin-1, with Natural Earth label points (small units appear from zoom 6). `npm run build-admin1`.
+- Map furniture: metric scale bar, north arrow, cursor readout in decimal degrees / DMS / MGRS (1 km), clickable overview inset.
+- Map PNG export layout: title block (event, time, evidence, filters, clock, version), compact legend, sources of the selected event and disclaimers; animations frozen at their end state.
+- Time encoding: vectors fade with time since the event; day/night shading from solar position at the simulation clock.
+- Accessibility: axe-core WCAG 2.1 A/AA audit of every module in the e2e suite; map-quality e2e tests (33 e2e tests in total).
+
+### Changed
+
+- Vector palette re-stepped for colour-vision deficiency (indigo / teal / red / amber, all pairs validated); muted text raised to ≥ 4.5:1; badges and counts use text colours.
+
+### Added (archives, 2026-11-08)
 
 - Submitted the six unarchived sources to the Internet Archive (Save Page Now); 20 of 21 sources now link to a capture. PIB's year-end review could not be archived (PIB returns a block page to the archiver).
 - `check-sources` verifies each capture against a cited excerpt and records `archiveStatus` (content_verified / shell_only / unchecked); falls back to the CDX index and ignores non-200 captures. PDFs are checked with `pdftotext` when available.

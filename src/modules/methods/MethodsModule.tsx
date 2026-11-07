@@ -199,6 +199,21 @@ export function MethodsModule() {
                 Military symbols follow APP-6 / MIL-STD-2525C from the Indian perspective (locations India struck are hostile, Indian locations are friendly).
               </Li>
               <Li>Terrain relief is Natural Earth shaded relief. No imagery is generated or simulated.</Li>
+              <Li>
+                State, UT and province lines are Natural Earth 1:10m admin-1 boundaries; lines inside PoJK and Gilgit-Baltistan are omitted under India's view.
+              </Li>
+              <Li>
+                Night shading is computed from the sun's position at the simulation clock. Past vectors fade with time since the event (12-hour decay), so the
+                most recent action stands out; this encodes recency, not certainty.
+              </Li>
+              <Li>
+                The cursor readout gives decimal degrees, DMS and MGRS at 1 km precision, matching the town-level plotting. It describes the map, not reported
+                positions.
+              </Li>
+              <Li>
+                Vector colours are validated for colour-vision deficiency on the dark map; UAV activity is also dashed. Every module is audited with axe-core
+                against WCAG 2.1 AA.
+              </Li>
             </ul>
 
             <H id="excluded">Deliberately excluded</H>

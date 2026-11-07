@@ -1,7 +1,7 @@
 {
   "name": "operation-sindoor-simulator",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,7 +17,8 @@
     "format:check": "prettier --check .",
     "test:e2e": "playwright test",
     "check": "npm run lint && npm run format:check && npm run typecheck && npm test && npm run build",
-    "check-sources": "node scripts/check-sources.mjs"
+    "check-sources": "node scripts/check-sources.mjs",
+    "build-admin1": "node scripts/build-admin1.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",

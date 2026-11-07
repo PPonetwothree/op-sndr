@@ -18,21 +18,22 @@ npm run dev          # http://127.0.0.1:5173
 | `npm run build-data`                | Regenerate basemap, JSON databases and pre-rendered symbols from `scripts/`            |
 | `npm run build-boundaries -- <dir>` | Rebuild India-view boundary and contested areas from Natural Earth files               |
 | `npm run check-sources`             | Probe source URLs and look up Internet Archive captures (`-- --write` to record them)  |
+| `npm run build-admin1 -- <dir>`     | Rebuild state/UT and province boundaries and labels from Natural Earth admin-1 files   |
 
 CI (`.github/workflows/ci.yml`) runs the same checks on every push and pull request. See [CHANGELOG.md](CHANGELOG.md).
 
 ## Modules
 
-| Module                    | What it does                                                                                                                                                               |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A · Campaign Overview     | 8 KPI tiles (record counts), four day cards with drill-down, campaign timeline, 10 dynamic charts (each with a data-table view)                                            |
-| B · Geospatial Operations | Offline map, layer toggles, illustrative animated vectors, abstract formations, filters, time slider, day comparison, map PNG / events & targets CSV                       |
-| C · Force & Weapons DB    | Indian/adversary force categories, system cards (usage status, linked events, sources), abstract force-package view; hypothetical package builder in hypothetical mode     |
-| D · Damage Assessment     | Editable BDA record per location (0–5 scale, claim vs independent verification), schematic (not imagery), evidence timeline, BDA charts, BDA CSV                           |
-| E · Escalation Matrix     | Interactive ladder 0–7 linked to map and timeline highlight, matrix PDF; separate hypothetical tabletop (injects + trace)                                                  |
-| F · After-Action Review   | Sections A–E with basis labels, evidence scorecard (no invented scores), full campaign PDF, print-friendly report                                                          |
-| S · Source Management     | Source register with retrieval status and archive links, manual source entry (validated), link sources to events, audit log (analyst, before/after), sources and audit CSV |
-| M · Methods & Data        | Method statement, evidence rules, known limitations, how to cite, and the data dictionary                                                                                  |
+| Module                    | What it does                                                                                                                                                                                                                                                                                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A · Campaign Overview     | 8 KPI tiles (record counts), four day cards with drill-down, campaign timeline, 10 dynamic charts (each with a data-table view)                                                                                                                                                                                                             |
+| B · Geospatial Operations | Offline map with relief, India-view boundary, contested areas, state lines and day/night shading; layer toggles; illustrative animated vectors with age fade; APP-6 symbols; uncertainty rings; scale, north arrow, MGRS readout, inset; filters, time slider, day comparison; map PNG (title block, legend, sources), events & targets CSV |
+| C · Force & Weapons DB    | Indian/adversary force categories, system cards (usage status, linked events, sources), abstract force-package view; hypothetical package builder in hypothetical mode                                                                                                                                                                      |
+| D · Damage Assessment     | Editable BDA record per location (0–5 scale, claim vs independent verification), schematic (not imagery), evidence timeline, BDA charts, BDA CSV                                                                                                                                                                                            |
+| E · Escalation Matrix     | Interactive ladder 0–7 linked to map and timeline highlight, matrix PDF; separate hypothetical tabletop (injects + trace)                                                                                                                                                                                                                   |
+| F · After-Action Review   | Sections A–E with basis labels, evidence scorecard (no invented scores), full campaign PDF, print-friendly report                                                                                                                                                                                                                           |
+| S · Source Management     | Source register with retrieval status and archive links, manual source entry (validated), link sources to events, audit log (analyst, before/after), sources and audit CSV                                                                                                                                                                  |
+| M · Methods & Data        | Method statement, evidence rules, known limitations, how to cite, and the data dictionary                                                                                                                                                                                                                                                   |
 
 Sessions (header → Session) save/load to the browser or export/import JSON, including BDA edits, the tabletop scenario and analyst-linked sources.
 
