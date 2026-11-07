@@ -1,0 +1,411 @@
+// Authoring source for src/data/events.json. Each event cites sources in src/data/sources.json.
+// Rules: clock times only where a source states them; sortTime is for sequencing only.
+// Regenerate with: node scripts/events.src.mjs
+import { writeFileSync } from "node:fs";
+
+const E = [];
+let n = 0;
+const id = () => `EVT-${String(++n).padStart(3, "0")}`;
+const UNDISCLOSED = { status: "undisclosed", representation: "abstract", publicDescription: null };
+const NA = { status: "not_applicable", representation: "none", publicDescription: null };
+const dmg = (status = "not_applicable", level = null, confidence = "unknown") => ({ status, level, confidence });
+
+function ev(o) {
+  const e = {
+    id: id(),
+    time: null,
+    timeBasis: "unknown",
+    phase: "campaign",
+    weaponSystemIds: [],
+    formation: NA,
+    damageAssessment: dmg(),
+    casualties: null,
+    evidenceType: "official_claim",
+    evidenceClass: "BLUE",
+    verified: false,
+    vectors: [],
+    targetIds: [],
+    notes: "",
+    sample: false,
+    reportedBy: "Government of India",
+    ...o,
+  };
+  e.location = { lat: null, lng: null, locationIds: [], ...o.location };
+  E.push(e);
+  return e.id;
+}
+
+// ───────────── PRELUDE ─────────────
+ev({
+  date: "2025-04-22", sortTime: "2025-04-22T14:00", timeLabel: "22 Apr 2025 (afternoon; exact time not cited)", phase: "prelude",
+  title: "Pahalgam terrorist attack", eventType: "terror_attack", domain: "land",
+  location: { name: "Baisaran meadow, Pahalgam", region: "Jammu & Kashmir", precision: "town", lat: 34.0, lng: 75.33, locationIds: ["LOC-PAHALGAM"] },
+  actor: "Terrorist_group", reportedBy: "MEA; UN Security Council",
+  description: "Attack on tourists at Pahalgam. MEA: 26 killed, including one Nepali national. Indian government attributes the attack to Pakistan-based LeT operating through The Resistance Front (TRF), which claimed responsibility.",
+  weaponCategory: "small arms (as described)", casualties: { killed: 26, injured: null, category: "civilian", statedBy: "MEA 7 May briefing" },
+  evidenceType: "independent_corroboration", evidenceClass: "GREEN", verified: true, escalationLevel: 0,
+  sources: ["SRC-MEA-0507", "SRC-UNSC-0425"],
+  notes: "GREEN applies to the occurrence of the attack (condemned by the UN Security Council on 25 Apr). Attribution to LeT/TRF is the Indian government's position.",
+});
+ev({
+  date: "2025-04-23", sortTime: "2025-04-23T20:00", timeLabel: "23 Apr 2025 (CCS meeting; time not cited)", phase: "prelude",
+  title: "CCS non-military measures against Pakistan", eventType: "diplomatic_measure", domain: "diplomatic",
+  location: { name: "New Delhi", region: "India", precision: "town", lat: 28.61, lng: 77.21, locationIds: ["LOC-NEW-DELHI"] },
+  actor: "India", description: "Cabinet Committee on Security: Indus Waters Treaty held in abeyance; ICP Attari closed; SAARC visa exemption cancelled for Pakistani nationals; Pakistani defence/naval/air advisers declared persona non grata; High Commission strength cut from 55 to 30.",
+  weaponCategory: "none (diplomatic/economic)", evidenceType: "official_statement", escalationLevel: 0,
+  sources: ["SRC-MEA-0423", "SRC-PIB-0514A"],
+});
+
+// ───────────── 7 MAY ─────────────
+const STRIKE_LBL = "7 May, within stated strike window 01:05–01:30 IST (per-site time not disclosed)";
+const umbrella = ev({
+  date: "2025-05-07", time: "01:05", timeBasis: "stated", sortTime: "2025-05-07T01:05", timeLabel: "01:05 IST – strike window opens (window 01:05–01:30)",
+  title: "OPERATION SINDOOR launched – nine-site precision strikes", eventType: "precision_strike", domain: "multi",
+  location: { name: "Pakistan and PoJK (nine sites)", region: "Pakistan / PoJK", precision: "regional" },
+  actor: "India", description: "Indian Armed Forces strike nine sites described as terrorist infrastructure in Pakistan and PoJK between 01:05 and 01:30 IST. Government describes the action as focused, measured and non-escalatory, with no Pakistani military facilities targeted.",
+  weaponCategory: "precision air-to-surface / stand-off weapons (category)", weaponSystemIds: ["WPN-RAFALE", "WPN-SCALP", "WPN-HAMMER"],
+  formation: { status: "partially_disclosed", representation: "abstract", publicDescription: "PIB 14 May: Rafale jets, SCALP missiles and HAMMER bombs; mission completed 'in just 23 minutes'. Package composition, numbers and routing not disclosed." },
+  damageAssessment: dmg("claimed", 5, "medium"), escalationLevel: 1,
+  sources: ["SRC-MEA-0507", "SRC-PIB-0507", "SRC-PIB-0514A"],
+  notes: "Weapon-to-target pairing for individual sites has not been published.",
+});
+void umbrella;
+const strikes = [
+  ["TGT-SAWAI-NALA", "Sawai Nala camp, Muzaffarabad", "PoJK", 34.37, 73.47, "ANC-IN-NORTH", "LeT training centre"],
+  ["TGT-SYEDNA-BILAL", "Syedna Bilal camp, Muzaffarabad", "PoJK", 34.34, 73.52, "ANC-IN-NORTH", "JeM staging area"],
+  ["TGT-GULPUR", "Gulpur camp, Kotli", "PoJK", 33.437, 73.857, "ANC-IN-NORTH", "LeT base"],
+  ["TGT-ABBAS", "Abbas camp, Kotli", "PoJK", 33.55, 73.86, "ANC-IN-NORTH", "LeT fidayeen camp"],
+  ["TGT-BARNALA", "Barnala camp, Bhimber", "PoJK", 32.99, 74.10, "ANC-IN-NORTH", "training camp"],
+  ["TGT-SARJAL", "Sarjal camp, Narowal (opp. Samba)", "Pakistan", 32.35, 75.123, "ANC-IN-PUNJAB", "training camp"],
+  ["TGT-MEHMOONA-JOYA", "Mehmoona Joya camp, Sialkot", "Pakistan", 32.616, 74.513, "ANC-IN-PUNJAB", "HM camp"],
+  ["TGT-MURIDKE", "Markaz Taiba, Muridke", "Pakistan", 31.80, 74.26, "ANC-IN-PUNJAB", "LeT centre"],
+  ["TGT-BAHAWALPUR", "Markaz Subhan Allah, Bahawalpur", "Pakistan", 29.39, 71.68, "ANC-IN-RAJ", "JeM headquarters"],
+];
+strikes.forEach(([tid, name, region, lat, lng, anchor, kind], i) =>
+  ev({
+    date: "2025-05-07", timeBasis: "approximate_window", sortTime: `2025-05-07T01:${String(6 + i * 2).padStart(2, "0")}`, timeLabel: STRIKE_LBL,
+    title: `Strike: ${name}`, eventType: "precision_strike", domain: "air",
+    location: { name, region, precision: "town", lat, lng, locationIds: [tid] },
+    actor: "India", description: `Strike on ${kind} named by Indian briefers. Briefers stated the point of impact at each target was a specific building or group of buildings, and that targets were 'successfully destroyed'.`,
+    weaponCategory: "precision weapons – 'niche technology weapons with careful selection of warheads' (briefing); specific weapon not attributed",
+    formation: UNDISCLOSED, damageAssessment: dmg("claimed", 5, "medium"), escalationLevel: 1,
+    vectors: [{ from: anchor, to: tid, style: "indian_offensive", label: "Illustrative vector – not a flight path" }], targetIds: [tid],
+    sources: ["SRC-MEA-0507"], notes: "Sequence within the strike window is illustrative (north to south, as briefed).",
+  })
+);
+ev({
+  date: "2025-05-07", timeBasis: "approximate_window", sortTime: "2025-05-07T05:00", timeLabel: "Early morning 7 May (as stated)",
+  title: "Pakistani shelling hits Poonch town – Gurdwara, Christ School, convent", eventType: "civilian_impact", domain: "land",
+  location: { name: "Poonch town", region: "Jammu & Kashmir", precision: "town", lat: 33.74, lng: 74.15, locationIds: ["LOC-POONCH-TOWN"] },
+  actor: "Pakistan", description: "During heavy shelling across the LoC a shell landed behind Christ School, killing two students in their home and severely injuring their parents; a convent was damaged. A Gurdwara in Poonch was attacked and members of the Sikh community, including the Ragi, were killed.",
+  weaponCategory: "artillery / mortar shells", weaponSystemIds: ["WPN-PK-ARTY"], damageAssessment: dmg("claimed", 3, "medium"),
+  casualties: { killed: null, injured: null, category: "civilian (two students named among the dead; Gurdwara deaths not counted in source)", statedBy: "Foreign Secretary, 9 May" },
+  escalationLevel: 4, vectors: [{ from: "ANC-PK-NORTH", to: "LOC-POONCH-TOWN", style: "artillery" }], targetIds: ["LOC-POONCH-TOWN"],
+  sources: ["SRC-MEA-0509"],
+});
+ev({
+  date: "2025-05-07", timeBasis: "approximate_window", sortTime: "2025-05-07T12:00", timeLabel: "7–8 May (reported 8 May; times not stated)",
+  title: "Intensified LoC shelling – Kupwara to Rajouri", eventType: "artillery_shelling", domain: "land",
+  location: { name: "LoC sectors: Kupwara, Baramulla, Uri, Poonch, Mendhar, Rajouri", region: "Jammu & Kashmir", precision: "front", locationIds: ["SEC-KUPWARA", "SEC-BARAMULLA", "SEC-URI", "SEC-POONCH", "SEC-MENDHAR", "SEC-RAJOURI"] },
+  actor: "Pakistan", description: "Pakistan increased unprovoked firing across the LoC using mortars and heavy-calibre artillery. Sixteen civilians killed including three women and five children; India 'compelled to respond' to bring fire to a halt.",
+  weaponCategory: "mortars, heavy-calibre artillery", weaponSystemIds: ["WPN-PK-ARTY"], damageAssessment: dmg("claimed", 3, "medium"),
+  casualties: { killed: 16, injured: 59, category: "civilian", statedBy: "PIB 8 May (killed); MEA 8 May briefing (injured)" },
+  escalationLevel: 4,
+  vectors: ["SEC-KUPWARA", "SEC-BARAMULLA", "SEC-URI", "SEC-POONCH", "SEC-MENDHAR", "SEC-RAJOURI"].map((s) => ({ from: `XLOC:${s}`, to: s, style: "artillery" })),
+  targetIds: ["SEC-KUPWARA", "SEC-BARAMULLA", "SEC-URI", "SEC-POONCH", "SEC-MENDHAR", "SEC-RAJOURI"],
+  sources: ["SRC-PIB-0508", "SRC-MEA-0508"],
+});
+const IND15 = ["IND-AWANTIPURA", "IND-SRINAGAR", "IND-JAMMU", "IND-PATHANKOT", "IND-AMRITSAR", "IND-KAPURTHALA", "IND-JALANDHAR", "IND-LUDHIANA", "IND-ADAMPUR", "IND-BATHINDA", "IND-CHANDIGARH", "IND-NAL", "IND-PHALODI", "IND-UTTARLAI", "IND-BHUJ"];
+const pkAnchorFor = (t) => (["IND-AWANTIPURA", "IND-SRINAGAR", "IND-JAMMU"].includes(t) ? "ANC-PK-NORTH" : ["IND-NAL", "IND-PHALODI", "IND-UTTARLAI", "IND-BHUJ"].includes(t) ? "ANC-PK-SINDH" : "ANC-PK-PUNJAB");
+ev({
+  date: "2025-05-07", time: "20:30", timeBasis: "stated", sortTime: "2025-05-07T20:30", timeLabel: "20:30 IST 7 May (as stated 9 May) and through the night of 7–8 May",
+  title: "Pakistani drone and missile attempt on 15 locations in North and West India", eventType: "drone_missile_attack", domain: "air",
+  location: { name: "15 locations, Awantipura to Bhuj", region: "J&K, Punjab, Chandigarh, Rajasthan, Gujarat", precision: "front", locationIds: IND15 },
+  actor: "Pakistan", description: "Pakistan attempted to engage military targets at Awantipura, Srinagar, Jammu, Pathankot, Amritsar, Kapurthala, Jalandhar, Ludhiana, Adampur, Bathinda, Chandigarh, Nal, Phalodi, Uttarlai and Bhuj using drones and missiles. Debris being recovered from several locations.",
+  weaponCategory: "drones and missiles (types not stated)", formation: UNDISCLOSED, damageAssessment: dmg("denied", 0, "medium"), escalationLevel: 2,
+  vectors: IND15.map((t) => ({ from: pkAnchorFor(t), to: t, style: "pakistani_attack", label: "Illustrative threat axis" })), targetIds: IND15,
+  sources: ["SRC-PIB-0508", "SRC-MEA-0509"],
+  notes: "Damage 'denied' = Indian sources state the attempts were neutralised; no independent damage assessment.",
+});
+ev({
+  date: "2025-05-07", timeBasis: "approximate_window", sortTime: "2025-05-07T22:00", timeLabel: "Night of 7–8 May (times not stated)",
+  title: "Integrated Counter-UAS Grid and AD systems neutralise attacks", eventType: "air_defence_engagement", domain: "air",
+  location: { name: "Northern and Western India", region: "India", precision: "front", locationIds: IND15 },
+  actor: "India", description: "The attempted attacks were neutralised by the Integrated Counter UAS Grid and air-defence systems (official account).",
+  weaponCategory: "integrated counter-UAS and air-defence systems", weaponSystemIds: ["WPN-CUAS-GRID", "WPN-IACCS", "WPN-AKASHTEER"],
+  formation: UNDISCLOSED, escalationLevel: 3, targetIds: IND15, sources: ["SRC-PIB-0508", "SRC-PIB-0514B"],
+  vectors: IND15.map((t) => ({ from: t, to: t, style: "indian_defensive" })),
+  notes: "Individual system employment per location not disclosed. Defensive coverage shown on map is illustrative.",
+});
+
+// ───────────── 8 MAY ─────────────
+ev({
+  date: "2025-05-08", timeBasis: "approximate_window", sortTime: "2025-05-08T06:00", timeLabel: "Morning of 8 May ('today morning', PIB 8 May)",
+  title: "Indian strikes on Pakistani air-defence radars; Lahore AD system neutralised", eventType: "sead_strike", domain: "air",
+  location: { name: "Multiple locations in Pakistan incl. Lahore", region: "Pakistan", precision: "town", lat: 31.55, lng: 74.34, locationIds: ["TGT-LAHORE-AD"] },
+  actor: "India", description: "Indian Armed Forces targeted air-defence radars and systems at a number of locations in Pakistan, 'in the same domain with same intensity as Pakistan'. It was 'reliably learnt' that an AD system at Lahore was neutralised.",
+  weaponCategory: "not stated for this event", formation: UNDISCLOSED, damageAssessment: dmg("claimed", 4, "low"), escalationLevel: 3,
+  vectors: [{ from: "ANC-IN-PUNJAB", to: "TGT-LAHORE-AD", style: "indian_offensive", label: "Illustrative vector" }], targetIds: ["TGT-LAHORE-AD"],
+  sources: ["SRC-PIB-0508", "SRC-PIB-0514B"],
+  notes: "Other locations not named. PIB 14 May says loitering munitions destroyed radar and missile systems during the operation, without tying them to this date.",
+});
+
+// ───────────── 8–9 MAY NIGHT ─────────────
+ev({
+  date: "2025-05-08", timeBasis: "approximate_window", sortTime: "2025-05-08T22:00", timeLabel: "Intervening night of 8–9 May",
+  title: "300–400 drones at 36 locations, Leh to Sir Creek", eventType: "drone_missile_attack", domain: "air",
+  location: { name: "IB and LoC from Leh to Sir Creek (36 locations, not individually named)", region: "Ladakh to Gujarat", precision: "front", locationIds: ["LOC-LEH", "LOC-SIR-CREEK"] },
+  actor: "Pakistan", description: "Multiple violations of Indian airspace along the entire western border with intent to target military infrastructure. Approximately 300–400 drones used for intrusions at 36 locations. Possible purpose assessed as testing AD systems and gathering intelligence. Preliminary forensic reports suggest Turkish Asisguard Songar drones.",
+  weaponCategory: "UAVs (preliminary ID: Asisguard Songar)", weaponSystemIds: ["WPN-SONGAR"], formation: UNDISCLOSED, escalationLevel: 5,
+  vectors: [{ from: "FRONT:WESTERN", to: "FRONT:WESTERN", style: "uav", label: "Intrusion front along LoC/IB – illustrative distribution; the 36 locations were not published" }],
+  sources: ["SRC-MEA-0509"],
+  notes: "The 36 locations were not named publicly; the front is drawn only between its stated ends.",
+});
+ev({
+  date: "2025-05-08", timeBasis: "approximate_window", sortTime: "2025-05-08T23:00", timeLabel: "Night of 8–9 May",
+  title: "Counter-UAS engagements – kinetic and non-kinetic", eventType: "counter_uas", domain: "air",
+  location: { name: "Western border, Leh to Sir Creek", region: "India", precision: "front", locationIds: ["LOC-LEH", "LOC-SIR-CREEK"] },
+  actor: "India", description: "Indian Armed Forces brought down 'a number of these drones' using kinetic and non-kinetic means.",
+  weaponCategory: "counter-UAS: kinetic and non-kinetic (EW) means", weaponSystemIds: ["WPN-CUAS-GRID", "WPN-EW"], formation: UNDISCLOSED, escalationLevel: 5,
+  sources: ["SRC-MEA-0509"], notes: "Number of drones brought down not stated.",
+});
+ev({
+  date: "2025-05-09", timeBasis: "approximate_window", sortTime: "2025-05-09T02:00", timeLabel: "Later in the night of 8–9 May",
+  title: "Armed UAV attempt on Bathinda military station neutralised", eventType: "counter_uas", domain: "air",
+  location: { name: "Bathinda military station", region: "Punjab", precision: "town", lat: 30.21, lng: 74.95, locationIds: ["IND-BATHINDA"] },
+  actor: "Pakistan", description: "An armed UAV of Pakistan attempted to target Bathinda military station; it was detected and neutralised.",
+  weaponCategory: "armed UAV", weaponSystemIds: ["WPN-PK-UCAV"], damageAssessment: dmg("denied", 0, "medium"), escalationLevel: 5,
+  vectors: [{ from: "ANC-PK-PUNJAB", to: "IND-BATHINDA", style: "uav" }], targetIds: ["IND-BATHINDA"], sources: ["SRC-MEA-0509"],
+});
+ev({
+  date: "2025-05-09", timeBasis: "approximate_window", sortTime: "2025-05-09T03:00", timeLabel: "Night of 8–9 May (in response)",
+  title: "Indian armed drones against four Pakistani AD sites", eventType: "sead_strike", domain: "air",
+  location: { name: "Four air-defence sites in Pakistan (not named)", region: "Pakistan", precision: "undisclosed" },
+  actor: "India", description: "In response, armed drones were launched at four air-defence sites in Pakistan. One drone was able to destroy an AD radar.",
+  weaponCategory: "armed drones / loitering munitions (category)", weaponSystemIds: ["WPN-ARMED-DRONE-IN"], formation: UNDISCLOSED,
+  damageAssessment: dmg("claimed", 4, "low"), escalationLevel: 5, sources: ["SRC-MEA-0509"],
+  notes: "Locations not disclosed – event is not plotted on the map.",
+});
+const SEC9 = ["SEC-TANGDHAR", "SEC-URI", "SEC-POONCH", "SEC-MENDHAR", "SEC-RAJOURI", "SEC-AKHNOOR", "IND-UDHAMPUR"];
+ev({
+  date: "2025-05-09", timeBasis: "approximate_window", sortTime: "2025-05-09T04:00", timeLabel: "Night of 8–9 May",
+  title: "Heavy-calibre artillery and armed drones across LoC", eventType: "artillery_shelling", domain: "land",
+  location: { name: "Tangdhar, Uri, Poonch, Mendhar, Rajouri, Akhnoor, Udhampur", region: "Jammu & Kashmir", precision: "front", locationIds: SEC9 },
+  actor: "Pakistan", description: "Pakistan carried out shelling across the LoC with heavy-calibre artillery guns and armed drones, resulting in some losses and injuries to Indian Army personnel. Indian briefers state Pakistan Army 'also suffered major losses' in Indian retaliatory fire.",
+  weaponCategory: "heavy-calibre artillery; armed drones", weaponSystemIds: ["WPN-PK-ARTY", "WPN-PK-UCAV"], damageAssessment: dmg("claimed", 2, "low"),
+  casualties: { killed: null, injured: null, category: "Indian Army personnel ('some losses and injuries'; numbers not stated)", statedBy: "MEA 9 May briefing" },
+  escalationLevel: 4, vectors: SEC9.map((s) => ({ from: `XLOC:${s}`, to: s, style: "artillery" })), targetIds: SEC9, sources: ["SRC-MEA-0509"],
+});
+ev({
+  date: "2025-05-09", timeBasis: "unknown", sortTime: "2025-05-09T12:00", timeLabel: "9 May (stated at evening briefing)",
+  title: "Pakistan civil airspace kept open during attacks", eventType: "information_operation", domain: "air",
+  location: { name: "Karachi–Lahore air route / Punjab sector", region: "Pakistan", precision: "regional", lat: 31.0, lng: 72.5 },
+  actor: "Pakistan", description: "Indian briefers stated Pakistan did not close its civil airspace despite its 7 May drone/missile attack, citing Flightradar24 data showing a Flynas A320 (Dammam 17:50 – Lahore 21:10) during a high AD alert in the Punjab sector, and said the IAF showed restraint to protect civil carriers.",
+  weaponCategory: "n/a", escalationLevel: 5, sources: ["SRC-MEA-0509"],
+});
+ev({
+  date: "2025-05-09", timeBasis: "unknown", sortTime: "2025-05-09T17:00", timeLabel: "9 May briefing",
+  title: "Disinformation claims rejected – Amritsar, Nankana Sahib", eventType: "information_operation", domain: "cyber_info",
+  location: { name: "Amritsar (claimed)", region: "Punjab", precision: "town", lat: 31.63, lng: 74.87, locationIds: ["IND-AMRITSAR"] },
+  actor: "Pakistan", reportedBy: "Foreign Secretary", description: "FS rejected Pakistani claims that India targeted its own cities such as Amritsar and that India attacked Nankana Sahib Gurdwara with a drone, calling them disinformation.",
+  weaponCategory: "n/a", evidenceType: "adversary_claim", evidenceClass: "GREY", escalationLevel: 5,
+  vectors: [{ from: "IND-AMRITSAR", to: "IND-AMRITSAR", style: "unverified" }], sources: ["SRC-MEA-0509"],
+  notes: "GREY: a disputed adversary claim, recorded as rejected by India.",
+});
+ev({
+  date: "2025-05-09", timeBasis: "unknown", sortTime: "2025-05-09T20:00", timeLabel: "Date not given in PIB document (reported around 8–9 May)",
+  title: "BSF foils infiltration bid on IB, Samba", eventType: "infiltration", domain: "land",
+  location: { name: "Samba district (IB)", region: "Jammu & Kashmir", precision: "district", lat: 32.56, lng: 75.12, locationIds: ["LOC-SAMBA"] },
+  actor: "India", reportedBy: "PIB / BSF (via DD News)", description: "BSF noticed suspicious movement in the early hours, leading to a heavy exchange of fire; at least two infiltrators neutralised; arms and ammunition recovered.",
+  weaponCategory: "small arms", evidenceType: "official_claim", evidenceClass: "AMBER", escalationLevel: 4,
+  casualties: { killed: 2, injured: null, category: "infiltrators ('at least two')", statedBy: "PIB 18 May" },
+  sources: ["SRC-PIB-0518"], notes: "AMBER: the date is a reconstruction; the PIB backgrounder does not give one.",
+});
+ev({
+  date: "2025-05-07", timeBasis: "unknown", sortTime: "2025-05-07T09:00", timeLabel: "During the operation (7–10 May); dates not specified",
+  title: "Navy Carrier Battle Group posture in the Arabian Sea", eventType: "naval_posture", domain: "sea",
+  location: { name: "Arabian Sea (broad region)", region: "Maritime", precision: "regional", lat: 22.0, lng: 65.5, locationIds: ["LOC-ARABIAN-SEA"] },
+  actor: "India", reportedBy: "PIB 18 May", description: "Indian Navy deployed its Carrier Battle Group with MiG-29K fighters and AEW helicopters as a composite networked force, maintaining an air-defence shield and 'bottling up' Pakistani air elements along the western seaboard (official account).",
+  weaponCategory: "carrier battle group / naval air defence", weaponSystemIds: ["WPN-CBG"],
+  formation: { status: "partially_disclosed", representation: "abstract", publicDescription: "CBG with MiG-29K and airborne early warning helicopters (PIB). Composition and position not disclosed." },
+  escalationLevel: 3, sources: ["SRC-PIB-0518"], notes: "Position shown is a broad region only.",
+});
+
+// ───────────── 9–10 MAY NIGHT / 10 MAY ─────────────
+const IND26 = ["IND-SRINAGAR", "IND-AWANTIPURA", "IND-UDHAMPUR", "IND-PATHANKOT", "IND-ADAMPUR", "IND-BHUJ", "IND-NALIYA", "IND-JALANDHAR"];
+ev({
+  date: "2025-05-10", timeBasis: "approximate_window", sortTime: "2025-05-10T00:30", timeLabel: "Night of 9–10 May",
+  title: "Multi-vector Pakistani attacks at 26+ locations, Srinagar to Naliya", eventType: "drone_missile_attack", domain: "air",
+  location: { name: "26+ locations, Srinagar to Naliya", region: "J&K to Gujarat", precision: "front", locationIds: IND26 },
+  actor: "Pakistan", description: "Pakistan employed UCAVs, drones, long-range weapons, loitering munitions and fighter aircraft to target civilian areas and military infrastructure; air intrusions and harassment attacks attempted at more than 26 locations. Indian forces neutralised 'these threats and majority of the vectors'.",
+  weaponCategory: "UCAVs, drones, long-range weapons, loitering munitions, fighter aircraft", weaponSystemIds: ["WPN-PK-UCAV", "WPN-PK-LOITERING", "WPN-PK-FIGHTERS", "WPN-PK-LR-ROCKETS"],
+  formation: UNDISCLOSED, damageAssessment: dmg("claimed", 2, "medium"), escalationLevel: 6,
+  vectors: IND26.map((t) => ({ from: pkAnchorFor(t === "IND-NALIYA" ? "IND-BHUJ" : t === "IND-UDHAMPUR" ? "IND-JAMMU" : t), to: t, style: "pakistani_attack" })), targetIds: IND26,
+  sources: ["SRC-MEA-0510A"], notes: "Only the locations named in the briefing are plotted; the full list of 26 was not published.",
+});
+ev({
+  date: "2025-05-10", time: "01:40", timeBasis: "stated", sortTime: "2025-05-10T01:40", timeLabel: "After 01:40 IST, 10 May",
+  title: "High-speed missile attacks on Punjab air bases", eventType: "drone_missile_attack", domain: "air",
+  location: { name: "Several air bases in Punjab (not named)", region: "Punjab", precision: "regional", lat: 31.2, lng: 75.4 },
+  actor: "Pakistan", description: "Several high-speed missile attacks noticed after 01:40 hours at several air bases in Punjab.",
+  weaponCategory: "high-speed missiles (type not stated)", weaponSystemIds: ["WPN-PK-HSM"], formation: UNDISCLOSED, escalationLevel: 6,
+  vectors: [{ from: "ANC-PK-PUNJAB", to: "REGION:PUNJAB-IN", style: "pakistani_attack", label: "Illustrative – bases not named" }],
+  sources: ["SRC-MEA-0510A"],
+});
+const IAF4 = ["IND-UDHAMPUR", "IND-PATHANKOT", "IND-ADAMPUR", "IND-BHUJ"];
+ev({
+  date: "2025-05-10", timeBasis: "approximate_window", sortTime: "2025-05-10T02:30", timeLabel: "Night of 9–10 May",
+  title: "Limited damage at IAF stations Udhampur, Pathankot, Adampur, Bhuj", eventType: "military_infrastructure_strike", domain: "air",
+  location: { name: "IAF stations Udhampur, Pathankot, Adampur, Bhuj", region: "J&K, Punjab, Gujarat", precision: "town", locationIds: IAF4 },
+  actor: "Pakistan", description: "Indian briefers acknowledged 'limited damage' sustained to equipment and personnel at IAF stations Udhampur, Pathankot, Adampur and Bhuj.",
+  weaponCategory: "not stated", damageAssessment: dmg("claimed", 2, "medium"), escalationLevel: 6, targetIds: IAF4,
+  vectors: IAF4.map((t) => ({ from: pkAnchorFor(t === "IND-UDHAMPUR" ? "IND-JAMMU" : t), to: t, style: "pakistani_attack" })),
+  sources: ["SRC-MEA-0510A"], notes: "Damage level 2 (limited) reflects the Indian acknowledgement; nature and extent not detailed.",
+});
+ev({
+  date: "2025-05-10", timeBasis: "approximate_window", sortTime: "2025-05-10T02:45", timeLabel: "Night of 9–10 May",
+  title: "Medical centre and school premises at Srinagar, Awantipora, Udhampur air bases attacked", eventType: "civilian_impact", domain: "air",
+  location: { name: "Srinagar, Awantipora, Udhampur air bases", region: "Jammu & Kashmir", precision: "town", locationIds: ["IND-SRINAGAR", "IND-AWANTIPURA", "IND-UDHAMPUR"] },
+  actor: "Pakistan", description: "Pakistan attacked the medicare centre and school premises at the air bases of Srinagar, Awantipora and Udhampur (official account).",
+  weaponCategory: "not stated", damageAssessment: dmg("claimed", 1, "low"), escalationLevel: 6, targetIds: ["IND-SRINAGAR", "IND-AWANTIPURA", "IND-UDHAMPUR"],
+  sources: ["SRC-MEA-0510A"],
+});
+const PK10 = [
+  ["TGT-RAFIQUI", "Rafiqui air base", "ANC-IN-RAJ"], ["TGT-MURID", "Murid air base", "ANC-IN-NORTH"], ["TGT-CHAKLALA", "Chaklala (Nur Khan) air base", "ANC-IN-NORTH"],
+  ["TGT-RAHIM-YAR-KHAN", "Rahim Yar Khan air base", "ANC-IN-RAJ"], ["TGT-SUKKUR", "Sukkur air base", "ANC-IN-GUJ"], ["TGT-CHUNIAN", "Chunian military target", "ANC-IN-PUNJAB"],
+];
+PK10.forEach(([tid, name, anc], i) =>
+  ev({
+    date: "2025-05-10", timeBasis: "unknown", sortTime: `2025-05-10T03:${String(10 + i * 6).padStart(2, "0")}`, timeLabel: "Early 10 May, before the morning briefing (time not stated)",
+    title: `Precision strike: ${name}`, eventType: "military_infrastructure_strike", domain: "air",
+    location: { name, region: "Pakistan", precision: "town", locationIds: [tid] },
+    actor: "India", description: `${name} engaged using air-launched precision weapons from fighter aircraft. Briefers said targets were technical infrastructure, command and control centres, radar sites and weapon storage areas, with minimum collateral damage.`,
+    weaponCategory: "air-launched precision weapons (type not stated)", formation: UNDISCLOSED, damageAssessment: dmg("claimed", null, "low"), escalationLevel: 6,
+    vectors: [{ from: anc, to: tid, style: "indian_offensive", label: "Illustrative vector – not a flight path" }], targetIds: [tid],
+    sources: tid === "TGT-CHAKLALA" || tid === "TGT-RAHIM-YAR-KHAN" ? ["SRC-MEA-0510A", "SRC-PIB-0518"] : ["SRC-MEA-0510A"],
+    notes: "Damage level not stated for individual sites in the morning briefing; sequence illustrative.",
+  })
+);
+[["TGT-PASRUR-RADAR", "Pasrur radar site"], ["TGT-SIALKOT-AVN", "Sialkot aviation base radar"]].forEach(([tid, name], i) =>
+  ev({
+    date: "2025-05-10", timeBasis: "unknown", sortTime: `2025-05-10T04:${String(10 + i * 5).padStart(2, "0")}`, timeLabel: "Early 10 May (time not stated)",
+    title: `Precision strike: ${name}`, eventType: "sead_strike", domain: "air",
+    location: { name, region: "Pakistan", precision: "town", locationIds: [tid] },
+    actor: "India", description: `Radar site targeted using precision munitions (${name}).`,
+    weaponCategory: "precision munitions (type not stated)", formation: UNDISCLOSED, damageAssessment: dmg("claimed", null, "low"), escalationLevel: 6,
+    vectors: [{ from: "ANC-IN-PUNJAB", to: tid, style: "indian_offensive", label: "Illustrative vector" }], targetIds: [tid], sources: ["SRC-MEA-0510A"],
+  })
+);
+[["TGT-SKARDU", "Skardu air base", "ANC-IN-NORTH"], ["TGT-SARGODHA", "Sargodha air base", "ANC-IN-PUNJAB"], ["TGT-JACOBABAD", "Jacobabad air base", "ANC-IN-GUJ"], ["TGT-BHOLARI", "Bholari air base", "ANC-IN-GUJ"]].forEach(([tid, name, anc], i) =>
+  ev({
+    date: "2025-05-10", timeBasis: "unknown", sortTime: `2025-05-10T05:${String(i * 10).padStart(2, "0")}`, timeLabel: "Strike time not stated (damage claim made at 10 May evening briefing)",
+    title: `Damage claimed: ${name}`, eventType: "military_infrastructure_strike", domain: "air",
+    location: { name, region: tid === "TGT-SKARDU" ? "Gilgit-Baltistan" : "Pakistan", precision: "town", locationIds: [tid] },
+    actor: "India", description: `Indian MoD briefers claimed 'extensive damage' to ${name}.` + (tid === "TGT-BHOLARI" ? " PIB 14 May further claims high casualties and destruction of key fighter jets." : ""),
+    weaponCategory: "not stated", formation: UNDISCLOSED, damageAssessment: dmg("claimed", 4, "low"), escalationLevel: 6,
+    vectors: [{ from: anc, to: tid, style: "indian_offensive", label: "Illustrative vector" }], targetIds: [tid],
+    sources: tid === "TGT-BHOLARI" ? ["SRC-MEA-0510C", "SRC-PIB-0514A"] : ["SRC-MEA-0510C"],
+    notes: "The timing of these strikes was not stated; sequenced after the morning-briefing list for display only.",
+  })
+);
+ev({
+  date: "2025-05-10", timeBasis: "approximate_window", sortTime: "2025-05-10T07:00", timeLabel: "Early morning 10 May",
+  title: "Rajouri shelled – Additional District Development Commissioner killed", eventType: "civilian_impact", domain: "land",
+  location: { name: "Rajouri town", region: "Jammu & Kashmir", precision: "town", lat: 33.38, lng: 74.31, locationIds: ["SEC-RAJOURI"] },
+  actor: "Pakistan", description: "Pakistan shelled Rajouri, killing Additional District Development Commissioner Shri Raj Kumar Thapa (FS, 10 May).",
+  weaponCategory: "artillery", weaponSystemIds: ["WPN-PK-ARTY"], casualties: { killed: 1, injured: null, category: "civilian official", statedBy: "Foreign Secretary, 10 May" },
+  damageAssessment: dmg("claimed", 2, "medium"), escalationLevel: 4, vectors: [{ from: "XLOC:SEC-RAJOURI", to: "SEC-RAJOURI", style: "artillery" }], targetIds: ["SEC-RAJOURI"],
+  sources: ["SRC-MEA-0510A"],
+});
+ev({
+  date: "2025-05-10", timeBasis: "approximate_window", sortTime: "2025-05-10T07:30", timeLabel: "Overnight 9–10 May",
+  title: "Civilian injuries and property damage – Ferozepur, Jalandhar", eventType: "civilian_impact", domain: "air",
+  location: { name: "Ferozepur and Jalandhar", region: "Punjab", precision: "town", locationIds: ["IND-FEROZEPUR", "IND-JALANDHAR"] },
+  actor: "Pakistan", description: "Overnight damage to property and injuries to civilians in Ferozepur and Jalandhar, among other places (FS, 10 May).",
+  weaponCategory: "not stated", damageAssessment: dmg("claimed", 2, "low"),
+  casualties: { killed: null, injured: null, category: "civilian injuries (number not stated)", statedBy: "Foreign Secretary, 10 May" },
+  escalationLevel: 6, targetIds: ["IND-FEROZEPUR", "IND-JALANDHAR"], sources: ["SRC-MEA-0510A"],
+});
+const SEC10 = ["SEC-KUPWARA", "SEC-BARAMULLA", "SEC-POONCH", "SEC-RAJOURI", "SEC-AKHNOOR"];
+ev({
+  date: "2025-05-10", timeBasis: "approximate_window", sortTime: "2025-05-10T08:00", timeLabel: "Continuing through the morning of 10 May",
+  title: "Heavy artillery, mortar and small-arms exchanges along the LoC", eventType: "artillery_shelling", domain: "land",
+  location: { name: "Kupwara, Baramulla, Poonch, Rajouri, Akhnoor", region: "Jammu & Kashmir", precision: "front", locationIds: SEC10 },
+  actor: "Pakistan", description: "Heavy exchange of artillery, mortar and small-arms fire continued; Pakistan used drones for air intrusions and heavy-calibre RT guns against civilian infrastructure. Indian Army said it responded proportionately, 'causing extensive damage to Pakistan Army'. Pakistani troops observed moving to forward areas.",
+  weaponCategory: "artillery, mortars, small arms, drones", weaponSystemIds: ["WPN-PK-ARTY"], damageAssessment: dmg("claimed", 3, "low"), escalationLevel: 4,
+  vectors: SEC10.map((s) => ({ from: `XLOC:${s}`, to: s, style: "artillery" })), targetIds: SEC10, sources: ["SRC-MEA-0510A"],
+});
+ev({
+  date: "2025-05-10", timeBasis: "approximate_window", sortTime: "2025-05-10T10:45", timeLabel: "10 May morning briefing",
+  title: "Pakistani destruction claims rejected – S-400 Adampur, Sirsa, Suratgarh, BrahMos Nagrota", eventType: "information_operation", domain: "cyber_info",
+  location: { name: "Adampur, Sirsa, Suratgarh (claimed sites)", region: "India", precision: "town", locationIds: ["IND-ADAMPUR", "IND-SIRSA", "IND-SURATGARH"] },
+  actor: "Pakistan", reportedBy: "MEA / Indian Armed Forces", description: "India rejected Pakistani claims of destroying an S-400 system at Adampur, airfields at Suratgarh and Sirsa, a BrahMos base at Nagrota, gun positions at Dehrangyari and the Chandigarh forward ammunition depot, plus claims of attacks on power and cyber systems. Time-stamped imagery of Sirsa and Suratgarh showed intact runways.",
+  weaponCategory: "n/a", weaponSystemIds: ["WPN-S400", "WPN-BRAHMOS"], evidenceType: "adversary_claim", evidenceClass: "GREY", damageAssessment: dmg("denied", 0, "medium"), escalationLevel: 6,
+  vectors: ["IND-ADAMPUR", "IND-SIRSA", "IND-SURATGARH"].map((t) => ({ from: "ANC-PK-PUNJAB", to: t, style: "unverified", label: "Adversary claim – rejected by India" })),
+  targetIds: ["IND-ADAMPUR", "IND-SIRSA", "IND-SURATGARH"], sources: ["SRC-MEA-0510A", "SRC-MEA-0510C"],
+});
+ev({
+  date: "2025-05-10", time: "15:35", timeBasis: "stated", sortTime: "2025-05-10T15:35", timeLabel: "15:35 IST",
+  title: "Pakistan DGMO calls Indian DGMO", eventType: "cessation", domain: "diplomatic",
+  location: { name: "DGMO hotline", region: "Bilateral", precision: "regional", lat: 28.61, lng: 77.21, locationIds: ["LOC-NEW-DELHI"] },
+  actor: "Bilateral", reportedBy: "Foreign Secretary", description: "The Director General of Military Operations of Pakistan called the DGMO of India at 15:35 IST.",
+  weaponCategory: "n/a", evidenceType: "official_statement", escalationLevel: 7, sources: ["SRC-MEA-0510B"],
+});
+ev({
+  date: "2025-05-10", time: "17:00", timeBasis: "stated", sortTime: "2025-05-10T17:00", timeLabel: "17:00 IST – cessation takes effect",
+  title: "Cessation of firing and military action – land, air and sea", eventType: "cessation", domain: "multi",
+  location: { name: "All fronts", region: "India–Pakistan", precision: "regional", lat: 28.61, lng: 77.21, locationIds: ["LOC-NEW-DELHI"] },
+  actor: "Bilateral", reportedBy: "Foreign Secretary", description: "Both sides agreed to stop all firing and military action on land, in the air and at sea with effect from 17:00 IST. DGMOs to talk again on 12 May at 12:00.",
+  weaponCategory: "n/a", evidenceType: "official_statement", escalationLevel: 7, sources: ["SRC-MEA-0510B", "SRC-PIB-0514A"],
+});
+ev({
+  date: "2025-05-10", timeBasis: "approximate_window", sortTime: "2025-05-10T19:00", timeLabel: "10 May evening MoD briefing",
+  title: "MoD briefing: rebuttals and claimed damage to Pakistani bases", eventType: "information_operation", domain: "cyber_info",
+  location: { name: "New Delhi", region: "India", precision: "town", lat: 28.61, lng: 77.21, locationIds: ["LOC-NEW-DELHI"] },
+  actor: "India", reportedBy: "Cmde Raghu R Nair, Col Sofiya Qureshi, Wg Cdr Vyomika Singh", description: "Indian forces will adhere to the understanding. Rejected claims of S-400 destroyed by JF-17, BrahMos installation hit, and airfields at Srinagar, Jammu, Pathankot, Bhuj, Naliya destroyed; ammunition dumps at Chandigarh and Beas stated intact. Stated no religious sites were targeted.",
+  weaponCategory: "n/a", weaponSystemIds: ["WPN-JF17", "WPN-S400", "WPN-BRAHMOS"], evidenceType: "official_statement", escalationLevel: 7, sources: ["SRC-MEA-0510C"],
+});
+ev({
+  date: "2025-05-10", timeBasis: "approximate_window", sortTime: "2025-05-10T22:30", timeLabel: "Late evening 10 May ('over the last few hours')",
+  title: "Violations of the understanding; drones intercepted", eventType: "ceasefire_violation", domain: "multi",
+  location: { name: "IB and LoC", region: "Jammu & Kashmir / Punjab / Rajasthan / Gujarat", precision: "front", locationIds: ["SEC-POONCH", "IND-JAMMU", "IND-SRINAGAR"] },
+  actor: "Pakistan", reportedBy: "Foreign Secretary; PIB", description: "FS: repeated violations of the DGMO understanding over the last few hours; armed forces giving an adequate response and instructed to deal strongly with repetition. PIB 14 May: waves of UAVs and small drones intruded into civilian and military areas after the ceasefire and were intercepted.",
+  weaponCategory: "UAVs, small drones", damageAssessment: dmg("unknown", null, "unknown"), escalationLevel: 7, sources: ["SRC-MEA-0510D", "SRC-PIB-0514A"],
+  notes: "Exact times and locations not given in the statements; plotted at representative named locations only.",
+});
+
+// ───────────── AFTERMATH ─────────────
+ev({
+  date: "2025-05-11", timeBasis: "unknown", sortTime: "2025-05-11T18:00", timeLabel: "11 May DGMO briefing",
+  title: "DGMO briefing: outcome claims", eventType: "briefing", domain: "multi", phase: "aftermath",
+  location: { name: "National Media Centre, New Delhi", region: "India", precision: "town", lat: 28.61, lng: 77.21, locationIds: ["LOC-NEW-DELHI"] },
+  actor: "India", reportedBy: "DGMO Lt Gen Rajiv Ghai, Air Marshal AK Bharti, Vice Adm AN Pramod", description: "Officials claim over 100 terrorists killed at the nine sites, including high-value targets Yusuf Azhar, Abdul Malik Rauf and Mudassir Ahmad (named by PIB).",
+  weaponCategory: "n/a", evidenceType: "official_claim", escalationLevel: 7,
+  casualties: { killed: 100, injured: null, category: "terrorists ('over 100', claimed)", statedBy: "PIB 14 May / DGMO briefing" },
+  sources: ["SRC-PIB-1206", "SRC-PIB-0514A"], notes: "Detailed transcript of the 11 May briefing not retrieved in this build; figures here come from the PIB 14 May backgrounder.",
+});
+ev({
+  date: "2025-05-12", time: "12:00", timeBasis: "stated", sortTime: "2025-05-12T12:00", timeLabel: "12:00 IST (scheduled DGMO talks)",
+  title: "Scheduled DGMO talks", eventType: "cessation", domain: "diplomatic", phase: "aftermath",
+  location: { name: "DGMO hotline", region: "Bilateral", precision: "regional", lat: 28.61, lng: 77.21, locationIds: ["LOC-NEW-DELHI"] },
+  actor: "Bilateral", description: "DGMOs scheduled to talk again on 12 May at 12:00 (FS 10 May). PIB backgrounder later refers to formal talks between the DGMOs on 12 May.",
+  weaponCategory: "n/a", evidenceType: "official_statement", escalationLevel: 7, sources: ["SRC-MEA-0510B", "SRC-PIB-0514A"],
+});
+ev({
+  date: "2025-05-12", timeBasis: "unknown", sortTime: "2025-05-12T15:00", timeLabel: "12 May briefing",
+  title: "DGMO describes layered air-defence and counter-UAS architecture", eventType: "briefing", domain: "air", phase: "aftermath",
+  location: { name: "New Delhi", region: "India", precision: "town", lat: 28.61, lng: 77.21, locationIds: ["LOC-NEW-DELHI"] },
+  actor: "India", reportedBy: "DGMO Lt Gen Rajiv Ghai", description: "Layers from the IB inwards: counter-UAS, shoulder-fired weapons, legacy AD weapons and modern AD weapon systems, with EW assets, from both Army and Air Force. Stated this prevented PAF attacks on airfields and logistics installations on 9–10 May. Debris of PL-15 missiles, Turkish 'Yiha' UAVs, long-range rockets, quadcopters and commercial drones shown.",
+  weaponCategory: "air defence (multiple)", weaponSystemIds: ["WPN-CUAS-GRID", "WPN-MANPADS", "WPN-PECHORA", "WPN-OSA-AK", "WPN-LLAD", "WPN-AKASH", "WPN-EW", "WPN-PL15", "WPN-YIHA", "WPN-PK-LR-ROCKETS", "WPN-PK-QUAD"],
+  evidenceType: "official_claim", escalationLevel: 7, sources: ["SRC-PIB-0514B"],
+});
+ev({
+  date: "2025-05-12", timeBasis: "unknown", sortTime: "2025-05-12T20:00", timeLabel: "12 May evening",
+  title: "Prime Minister's address to the nation", eventType: "diplomatic_measure", domain: "diplomatic", phase: "aftermath",
+  location: { name: "New Delhi", region: "India", precision: "town", lat: 28.61, lng: 77.21, locationIds: ["LOC-NEW-DELHI"] },
+  actor: "India", reportedBy: "Prime Minister", description: "PM sets out doctrine: fitting reply to terror attacks; no tolerance of nuclear blackmail; no distinction between terrorists and state sponsors; 'terror and talks cannot go together'.",
+  weaponCategory: "n/a", evidenceType: "official_statement", escalationLevel: 7, sources: ["SRC-MEA-PM0512", "SRC-PIB-0514A"],
+});
+
+writeFileSync("src/data/events.json", JSON.stringify(E, null, 2));
+console.log("events:", E.length);

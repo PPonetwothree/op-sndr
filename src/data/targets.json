@@ -1,0 +1,1246 @@
+[
+  {
+    "altNames": [],
+    "attribution": "Lashkar-e-Taiba (as stated by Indian briefers)",
+    "officialDescription": "Stated as ~30 km from LoC; LeT training centre linked by briefers to Sonamarg (Oct 2024), Gulmarg (Oct 2024) and Pahalgam (Apr 2025) attackers.",
+    "statedDistance": {
+      "km": [
+        30,
+        30
+      ],
+      "from": "LoC",
+      "sourceId": "SRC-MEA-0507"
+    },
+    "id": "TGT-SAWAI-NALA",
+    "name": "Sawai Nala camp",
+    "country": "PoJK",
+    "region": "Muzaffarabad",
+    "category": "terrorist_infrastructure",
+    "markerLayer": "targets",
+    "side": "indian_strike_target",
+    "lat": 34.37,
+    "lng": 73.47,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0507"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": "Jaish-e-Mohammed (as stated)",
+    "officialDescription": "Stated as a JeM staging area; weapons, explosives and jungle-survival training.",
+    "statedDistance": null,
+    "id": "TGT-SYEDNA-BILAL",
+    "name": "Syedna Bilal camp",
+    "country": "PoJK",
+    "region": "Muzaffarabad",
+    "category": "terrorist_infrastructure",
+    "markerLayer": "targets",
+    "side": "indian_strike_target",
+    "lat": 34.34,
+    "lng": 73.52,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0507"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": "Lashkar-e-Taiba (as stated)",
+    "officialDescription": "Stated as ~30 km from LoC; LeT base active in Rajouri–Poonch; linked by briefers to Poonch (Apr 2023) and pilgrim bus attack (Jun 2024). Position: Gulpur town centre (OpenStreetMap); the camp's exact site is not public and may lie outside the town.",
+    "statedDistance": {
+      "km": [
+        30,
+        30
+      ],
+      "from": "LoC",
+      "sourceId": "SRC-MEA-0507"
+    },
+    "id": "TGT-GULPUR",
+    "name": "Gulpur camp",
+    "country": "PoJK",
+    "region": "Kotli",
+    "category": "terrorist_infrastructure",
+    "markerLayer": "targets",
+    "side": "indian_strike_target",
+    "lat": 33.437,
+    "lng": 73.857,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0507",
+      "SRC-OSM-GEOCODE"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": "Lashkar-e-Taiba (as stated)",
+    "officialDescription": "Stated as ~13 km from LoC; fidayeen preparation; stated capacity ~15 trainees.",
+    "statedDistance": {
+      "km": [
+        13,
+        13
+      ],
+      "from": "LoC",
+      "sourceId": "SRC-MEA-0507"
+    },
+    "id": "TGT-ABBAS",
+    "name": "Abbas camp",
+    "country": "PoJK",
+    "region": "Kotli",
+    "category": "terrorist_infrastructure",
+    "markerLayer": "targets",
+    "side": "indian_strike_target",
+    "lat": 33.55,
+    "lng": 73.86,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0507"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": "Not specified in briefing",
+    "officialDescription": "Stated as ~9 km from LoC; weapons handling, IED and jungle-survival training.",
+    "statedDistance": {
+      "km": [
+        9,
+        9
+      ],
+      "from": "LoC",
+      "sourceId": "SRC-MEA-0507"
+    },
+    "id": "TGT-BARNALA",
+    "name": "Barnala camp",
+    "country": "PoJK",
+    "region": "Bhimber",
+    "category": "terrorist_infrastructure",
+    "markerLayer": "targets",
+    "side": "indian_strike_target",
+    "lat": 32.99,
+    "lng": 74.1,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0507"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [
+      "Sarjal / Tehra Kalan"
+    ],
+    "attribution": "Not specified in briefing",
+    "officialDescription": "Stated as ~6 km from IB opposite Samba–Kathua; linked by briefers to killing of four J&K Police personnel (Mar 2025). Position: Sarjal village (OpenStreetMap), opposite Samba; media place the facility in Tehra Kalan village health centre, Shakargarh area. Village-level, not the facility.",
+    "statedDistance": {
+      "km": [
+        6,
+        6
+      ],
+      "from": "IB",
+      "sourceId": "SRC-MEA-0507"
+    },
+    "id": "TGT-SARJAL",
+    "name": "Sarjal camp",
+    "country": "Pakistan",
+    "region": "Narowal district (Shakargarh / Zafarwal area, opposite Samba–Kathua)",
+    "category": "terrorist_infrastructure",
+    "markerLayer": "targets",
+    "side": "indian_strike_target",
+    "lat": 32.35,
+    "lng": 75.123,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0507",
+      "SRC-MEDIA-PRINT-SARJAL",
+      "SRC-OSM-GEOCODE"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": "Hizbul Mujahideen (as stated)",
+    "officialDescription": "Stated as 12–18 km from IB; HM camp described as control centre for Kathua–Jammu; briefers linked it to the Pathankot air base attack. Position: Kotli Bhatta village (OpenStreetMap), Head Marala area; media place the camp in the Bhutta Kotli Basic Health Unit premises. Village-level, not the facility.",
+    "statedDistance": {
+      "km": [
+        12,
+        18
+      ],
+      "from": "IB",
+      "sourceId": "SRC-MEA-0507"
+    },
+    "id": "TGT-MEHMOONA-JOYA",
+    "name": "Mehmoona Joya camp",
+    "country": "Pakistan",
+    "region": "Sialkot (Head Marala area)",
+    "category": "terrorist_infrastructure",
+    "markerLayer": "targets",
+    "side": "indian_strike_target",
+    "lat": 32.616,
+    "lng": 74.513,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0507",
+      "SRC-MEDIA-OB-9CAMPS",
+      "SRC-OSM-GEOCODE"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": "Lashkar-e-Taiba (as stated)",
+    "officialDescription": "Stated as 18–25 km from IB; briefers linked it to 2008 Mumbai attackers' training.",
+    "statedDistance": {
+      "km": [
+        18,
+        25
+      ],
+      "from": "IB",
+      "sourceId": "SRC-MEA-0507"
+    },
+    "id": "TGT-MURIDKE",
+    "name": "Markaz Taiba, Muridke",
+    "country": "Pakistan",
+    "region": "Muridke (Punjab)",
+    "category": "terrorist_infrastructure",
+    "markerLayer": "targets",
+    "side": "indian_strike_target",
+    "lat": 31.8,
+    "lng": 74.26,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0507"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": "Jaish-e-Mohammed HQ (as stated)",
+    "officialDescription": "Stated as ~100 km from IB; JeM headquarters for training, recruitment and indoctrination.",
+    "statedDistance": {
+      "km": [
+        100,
+        100
+      ],
+      "from": "IB",
+      "sourceId": "SRC-MEA-0507"
+    },
+    "id": "TGT-BAHAWALPUR",
+    "name": "Markaz Subhan Allah, Bahawalpur",
+    "country": "Pakistan",
+    "region": "Bahawalpur (Punjab)",
+    "category": "terrorist_infrastructure",
+    "markerLayer": "targets",
+    "side": "indian_strike_target",
+    "lat": 29.39,
+    "lng": 71.68,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0507",
+      "SRC-MEA-0509"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "'Reliably learnt' that an AD system at Lahore was neutralised (8 May). System type not stated.",
+    "statedDistance": null,
+    "id": "TGT-LAHORE-AD",
+    "name": "Air-defence system, Lahore",
+    "country": "Pakistan",
+    "region": "Lahore",
+    "category": "air_defence_radar",
+    "markerLayer": "airDefence",
+    "side": "indian_strike_target",
+    "lat": 31.55,
+    "lng": 74.34,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "PIB 14 May backgrounder: radar facilities near Gujranwala destroyed. Date of strike not stated.",
+    "statedDistance": null,
+    "id": "TGT-GUJRANWALA-RADAR",
+    "name": "Radar facilities near Gujranwala",
+    "country": "Pakistan",
+    "region": "Gujranwala",
+    "category": "air_defence_radar",
+    "markerLayer": "airDefence",
+    "side": "indian_strike_target",
+    "lat": 32.16,
+    "lng": 74.19,
+    "precision": "district",
+    "sources": [
+      "SRC-PIB-0514A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Targeted using precision munitions (10 May).",
+    "statedDistance": null,
+    "id": "TGT-PASRUR-RADAR",
+    "name": "Radar site, Pasrur",
+    "country": "Pakistan",
+    "region": "Sialkot district",
+    "category": "air_defence_radar",
+    "markerLayer": "airDefence",
+    "side": "indian_strike_target",
+    "lat": 32.27,
+    "lng": 74.66,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Radar sites at Pasrur and Sialkot aviation base targeted using precision munitions (10 May).",
+    "statedDistance": null,
+    "id": "TGT-SIALKOT-AVN",
+    "name": "Sialkot aviation base (radar site)",
+    "country": "Pakistan",
+    "region": "Sialkot",
+    "category": "air_defence_radar",
+    "markerLayer": "airDefence",
+    "side": "indian_strike_target",
+    "lat": 32.52,
+    "lng": 74.55,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Engaged with air-launched precision weapons from fighter aircraft (10 May morning briefing).",
+    "statedDistance": null,
+    "id": "TGT-RAFIQUI",
+    "name": "Rafiqui air base",
+    "country": "Pakistan",
+    "region": "Shorkot (Punjab)",
+    "category": "air_base",
+    "markerLayer": "military",
+    "side": "indian_strike_target",
+    "lat": 30.76,
+    "lng": 72.28,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Engaged with air-launched precision weapons from fighter aircraft (10 May morning briefing).",
+    "statedDistance": null,
+    "id": "TGT-MURID",
+    "name": "Murid air base",
+    "country": "Pakistan",
+    "region": "Chakwal (Punjab)",
+    "category": "air_base",
+    "markerLayer": "military",
+    "side": "indian_strike_target",
+    "lat": 32.97,
+    "lng": 72.79,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Engaged with air-launched precision weapons from fighter aircraft (10 May morning briefing). PIB 18 May names Nur Khan, with visual evidence of damage presented during official briefings.",
+    "statedDistance": null,
+    "id": "TGT-CHAKLALA",
+    "name": "Chaklala / Nur Khan air base",
+    "country": "Pakistan",
+    "region": "Rawalpindi",
+    "category": "air_base",
+    "markerLayer": "military",
+    "side": "indian_strike_target",
+    "lat": 33.62,
+    "lng": 73.1,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510A",
+      "SRC-PIB-0518"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Engaged with air-launched precision weapons from fighter aircraft (10 May morning briefing). PIB 18 May names Rahimyar Khan, with visual evidence presented in briefings.",
+    "statedDistance": null,
+    "id": "TGT-RAHIM-YAR-KHAN",
+    "name": "Rahim Yar Khan air base",
+    "country": "Pakistan",
+    "region": "Rahim Yar Khan (Punjab)",
+    "category": "air_base",
+    "markerLayer": "military",
+    "side": "indian_strike_target",
+    "lat": 28.4,
+    "lng": 70.28,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510A",
+      "SRC-PIB-0518"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Engaged with air-launched precision weapons from fighter aircraft (10 May morning briefing).",
+    "statedDistance": null,
+    "id": "TGT-SUKKUR",
+    "name": "Sukkur air base",
+    "country": "Pakistan",
+    "region": "Sukkur (Sindh)",
+    "category": "air_base",
+    "markerLayer": "military",
+    "side": "indian_strike_target",
+    "lat": 27.72,
+    "lng": 68.79,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Engaged with air-launched precision weapons from fighter aircraft (10 May morning briefing). Nature of facility not specified beyond 'military target'.",
+    "statedDistance": null,
+    "id": "TGT-CHUNIAN",
+    "name": "Chunian (military target)",
+    "country": "Pakistan",
+    "region": "Kasur district (Punjab)",
+    "category": "air_base",
+    "markerLayer": "military",
+    "side": "indian_strike_target",
+    "lat": 30.96,
+    "lng": 73.98,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "'Extensive damage' claimed in the 10 May evening MoD briefing.",
+    "statedDistance": null,
+    "id": "TGT-SKARDU",
+    "name": "Skardu air base",
+    "country": "Gilgit-Baltistan",
+    "region": "Skardu (Gilgit-Baltistan)",
+    "category": "air_base",
+    "markerLayer": "military",
+    "side": "indian_strike_target",
+    "lat": 35.34,
+    "lng": 75.54,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510C"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "'Extensive damage' claimed in the 10 May evening MoD briefing.",
+    "statedDistance": null,
+    "id": "TGT-SARGODHA",
+    "name": "Sargodha air base",
+    "country": "Pakistan",
+    "region": "Sargodha (Punjab)",
+    "category": "air_base",
+    "markerLayer": "military",
+    "side": "indian_strike_target",
+    "lat": 32.05,
+    "lng": 72.67,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510C"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "'Extensive damage' claimed in the 10 May evening MoD briefing.",
+    "statedDistance": null,
+    "id": "TGT-JACOBABAD",
+    "name": "Jacobabad air base",
+    "country": "Pakistan",
+    "region": "Jacobabad (Sindh)",
+    "category": "air_base",
+    "markerLayer": "military",
+    "side": "indian_strike_target",
+    "lat": 28.28,
+    "lng": 68.45,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510C"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "'Extensive damage' claimed (10 May evening). PIB 14 May: high casualties, death of a named squadron leader and destruction of 'key fighter jets' claimed.",
+    "statedDistance": null,
+    "id": "TGT-BHOLARI",
+    "name": "Bholari air base",
+    "country": "Pakistan",
+    "region": "Thatta district (Sindh)",
+    "category": "air_base",
+    "markerLayer": "military",
+    "side": "indian_strike_target",
+    "lat": 25.18,
+    "lng": 67.92,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510C",
+      "SRC-PIB-0514A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-AWANTIPURA",
+    "name": "Awantipura",
+    "country": "India",
+    "region": "Jammu & Kashmir",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 33.92,
+    "lng": 75.01,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-SRINAGAR",
+    "name": "Srinagar",
+    "country": "India",
+    "region": "Jammu & Kashmir",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 34,
+    "lng": 74.78,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-JAMMU",
+    "name": "Jammu",
+    "country": "India",
+    "region": "Jammu & Kashmir",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 32.73,
+    "lng": 74.86,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-PATHANKOT",
+    "name": "Pathankot",
+    "country": "India",
+    "region": "Punjab",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 32.27,
+    "lng": 75.65,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-AMRITSAR",
+    "name": "Amritsar",
+    "country": "India",
+    "region": "Punjab",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 31.63,
+    "lng": 74.87,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-KAPURTHALA",
+    "name": "Kapurthala",
+    "country": "India",
+    "region": "Punjab",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 31.38,
+    "lng": 75.38,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-JALANDHAR",
+    "name": "Jalandhar",
+    "country": "India",
+    "region": "Punjab",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 31.33,
+    "lng": 75.58,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-LUDHIANA",
+    "name": "Ludhiana",
+    "country": "India",
+    "region": "Punjab",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 30.9,
+    "lng": 75.85,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-ADAMPUR",
+    "name": "Adampur",
+    "country": "India",
+    "region": "Punjab",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 31.43,
+    "lng": 75.76,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-BATHINDA",
+    "name": "Bathinda",
+    "country": "India",
+    "region": "Punjab",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 30.21,
+    "lng": 74.95,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0509"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-CHANDIGARH",
+    "name": "Chandigarh",
+    "country": "India",
+    "region": "Chandigarh",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 30.73,
+    "lng": 76.78,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-NAL",
+    "name": "Nal",
+    "country": "India",
+    "region": "Bikaner, Rajasthan",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 28.07,
+    "lng": 73.21,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-PHALODI",
+    "name": "Phalodi",
+    "country": "India",
+    "region": "Rajasthan",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 27.13,
+    "lng": 72.37,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-UTTARLAI",
+    "name": "Uttarlai",
+    "country": "India",
+    "region": "Barmer, Rajasthan",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 25.81,
+    "lng": 71.48,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-BHUJ",
+    "name": "Bhuj",
+    "country": "India",
+    "region": "Gujarat",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 23.25,
+    "lng": 69.67,
+    "precision": "town",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "IND-UDHAMPUR",
+    "name": "Udhampur",
+    "country": "India",
+    "region": "Jammu & Kashmir",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 32.93,
+    "lng": 75.14,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0509",
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Southern end of the 'Srinagar till Naliya' front (10 May).",
+    "statedDistance": null,
+    "id": "IND-NALIYA",
+    "name": "Naliya",
+    "country": "India",
+    "region": "Kutch, Gujarat",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 23.26,
+    "lng": 68.84,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Pakistani claim of destruction rejected; time-stamped imagery shown by Indian briefers.",
+    "statedDistance": null,
+    "id": "IND-SIRSA",
+    "name": "Sirsa",
+    "country": "India",
+    "region": "Haryana",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 29.53,
+    "lng": 75.03,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Pakistani claim of destruction rejected; time-stamped imagery shown by Indian briefers.",
+    "statedDistance": null,
+    "id": "IND-SURATGARH",
+    "name": "Suratgarh",
+    "country": "India",
+    "region": "Rajasthan",
+    "category": "military_station",
+    "markerLayer": "military",
+    "side": "pakistani_attack_target",
+    "lat": 29.32,
+    "lng": 73.9,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Overnight property damage and civilian injuries reported (10 May).",
+    "statedDistance": null,
+    "id": "IND-FEROZEPUR",
+    "name": "Ferozepur",
+    "country": "India",
+    "region": "Punjab",
+    "category": "civilian_area",
+    "markerLayer": "civilian",
+    "side": "pakistani_attack_target",
+    "lat": 30.93,
+    "lng": 74.61,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "SEC-KUPWARA",
+    "name": "Kupwara sector",
+    "country": "India",
+    "region": "Jammu & Kashmir (LoC)",
+    "category": "lo_c_sector",
+    "markerLayer": "civilian",
+    "side": "pakistani_attack_target",
+    "lat": 34.53,
+    "lng": 74.25,
+    "precision": "district",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "SEC-BARAMULLA",
+    "name": "Baramulla sector",
+    "country": "India",
+    "region": "Jammu & Kashmir (LoC)",
+    "category": "lo_c_sector",
+    "markerLayer": "civilian",
+    "side": "pakistani_attack_target",
+    "lat": 34.2,
+    "lng": 74.34,
+    "precision": "district",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "SEC-URI",
+    "name": "Uri sector",
+    "country": "India",
+    "region": "Jammu & Kashmir (LoC)",
+    "category": "lo_c_sector",
+    "markerLayer": "civilian",
+    "side": "pakistani_attack_target",
+    "lat": 34.08,
+    "lng": 74.05,
+    "precision": "district",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0509"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "SEC-TANGDHAR",
+    "name": "Tangdhar sector",
+    "country": "India",
+    "region": "Jammu & Kashmir (LoC)",
+    "category": "lo_c_sector",
+    "markerLayer": "civilian",
+    "side": "pakistani_attack_target",
+    "lat": 34.48,
+    "lng": 73.97,
+    "precision": "district",
+    "sources": [
+      "SRC-MEA-0509"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "SEC-POONCH",
+    "name": "Poonch sector",
+    "country": "India",
+    "region": "Jammu & Kashmir (LoC)",
+    "category": "lo_c_sector",
+    "markerLayer": "civilian",
+    "side": "pakistani_attack_target",
+    "lat": 33.77,
+    "lng": 74.09,
+    "precision": "district",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0509",
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "SEC-MENDHAR",
+    "name": "Mendhar sector",
+    "country": "India",
+    "region": "Jammu & Kashmir (LoC)",
+    "category": "lo_c_sector",
+    "markerLayer": "civilian",
+    "side": "pakistani_attack_target",
+    "lat": 33.6,
+    "lng": 74.13,
+    "precision": "district",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0509"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "SEC-RAJOURI",
+    "name": "Rajouri sector",
+    "country": "India",
+    "region": "Jammu & Kashmir (LoC)",
+    "category": "lo_c_sector",
+    "markerLayer": "civilian",
+    "side": "pakistani_attack_target",
+    "lat": 33.38,
+    "lng": 74.31,
+    "precision": "district",
+    "sources": [
+      "SRC-PIB-0508",
+      "SRC-MEA-0509",
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "",
+    "statedDistance": null,
+    "id": "SEC-AKHNOOR",
+    "name": "Akhnoor sector",
+    "country": "India",
+    "region": "Jammu & Kashmir (LoC)",
+    "category": "lo_c_sector",
+    "markerLayer": "civilian",
+    "side": "pakistani_attack_target",
+    "lat": 32.9,
+    "lng": 74.74,
+    "precision": "district",
+    "sources": [
+      "SRC-MEA-0509",
+      "SRC-MEA-0510A"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Site of the 22 April 2025 terrorist attack on tourists.",
+    "statedDistance": null,
+    "id": "LOC-PAHALGAM",
+    "name": "Baisaran meadow, Pahalgam",
+    "country": "India",
+    "region": "Anantnag, Jammu & Kashmir",
+    "category": "civilian_area",
+    "markerLayer": "civilian",
+    "side": "context",
+    "lat": 34,
+    "lng": 75.33,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0507"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Seat of CCS decisions and MEA/MoD briefings.",
+    "statedDistance": null,
+    "id": "LOC-NEW-DELHI",
+    "name": "New Delhi",
+    "country": "India",
+    "region": "National Capital Territory",
+    "category": "government",
+    "markerLayer": "eventLocations",
+    "side": "context",
+    "lat": 28.61,
+    "lng": 77.21,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0423"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Gurdwara attacked (Ragi among those killed); shell landed behind Christ School killing two students; convent damaged (7 May).",
+    "statedDistance": null,
+    "id": "LOC-POONCH-TOWN",
+    "name": "Poonch town (Gurdwara, Christ School, convent)",
+    "country": "India",
+    "region": "Poonch, Jammu & Kashmir",
+    "category": "religious_site",
+    "markerLayer": "civilian",
+    "side": "pakistani_attack_target",
+    "lat": 33.74,
+    "lng": 74.15,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0509"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "BSF foiled an infiltration attempt along the IB.",
+    "statedDistance": null,
+    "id": "LOC-SAMBA",
+    "name": "Samba (International Border)",
+    "country": "India",
+    "region": "Samba, Jammu & Kashmir",
+    "category": "military_station",
+    "markerLayer": "eventLocations",
+    "side": "context",
+    "lat": 32.56,
+    "lng": 75.12,
+    "precision": "district",
+    "sources": [
+      "SRC-PIB-0518"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Carrier Battle Group operating area – broad region only, not an actual position.",
+    "statedDistance": null,
+    "id": "LOC-ARABIAN-SEA",
+    "name": "Arabian Sea (north)",
+    "country": "India",
+    "region": "Maritime – Arabian Sea",
+    "category": "naval",
+    "markerLayer": "eventLocations",
+    "side": "context",
+    "lat": 22,
+    "lng": 65.5,
+    "precision": "regional",
+    "sources": [
+      "SRC-PIB-0518"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Northern end of the 'Leh to Sir Creek' drone-intrusion front (8–9 May).",
+    "statedDistance": null,
+    "id": "LOC-LEH",
+    "name": "Leh",
+    "country": "India",
+    "region": "Ladakh",
+    "category": "military_station",
+    "markerLayer": "uav",
+    "side": "pakistani_attack_target",
+    "lat": 34.16,
+    "lng": 77.58,
+    "precision": "town",
+    "sources": [
+      "SRC-MEA-0509"
+    ],
+    "evidenceClass": "BLUE"
+  },
+  {
+    "altNames": [],
+    "attribution": null,
+    "officialDescription": "Southern end of the 'Leh to Sir Creek' drone-intrusion front (8–9 May).",
+    "statedDistance": null,
+    "id": "LOC-SIR-CREEK",
+    "name": "Sir Creek",
+    "country": "India",
+    "region": "Kutch, Gujarat",
+    "category": "military_station",
+    "markerLayer": "uav",
+    "side": "pakistani_attack_target",
+    "lat": 23.75,
+    "lng": 68.45,
+    "precision": "regional",
+    "sources": [
+      "SRC-MEA-0509"
+    ],
+    "evidenceClass": "BLUE"
+  }
+]
