@@ -21,7 +21,8 @@ export function buildScorecard(events: TimedEvent[], bda: BdaRecord[]): ScoreRow
   const intercept = events.filter((e) => e.actor === "India" && (e.eventType === "air_defence_engagement" || e.eventType === "counter_uas"));
   const uav = events.filter((e) => e.eventType === "counter_uas" || /drone|uav|ucav|loitering/i.test(e.weaponCategory));
   const greenEvents = (list: TimedEvent[]) => list.filter((e) => e.evidenceClass === "GREEN").length;
-  const scoreText = (n: number) => (n === 0 ? "Not assigned – no independent evidence in database" : "Not assigned – partial independent evidence; see records");
+  const scoreText = (n: number) =>
+    n === 0 ? "Not assigned – no independent evidence in database" : "Not assigned – partial independent evidence; see records";
   const hours = (toMs("2025-05-10T17:00") - toMs("2025-05-07T01:05")) / 3600_000;
   const levels = new Set(events.map((e) => e.escalationLevel));
 
@@ -85,7 +86,8 @@ export function buildScorecard(events: TimedEvent[], bda: BdaRecord[]): ScoreRow
     },
   ];
   rows.forEach((r) => {
-    r.status = r.independent > 0 ? `${r.independent} independently corroborated record(s)` : "Official account only – not independently corroborated in this database";
+    r.status =
+      r.independent > 0 ? `${r.independent} independently corroborated record(s)` : "Official account only – not independently corroborated in this database";
     r.score = scoreText(r.independent);
   });
   return rows;

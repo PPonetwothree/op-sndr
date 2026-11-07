@@ -85,7 +85,16 @@ export function BdaEditor({ record, onSave, onCancel }: { record: BdaRecord; onS
           {r.evidenceSourceIds.map((id) => (
             <span key={id} className="flex items-center gap-1 border border-ink-600 bg-ink-900 px-1.5 py-0.5 text-[11px]">
               {id}
-              <button onClick={() => set("evidenceSourceIds", r.evidenceSourceIds.filter((x) => x !== id))} aria-label={`Remove ${id}`} className="text-ink-500 hover:text-hostile">
+              <button
+                onClick={() =>
+                  set(
+                    "evidenceSourceIds",
+                    r.evidenceSourceIds.filter((x) => x !== id)
+                  )
+                }
+                aria-label={`Remove ${id}`}
+                className="text-ink-500 hover:text-hostile"
+              >
                 <X className="size-3" />
               </button>
             </span>
@@ -111,7 +120,10 @@ export function BdaEditor({ record, onSave, onCancel }: { record: BdaRecord; onS
               setR((x) => ({
                 ...x,
                 evidenceSourceIds: [...x.evidenceSourceIds, addSrc],
-                evidenceTimeline: [...x.evidenceTimeline, { date: s.publicationDate, sourceId: s.id, eventId: null, note: `Added by analyst: ${s.title}` }].sort((a, b) => a.date.localeCompare(b.date)),
+                evidenceTimeline: [
+                  ...x.evidenceTimeline,
+                  { date: s.publicationDate, sourceId: s.id, eventId: null, note: `Added by analyst: ${s.title}` },
+                ].sort((a, b) => a.date.localeCompare(b.date)),
               }));
               setAddSrc("");
             }}
@@ -119,7 +131,9 @@ export function BdaEditor({ record, onSave, onCancel }: { record: BdaRecord; onS
             <Plus /> Add
           </Button>
         </div>
-        <p className="mt-1 text-[10px] text-ink-500">Add new public sources in Source Management first. Attaching a source never changes the claim status by itself.</p>
+        <p className="mt-1 text-[10px] text-ink-500">
+          Add new public sources in Source Management first. Attaching a source never changes the claim status by itself.
+        </p>
       </div>
 
       <div>
@@ -129,14 +143,28 @@ export function BdaEditor({ record, onSave, onCancel }: { record: BdaRecord; onS
             <span className="flex-1 truncate">
               {im.caption} – {im.sourceId}
             </span>
-            <button onClick={() => set("imagery", r.imagery.filter((_, j) => j !== i))} aria-label="Remove imagery link" className="text-ink-500 hover:text-hostile">
+            <button
+              onClick={() =>
+                set(
+                  "imagery",
+                  r.imagery.filter((_, j) => j !== i)
+                )
+              }
+              aria-label="Remove imagery link"
+              className="text-ink-500 hover:text-hostile"
+            >
               <Trash2 className="size-3" />
             </button>
           </div>
         ))}
         <div className="mt-1 grid grid-cols-[1fr_1fr_1fr_auto] gap-1">
           <input className={input} placeholder="Image URL (https://…)" value={img.url} onChange={(e) => setImg({ ...img, url: e.target.value })} />
-          <input className={input} placeholder="Caption (before/after, date)" value={img.caption} onChange={(e) => setImg({ ...img, caption: e.target.value })} />
+          <input
+            className={input}
+            placeholder="Caption (before/after, date)"
+            value={img.caption}
+            onChange={(e) => setImg({ ...img, caption: e.target.value })}
+          />
           <select className={input} value={img.sourceId} onChange={(e) => setImg({ ...img, sourceId: e.target.value })}>
             <option value="">Source…</option>
             {sources.map((s) => (

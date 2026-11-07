@@ -25,7 +25,10 @@ function Ladder({ selected, onSelect, counts }: { selected: number | null; onSel
         <button
           key={l.level}
           onClick={() => onSelect(l.level)}
-          className={cn("flex items-stretch border text-left transition-colors", selected === l.level ? "border-warn bg-ink-800" : "border-ink-700 bg-ink-850 hover:border-olive-600")}
+          className={cn(
+            "flex items-stretch border text-left transition-colors",
+            selected === l.level ? "border-warn bg-ink-800" : "border-ink-700 bg-ink-850 hover:border-olive-600"
+          )}
           style={{ marginLeft: `${l.level * 10}px` }}
         >
           <span className="mono flex w-10 shrink-0 items-center justify-center text-[14px] font-bold text-ink-950" style={{ background: LEVEL_TINT[l.level] }}>
@@ -137,7 +140,8 @@ function Tabletop() {
   return (
     <div className="space-y-3">
       <div className="border border-warn/50 bg-warn/10 px-3 py-2 text-[12px] text-warn">
-        HYPOTHETICAL SCENARIO MODE – educational tabletop analysis. Injects here are invented by the user, are stored separately and never alter the historical reconstruction.
+        HYPOTHETICAL SCENARIO MODE – educational tabletop analysis. Injects here are invented by the user, are stored separately and never alter the historical
+        reconstruction.
       </div>
       <Card className="p-3">
         <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
@@ -171,7 +175,12 @@ function Tabletop() {
           </label>
           <label className="flex flex-col gap-0.5">
             <span className="label-caps">Inject / move</span>
-            <input className={input} value={d.description} onChange={(e) => setD({ ...d, description: e.target.value })} placeholder="e.g. Red announces airspace closure" />
+            <input
+              className={input}
+              value={d.description}
+              onChange={(e) => setD({ ...d, description: e.target.value })}
+              placeholder="e.g. Red announces airspace closure"
+            />
           </label>
           <label className="flex flex-col gap-0.5">
             <span className="label-caps">Discussion rationale</span>
@@ -200,7 +209,16 @@ function Tabletop() {
       </Card>
       <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
         <Card>
-          <CardHeader title={`Inject sequence (${scenario.injects.length})`} right={scenario.injects.length > 0 && <Button variant="ghost" size="sm" onClick={() => confirm("Clear the hypothetical scenario?") && clear()}><X /> Clear</Button>} />
+          <CardHeader
+            title={`Inject sequence (${scenario.injects.length})`}
+            right={
+              scenario.injects.length > 0 && (
+                <Button variant="ghost" size="sm" onClick={() => confirm("Clear the hypothetical scenario?") && clear()}>
+                  <X /> Clear
+                </Button>
+              )
+            }
+          />
           <div className="space-y-1 p-2">
             {scenario.injects.length === 0 && <div className="p-2 text-[11px] text-ink-500">No injects yet.</div>}
             {scenario.injects.map((i) => (
@@ -261,7 +279,10 @@ export function EscalationModule() {
     <div className="flex h-full flex-col">
       <ModuleHeader code="E" title="Escalation Matrix">
         <div className="flex overflow-hidden rounded-[3px] border border-ink-700 text-[11px]">
-          <button onClick={() => setTab("historical")} className={`h-6 px-2 ${tab === "historical" ? "bg-olive-700 text-olive-300" : "bg-ink-800 text-ink-400"}`}>
+          <button
+            onClick={() => setTab("historical")}
+            className={`h-6 px-2 ${tab === "historical" ? "bg-olive-700 text-olive-300" : "bg-ink-800 text-ink-400"}`}
+          >
             Historical ladder
           </button>
           <button onClick={() => setTab("tabletop")} className={`h-6 px-2 ${tab === "tabletop" ? "bg-warn/20 text-warn" : "bg-ink-800 text-ink-400"}`}>

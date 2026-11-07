@@ -24,7 +24,15 @@ const input = "h-7 w-full border border-ink-600 bg-ink-900 px-1.5 text-[12px] ou
 function AddSourceForm() {
   const addUserSource = useSim((s) => s.addUserSource);
   const userSources = useSim((s) => s.userSources);
-  const [f, setF] = useState({ title: "", publisher: "", publicationDate: "", url: "", sourceType: "media" as Source["sourceType"], evidenceClass: "AMBER" as EvidenceClass, notes: "" });
+  const [f, setF] = useState({
+    title: "",
+    publisher: "",
+    publicationDate: "",
+    url: "",
+    sourceType: "media" as Source["sourceType"],
+    evidenceClass: "AMBER" as EvidenceClass,
+    notes: "",
+  });
   const [err, setErr] = useState<string | null>(null);
   const [ok, setOk] = useState<string | null>(null);
   const submit = () => {
@@ -96,7 +104,8 @@ function AddSourceForm() {
           {err && <div className="mt-1 text-[11px] text-hostile">{err}</div>}
           {ok && <div className="mt-1 text-[11px] text-olive-300">{ok}</div>}
           <p className="mt-2 text-[10px] text-ink-500">
-            Added sources are stored in this browser and included in saved sessions. Linking a source to an event or BDA record never upgrades its evidence class automatically – an analyst must change a BDA claim status explicitly, and “independently verified” requires a GREEN source.
+            Added sources are stored in this browser and included in saved sessions. Linking a source to an event or BDA record never upgrades its evidence
+            class automatically – an analyst must change a BDA claim status explicitly, and “independently verified” requires a GREEN source.
           </p>
         </div>
       </div>
@@ -126,13 +135,7 @@ export function SourcesModule() {
         <Button
           variant="secondary"
           size="sm"
-          onClick={() =>
-            downloadText(
-              "sindoor-sources.csv",
-              "﻿" + toCsv(sources.map((s) => ({ ...s, linked_records: usage.get(s.id) ?? 0 }))),
-              "text/csv"
-            )
-          }
+          onClick={() => downloadText("sindoor-sources.csv", "﻿" + toCsv(sources.map((s) => ({ ...s, linked_records: usage.get(s.id) ?? 0 }))), "text/csv")}
         >
           Sources CSV
         </Button>
@@ -154,7 +157,9 @@ export function SourcesModule() {
               <tbody>
                 {sources.map((s) => {
                   const user = s.retrieval === "user_added";
-                  const linkedTo = Object.entries(links).filter(([, v]) => v.includes(s.id)).map(([k]) => k);
+                  const linkedTo = Object.entries(links)
+                    .filter(([, v]) => v.includes(s.id))
+                    .map(([k]) => k);
                   return (
                     <tr key={s.id} className="border-b border-ink-800 align-top">
                       <td className="px-2 py-1.5">
@@ -175,7 +180,11 @@ export function SourcesModule() {
                                 </button>
                               </span>
                             ))}
-                            <select value={linkEvent[s.id] ?? ""} onChange={(e) => setLinkEvent({ ...linkEvent, [s.id]: e.target.value })} className="h-6 max-w-[200px] border border-ink-600 bg-ink-900 px-1 text-[10px]">
+                            <select
+                              value={linkEvent[s.id] ?? ""}
+                              onChange={(e) => setLinkEvent({ ...linkEvent, [s.id]: e.target.value })}
+                              className="h-6 max-w-[200px] border border-ink-600 bg-ink-900 px-1 text-[10px]"
+                            >
                               <option value="">Link to event…</option>
                               {ALL_EVENTS.map((e) => (
                                 <option key={e.id} value={e.id}>

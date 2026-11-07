@@ -49,10 +49,19 @@ export function targetCategories(events: TimedEvent[]) {
     else row.context++;
     m.set(k, row);
   });
-  return [...m.entries()].map(([category, v]) => ({ category, ...v })).sort((a, b) => b.indian + b.pakistani + b.context - (a.indian + a.pakistani + a.context));
+  return [...m.entries()]
+    .map(([category, v]) => ({ category, ...v }))
+    .sort((a, b) => b.indian + b.pakistani + b.context - (a.indian + a.pakistani + a.context));
 }
 
-export const CLAIM_ORDER: ClaimStatus[] = ["government_claim", "government_acknowledged", "attack_neutralised", "adversary_claim_rejected", "independently_verified", "unresolved"];
+export const CLAIM_ORDER: ClaimStatus[] = [
+  "government_claim",
+  "government_acknowledged",
+  "attack_neutralised",
+  "adversary_claim_rejected",
+  "independently_verified",
+  "unresolved",
+];
 export const CLAIM_COLOR: Record<ClaimStatus, string> = {
   government_claim: CAT[0],
   government_acknowledged: CAT[3],
@@ -74,7 +83,8 @@ export function damageDistribution(records: BdaRecord[]) {
   });
 }
 
-const isUav = (e: TimedEvent) => e.eventType === "counter_uas" || e.vectors.some((v) => v.style === "uav") || /drone|uav|ucav|loitering/i.test(e.weaponCategory);
+const isUav = (e: TimedEvent) =>
+  e.eventType === "counter_uas" || e.vectors.some((v) => v.style === "uav") || /drone|uav|ucav|loitering/i.test(e.weaponCategory);
 
 export function uavTimeline(events: TimedEvent[]) {
   const days = ["2025-05-07", "2025-05-08", "2025-05-09", "2025-05-10", "2025-05-11", "2025-05-12"];
@@ -102,13 +112,22 @@ export function offenceDefence(events: TimedEvent[]) {
       label: dayShort(d),
       indianOffensive: evs.filter((e) => e.actor === "India" && offensiveTypes.has(e.eventType)).length,
       indianDefensive: evs.filter((e) => defensiveTypes.has(e.eventType) && (e.actor === "India" || e.eventType === "counter_uas")).length,
-      pakistaniAttack: evs.filter((e) => e.actor === "Pakistan" && ["drone_missile_attack", "artillery_shelling", "military_infrastructure_strike", "civilian_impact", "ceasefire_violation"].includes(e.eventType)).length,
+      pakistaniAttack: evs.filter(
+        (e) =>
+          e.actor === "Pakistan" &&
+          ["drone_missile_attack", "artillery_shelling", "military_infrastructure_strike", "civilian_impact", "ceasefire_violation"].includes(e.eventType)
+      ).length,
     };
   });
 }
 
 export function evidenceDistribution(events: TimedEvent[]) {
-  return (Object.keys(EVIDENCE) as (keyof typeof EVIDENCE)[]).map((k) => ({ cls: k, desc: EVIDENCE[k].desc, count: events.filter((e) => e.evidenceClass === k).length, color: EVIDENCE[k].color }));
+  return (Object.keys(EVIDENCE) as (keyof typeof EVIDENCE)[]).map((k) => ({
+    cls: k,
+    desc: EVIDENCE[k].desc,
+    count: events.filter((e) => e.evidenceClass === k).length,
+    color: EVIDENCE[k].color,
+  }));
 }
 
 export function civilianTimeline(events: TimedEvent[]) {
@@ -121,7 +140,10 @@ export function civilianTimeline(events: TimedEvent[]) {
       reports: evs.length,
       statements: evs
         .filter((e) => e.casualties)
-        .map((e) => `${e.id}: ${e.casualties!.killed ?? "UNKNOWN"} killed${e.casualties!.injured !== null ? `, ${e.casualties!.injured} injured` : ""} – ${e.casualties!.statedBy}`),
+        .map(
+          (e) =>
+            `${e.id}: ${e.casualties!.killed ?? "UNKNOWN"} killed${e.casualties!.injured !== null ? `, ${e.casualties!.injured} injured` : ""} – ${e.casualties!.statedBy}`
+        ),
     };
   });
 }

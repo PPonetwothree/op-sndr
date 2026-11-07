@@ -21,10 +21,14 @@ const r3 = (n) => Math.round(n * 1000) / 1000;
 function simplify(pts, tol) {
   if (pts.length < 4) return pts;
   const sq = (p, a, b) => {
-    const [x, y] = p, [x1, y1] = a, [x2, y2] = b;
-    const dx = x2 - x1, dy = y2 - y1;
+    const [x, y] = p,
+      [x1, y1] = a,
+      [x2, y2] = b;
+    const dx = x2 - x1,
+      dy = y2 - y1;
     const t = dx || dy ? Math.max(0, Math.min(1, ((x - x1) * dx + (y - y1) * dy) / (dx * dx + dy * dy))) : 0;
-    const px = x1 + t * dx - x, py = y1 + t * dy - y;
+    const px = x1 + t * dx - x,
+      py = y1 + t * dy - y;
     return px * px + py * py;
   };
   const keep = new Uint8Array(pts.length);
@@ -33,10 +37,11 @@ function simplify(pts, tol) {
   const t2 = tol * tol;
   while (stack.length) {
     const [s, e] = stack.pop();
-    let max = 0, idx = -1;
+    let max = 0,
+      idx = -1;
     for (let i = s + 1; i < e; i++) {
       const d = sq(pts[i], pts[s], pts[e]);
-      if (d > max) (max = d), (idx = i);
+      if (d > max) ((max = d), (idx = i));
     }
     if (max > t2 && idx > 0) {
       keep[idx] = 1;
@@ -70,7 +75,12 @@ const indiaOutline = {
 // 2 · Contested areas
 const LABELS = {
   "Azad Kashmir": { id: "POJK", label: "PoJK", sub: "Pakistan-administered · claimed by India", admin: "Pakistan" },
-  "Gilgit-Baltistan": { id: "GB", label: "Gilgit-Baltistan", sub: "Pakistan-administered · claimed by India (part of PoJK in Indian usage)", admin: "Pakistan" },
+  "Gilgit-Baltistan": {
+    id: "GB",
+    label: "Gilgit-Baltistan",
+    sub: "Pakistan-administered · claimed by India (part of PoJK in Indian usage)",
+    admin: "Pakistan",
+  },
   "Aksai Chin": { id: "AKSAI", label: "Aksai Chin", sub: "China-administered · claimed by India", admin: "China" },
   "Shaksam Valley": { id: "SHAKSGAM", label: "Shaksgam Valley", sub: "Ceded by Pakistan to China (1963) · claimed by India", admin: "China" },
   "Siachen Glacier": { id: "SIACHEN", label: "Siachen", sub: "India-held · AGPL with Pakistan · claimed by both", admin: "India" },
@@ -96,9 +106,11 @@ const pair = (a, b) => (x, y) => (is(x, a) && is(y, b)) || (is(x, b) && is(y, a)
 const lines = (m) => m.coordinates.map((l) => simplify(l, 0.003));
 const indPak = lines(mesh(topo, topo.objects.countries, pair("India", "Pakistan")));
 const LOC_LAT = 32.88;
-const loc = [], ib = [];
+const loc = [],
+  ib = [];
 for (const line of indPak) {
-  let cur = [], curLoc = null;
+  let cur = [],
+    curLoc = null;
   for (const pt of line) {
     const isLoc = pt[1] >= LOC_LAT;
     if (curLoc === null) curLoc = isLoc;
@@ -120,9 +132,21 @@ const boundaries = {
   type: "FeatureCollection",
   features: [
     { type: "Feature", properties: { kind: "LoC", label: "Line of Control (de facto, approximate)" }, geometry: { type: "MultiLineString", coordinates: loc } },
-    { type: "Feature", properties: { kind: "IB", label: "International Border / Working Boundary (approximate)" }, geometry: { type: "MultiLineString", coordinates: ib } },
-    { type: "Feature", properties: { kind: "AGPL", label: "Actual Ground Position Line – Siachen (approximate)" }, geometry: { type: "MultiLineString", coordinates: agpl } },
-    { type: "Feature", properties: { kind: "LAC", label: "Line of Actual Control – western sector (de facto, approximate)" }, geometry: { type: "MultiLineString", coordinates: lac } },
+    {
+      type: "Feature",
+      properties: { kind: "IB", label: "International Border / Working Boundary (approximate)" },
+      geometry: { type: "MultiLineString", coordinates: ib },
+    },
+    {
+      type: "Feature",
+      properties: { kind: "AGPL", label: "Actual Ground Position Line – Siachen (approximate)" },
+      geometry: { type: "MultiLineString", coordinates: agpl },
+    },
+    {
+      type: "Feature",
+      properties: { kind: "LAC", label: "Line of Actual Control – western sector (de facto, approximate)" },
+      geometry: { type: "MultiLineString", coordinates: lac },
+    },
   ],
 };
 
@@ -130,4 +154,13 @@ writeFileSync("src/data/geo/india-official.json", JSON.stringify(indiaOutline));
 writeFileSync("src/data/geo/contested.json", JSON.stringify(contested));
 writeFileSync("src/data/geo/boundaries.json", JSON.stringify(boundaries));
 const pts = (fc) => JSON.stringify(fc).length;
-console.log("india-official bytes", pts(indiaOutline), "contested", pts(contested), contested.features.map((f) => f.properties.id).join(","), "boundaries", pts(boundaries), `LoC ${loc.length} IB ${ib.length} AGPL ${agpl.length} LAC ${lac.length}`);
+console.log(
+  "india-official bytes",
+  pts(indiaOutline),
+  "contested",
+  pts(contested),
+  contested.features.map((f) => f.properties.id).join(","),
+  "boundaries",
+  pts(boundaries),
+  `LoC ${loc.length} IB ${ib.length} AGPL ${agpl.length} LAC ${lac.length}`
+);

@@ -32,14 +32,27 @@ export function EventsPerDayChart({ events }: { events: TimedEvent[] }) {
   const data = useMemo(() => eventsPerDay(events), [events]);
   const setFilters = useSim((s) => s.setFilters);
   return (
-    <ChartCard title="1 · Events per day" note="Database event records per date (click a bar to filter by that day)" table={{ columns: ["Date", "Events"], rows: data.map((d) => [d.label, d.count]) }}>
+    <ChartCard
+      title="1 · Events per day"
+      note="Database event records per date (click a bar to filter by that day)"
+      table={{ columns: ["Date", "Events"], rows: data.map((d) => [d.label, d.count]) }}
+    >
       <ResponsiveContainer>
         <BarChart data={data} margin={{ top: 14, right: 8, left: -18, bottom: 0 }}>
           <CartesianGrid {...GRID} />
           <XAxis dataKey="label" {...AXIS} />
           <YAxis allowDecimals={false} {...AXIS} />
           <Tooltip {...TOOLTIP} />
-          <Bar isAnimationActive={false} dataKey="count" name="Events" fill={CAT[0]} radius={R} maxBarSize={36} onClick={(d: { date?: string }) => d?.date && setFilters({ days: [d.date] })} className="cursor-pointer">
+          <Bar
+            isAnimationActive={false}
+            dataKey="count"
+            name="Events"
+            fill={CAT[0]}
+            radius={R}
+            maxBarSize={36}
+            onClick={(d: { date?: string }) => d?.date && setFilters({ days: [d.date] })}
+            className="cursor-pointer"
+          >
             <LabelList dataKey="count" position="top" fill="#aeb4bb" fontSize={10} />
           </Bar>
         </BarChart>
@@ -54,7 +67,17 @@ export function DomainPieChart({ events }: { events: TimedEvent[] }) {
     <ChartCard title="2 · Events by domain" note="Share of event records" table={{ columns: ["Domain", "Events"], rows: data.map((d) => [d.name, d.value]) }}>
       <ResponsiveContainer>
         <PieChart>
-          <Pie isAnimationActive={false} data={data} dataKey="value" nameKey="name" innerRadius="48%" outerRadius="78%" paddingAngle={1} stroke="#1a1d20" strokeWidth={2}>
+          <Pie
+            isAnimationActive={false}
+            data={data}
+            dataKey="value"
+            nameKey="name"
+            innerRadius="48%"
+            outerRadius="78%"
+            paddingAngle={1}
+            stroke="#1a1d20"
+            strokeWidth={2}
+          >
             {data.map((d) => (
               <Cell key={d.key} fill={d.color} />
             ))}
@@ -78,18 +101,36 @@ export function EscalationLineChart({ events, height = 220 }: { events: TimedEve
       table={{ columns: ["Event", "Time", "Level", "Peak"], rows: data.map((d) => [d.id, formatIst(d.t), d.level, d.peak]) }}
     >
       <ResponsiveContainer>
-        <LineChart data={data} margin={{ top: 8, right: 12, left: -18, bottom: 0 }} onClick={(s: { activePayload?: { payload: { id: string } }[] }) => s?.activePayload?.[0] && selectEvent(s.activePayload[0].payload.id)}>
+        <LineChart
+          data={data}
+          margin={{ top: 8, right: 12, left: -18, bottom: 0 }}
+          onClick={(s: { activePayload?: { payload: { id: string } }[] }) => s?.activePayload?.[0] && selectEvent(s.activePayload[0].payload.id)}
+        >
           <CartesianGrid {...GRID} />
           <XAxis dataKey="t" type="number" scale="time" domain={["dataMin", "dataMax"]} tickFormatter={(t: number) => formatIst(t).slice(0, 6)} {...AXIS} />
           <YAxis domain={[0, 7]} ticks={[0, 1, 2, 3, 4, 5, 6, 7]} {...AXIS} />
-          <Tooltip
-            {...TOOLTIP}
-            labelFormatter={(t: number) => formatIst(t)}
-            formatter={(v: number, n: string) => [`L${v} – ${ESCALATION_LEVELS[v]}`, n]}
-          />
+          <Tooltip {...TOOLTIP} labelFormatter={(t: number) => formatIst(t)} formatter={(v: number, n: string) => [`L${v} – ${ESCALATION_LEVELS[v]}`, n]} />
           <Legend {...LEGEND} />
-          <Line isAnimationActive={false} type="stepAfter" dataKey="level" name="Event level" stroke={CAT[3]} strokeWidth={2} dot={{ r: 2.5, fill: CAT[3], stroke: "#1a1d20" }} activeDot={{ r: 5 }} />
-          <Line isAnimationActive={false} type="stepAfter" dataKey="peak" name="Running peak" stroke={CAT[1]} strokeWidth={2} strokeDasharray="4 3" dot={false} />
+          <Line
+            isAnimationActive={false}
+            type="stepAfter"
+            dataKey="level"
+            name="Event level"
+            stroke={CAT[3]}
+            strokeWidth={2}
+            dot={{ r: 2.5, fill: CAT[3], stroke: "#1a1d20" }}
+            activeDot={{ r: 5 }}
+          />
+          <Line
+            isAnimationActive={false}
+            type="stepAfter"
+            dataKey="peak"
+            name="Running peak"
+            stroke={CAT[1]}
+            strokeWidth={2}
+            strokeDasharray="4 3"
+            dot={false}
+          />
         </LineChart>
       </ResponsiveContainer>
     </ChartCard>
@@ -99,7 +140,14 @@ export function EscalationLineChart({ events, height = 220 }: { events: TimedEve
 export function TargetCategoryChart({ events }: { events: TimedEvent[] }) {
   const data = useMemo(() => targetCategories(events), [events]);
   return (
-    <ChartCard title="4 · Target / location categories" note="Distinct locations referenced by the filtered events" table={{ columns: ["Category", "Indian strike targets", "Locations attacked (India)", "Context"], rows: data.map((d) => [d.category, d.indian, d.pakistani, d.context]) }}>
+    <ChartCard
+      title="4 · Target / location categories"
+      note="Distinct locations referenced by the filtered events"
+      table={{
+        columns: ["Category", "Indian strike targets", "Locations attacked (India)", "Context"],
+        rows: data.map((d) => [d.category, d.indian, d.pakistani, d.context]),
+      }}
+    >
       <ResponsiveContainer>
         <BarChart data={data} layout="vertical" margin={{ top: 0, right: 12, left: 30, bottom: 0 }}>
           <CartesianGrid {...GRID} horizontal={false} vertical />
@@ -145,7 +193,11 @@ export function DamageDistributionChart({ records, height = 220 }: { records: Bd
 export function UavTimelineChart({ events }: { events: TimedEvent[] }) {
   const data = useMemo(() => uavTimeline(events), [events]);
   return (
-    <ChartCard title="6 · UAV activity timeline" note="Number of UAV-related EVENT records per day – not the number of drones" table={{ columns: ["Date", "Hostile UAV events", "Indian UAV / C-UAS events"], rows: data.map((d) => [d.label, d.hostile, d.indian]) }}>
+    <ChartCard
+      title="6 · UAV activity timeline"
+      note="Number of UAV-related EVENT records per day – not the number of drones"
+      table={{ columns: ["Date", "Hostile UAV events", "Indian UAV / C-UAS events"], rows: data.map((d) => [d.label, d.hostile, d.indian]) }}
+    >
       <ResponsiveContainer>
         <LineChart data={data} margin={{ top: 8, right: 12, left: -18, bottom: 0 }}>
           <CartesianGrid {...GRID} />
@@ -167,7 +219,10 @@ export function OffenceDefenceChart({ events }: { events: TimedEvent[] }) {
     <ChartCard
       title="7 · Defensive and offensive events"
       note="Event records per day by role"
-      table={{ columns: ["Date", "Indian offensive", "Defensive (AD / C-UAS)", "Pakistani attack (as reported)"], rows: data.map((d) => [d.label, d.indianOffensive, d.indianDefensive, d.pakistaniAttack]) }}
+      table={{
+        columns: ["Date", "Indian offensive", "Defensive (AD / C-UAS)", "Pakistani attack (as reported)"],
+        rows: data.map((d) => [d.label, d.indianOffensive, d.indianDefensive, d.pakistaniAttack]),
+      }}
     >
       <ResponsiveContainer>
         <BarChart data={data} margin={{ top: 8, right: 8, left: -18, bottom: 0 }} barGap={2}>
@@ -188,7 +243,11 @@ export function OffenceDefenceChart({ events }: { events: TimedEvent[] }) {
 export function EvidenceChart({ events }: { events: TimedEvent[] }) {
   const data = useMemo(() => evidenceDistribution(events), [events]);
   return (
-    <ChartCard title="8 · Evidence confidence distribution" note="Event records by evidence classification" table={{ columns: ["Class", "Meaning", "Events"], rows: data.map((d) => [d.cls, d.desc, d.count]) }}>
+    <ChartCard
+      title="8 · Evidence confidence distribution"
+      note="Event records by evidence classification"
+      table={{ columns: ["Class", "Meaning", "Events"], rows: data.map((d) => [d.cls, d.desc, d.count]) }}
+    >
       <ResponsiveContainer>
         <BarChart data={data} layout="vertical" margin={{ top: 0, right: 24, left: 0, bottom: 0 }}>
           <CartesianGrid {...GRID} horizontal={false} vertical />
@@ -246,7 +305,11 @@ export function CivilianImpactChart({ events }: { events: TimedEvent[] }) {
 export function RegionalDensityChart({ events }: { events: TimedEvent[] }) {
   const data = useMemo(() => regionalDensity(events), [events]);
   return (
-    <ChartCard title="10 · Event density by geographic region" note="Events touching each region (an event can touch several)" table={{ columns: ["Region", "Events"], rows: data.map((d) => [d.region, d.count]) }}>
+    <ChartCard
+      title="10 · Event density by geographic region"
+      note="Events touching each region (an event can touch several)"
+      table={{ columns: ["Region", "Events"], rows: data.map((d) => [d.region, d.count]) }}
+    >
       <ResponsiveContainer>
         <BarChart data={data} layout="vertical" margin={{ top: 0, right: 24, left: 40, bottom: 0 }}>
           <CartesianGrid {...GRID} horizontal={false} vertical />
@@ -265,7 +328,11 @@ export function RegionalDensityChart({ events }: { events: TimedEvent[] }) {
 export function InfrastructureStatusChart({ records }: { records: BdaRecord[] }) {
   const data = useMemo(() => infrastructureStatus(records), [records]);
   return (
-    <ChartCard title="Infrastructure functional status" note="BDA records by stated functional status" table={{ columns: ["Status", "Records"], rows: data.map((d) => [d.status, d.count]) }}>
+    <ChartCard
+      title="Infrastructure functional status"
+      note="BDA records by stated functional status"
+      table={{ columns: ["Status", "Records"], rows: data.map((d) => [d.status, d.count]) }}
+    >
       <ResponsiveContainer>
         <BarChart data={data} layout="vertical" margin={{ top: 0, right: 24, left: 40, bottom: 0 }}>
           <CartesianGrid {...GRID} horizontal={false} vertical />

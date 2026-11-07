@@ -66,7 +66,10 @@ export const CampaignEventSchema = z
   .object({
     id: z.string().regex(/^EVT-\d{3}$/),
     date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    time: z.string().regex(/^\d{2}:\d{2}$/).nullable(), // IST, only when stated by a source
+    time: z
+      .string()
+      .regex(/^\d{2}:\d{2}$/)
+      .nullable(), // IST, only when stated by a source
     sortTime: z.string(), // ISO-like IST timestamp used only for sequencing
     timeBasis: TimeBasisSchema,
     timeLabel: z.string(),

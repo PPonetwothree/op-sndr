@@ -46,7 +46,9 @@ function SystemCard({ id, onClose }: { id: string; onClose: () => void }) {
         <section>
           <div className="label-caps mb-1">Historical usage status</div>
           <p className="text-[12px] leading-relaxed text-ink-200">{w.usageNote}</p>
-          <p className="mt-1 text-[10px] text-ink-500">Usage is recorded only as stated in the cited sources. The system is not assumed to have been used in any strike without that support.</p>
+          <p className="mt-1 text-[10px] text-ink-500">
+            Usage is recorded only as stated in the cited sources. The system is not assumed to have been used in any strike without that support.
+          </p>
         </section>
         <section>
           <div className="label-caps mb-1">Associated events ({events.length})</div>
@@ -129,7 +131,10 @@ export function ForcesModule() {
       </ModuleHeader>
       <div className="flex min-h-0 flex-1">
         <aside className="w-[230px] shrink-0 overflow-auto border-r border-ink-700 bg-ink-900 p-2">
-          <button onClick={() => setCat(null)} className={cn("mb-2 block w-full px-2 py-1 text-left text-[12px]", !cat ? "bg-ink-800 text-ink-100" : "text-ink-300 hover:bg-ink-850")}>
+          <button
+            onClick={() => setCat(null)}
+            className={cn("mb-2 block w-full px-2 py-1 text-left text-[12px]", !cat ? "bg-ink-800 text-ink-100" : "text-ink-300 hover:bg-ink-850")}
+          >
             All systems ({WEAPONS.length})
           </button>
           {(["India", "Pakistan"] as const).map((side) => (
@@ -138,7 +143,14 @@ export function ForcesModule() {
                 {side === "India" ? "Indian forces" : "Adversary forces"}
               </div>
               {FORCE_CATEGORIES.filter((c) => c.side === side).map((c) => (
-                <button key={c.id} onClick={() => setCat(c.id)} className={cn("flex w-full justify-between px-2 py-1 text-left text-[12px]", cat === c.id ? "bg-ink-800 text-ink-100" : "text-ink-300 hover:bg-ink-850")}>
+                <button
+                  key={c.id}
+                  onClick={() => setCat(c.id)}
+                  className={cn(
+                    "flex w-full justify-between px-2 py-1 text-left text-[12px]",
+                    cat === c.id ? "bg-ink-800 text-ink-100" : "text-ink-300 hover:bg-ink-850"
+                  )}
+                >
                   <span>{c.label}</span>
                   <span className="mono text-[10px] text-ink-500">{c.weaponIds.length}</span>
                 </button>
@@ -161,7 +173,11 @@ export function ForcesModule() {
             <CardHeader
               title="Force-package visualisation (historical)"
               right={
-                <select value={pkg?.id} onChange={(e) => setPkgEvent(e.target.value)} className="h-6 max-w-[420px] border border-ink-600 bg-ink-900 px-1 text-[11px]">
+                <select
+                  value={pkg?.id}
+                  onChange={(e) => setPkgEvent(e.target.value)}
+                  className="h-6 max-w-[420px] border border-ink-600 bg-ink-900 px-1 text-[11px]"
+                >
                   {packageEvents.map((e) => (
                     <option key={e.id} value={e.id}>
                       {e.id} · {e.title}
@@ -182,7 +198,14 @@ export function ForcesModule() {
             {list.map((w) => {
               const u = USAGE_LABEL[w.usageStatus];
               return (
-                <button key={w.id} onClick={() => setSelected(w.id)} className={cn("border p-2.5 text-left transition-colors", selected === w.id ? "border-olive-400 bg-ink-800" : "border-ink-700 bg-ink-850 hover:border-olive-600")}>
+                <button
+                  key={w.id}
+                  onClick={() => setSelected(w.id)}
+                  className={cn(
+                    "border p-2.5 text-left transition-colors",
+                    selected === w.id ? "border-olive-400 bg-ink-800" : "border-ink-700 bg-ink-850 hover:border-olive-600"
+                  )}
+                >
                   <div className="flex items-start justify-between gap-2">
                     <div className="text-[13px] font-medium text-ink-100">{w.name}</div>
                     <span className="mono text-[9px] text-ink-500">{w.id}</span>
@@ -202,7 +225,11 @@ export function ForcesModule() {
         </div>
 
         <aside className="w-[360px] shrink-0 border-l border-ink-700 bg-ink-900">
-          {selected ? <SystemCard id={selected} onClose={() => setSelected(null)} /> : <div className="p-4 text-[12px] text-ink-400">Select a system card to view its historical context, usage status, linked events and sources.</div>}
+          {selected ? (
+            <SystemCard id={selected} onClose={() => setSelected(null)} />
+          ) : (
+            <div className="p-4 text-[12px] text-ink-400">Select a system card to view its historical context, usage status, linked events and sources.</div>
+          )}
         </aside>
       </div>
     </div>

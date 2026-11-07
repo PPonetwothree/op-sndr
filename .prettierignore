@@ -1,0 +1,8 @@
+dist
+node_modules
+public
+src/data/*.json
+src/data/geo
+package-lock.json
+playwright-report
+test-results

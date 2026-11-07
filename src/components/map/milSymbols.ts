@@ -57,7 +57,10 @@ export function milIcon(t: Target, state: "dim" | "active" | "selected"): L.DivI
   const { width, height } = sym.getSize();
   const anchor = sym.getAnchor();
   const pip = EVIDENCE[t.evidenceClass].color;
-  const ring = state === "selected" ? `<span class="pulse-ring" style="color:#e3a83b;left:${anchor.x - 14}px;top:${anchor.y - 14}px;width:28px;height:28px;inset:auto"></span>` : "";
+  const ring =
+    state === "selected"
+      ? `<span class="pulse-ring" style="color:#e3a83b;left:${anchor.x - 14}px;top:${anchor.y - 14}px;width:28px;height:28px;inset:auto"></span>`
+      : "";
   const html = `<div style="position:relative;width:${width}px;height:${height}px;opacity:${state === "dim" ? 0.45 : 1}">${ring}${sym.asSVG()}<span title="Evidence ${t.evidenceClass}" style="position:absolute;right:-2px;top:-2px;width:6px;height:6px;border-radius:9999px;background:${pip};box-shadow:0 0 0 1.5px #0b0d0e"></span></div>`;
   const icon = L.divIcon({ className: "leaflet-div-icon clean", html, iconSize: [width, height], iconAnchor: [anchor.x, anchor.y] });
   cache.set(key, icon);

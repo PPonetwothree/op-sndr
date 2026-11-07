@@ -84,7 +84,9 @@ export function InfrastructureSchematic({ record }: { record: BdaRecord }) {
         <figcaption className="border-t border-ink-700 px-2 py-1 text-[10px] text-ink-400">
           Reported damage state – {verified ? "independently verified" : "as claimed/reported, not verified"}
         </figcaption>
-        <div className="pointer-events-none absolute right-1 top-1 rotate-0 border border-ink-600 bg-ink-950/80 px-1 text-[8px] tracking-widest text-ink-400">SCHEMATIC · NOT IMAGERY</div>
+        <div className="pointer-events-none absolute right-1 top-1 rotate-0 border border-ink-600 bg-ink-950/80 px-1 text-[8px] tracking-widest text-ink-400">
+          SCHEMATIC · NOT IMAGERY
+        </div>
       </figure>
     </div>
   );

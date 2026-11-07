@@ -31,11 +31,16 @@ function anchor(f: Feature<MultiPolygon>): [number, number] {
   let best: number[][] = f.geometry.coordinates[0][0];
   let bestArea = 0;
   for (const p of f.geometry.coordinates) {
-    const xs = p[0].map((c) => c[0]), ys = p[0].map((c) => c[1]);
+    const xs = p[0].map((c) => c[0]),
+      ys = p[0].map((c) => c[1]);
     const a = (Math.max(...xs) - Math.min(...xs)) * (Math.max(...ys) - Math.min(...ys));
-    if (a > bestArea) (bestArea = a), (best = p[0]);
+    if (a > bestArea) {
+      bestArea = a;
+      best = p[0];
+    }
   }
-  const xs = best.map((c) => c[0]), ys = best.map((c) => c[1]);
+  const xs = best.map((c) => c[0]),
+    ys = best.map((c) => c[1]);
   return [(Math.min(...ys) + Math.max(...ys)) / 2, (Math.min(...xs) + Math.max(...xs)) / 2];
 }
 
@@ -65,7 +70,11 @@ export function ContestedAreasLayer({ labels }: { labels: boolean }) {
           );
         })}
       {/* Sir Creek: not in Natural Earth – indicative location only */}
-      <Circle center={[23.72, 68.45]} radius={22_000} pathOptions={{ color: BOUNDARY_STYLE.contested, weight: 1, dashArray: "3 3", fillColor: "url(#contested-hatch)", fillOpacity: 1 }}>
+      <Circle
+        center={[23.72, 68.45]}
+        radius={22_000}
+        pathOptions={{ color: BOUNDARY_STYLE.contested, weight: 1, dashArray: "3 3", fillColor: "url(#contested-hatch)", fillOpacity: 1 }}
+      >
         <Tooltip sticky className="map-tip">
           <b>Sir Creek</b>
           <br />

@@ -14,7 +14,10 @@ const FRONT_LINES: LatLng[][] = boundaries.features
   .filter((f) => f.properties?.kind === "LoC" || f.properties?.kind === "IB")
   .flatMap((f) => f.geometry.coordinates.map((line) => line.map(([x, y]) => [y, x] as LatLng)));
 const FRONT_SAMPLES = frontSamples(FRONT_LINES, 16);
-const FRONT_FC: FeatureCollection = { type: "FeatureCollection", features: boundaries.features.filter((f) => f.properties?.kind === "LoC" || f.properties?.kind === "IB") };
+const FRONT_FC: FeatureCollection = {
+  type: "FeatureCollection",
+  features: boundaries.features.filter((f) => f.properties?.kind === "LoC" || f.properties?.kind === "IB"),
+};
 
 function styleAllowed(v: EventVector, layers: LayerVisibility) {
   if (!layers.vectors) return false;
@@ -47,17 +50,26 @@ function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: Eve
           key={`front-${nonce}-${animated}`}
           data={FRONT_FC}
           interactive={false}
-          style={{ color: st.color, weight: animated ? 5 : 3, opacity: animated ? 0.55 : 0.25, className: animated ? "vec-flow" : undefined, dashArray: "10 14" }}
+          style={{
+            color: st.color,
+            weight: animated ? 5 : 3,
+            opacity: animated ? 0.55 : 0.25,
+            className: animated ? "vec-flow" : undefined,
+            dashArray: "10 14",
+          }}
         />
         {FRONT_SAMPLES.map((s, k) => {
           const pts = arcPoints(s.from, s.to, 0.1, 10);
           return (
-            <Polyline key={`fs-${k}-${nonce}`} positions={pts} pathOptions={{ color: st.color, weight: 1.6, opacity: animated ? 0.95 : 0.45, dashArray: "3 4", className: animated ? "vec-flow" : undefined }} interactive={false} />
+            <Polyline
+              key={`fs-${k}-${nonce}`}
+              positions={pts}
+              pathOptions={{ color: st.color, weight: 1.6, opacity: animated ? 0.95 : 0.45, dashArray: "3 4", className: animated ? "vec-flow" : undefined }}
+              interactive={false}
+            />
           );
         })}
-        {animated && (
-          <Marker position={[30.6, 71.0]} icon={formationIcon("uav", st.color, "UAV ACTIVITY · ILLUSTRATIVE DISTRIBUTION")} interactive={false} />
-        )}
+        {animated && <Marker position={[30.6, 71.0]} icon={formationIcon("uav", st.color, "UAV ACTIVITY · ILLUSTRATIVE DISTRIBUTION")} interactive={false} />}
       </>
     );
   }
@@ -71,7 +83,15 @@ function VectorShape({ e, v, i, animated, nonce, zoom }: { e: TimedEvent; v: Eve
         key={`ring-${e.id}-${i}-${nonce}`}
         center={to}
         radius={animated ? 42_000 : 28_000}
-        pathOptions={{ color: st.color, weight: animated ? 2 : 1.2, opacity: animated ? 0.95 : 0.45, dashArray: st.dash ?? (v.style === "indian_defensive" ? "5 4" : undefined), fillColor: st.color, fillOpacity: animated ? 0.12 : 0.04, className: animated ? "vec-flow" : undefined }}
+        pathOptions={{
+          color: st.color,
+          weight: animated ? 2 : 1.2,
+          opacity: animated ? 0.95 : 0.45,
+          dashArray: st.dash ?? (v.style === "indian_defensive" ? "5 4" : undefined),
+          fillColor: st.color,
+          fillOpacity: animated ? 0.12 : 0.04,
+          className: animated ? "vec-flow" : undefined,
+        }}
         interactive={false}
       />
     );
@@ -122,7 +142,8 @@ export function VectorLayer({ set, layers }: { set: MapEventSet; layers: LayerVi
     if (!sel || sel.formation.representation === "none") return null;
     const v = sel.vectors.find((x) => x.from !== x.to && !x.from.startsWith("FRONT:"));
     if (!v) return null;
-    const a = resolveEndpoint(v.from), b = resolveEndpoint(v.to);
+    const a = resolveEndpoint(v.from),
+      b = resolveEndpoint(v.to);
     return a && b ? midpoint(arcPoints(a, b, 0.16)) : null;
   }, [sel]);
 
@@ -137,13 +158,23 @@ export function VectorLayer({ set, layers }: { set: MapEventSet; layers: LayerVi
       {background.map((e) =>
         e.vectors.map((v, i) =>
           styleAllowed(v, layers) ? (
-            <VectorShape key={`${e.id}-${i}${hl.has(e.id) ? "-hl" : ""}`} e={e} v={v} i={i} animated={hl.has(e.id)} nonce={hl.has(e.id) ? nonce : 0} zoom={zoom} />
+            <VectorShape
+              key={`${e.id}-${i}${hl.has(e.id) ? "-hl" : ""}`}
+              e={e}
+              v={v}
+              i={i}
+              animated={hl.has(e.id)}
+              nonce={hl.has(e.id) ? nonce : 0}
+              zoom={zoom}
+            />
           ) : null
         )
       )}
       {sel && (
         <Pane name="selected-vectors" style={{ zIndex: 440 }}>
-          {sel.vectors.map((v, i) => (styleAllowed(v, layers) ? <VectorShape key={`sel-${sel.id}-${i}-${nonce}`} e={sel} v={v} i={i} animated nonce={nonce} zoom={zoom} /> : null))}
+          {sel.vectors.map((v, i) =>
+            styleAllowed(v, layers) ? <VectorShape key={`sel-${sel.id}-${i}-${nonce}`} e={sel} v={v} i={i} animated nonce={nonce} zoom={zoom} /> : null
+          )}
           {formationPos && layers.vectors && (
             <Marker
               key={`form-${sel.id}-${nonce}`}
@@ -158,7 +189,12 @@ export function VectorLayer({ set, layers }: { set: MapEventSet; layers: LayerVi
           )}
           {layers.vectors &&
             usedAnchors.map((a) => (
-              <Circle key={`anc-${a.id}-${nonce}`} center={a.pos} radius={18_000} pathOptions={{ color: "#8a9098", weight: 1, dashArray: "2 3", fillOpacity: 0 }}>
+              <Circle
+                key={`anc-${a.id}-${nonce}`}
+                center={a.pos}
+                radius={18_000}
+                pathOptions={{ color: "#8a9098", weight: 1, dashArray: "2 3", fillOpacity: 0 }}
+              >
                 <Tooltip permanent direction="bottom" offset={[0, 8]} className="anchor-label">
                   {a.label}
                 </Tooltip>

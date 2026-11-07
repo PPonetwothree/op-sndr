@@ -57,7 +57,11 @@ export function TimeSlider() {
           </div>
         )}
         {days.map((d) => (
-          <div key={d} className="absolute top-0 h-full border-l border-ink-700 pl-1 text-[9px] text-ink-400 mono" style={{ left: `${toFrac(dayStart(d)) * 100}%` }}>
+          <div
+            key={d}
+            className="absolute top-0 h-full border-l border-ink-700 pl-1 text-[9px] text-ink-400 mono"
+            style={{ left: `${toFrac(dayStart(d)) * 100}%` }}
+          >
             {Number(d.slice(8))} MAY
           </div>
         ))}

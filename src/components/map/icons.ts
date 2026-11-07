@@ -15,7 +15,8 @@ export function markerKind(t: Target): MarkerKind {
 
 export function sideColor(t: Target): string {
   if (t.side === "indian_strike_target") return "#4f8fe6"; // Indian-reported offensive event location
-  if (t.side === "pakistani_attack_target") return t.category === "lo_c_sector" || t.category === "civilian_area" || t.category === "religious_site" ? "#d9773a" : "#e05252";
+  if (t.side === "pakistani_attack_target")
+    return t.category === "lo_c_sector" || t.category === "civilian_area" || t.category === "religious_site" ? "#d9773a" : "#e05252";
   return "#9aa874";
 }
 

@@ -51,9 +51,12 @@ export function anchorLabel(token: string): string {
 export function arcPoints(from: LatLng, to: LatLng, bow = 0.18, steps = 40): LatLng[] {
   const [y1, x1] = from;
   const [y2, x2] = to;
-  const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
-  const dx = x2 - x1, dy = y2 - y1;
-  const cx = mx - dy * bow, cy = my + dx * bow;
+  const mx = (x1 + x2) / 2,
+    my = (y1 + y2) / 2;
+  const dx = x2 - x1,
+    dy = y2 - y1;
+  const cx = mx - dy * bow,
+    cy = my + dx * bow;
   const pts: LatLng[] = [];
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
@@ -70,7 +73,8 @@ export function arrowHead(pts: LatLng[], size = 0.16): LatLng[] {
   const [ey, ex] = pts[pts.length - 1];
   const [py, px] = pts[Math.max(0, pts.length - 3)];
   const ang = Math.atan2(ey - py, ex - px);
-  const a1 = ang + Math.PI * 0.85, a2 = ang - Math.PI * 0.85;
+  const a1 = ang + Math.PI * 0.85,
+    a2 = ang - Math.PI * 0.85;
   return [
     [ey, ex],
     [ey + Math.sin(a1) * size, ex + Math.cos(a1) * size],

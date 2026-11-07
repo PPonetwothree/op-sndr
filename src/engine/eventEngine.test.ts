@@ -43,7 +43,8 @@ describe("event engine", () => {
     expect(fast.dwell).toBeCloseTo(dwell / 10);
     // run to the end
     st = { idx: 0, elapsed: 0 };
-    let guard = 0, done = false;
+    let guard = 0,
+      done = false;
     while (!done && guard++ < 10000) {
       const x = tick(campaign, st, 500, 10, CAMPAIGN_START);
       st = { idx: x.idx, elapsed: x.elapsed };

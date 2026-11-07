@@ -13,7 +13,19 @@ import type { ScoreRow } from "./scorecard";
 const th = "border border-neutral-400 bg-neutral-200 px-1.5 py-1 text-left font-semibold";
 const td = "border border-neutral-300 px-1.5 py-0.5 align-top";
 
-export function PrintReport({ events, bda, sources, score, onClose }: { events: TimedEvent[]; bda: BdaRecord[]; sources: Source[]; score: ScoreRow[]; onClose: () => void }) {
+export function PrintReport({
+  events,
+  bda,
+  sources,
+  score,
+  onClose,
+}: {
+  events: TimedEvent[];
+  bda: BdaRecord[];
+  sources: Source[];
+  score: ScoreRow[];
+  onClose: () => void;
+}) {
   useEffect(() => {
     document.body.classList.add("printing-report");
     return () => document.body.classList.remove("printing-report");
@@ -32,9 +44,15 @@ export function PrintReport({ events, bda, sources, score, onClose }: { events: 
         <h1 className="text-2xl font-bold tracking-wider">OPERATION SINDOOR – CAMPAIGN REPORT</h1>
         <p className="text-neutral-600">Historical reconstruction · 7–10 May 2025 · generated {new Date().toLocaleString()}</p>
         <p className="mt-2 border-l-4 border-neutral-500 pl-2 text-neutral-700">
-          Built from public Indian government accounts. Official claims are not independently verified unless marked GREEN. Map vectors and formations are illustrative. Unavailable data is shown as UNKNOWN; no numerical effectiveness scores are assigned.
+          Built from public Indian government accounts. Official claims are not independently verified unless marked GREEN. Map vectors and formations are
+          illustrative. Unavailable data is shown as UNKNOWN; no numerical effectiveness scores are assigned.
         </p>
-        <p className="mt-1 text-neutral-600">Evidence classes: {Object.entries(EVIDENCE).map(([k, v]) => `${k} – ${v.desc}`).join(" · ")}</p>
+        <p className="mt-1 text-neutral-600">
+          Evidence classes:{" "}
+          {Object.entries(EVIDENCE)
+            .map(([k, v]) => `${k} – ${v.desc}`)
+            .join(" · ")}
+        </p>
 
         <h2 className="mt-6 text-lg font-bold">Analytical scorecard</h2>
         <table className="mt-1 w-full border-collapse">
@@ -98,7 +116,8 @@ export function PrintReport({ events, bda, sources, score, onClose }: { events: 
                 <ul className="ml-4 list-disc">
                   {b.items.map((it, i) => (
                     <li key={i}>
-                      <span className="text-neutral-500">[{it.basis.replace(/_/g, " ")}]</span> {it.text} {it.sources.length > 0 && <span className="text-neutral-500">({it.sources.join(", ")})</span>}
+                      <span className="text-neutral-500">[{it.basis.replace(/_/g, " ")}]</span> {it.text}{" "}
+                      {it.sources.length > 0 && <span className="text-neutral-500">({it.sources.join(", ")})</span>}
                     </li>
                   ))}
                 </ul>
@@ -162,7 +181,8 @@ export function PrintReport({ events, bda, sources, score, onClose }: { events: 
         <ol className="ml-4 list-decimal">
           {sources.map((s) => (
             <li key={s.id}>
-              <b>{s.id}</b> – {s.title}. {s.publisher}, {formatDateLabel(s.publicationDate)}. [{s.evidenceClass}; {s.retrieval.replace(/_/g, " ")}] <span className="break-all text-neutral-600">{s.url}</span>
+              <b>{s.id}</b> – {s.title}. {s.publisher}, {formatDateLabel(s.publicationDate)}. [{s.evidenceClass}; {s.retrieval.replace(/_/g, " ")}]{" "}
+              <span className="break-all text-neutral-600">{s.url}</span>
             </li>
           ))}
         </ol>

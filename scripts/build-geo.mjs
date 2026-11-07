@@ -29,21 +29,29 @@ const byName = (n) => (o) => o.properties && o.properties.name === n;
 const geoms = topo.objects.countries.geometries;
 const isName = (o, n) => o.properties?.name === n;
 const indPak = mesh(topo, topo.objects.countries, (a, b) => (isName(a, "India") && isName(b, "Pakistan")) || (isName(a, "Pakistan") && isName(b, "India")));
-const siaPak = mesh(topo, topo.objects.countries, (a, b) => (isName(a, "Siachen Glacier") && isName(b, "Pakistan")) || (isName(a, "Pakistan") && isName(b, "Siachen Glacier")));
-void byName; void geoms;
+const siaPak = mesh(
+  topo,
+  topo.objects.countries,
+  (a, b) => (isName(a, "Siachen Glacier") && isName(b, "Pakistan")) || (isName(a, "Pakistan") && isName(b, "Siachen Glacier"))
+);
+void byName;
+void geoms;
 
 // Split India–Pakistan line into LoC (north) and International Border / Working Boundary (south).
 const LOC_LAT = 32.88;
-const loc = [], ib = [];
+const loc = [],
+  ib = [];
 for (const line of indPak.coordinates) {
-  let cur = [], curIsLoc = null;
+  let cur = [],
+    curIsLoc = null;
   for (const pt of line) {
     const isLoc = pt[1] >= LOC_LAT;
     if (curIsLoc === null) curIsLoc = isLoc;
     if (isLoc !== curIsLoc) {
       cur.push(pt);
       (curIsLoc ? loc : ib).push(roundRing(cur));
-      cur = [pt]; curIsLoc = isLoc;
+      cur = [pt];
+      curIsLoc = isLoc;
     } else cur.push(pt);
   }
   if (cur.length > 1) (curIsLoc ? loc : ib).push(roundRing(cur));
@@ -52,8 +60,16 @@ const boundaries = {
   type: "FeatureCollection",
   features: [
     { type: "Feature", properties: { kind: "LoC", label: "Line of Control (approximate, de facto)" }, geometry: { type: "MultiLineString", coordinates: loc } },
-    { type: "Feature", properties: { kind: "IB", label: "International Border / Working Boundary (approximate)" }, geometry: { type: "MultiLineString", coordinates: ib } },
-    { type: "Feature", properties: { kind: "AGPL", label: "Siachen sector – AGPL (approximate)" }, geometry: { type: "MultiLineString", coordinates: siaPak.coordinates.map(roundRing) } },
+    {
+      type: "Feature",
+      properties: { kind: "IB", label: "International Border / Working Boundary (approximate)" },
+      geometry: { type: "MultiLineString", coordinates: ib },
+    },
+    {
+      type: "Feature",
+      properties: { kind: "AGPL", label: "Siachen sector – AGPL (approximate)" },
+      geometry: { type: "MultiLineString", coordinates: siaPak.coordinates.map(roundRing) },
+    },
   ],
 };
 

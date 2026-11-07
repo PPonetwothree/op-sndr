@@ -47,7 +47,10 @@ export function LayerPanel() {
   return (
     <div className="absolute right-3 top-3 z-[1000]">
       {!open ? (
-        <button onClick={() => setOpen(true)} className="flex items-center gap-1.5 border border-ink-600 bg-ink-950/92 px-2.5 py-1.5 text-[11px] text-ink-200 hover:text-ink-100">
+        <button
+          onClick={() => setOpen(true)}
+          className="flex items-center gap-1.5 border border-ink-600 bg-ink-950/92 px-2.5 py-1.5 text-[11px] text-ink-200 hover:text-ink-100"
+        >
           <Layers className="size-3.5" /> Layers
         </button>
       ) : (

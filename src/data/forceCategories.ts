@@ -10,7 +10,12 @@ export const FORCE_CATEGORIES: ForceCategory[] = [
   { id: "in-iaf", side: "India", label: "Indian Air Force", weaponIds: ["WPN-RAFALE", "WPN-SCALP", "WPN-HAMMER"] },
   { id: "in-army", side: "India", label: "Indian Army", weaponIds: ["WPN-AKASHTEER", "WPN-MANPADS", "WPN-LLAD"] },
   { id: "in-navy", side: "India", label: "Indian Navy", weaponIds: ["WPN-CBG"] },
-  { id: "in-iad", side: "India", label: "Integrated air-defence assets", weaponIds: ["WPN-AKASH", "WPN-PECHORA", "WPN-OSA-AK", "WPN-LRSAM-IN", "WPN-S400", "WPN-IACCS"] },
+  {
+    id: "in-iad",
+    side: "India",
+    label: "Integrated air-defence assets",
+    weaponIds: ["WPN-AKASH", "WPN-PECHORA", "WPN-OSA-AK", "WPN-LRSAM-IN", "WPN-S400", "WPN-IACCS"],
+  },
   { id: "in-cuas", side: "India", label: "Counter-UAS assets", weaponIds: ["WPN-CUAS-GRID"] },
   { id: "in-ew", side: "India", label: "Electronic warfare capabilities", weaponIds: ["WPN-EW"] },
   { id: "in-uav", side: "India", label: "UAV platforms / loitering munitions", weaponIds: ["WPN-LOITERING-IN", "WPN-ARMED-DRONE-IN"] },

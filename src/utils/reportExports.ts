@@ -62,7 +62,11 @@ function footer(doc: Doc) {
     doc.setTextColor(110, 110, 110);
     const w = doc.internal.pageSize.getWidth();
     const h = doc.internal.pageSize.getHeight();
-    doc.text("Reconstruction from public Indian government accounts. Official claims are not independently verified unless marked GREEN. Vectors/formations illustrative.", 12, h - 6);
+    doc.text(
+      "Reconstruction from public Indian government accounts. Official claims are not independently verified unless marked GREEN. Vectors/formations illustrative.",
+      12,
+      h - 6
+    );
     doc.text(`Page ${i} / ${n} · generated ${new Date().toISOString().slice(0, 16).replace("T", " ")} UTC`, w - 12, h - 6, { align: "right" });
   }
 }
@@ -103,7 +107,20 @@ function escalationTable(doc: Doc, startY: number) {
   autoTable(doc, {
     ...tableStyle,
     startY,
-    head: [["Lvl", "Name", "Trigger / date-time", "Domain", "Indian govt account", "Adversary action (reported)", "Indian response", "Political implications*", "Significance*", "Sources"]],
+    head: [
+      [
+        "Lvl",
+        "Name",
+        "Trigger / date-time",
+        "Domain",
+        "Indian govt account",
+        "Adversary action (reported)",
+        "Indian response",
+        "Political implications*",
+        "Significance*",
+        "Sources",
+      ],
+    ],
     body: ESCALATION_LADDER.map((l) => [
       String(l.level),
       l.name,
@@ -124,8 +141,13 @@ function escalationTable(doc: Doc, startY: number) {
 export function exportEscalationPdf() {
   const doc = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" }) as Doc;
   header(doc, "OPERATION SINDOOR – ESCALATION MATRIX", "Historical reconstruction · 22 April – 12 May 2025 · levels 0–7");
-  let y = escalationTable(doc, 28);
-  para(doc, "* Political implications and escalation significance are analytical assessments (AMBER), not official statements. All other columns paraphrase the cited official sources.", y, 7.5);
+  const y = escalationTable(doc, 28);
+  para(
+    doc,
+    "* Political implications and escalation significance are analytical assessments (AMBER), not official statements. All other columns paraphrase the cited official sources.",
+    y,
+    7.5
+  );
   footer(doc);
   doc.save("sindoor-escalation-matrix.pdf");
 }
@@ -137,7 +159,9 @@ export function exportCampaignPdf(opts: { events: TimedEvent[]; bda: BdaRecord[]
   y = heading(doc, "Scope and method", y);
   y = para(
     doc,
-    `This report is generated from a reconstruction database of ${opts.events.length} events, ${opts.bda.length} battle-damage assessment records, ${WEAPONS.length} weapon-system entries and ${opts.sources.length} sources. Evidence classes: ${Object.entries(EVIDENCE)
+    `This report is generated from a reconstruction database of ${opts.events.length} events, ${opts.bda.length} battle-damage assessment records, ${WEAPONS.length} weapon-system entries and ${opts.sources.length} sources. Evidence classes: ${Object.entries(
+      EVIDENCE
+    )
       .map(([k, v]) => `${k} = ${v.desc}`)
       .join("; ")}. Where data is unavailable it is shown as UNKNOWN. No numerical effectiveness scores are assigned.`,
     y
@@ -176,7 +200,17 @@ export function exportCampaignPdf(opts: { events: TimedEvent[]; bda: BdaRecord[]
     ...tableStyle,
     startY: y,
     head: [["Target", "Region", "Category", "Level", "Claim status", "Condition", "Functional status", "Civilian impact", "Confidence"]],
-    body: opts.bda.map((r) => [r.targetName, r.region, r.category.replace(/_/g, " "), r.damageLevel === null ? "UNKNOWN" : String(r.damageLevel), CLAIM_LABEL[r.claimStatus], r.infrastructureCondition, r.functionalStatus, r.civilianImpact, r.confidence]),
+    body: opts.bda.map((r) => [
+      r.targetName,
+      r.region,
+      r.category.replace(/_/g, " "),
+      r.damageLevel === null ? "UNKNOWN" : String(r.damageLevel),
+      CLAIM_LABEL[r.claimStatus],
+      r.infrastructureCondition,
+      r.functionalStatus,
+      r.civilianImpact,
+      r.confidence,
+    ]),
   });
 
   doc.addPage();
@@ -187,7 +221,8 @@ export function exportCampaignPdf(opts: { events: TimedEvent[]; bda: BdaRecord[]
       doc.setFont("helvetica", "bold");
       y = para(doc, b.heading, y, 8.5);
       doc.setFont("helvetica", "normal");
-      for (const it of b.items) y = para(doc, `• [${it.basis.replace(/_/g, " ").toUpperCase()}] ${it.text}${it.sources.length ? ` (${it.sources.join(", ")})` : ""}`, y, 8);
+      for (const it of b.items)
+        y = para(doc, `• [${it.basis.replace(/_/g, " ").toUpperCase()}] ${it.text}${it.sources.length ? ` (${it.sources.join(", ")})` : ""}`, y, 8);
     }
   }
 
@@ -197,7 +232,15 @@ export function exportCampaignPdf(opts: { events: TimedEvent[]; bda: BdaRecord[]
     ...tableStyle,
     startY: y,
     head: [["System", "Operator", "Category", "Usage status", "Note", "Events", "Sources"]],
-    body: WEAPONS.map((w) => [w.name, w.operator, w.platformCategory, w.usageStatus.replace(/_/g, " "), w.usageNote, w.eventIds.join(", ") || "—", w.sources.join(", ")]),
+    body: WEAPONS.map((w) => [
+      w.name,
+      w.operator,
+      w.platformCategory,
+      w.usageStatus.replace(/_/g, " "),
+      w.usageNote,
+      w.eventIds.join(", ") || "—",
+      w.sources.join(", "),
+    ]),
     columnStyles: { 4: { cellWidth: 90 } },
   });
 

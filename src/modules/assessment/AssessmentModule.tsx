@@ -23,7 +23,10 @@ function EvidenceTimeline({ r }: { r: BdaRecord }) {
         const s = sources.find((x) => x.id === ev.sourceId);
         return (
           <li key={i} className="mb-2 ml-3">
-            <span className="absolute -left-[4px] mt-1 h-2 w-2 rounded-full" style={{ background: s ? (s.evidenceClass === "GREEN" ? "#5fbf7a" : s.evidenceClass === "BLUE" ? "#4f8fe6" : "#e3a83b") : "#888" }} />
+            <span
+              className="absolute -left-[4px] mt-1 h-2 w-2 rounded-full"
+              style={{ background: s ? (s.evidenceClass === "GREEN" ? "#5fbf7a" : s.evidenceClass === "BLUE" ? "#4f8fe6" : "#e3a83b") : "#888" }}
+            />
             <div className="mono text-[10px] text-ink-400">
               {formatDateLabel(ev.date)} · {ev.sourceId}
               {ev.eventId ? ` · ${ev.eventId}` : ""}
@@ -98,7 +101,13 @@ function RecordView({ r }: { r: BdaRecord }) {
             <div className="label-caps mb-1">Damage classification</div>
             <DamageScale level={r.damageLevel} />
             <div className={cn("mt-1 text-[11px]", verified ? "text-defensive" : "text-warn")}>
-              {r.damageLevel === 5 ? (verified ? "Destruction independently established." : "Destruction CLAIMED by the government – not independently verified.") : verified ? "Independently verified assessment." : "Not independently verified."}
+              {r.damageLevel === 5
+                ? verified
+                  ? "Destruction independently established."
+                  : "Destruction CLAIMED by the government – not independently verified."
+                : verified
+                  ? "Independently verified assessment."
+                  : "Not independently verified."}
             </div>
           </div>
           <Card>
@@ -143,7 +152,10 @@ function RecordView({ r }: { r: BdaRecord }) {
             <CardHeader title="Before / after imagery" />
             <div className="p-3 text-[11px]">
               {r.imagery.length === 0 ? (
-                <span className="text-ink-500">No publicly available, properly sourced imagery is linked to this record. Imagery is never generated or simulated. Analysts can attach a sourced link via Edit.</span>
+                <span className="text-ink-500">
+                  No publicly available, properly sourced imagery is linked to this record. Imagery is never generated or simulated. Analysts can attach a
+                  sourced link via Edit.
+                </span>
               ) : (
                 r.imagery.map((im, i) => (
                   <a key={i} href={im.url} target="_blank" rel="noreferrer" className="block text-olive-300 hover:underline">
@@ -220,9 +232,15 @@ export function AssessmentModule() {
               <button
                 key={r.targetId}
                 onClick={() => selectTarget(r.targetId)}
-                className={cn("mb-0.5 flex w-full items-center gap-2 border-l-2 px-2 py-1.5 text-left", current?.targetId === r.targetId ? "border-warn bg-ink-800" : "border-transparent hover:bg-ink-850")}
+                className={cn(
+                  "mb-0.5 flex w-full items-center gap-2 border-l-2 px-2 py-1.5 text-left",
+                  current?.targetId === r.targetId ? "border-warn bg-ink-800" : "border-transparent hover:bg-ink-850"
+                )}
               >
-                <span className="mono flex h-6 w-6 shrink-0 items-center justify-center text-[10px] font-semibold" style={{ background: r.damageLevel === null ? "#3a3f45" : DAMAGE_RAMP[r.damageLevel], color: (r.damageLevel ?? 0) >= 3 ? "#fff" : "#15171a" }}>
+                <span
+                  className="mono flex h-6 w-6 shrink-0 items-center justify-center text-[10px] font-semibold"
+                  style={{ background: r.damageLevel === null ? "#3a3f45" : DAMAGE_RAMP[r.damageLevel], color: (r.damageLevel ?? 0) >= 3 ? "#fff" : "#15171a" }}
+                >
                   {r.damageLevel ?? "?"}
                 </span>
                 <span className="min-w-0 flex-1">
@@ -234,7 +252,9 @@ export function AssessmentModule() {
             ))}
           </div>
         </aside>
-        <div className="min-w-0 flex-1 overflow-auto p-4">{current ? <RecordView key={current.targetId} r={current} /> : <div className="text-ink-400">No records match.</div>}</div>
+        <div className="min-w-0 flex-1 overflow-auto p-4">
+          {current ? <RecordView key={current.targetId} r={current} /> : <div className="text-ink-400">No records match.</div>}
+        </div>
         <aside className="w-[380px] shrink-0 space-y-3 overflow-auto border-l border-ink-700 bg-ink-900 p-3">
           <ClaimsChart records={records} />
           <InfrastructureStatusChart records={records} />

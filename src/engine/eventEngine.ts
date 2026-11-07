@@ -7,9 +7,7 @@ export interface TimedEvent extends CampaignEvent {
 }
 
 export function prepareEvents(events: CampaignEvent[]): TimedEvent[] {
-  return events
-    .map((e) => ({ ...e, t: toMs(e.sortTime) }))
-    .sort((a, b) => a.t - b.t || a.id.localeCompare(b.id));
+  return events.map((e) => ({ ...e, t: toMs(e.sortTime) })).sort((a, b) => a.t - b.t || a.id.localeCompare(b.id));
 }
 
 export const EMPTY_FILTERS: EventFilters = {
@@ -43,7 +41,9 @@ export function filterEvents<T extends CampaignEvent>(events: T[], f: EventFilte
 
 /** Index of the last event at or before simTime (-1 if none). Events must be sorted. */
 export function indexAtTime(events: TimedEvent[], simTime: number): number {
-  let lo = 0, hi = events.length - 1, ans = -1;
+  let lo = 0,
+    hi = events.length - 1,
+    ans = -1;
   while (lo <= hi) {
     const mid = (lo + hi) >> 1;
     if (events[mid].t <= simTime) {

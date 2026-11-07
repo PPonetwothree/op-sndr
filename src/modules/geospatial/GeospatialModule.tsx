@@ -61,7 +61,12 @@ export function GeospatialModule() {
         </Button>
         <span className="label-caps text-olive-400">B · Geospatial Operations Simulator</span>
         <div className="mx-2 h-5 w-px bg-ink-700" />
-        <Button variant={compare.enabled ? "active" : "secondary"} size="sm" onClick={() => setCompare({ enabled: !compare.enabled })} title="Compare two campaign days side by side">
+        <Button
+          variant={compare.enabled ? "active" : "secondary"}
+          size="sm"
+          onClick={() => setCompare({ enabled: !compare.enabled })}
+          title="Compare two campaign days side by side"
+        >
           <Columns2 /> Compare days
         </Button>
         {compare.enabled && (
@@ -87,7 +92,9 @@ export function GeospatialModule() {
       </div>
 
       <div className="flex min-h-0 flex-1">
-        <aside className={cn("no-print shrink-0 border-r border-ink-700 bg-ink-900", leftOpen ? "w-[300px]" : "w-0 overflow-hidden")}>{leftOpen && <EventPanel />}</aside>
+        <aside className={cn("no-print shrink-0 border-r border-ink-700 bg-ink-900", leftOpen ? "w-[300px]" : "w-0 overflow-hidden")}>
+          {leftOpen && <EventPanel />}
+        </aside>
 
         <section className="relative min-w-0 flex-1" ref={mapRef}>
           {compare.enabled ? (
@@ -102,7 +109,11 @@ export function GeospatialModule() {
           {escalation !== null && (
             <div className="no-export absolute bottom-3 right-3 z-[1000] flex items-center gap-2 border border-warn/60 bg-ink-950/92 px-2.5 py-1.5 text-[11px] text-warn">
               Highlighting escalation level {escalation} – {ESCALATION_LEVELS[escalation]}
-              <button onClick={() => useSim.getState().setEscalationHighlight(null)} className="text-ink-300 hover:text-ink-100" aria-label="Clear escalation highlight">
+              <button
+                onClick={() => useSim.getState().setEscalationHighlight(null)}
+                className="text-ink-300 hover:text-ink-100"
+                aria-label="Clear escalation highlight"
+              >
                 ✕
               </button>
             </div>
@@ -128,8 +139,9 @@ export function GeospatialModule() {
           ) : (
             <div className="p-4 text-[12px] leading-relaxed text-ink-400">
               <div className="label-caps mb-2">Information panel</div>
-              Press <span className="mono text-ink-200">Play</span> (or Space) to run the campaign, or select an event from the list, the time slider or the map. Selecting an event highlights its location, animates its illustrative vector, and shows its timestamp, category,
-              weapon-system category, sources and confidence here.
+              Press <span className="mono text-ink-200">Play</span> (or Space) to run the campaign, or select an event from the list, the time slider or the
+              map. Selecting an event highlights its location, animates its illustrative vector, and shows its timestamp, category, weapon-system category,
+              sources and confidence here.
               <div className="mt-3 text-[11px] text-ink-500">Keyboard: Space play/pause · ← → step · Home restart</div>
             </div>
           )}

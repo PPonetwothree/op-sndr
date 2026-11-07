@@ -25,9 +25,11 @@ export const ESCALATION_LADDER: EscalationLevel[] = [
     relatedEventIds: [],
     dateTime: "22 Apr 2025 (attack) · 23 Apr 2025 (CCS decisions)",
     domain: "Diplomatic / economic",
-    governmentAccount: "MEA: 26 killed at Pahalgam including one Nepali national; attack claimed by TRF, described as a front for UN-proscribed LeT. CCS decisions announced 23 Apr.",
+    governmentAccount:
+      "MEA: 26 killed at Pahalgam including one Nepali national; attack claimed by TRF, described as a front for UN-proscribed LeT. CCS decisions announced 23 Apr.",
     adversaryAction: "Terrorist attack on tourists at Pahalgam (attributed by India to Pakistan-based LeT via TRF).",
-    indianResponse: "Indus Waters Treaty held in abeyance; ICP Attari closed; SVES visas cancelled; defence advisers declared persona non grata; High Commission strength cut to 30.",
+    indianResponse:
+      "Indus Waters Treaty held in abeyance; ICP Attari closed; SVES visas cancelled; defence advisers declared persona non grata; High Commission strength cut to 30.",
     politicalImplications: "Non-military coercion preceded any kinetic action, signalling deliberate sequencing and creating a two-week decision window.",
     significance: "Baseline rung: response confined to diplomatic and economic instruments.",
     sources: ["SRC-MEA-0507", "SRC-MEA-0423", "SRC-PIB-0514A", "SRC-UNSC-0425"],
@@ -39,7 +41,8 @@ export const ESCALATION_LADDER: EscalationLevel[] = [
     relatedEventIds: [],
     dateTime: "7 May 2025 · 01:05–01:30 IST",
     domain: "Air (precision strike)",
-    governmentAccount: "Nine sites described as terrorist infrastructure in Pakistan and PoJK struck; action described as focused, measured, non-escalatory; no Pakistani military facilities targeted.",
+    governmentAccount:
+      "Nine sites described as terrorist infrastructure in Pakistan and PoJK struck; action described as focused, measured, non-escalatory; no Pakistani military facilities targeted.",
     adversaryAction: "— (the strike follows the Pahalgam attack; Pakistani LoC shelling begins the same morning)",
     indianResponse: "Precision strikes on nine named camps; India reserves the right to respond to any attack on military targets.",
     politicalImplications: "Explicit framing as counter-terror and non-military targeting was designed to bound escalation and shape international reception.",
@@ -53,7 +56,8 @@ export const ESCALATION_LADDER: EscalationLevel[] = [
     relatedEventIds: [],
     dateTime: "7 May 2025 · 20:30 IST onward (night 7–8 May)",
     domain: "Air (drones and missiles)",
-    governmentAccount: "Pakistan attempted to engage military targets at 15 locations from Awantipura to Bhuj using drones and missiles; debris being recovered.",
+    governmentAccount:
+      "Pakistan attempted to engage military targets at 15 locations from Awantipura to Bhuj using drones and missiles; debris being recovered.",
     adversaryAction: "Drone and missile attempts against military targets in Northern and Western India.",
     indianResponse: "Attempts neutralised by the Integrated Counter-UAS Grid and AD systems.",
     politicalImplications: "Pakistan's response targeted Indian military sites, which India had stated would 'invite a suitable response'.",
@@ -67,7 +71,8 @@ export const ESCALATION_LADDER: EscalationLevel[] = [
     relatedEventIds: [],
     dateTime: "Night 7–8 May · morning 8 May 2025",
     domain: "Air (air defence / SEAD)",
-    governmentAccount: "Indian AD neutralised the attempts; on 8 May morning Indian forces targeted AD radars and systems in Pakistan; an AD system at Lahore 'reliably learnt' to be neutralised.",
+    governmentAccount:
+      "Indian AD neutralised the attempts; on 8 May morning Indian forces targeted AD radars and systems in Pakistan; an AD system at Lahore 'reliably learnt' to be neutralised.",
     adversaryAction: "Continued drone and missile attempts.",
     indianResponse: "Strikes on Pakistani AD radars and systems, described as 'same domain with same intensity'.",
     politicalImplications: "India framed the step as proportionate and reciprocal, preserving a non-escalation narrative while hitting state military assets.",
@@ -81,7 +86,8 @@ export const ESCALATION_LADDER: EscalationLevel[] = [
     relatedEventIds: [],
     dateTime: "7–10 May 2025",
     domain: "Land (artillery, mortars, small arms)",
-    governmentAccount: "Intensified Pakistani fire across the LoC (Kupwara, Baramulla, Uri, Poonch, Mendhar, Rajouri; later Tangdhar, Akhnoor, Udhampur); 16 civilians killed by 8 May; religious sites in Poonch hit.",
+    governmentAccount:
+      "Intensified Pakistani fire across the LoC (Kupwara, Baramulla, Uri, Poonch, Mendhar, Rajouri; later Tangdhar, Akhnoor, Udhampur); 16 civilians killed by 8 May; religious sites in Poonch hit.",
     adversaryAction: "Mortar, heavy-calibre artillery and armed-drone fire along the LoC.",
     indianResponse: "Indian Army responded to bring fire to a halt; briefers claim heavy Pakistani losses.",
     politicalImplications: "Civilian casualties and damage to places of worship featured prominently in India's public messaging.",
@@ -109,7 +115,8 @@ export const ESCALATION_LADDER: EscalationLevel[] = [
     relatedEventIds: [],
     dateTime: "Night 9–10 May · early 10 May 2025",
     domain: "Air (multi-vector strikes)",
-    governmentAccount: "Pakistan employed UCAVs, drones, long-range weapons, loitering munitions and fighters at 26+ locations; limited damage at four IAF stations. India struck military targets at Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur, Chunian and radar sites at Pasrur and Sialkot; evening briefing claims extensive damage at Skardu, Sargodha, Jacobabad, Bholari.",
+    governmentAccount:
+      "Pakistan employed UCAVs, drones, long-range weapons, loitering munitions and fighters at 26+ locations; limited damage at four IAF stations. India struck military targets at Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur, Chunian and radar sites at Pasrur and Sialkot; evening briefing claims extensive damage at Skardu, Sargodha, Jacobabad, Bholari.",
     adversaryAction: "Multi-vector attacks on Indian air bases and civilian areas; high-speed missiles at Punjab air bases after 01:40.",
     indianResponse: "Precision strikes on air bases, radar sites and command-and-control infrastructure.",
     politicalImplications: "Both sides targeting air bases marked the highest intensity of the campaign, within hours of the cessation call.",
@@ -123,7 +130,8 @@ export const ESCALATION_LADDER: EscalationLevel[] = [
     relatedEventIds: [],
     dateTime: "10 May 2025 · 15:35 call · 17:00 IST effect",
     domain: "Diplomatic / military (DGMO channel)",
-    governmentAccount: "Pakistan DGMO called Indian DGMO at 15:35 IST; cessation on land, air and sea from 17:00 IST; violations reported that evening; DGMO talks scheduled for 12 May 12:00.",
+    governmentAccount:
+      "Pakistan DGMO called Indian DGMO at 15:35 IST; cessation on land, air and sea from 17:00 IST; violations reported that evening; DGMO talks scheduled for 12 May 12:00.",
     adversaryAction: "Request for cessation via DGMO channel (per India); later violations of the understanding.",
     indianResponse: "Agreement to cessation; armed forces instructed to respond strongly to violations; PM's 12 May address sets out doctrine.",
     politicalImplications: "India emphasised the bilateral DGMO channel as the mechanism for the cessation.",

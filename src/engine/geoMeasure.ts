@@ -29,8 +29,10 @@ export function nearestOnLine(p: LL, which: "LoC" | "IB"): { point: LL; km: numb
     for (let i = 0; i < line.length - 1; i++) {
       const [ay, ax] = line[i];
       const [by, bx] = line[i + 1];
-      const vx = (bx - ax) * kx, vy = by - ay;
-      const wx = (p[1] - ax) * kx, wy = p[0] - ay;
+      const vx = (bx - ax) * kx,
+        vy = by - ay;
+      const wx = (p[1] - ax) * kx,
+        wy = p[0] - ay;
       const len = vx * vx + vy * vy;
       const t = len ? Math.max(0, Math.min(1, (wx * vx + wy * vy) / len)) : 0;
       const q: LL = [ay + t * (by - ay), ax + t * (bx - ax)];

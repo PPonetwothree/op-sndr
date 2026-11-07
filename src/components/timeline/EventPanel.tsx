@@ -25,7 +25,15 @@ const ACTORS: [string, string][] = [
   ["Bilateral", "Bilateral"],
 ];
 
-function Chips({ field, options, colors }: { field: keyof Pick<EventFilters, "days" | "domains" | "actors" | "evidence">; options: [string, string][]; colors?: Record<string, string> }) {
+function Chips({
+  field,
+  options,
+  colors,
+}: {
+  field: keyof Pick<EventFilters, "days" | "domains" | "actors" | "evidence">;
+  options: [string, string][];
+  colors?: Record<string, string>;
+}) {
   const value = useSim((s) => s.filters[field]);
   const setFilters = useSim((s) => s.setFilters);
   return (
@@ -36,7 +44,10 @@ function Chips({ field, options, colors }: { field: keyof Pick<EventFilters, "da
           <button
             key={v}
             onClick={() => setFilters({ [field]: on ? value.filter((x) => x !== v) : [...value, v] })}
-            className={cn("mono border px-1.5 py-0.5 text-[10px]", on ? "border-olive-500 bg-olive-700 text-olive-300" : "border-ink-700 bg-ink-900 text-ink-400 hover:text-ink-100")}
+            className={cn(
+              "mono border px-1.5 py-0.5 text-[10px]",
+              on ? "border-olive-500 bg-olive-700 text-olive-300" : "border-ink-700 bg-ink-900 text-ink-400 hover:text-ink-100"
+            )}
             style={on && colors?.[v] ? { borderColor: colors[v], color: colors[v], background: `${colors[v]}1f` } : undefined}
           >
             {label}
@@ -62,7 +73,10 @@ export function EventPanel() {
     listRef.current?.querySelector(`[data-evt="${selectedId}"]`)?.scrollIntoView({ block: "nearest" });
   }, [selectedId]);
 
-  const anyFilter = filters.days.length + filters.domains.length + filters.actors.length + filters.evidence.length + filters.types.length > 0 || filters.search || !filters.showPrelude;
+  const anyFilter =
+    filters.days.length + filters.domains.length + filters.actors.length + filters.evidence.length + filters.types.length > 0 ||
+    filters.search ||
+    !filters.showPrelude;
 
   return (
     <div className="flex h-full flex-col">
@@ -98,7 +112,11 @@ export function EventPanel() {
         </div>
         <div>
           <div className="mb-1 text-[10px] text-ink-500">EVIDENCE</div>
-          <Chips field="evidence" options={Object.keys(EVIDENCE).map((k) => [k, k])} colors={Object.fromEntries(Object.entries(EVIDENCE).map(([k, v]) => [k, v.color]))} />
+          <Chips
+            field="evidence"
+            options={Object.keys(EVIDENCE).map((k) => [k, k])}
+            colors={Object.fromEntries(Object.entries(EVIDENCE).map(([k, v]) => [k, v.color]))}
+          />
         </div>
         <div>
           <div className="mb-1 text-[10px] text-ink-500">EVENT TYPE</div>
@@ -154,7 +172,11 @@ export function EventPanel() {
               )}
             >
               <div className="flex items-center gap-1.5">
-                <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: EVIDENCE[e.evidenceClass].color }} title={EVIDENCE[e.evidenceClass].desc} />
+                <span
+                  className="inline-block h-1.5 w-1.5 shrink-0 rounded-full"
+                  style={{ background: EVIDENCE[e.evidenceClass].color }}
+                  title={EVIDENCE[e.evidenceClass].desc}
+                />
                 <span className="mono text-[10px] text-ink-500">{e.id}</span>
                 <span className="mono text-[10px] text-ink-400">
                   {e.date.slice(8)}/{e.date.slice(5, 7)} {e.time ?? "--:--"}

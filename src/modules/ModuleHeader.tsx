@@ -19,7 +19,11 @@ export function ScopeToggle({ value, onChange }: { value: boolean; onChange: (v:
         [false, "All filtered events"],
         [true, "Up to simulation clock"],
       ].map(([v, l]) => (
-        <button key={String(v)} onClick={() => onChange(v as boolean)} className={`h-6 px-2 ${value === v ? "bg-olive-700 text-olive-300" : "bg-ink-800 text-ink-400 hover:text-ink-100"}`}>
+        <button
+          key={String(v)}
+          onClick={() => onChange(v as boolean)}
+          className={`h-6 px-2 ${value === v ? "bg-olive-700 text-olive-300" : "bg-ink-800 text-ink-400 hover:text-ink-100"}`}
+        >
           {l as string}
         </button>
       ))}

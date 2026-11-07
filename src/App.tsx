@@ -52,7 +52,8 @@ export default function App() {
       <Header />
       {mode === "hypothetical" && (
         <div className="no-print border-b border-warn/40 bg-warn/10 px-4 py-1 text-[11px] text-warn">
-          HYPOTHETICAL MODE — educational tabletop analysis, separate from the historical reconstruction. Tabletop tools: Escalation Matrix (injects and trace) and Force Database (package builder). Map, charts and BDA always show historical data.
+          HYPOTHETICAL MODE — educational tabletop analysis, separate from the historical reconstruction. Tabletop tools: Escalation Matrix (injects and trace)
+          and Force Database (package builder). Map, charts and BDA always show historical data.
         </div>
       )}
       {DATA_ISSUES.length > 0 && (
@@ -63,7 +64,12 @@ export default function App() {
       <div className="flex min-h-0 flex-1">
         <Sidebar />
         <main className="min-w-0 flex-1">
-          <ErrorBoundary resetKey={module}>{(() => { const M = MODULES[module]; return <M />; })()}</ErrorBoundary>
+          <ErrorBoundary resetKey={module}>
+            {(() => {
+              const M = MODULES[module];
+              return <M />;
+            })()}
+          </ErrorBoundary>
         </main>
       </div>
     </div>

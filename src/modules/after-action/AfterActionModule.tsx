@@ -51,12 +51,22 @@ export function AfterActionModule() {
       </ModuleHeader>
       <div className="flex-1 space-y-3 overflow-auto p-3">
         <Card>
-          <CardHeader title="Analytical scorecard" right={<span className="text-[10px] text-ink-500">No numerical effectiveness scores are generated where evidence is unavailable</span>} />
+          <CardHeader
+            title="Analytical scorecard"
+            right={<span className="text-[10px] text-ink-500">No numerical effectiveness scores are generated where evidence is unavailable</span>}
+          />
           <div className="overflow-auto p-2">
             <table className="w-full text-[11px]">
               <thead>
                 <tr className="text-left text-ink-400">
-                  {["Dimension", "Official account", "Measures (record counts / stated facts)", "Independent corroboration", "Evidence status", "Numerical score"].map((h) => (
+                  {[
+                    "Dimension",
+                    "Official account",
+                    "Measures (record counts / stated facts)",
+                    "Independent corroboration",
+                    "Evidence status",
+                    "Numerical score",
+                  ].map((h) => (
                     <th key={h} className="border-b border-ink-700 px-2 py-1.5 font-semibold">
                       {h}
                     </th>

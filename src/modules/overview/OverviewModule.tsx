@@ -164,7 +164,8 @@ export function OverviewModule() {
     };
   }, [events, simTime, upToClock]);
 
-  const filtered = filters.days.length + filters.domains.length + filters.actors.length + filters.evidence.length + filters.types.length > 0 || !!filters.search;
+  const filtered =
+    filters.days.length + filters.domains.length + filters.actors.length + filters.evidence.length + filters.types.length > 0 || !!filters.search;
 
   return (
     <div className="flex h-full flex-col">
@@ -179,7 +180,10 @@ export function OverviewModule() {
       <div className="flex-1 space-y-3 overflow-auto p-3">
         {filtered && (
           <div className="border border-warn/40 bg-warn/10 px-3 py-1.5 text-[11px] text-warn">
-            Filters active (set in Geospatial or by clicking charts): {[...filters.days.map(formatDateLabel), ...filters.actors, ...filters.domains, ...filters.evidence, ...filters.types, filters.search].filter(Boolean).join(", ")}
+            Filters active (set in Geospatial or by clicking charts):{" "}
+            {[...filters.days.map(formatDateLabel), ...filters.actors, ...filters.domains, ...filters.evidence, ...filters.types, filters.search]
+              .filter(Boolean)
+              .join(", ")}
           </div>
         )}
         <div className="grid grid-cols-2 gap-2 md:grid-cols-4 xl:grid-cols-8">
@@ -241,8 +245,9 @@ export function OverviewModule() {
           <RegionalDensityChart events={events} />
         </div>
         <p className="text-[10px] text-ink-500">
-          All figures are counts of records in this reconstruction database. They are not totals of strikes, munitions, drones or casualties, and official claims are not presented as verified statistics. Damage level
-          5 means destruction claimed by the government unless a record is marked independently verified.
+          All figures are counts of records in this reconstruction database. They are not totals of strikes, munitions, drones or casualties, and official
+          claims are not presented as verified statistics. Damage level 5 means destruction claimed by the government unless a record is marked independently
+          verified.
         </p>
       </div>
     </div>

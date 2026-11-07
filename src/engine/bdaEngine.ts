@@ -56,11 +56,7 @@ const SRC_DATE = new Map(BASE_SOURCES.map((s) => [s.id, s.publicationDate]));
 const CONF_RANK = { unknown: 0, low: 1, medium: 2, high: 3 } as const;
 
 function eventsFor(t: Target): CampaignEvent[] {
-  return EVENTS.filter(
-    (e) =>
-      e.damageAssessment.status !== "not_applicable" &&
-      (e.targetIds.includes(t.id) || e.location.locationIds.includes(t.id))
-  );
+  return EVENTS.filter((e) => e.damageAssessment.status !== "not_applicable" && (e.targetIds.includes(t.id) || e.location.locationIds.includes(t.id)));
 }
 
 function claimFor(t: Target, evs: CampaignEvent[]): ClaimStatus {
@@ -92,10 +88,18 @@ export function buildBaselineBda(): BdaRecord[] {
     const levels = evs.map((e) => e.damageAssessment.level).filter((l): l is number => l !== null);
     const claim = claimFor(t, evs);
     const level = claim === "adversary_claim_rejected" || claim === "attack_neutralised" ? 0 : levels.length ? Math.max(...levels) : null;
-    const conf = evs.reduce<BdaRecord["confidence"]>((m, e) => (CONF_RANK[e.damageAssessment.confidence] > CONF_RANK[m] ? e.damageAssessment.confidence : m), "unknown");
+    const conf = evs.reduce<BdaRecord["confidence"]>(
+      (m, e) => (CONF_RANK[e.damageAssessment.confidence] > CONF_RANK[m] ? e.damageAssessment.confidence : m),
+      "unknown"
+    );
     const sources = [...new Set([...evs.flatMap((e) => e.sources), ...t.sources])];
     const weapons = [...new Set(evs.map((e) => e.weaponCategory).filter((w) => w && w !== "n/a"))];
-    const casualtyNotes = evs.filter((e) => e.casualties).map((e) => `${e.casualties!.killed ?? "UNKNOWN"} killed${e.casualties!.injured !== null ? `, ${e.casualties!.injured} injured` : ""} (${e.casualties!.category}; ${e.casualties!.statedBy})`);
+    const casualtyNotes = evs
+      .filter((e) => e.casualties)
+      .map(
+        (e) =>
+          `${e.casualties!.killed ?? "UNKNOWN"} killed${e.casualties!.injured !== null ? `, ${e.casualties!.injured} injured` : ""} (${e.casualties!.category}; ${e.casualties!.statedBy})`
+      );
     const sevenMayStrike = evs.some((e) => e.date === "2025-05-07" && e.eventType === "precision_strike");
     out.push({
       targetId: t.id,

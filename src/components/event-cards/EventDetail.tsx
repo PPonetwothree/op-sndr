@@ -25,7 +25,12 @@ export function SourceList({ ids }: { ids: string[] }) {
     <div className="space-y-2">
       {ids.map((id) => {
         const s = srcs.find((x) => x.id === id);
-        if (!s) return <div key={id} className="text-hostile">Unknown source {id}</div>;
+        if (!s)
+          return (
+            <div key={id} className="text-hostile">
+              Unknown source {id}
+            </div>
+          );
         return (
           <div key={id} className="border border-ink-700 bg-ink-900 p-2">
             <div className="flex items-start justify-between gap-2">
@@ -122,7 +127,11 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
           ) : (
             <div className="border border-dashed border-ink-600 bg-ink-900 p-2">
               <div className="mono text-[11px] font-semibold text-warn">
-                {e.formation.status === "publicly_described" ? "PUBLICLY DESCRIBED" : e.formation.status === "partially_disclosed" ? "PARTIALLY DISCLOSED – ABSTRACT REPRESENTATION" : "FORMATION UNKNOWN – ABSTRACT REPRESENTATION"}
+                {e.formation.status === "publicly_described"
+                  ? "PUBLICLY DESCRIBED"
+                  : e.formation.status === "partially_disclosed"
+                    ? "PARTIALLY DISCLOSED – ABSTRACT REPRESENTATION"
+                    : "FORMATION UNKNOWN – ABSTRACT REPRESENTATION"}
               </div>
               {e.formation.publicDescription && <div className="mt-1 text-[11px] text-ink-300">{e.formation.publicDescription}</div>}
             </div>
@@ -159,7 +168,9 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
               ))}
             </div>
             {origins.length > 0 && <div className="mt-1 text-[11px] text-ink-400">Origin shown as: {origins.join("; ")}</div>}
-            <div className="mt-1 text-[10px] text-warn/90">Illustrative geographic representation – not an actual flight path, firing solution or verified trajectory.</div>
+            <div className="mt-1 text-[10px] text-warn/90">
+              Illustrative geographic representation – not an actual flight path, firing solution or verified trajectory.
+            </div>
           </section>
         )}
 
@@ -168,7 +179,11 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
             <div className="label-caps mb-1">Locations ({locs.length})</div>
             <div className="flex flex-wrap gap-1">
               {locs.map((t) => (
-                <button key={t!.id} onClick={() => selectTarget(t!.id)} className="border border-ink-700 bg-ink-900 px-1.5 py-0.5 text-[11px] text-ink-300 hover:border-olive-500 hover:text-ink-100">
+                <button
+                  key={t!.id}
+                  onClick={() => selectTarget(t!.id)}
+                  className="border border-ink-700 bg-ink-900 px-1.5 py-0.5 text-[11px] text-ink-300 hover:border-olive-500 hover:text-ink-100"
+                >
                   {t!.name}
                 </button>
               ))}
@@ -224,8 +239,24 @@ export function TargetDetail({ id, onClose }: { id: string; onClose: () => void 
       <div className="flex-1 space-y-3 overflow-auto p-3">
         <section>
           <KV k="Attributed to" v={t.attribution ?? "—"} />
-          <KV k="Role in campaign" v={t.side === "indian_strike_target" ? "Indian-reported strike target" : t.side === "pakistani_attack_target" ? "Location attacked (as reported by India)" : "Context location"} />
-          <KV k="Position" v={<span className="mono">{t.lat.toFixed(2)}, {t.lng.toFixed(2)}</span>} />
+          <KV
+            k="Role in campaign"
+            v={
+              t.side === "indian_strike_target"
+                ? "Indian-reported strike target"
+                : t.side === "pakistani_attack_target"
+                  ? "Location attacked (as reported by India)"
+                  : "Context location"
+            }
+          />
+          <KV
+            k="Position"
+            v={
+              <span className="mono">
+                {t.lat.toFixed(2)}, {t.lng.toFixed(2)}
+              </span>
+            }
+          />
           <KV k="Precision" v={`${t.precision} – public gazetteer position, not a reported impact point`} />
         </section>
         {t.officialDescription && (
@@ -238,7 +269,11 @@ export function TargetDetail({ id, onClose }: { id: string; onClose: () => void 
           <div className="label-caps mb-1">Associated events ({related.length})</div>
           <div className="space-y-1">
             {related.map((e) => (
-              <button key={e.id} onClick={() => selectEvent(e.id)} className="block w-full border border-ink-700 bg-ink-900 p-1.5 text-left hover:border-olive-500">
+              <button
+                key={e.id}
+                onClick={() => selectEvent(e.id)}
+                className="block w-full border border-ink-700 bg-ink-900 p-1.5 text-left hover:border-olive-500"
+              >
                 <div className="mono text-[10px] text-ink-400">
                   {e.id} · {formatDateLabel(e.date)} {e.time ?? ""}
                 </div>
@@ -251,7 +286,9 @@ export function TargetDetail({ id, onClose }: { id: string; onClose: () => void 
           <div className="label-caps mb-1">Sources</div>
           <SourceList ids={t.sources} />
         </section>
-        <p className="text-[10px] text-ink-500">Battle-damage assessment records for this location are part of Module D (next phase). No imagery is shown or simulated.</p>
+        <p className="text-[10px] text-ink-500">
+          Battle-damage assessment records for this location are part of Module D (next phase). No imagery is shown or simulated.
+        </p>
       </div>
     </div>
   );

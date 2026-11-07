@@ -7,7 +7,21 @@ export interface TableSpec {
   rows: (string | number)[][];
 }
 
-export function ChartCard({ title, note, children, table, height = 220, className }: { title: string; note?: string; children: ReactNode; table: TableSpec; height?: number; className?: string }) {
+export function ChartCard({
+  title,
+  note,
+  children,
+  table,
+  height = 220,
+  className,
+}: {
+  title: string;
+  note?: string;
+  children: ReactNode;
+  table: TableSpec;
+  height?: number;
+  className?: string;
+}) {
   const [showTable, setShowTable] = useState(false);
   return (
     <Card className={className}>
@@ -16,7 +30,12 @@ export function ChartCard({ title, note, children, table, height = 220, classNam
           <div className="text-[12px] font-semibold text-ink-100">{title}</div>
           {note && <div className="text-[10px] text-ink-400">{note}</div>}
         </div>
-        <button onClick={() => setShowTable(!showTable)} className="text-ink-400 hover:text-ink-100" title={showTable ? "Show chart" : "Show data table"} aria-label={showTable ? "Show chart" : "Show data table"}>
+        <button
+          onClick={() => setShowTable(!showTable)}
+          className="text-ink-400 hover:text-ink-100"
+          title={showTable ? "Show chart" : "Show data table"}
+          aria-label={showTable ? "Show chart" : "Show data table"}
+        >
           {showTable ? <BarChart3 className="size-3.5" /> : <Table2 className="size-3.5" />}
         </button>
       </div>

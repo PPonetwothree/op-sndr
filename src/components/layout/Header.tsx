@@ -34,7 +34,10 @@ export function Header() {
             <button
               key={m}
               onClick={() => setMode(m)}
-              className={cn("h-6 px-2 uppercase tracking-wider", mode === m ? (m === "historical" ? "bg-olive-700 text-olive-300" : "bg-warn/20 text-warn") : "bg-ink-800 text-ink-400 hover:text-ink-100")}
+              className={cn(
+                "h-6 px-2 uppercase tracking-wider",
+                mode === m ? (m === "historical" ? "bg-olive-700 text-olive-300" : "bg-warn/20 text-warn") : "bg-ink-800 text-ink-400 hover:text-ink-100"
+              )}
             >
               {m}
             </button>

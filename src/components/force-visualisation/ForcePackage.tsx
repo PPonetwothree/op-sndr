@@ -30,7 +30,9 @@ function kindOf(w: WeaponSystem): ElementKind {
 
 function Element({ kind, title, sub, unknown }: { kind: ElementKind; title: string; sub: string; unknown?: boolean }) {
   return (
-    <div className={`flex w-[150px] flex-col items-center gap-1 border p-2 ${unknown ? "border-dashed border-ink-600 bg-ink-900" : "border-ink-600 bg-ink-850"}`}>
+    <div
+      className={`flex w-[150px] flex-col items-center gap-1 border p-2 ${unknown ? "border-dashed border-ink-600 bg-ink-900" : "border-ink-600 bg-ink-850"}`}
+    >
       <svg width="40" height="22" viewBox="0 0 20 20" className="text-ink-300">
         <path d={GLYPH[kind]} fill="none" stroke="currentColor" strokeWidth="1.4" />
       </svg>
@@ -69,7 +71,8 @@ export function HistoricalPackage({ event }: { event: TimedEvent }) {
         )}
       </div>
       <p className="mt-2 text-[10px] text-ink-500">
-        Elements shown only where a cited source names a system for this event. Numbers, routing, timing and weapon-to-target pairing are not disclosed and are not represented.
+        Elements shown only where a cited source names a system for this event. Numbers, routing, timing and weapon-to-target pairing are not disclosed and are
+        not represented.
       </p>
     </div>
   );
@@ -109,7 +112,11 @@ export function HypotheticalPackageBuilder() {
       <div className="flex flex-wrap items-end gap-2 text-[11px]">
         <label className="flex flex-col gap-0.5">
           <span className="text-ink-400">Element</span>
-          <select value={draft.kind} onChange={(e) => setDraft({ ...draft, kind: e.target.value as ElementKind })} className="h-7 border border-ink-600 bg-ink-900 px-1">
+          <select
+            value={draft.kind}
+            onChange={(e) => setDraft({ ...draft, kind: e.target.value as ElementKind })}
+            className="h-7 border border-ink-600 bg-ink-900 px-1"
+          >
             {Object.keys(GLYPH).map((k) => (
               <option key={k}>{k}</option>
             ))}
@@ -117,15 +124,30 @@ export function HypotheticalPackageBuilder() {
         </label>
         <label className="flex flex-col gap-0.5">
           <span className="text-ink-400">Label</span>
-          <input value={draft.label} onChange={(e) => setDraft({ ...draft, label: e.target.value })} className="h-7 w-36 border border-ink-600 bg-ink-900 px-1.5" />
+          <input
+            value={draft.label}
+            onChange={(e) => setDraft({ ...draft, label: e.target.value })}
+            className="h-7 w-36 border border-ink-600 bg-ink-900 px-1.5"
+          />
         </label>
         <label className="flex flex-col gap-0.5">
           <span className="text-ink-400">Count (notional)</span>
-          <input type="number" min={1} max={99} value={draft.count} onChange={(e) => setDraft({ ...draft, count: Math.max(1, Number(e.target.value)) })} className="h-7 w-20 border border-ink-600 bg-ink-900 px-1.5" />
+          <input
+            type="number"
+            min={1}
+            max={99}
+            value={draft.count}
+            onChange={(e) => setDraft({ ...draft, count: Math.max(1, Number(e.target.value)) })}
+            className="h-7 w-20 border border-ink-600 bg-ink-900 px-1.5"
+          />
         </label>
         <label className="flex flex-col gap-0.5">
           <span className="text-ink-400">Role</span>
-          <input value={draft.role} onChange={(e) => setDraft({ ...draft, role: e.target.value })} className="h-7 w-32 border border-ink-600 bg-ink-900 px-1.5" />
+          <input
+            value={draft.role}
+            onChange={(e) => setDraft({ ...draft, role: e.target.value })}
+            className="h-7 w-32 border border-ink-600 bg-ink-900 px-1.5"
+          />
         </label>
         <Button size="sm" onClick={() => save([...groups, { ...draft, id: crypto.randomUUID() }])}>
           <Plus /> Add group
@@ -140,7 +162,11 @@ export function HypotheticalPackageBuilder() {
         {groups.map((g) => (
           <div key={g.id} className="relative">
             <Element kind={g.kind} title={`${g.label} ×${g.count}`} sub={`${g.role} · notional`} />
-            <button onClick={() => save(groups.filter((x) => x.id !== g.id))} className="absolute right-1 top-1 text-ink-500 hover:text-hostile" aria-label="Remove group">
+            <button
+              onClick={() => save(groups.filter((x) => x.id !== g.id))}
+              className="absolute right-1 top-1 text-ink-500 hover:text-hostile"
+              aria-label="Remove group"
+            >
               <Trash2 className="size-3" />
             </button>
           </div>
