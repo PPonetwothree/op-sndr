@@ -100,7 +100,7 @@ export function MethodsModule() {
             <div className="mt-2 space-y-1.5">
               {(Object.keys(EVIDENCE) as EvidenceClass[]).map((k) => (
                 <div key={k} className="flex items-center gap-2 text-[12.5px] text-ink-200">
-                  <EvidenceBadge cls={k} /> {EVIDENCE[k].desc} – {stats.byClass[k] ?? 0} events
+                  <EvidenceBadge cls={k} /> {EVIDENCE[k].desc} – {stats.byClass[k] ?? 0} {(stats.byClass[k] ?? 0) === 1 ? "event" : "events"}
                 </div>
               ))}
             </div>

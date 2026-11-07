@@ -173,7 +173,7 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
         </section>
 
         <section>
-          <div className="label-caps mb-1">Damage / outcome (as reported) {cite("damage")}</div>
+          <div className="label-caps mb-1">Damage / outcome (as reported) {e.damageAssessment.status !== "not_applicable" && cite("damage")}</div>
           <KV k="Assessment" v={damageLabel(e)} />
           <KV k="Status" v={e.damageAssessment.status.replace(/_/g, " ")} />
           <KV k="Confidence" v={e.damageAssessment.confidence.toUpperCase()} />
