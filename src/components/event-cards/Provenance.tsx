@@ -21,7 +21,7 @@ export function CiteMark({ citations, field, onOpen }: { citations: Citation[]; 
   const n = citations.filter((c) => c.field === field).length;
   if (!n)
     return (
-      <span className="ml-1 text-[9px] uppercase tracking-wider text-ink-600" title="No field-level citation">
+      <span className="ml-1 text-[9px] uppercase tracking-wider text-ink-500" title="No field-level citation">
         uncited
       </span>
     );

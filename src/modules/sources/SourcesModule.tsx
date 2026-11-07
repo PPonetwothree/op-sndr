@@ -208,6 +208,7 @@ export function SourcesModule() {
                                 </span>
                               ))}
                               <select
+                                aria-label={`Link ${s.id} to an event`}
                                 value={linkEvent[s.id] ?? ""}
                                 onChange={(e) => setLinkEvent({ ...linkEvent, [s.id]: e.target.value })}
                                 className="h-6 max-w-[200px] border border-ink-600 bg-ink-900 px-1 text-[10px]"

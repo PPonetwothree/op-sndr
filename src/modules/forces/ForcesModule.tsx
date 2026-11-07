@@ -158,7 +158,12 @@ export function ForcesModule() {
             </div>
           ))}
           <div className="label-caps mb-1 px-2">Usage status</div>
-          <select value={usage} onChange={(e) => setUsage(e.target.value)} className="h-7 w-full border border-ink-700 bg-ink-900 px-1 text-[11px]">
+          <select
+            aria-label="Usage status filter"
+            value={usage}
+            onChange={(e) => setUsage(e.target.value)}
+            className="h-7 w-full border border-ink-700 bg-ink-900 px-1 text-[11px]"
+          >
             <option value="">Any</option>
             {Object.entries(USAGE_LABEL).map(([k, v]) => (
               <option key={k} value={k}>
@@ -174,6 +179,7 @@ export function ForcesModule() {
               title="Force-package visualisation (historical)"
               right={
                 <select
+                  aria-label="Event for force-package view"
                   value={pkg?.id}
                   onChange={(e) => setPkgEvent(e.target.value)}
                   className="h-6 max-w-[420px] border border-ink-600 bg-ink-900 px-1 text-[11px]"

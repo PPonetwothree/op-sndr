@@ -212,7 +212,12 @@ export function AssessmentModule() {
       <div className="flex min-h-0 flex-1">
         <aside className="flex w-[280px] shrink-0 flex-col border-r border-ink-700 bg-ink-900">
           <div className="space-y-1.5 border-b border-ink-700 p-2">
-            <select value={side} onChange={(e) => setSide(e.target.value)} className="h-7 w-full border border-ink-700 bg-ink-900 px-1 text-[12px]">
+            <select
+              aria-label="Filter records by role"
+              value={side}
+              onChange={(e) => setSide(e.target.value)}
+              className="h-7 w-full border border-ink-700 bg-ink-900 px-1 text-[12px]"
+            >
               <option value="">All records ({records.length})</option>
               {SIDES.map(([k, l]) => (
                 <option key={k} value={k}>
@@ -220,7 +225,12 @@ export function AssessmentModule() {
                 </option>
               ))}
             </select>
-            <select value={claim} onChange={(e) => setClaim(e.target.value)} className="h-7 w-full border border-ink-700 bg-ink-900 px-1 text-[12px]">
+            <select
+              aria-label="Filter records by claim status"
+              value={claim}
+              onChange={(e) => setClaim(e.target.value)}
+              className="h-7 w-full border border-ink-700 bg-ink-900 px-1 text-[12px]"
+            >
               <option value="">Any claim status</option>
               {(Object.keys(CLAIM_LABEL) as ClaimStatus[]).map((c) => (
                 <option key={c} value={c}>
@@ -257,7 +267,7 @@ export function AssessmentModule() {
         <div className="min-w-0 flex-1 overflow-auto p-4">
           {current ? <RecordView key={current.targetId} r={current} /> : <div className="text-ink-400">No records match.</div>}
         </div>
-        <aside className="w-[380px] shrink-0 space-y-3 overflow-auto border-l border-ink-700 bg-ink-900 p-3">
+        <aside tabIndex={0} aria-label="BDA charts" className="w-[380px] shrink-0 space-y-3 overflow-auto border-l border-ink-700 bg-ink-900 p-3">
           <ClaimsChart records={records} />
           <InfrastructureStatusChart records={records} />
           <DamageDistributionChart records={records} height={240} />

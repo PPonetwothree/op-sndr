@@ -102,6 +102,7 @@ export function InsetMap() {
   return (
     <div
       ref={ref}
+      role="region"
       className="no-export absolute bottom-[86px] right-3 z-[1000] h-[130px] w-[150px] border border-ink-600 bg-ink-950 shadow-lg"
       aria-label="Overview map – click to pan"
     >

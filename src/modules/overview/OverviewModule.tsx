@@ -215,8 +215,14 @@ export function OverviewModule() {
                 <div className="mt-1 text-[13px] font-medium text-ink-100">{d.title}</div>
                 <div className="mono mt-2 flex gap-3 text-[10px] text-ink-400">
                   <span>{evs.length} events</span>
-                  <span style={{ color: "#4a86dc" }}>IND {evs.filter((e) => e.actor === "India").length}</span>
-                  <span style={{ color: "#d24848" }}>PAK {evs.filter((e) => e.actor === "Pakistan").length}</span>
+                  <span className="flex items-center gap-1 text-ink-300">
+                    <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: "#5e78e6" }} />
+                    IND {evs.filter((e) => e.actor === "India").length}
+                  </span>
+                  <span className="flex items-center gap-1 text-ink-300">
+                    <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: "#d24848" }} />
+                    PAK {evs.filter((e) => e.actor === "Pakistan").length}
+                  </span>
                 </div>
               </button>
             );

@@ -45,7 +45,7 @@ export function AfterActionModule() {
           <FileDown /> {busy ? "Building…" : "Full campaign PDF"}
         </Button>
       </ModuleHeader>
-      <div className="flex-1 space-y-3 overflow-auto p-3">
+      <div tabIndex={0} aria-label="After-action review content" className="flex-1 space-y-3 overflow-auto p-3">
         <Card>
           <CardHeader
             title="Analytical scorecard"

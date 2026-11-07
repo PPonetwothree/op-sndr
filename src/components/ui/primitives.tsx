@@ -19,7 +19,7 @@ export function Badge({ className, color, children, ...props }: React.HTMLAttrib
   return (
     <span
       className={cn("inline-flex items-center gap-1 rounded-[2px] border px-1.5 py-[1px] text-[10px] font-semibold tracking-wider uppercase", className)}
-      style={color ? { color, borderColor: `${color}66`, background: `${color}14` } : undefined}
+      style={color ? { color: `color-mix(in srgb, ${color} 55%, #ffffff)`, borderColor: `${color}80`, background: `${color}1f` } : undefined}
       {...props}
     >
       {children}

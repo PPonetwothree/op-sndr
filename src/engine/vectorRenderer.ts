@@ -93,11 +93,13 @@ export interface VectorStyleDef {
   label: string;
 }
 
+// Category colours validated for dark-surface lightness, chroma and colour-vision separation
+// (dataviz validator, all pairs). UAV keeps a dash pattern as secondary encoding vs red.
 export const VECTOR_STYLES: Record<VectorStyle, VectorStyleDef> = {
-  indian_offensive: { color: "#4f8fe6", weight: 2.4, label: "Indian-reported offensive event" },
-  indian_defensive: { color: "#5fbf7a", weight: 2.2, label: "Indian defensive event" },
-  pakistani_attack: { color: "#e05252", weight: 2.2, label: "Pakistani attack (as reported by India)" },
-  uav: { color: "#e3a83b", weight: 2, dash: "6 6", label: "UAV activity" },
+  indian_offensive: { color: "#5e78e6", weight: 2.4, label: "Indian-reported offensive event" },
+  indian_defensive: { color: "#16a08a", weight: 2.2, label: "Indian defensive event" },
+  pakistani_attack: { color: "#d24848", weight: 2.2, label: "Pakistani attack (as reported by India)" },
+  uav: { color: "#b28c16", weight: 2, dash: "6 6", label: "UAV activity" },
   artillery: { color: "#d9773a", weight: 5, dash: "2 6", label: "Artillery event corridor" },
   unverified: { color: "#8a8f98", weight: 2, dash: "4 6", label: "Unverified / disputed claim" },
 };

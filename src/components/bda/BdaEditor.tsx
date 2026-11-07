@@ -101,7 +101,7 @@ export function BdaEditor({ record, onSave, onCancel }: { record: BdaRecord; onS
           ))}
         </div>
         <div className="mt-1 flex gap-1">
-          <select className={input} value={addSrc} onChange={(e) => setAddSrc(e.target.value)}>
+          <select aria-label="Add a source from the register" className={input} value={addSrc} onChange={(e) => setAddSrc(e.target.value)}>
             <option value="">Add a source from the register…</option>
             {sources
               .filter((s) => !r.evidenceSourceIds.includes(s.id))
@@ -165,7 +165,7 @@ export function BdaEditor({ record, onSave, onCancel }: { record: BdaRecord; onS
             value={img.caption}
             onChange={(e) => setImg({ ...img, caption: e.target.value })}
           />
-          <select className={input} value={img.sourceId} onChange={(e) => setImg({ ...img, sourceId: e.target.value })}>
+          <select aria-label="Imagery source" className={input} value={img.sourceId} onChange={(e) => setImg({ ...img, sourceId: e.target.value })}>
             <option value="">Source…</option>
             {sources.map((s) => (
               <option key={s.id} value={s.id}>

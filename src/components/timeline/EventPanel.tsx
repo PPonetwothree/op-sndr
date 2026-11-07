@@ -121,6 +121,7 @@ export function EventPanel() {
         <div>
           <div className="mb-1 text-[10px] text-ink-500">EVENT TYPE</div>
           <select
+            aria-label="Event type filter"
             value={filters.types[0] ?? ""}
             onChange={(e) => setFilters({ types: e.target.value ? [e.target.value] : [] })}
             className="h-7 w-full border border-ink-700 bg-ink-900 px-1.5 text-[12px] text-ink-200 outline-none"
@@ -168,7 +169,7 @@ export function EventPanel() {
               className={cn(
                 "mb-1 block w-full border-l-2 px-2 py-1.5 text-left transition-colors",
                 sel ? "border-warn bg-ink-800" : "border-transparent hover:bg-ink-850",
-                !past && !sel && "opacity-50"
+                !past && !sel && "[&_*]:!text-ink-500"
               )}
             >
               <div className="flex items-center gap-1.5">

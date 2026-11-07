@@ -17,9 +17,14 @@ import { ESCALATION_LEVELS } from "@/engine/assessmentEngine";
 
 const COMPARE_DAYS = ["2025-05-07", "2025-05-08", "2025-05-09", "2025-05-10"];
 
-function DaySelect({ value, onChange }: { value: string; onChange: (d: string) => void }) {
+function DaySelect({ value, onChange, label }: { value: string; onChange: (d: string) => void; label: string }) {
   return (
-    <select value={value} onChange={(e) => onChange(e.target.value)} className="h-6 border border-ink-600 bg-ink-900 px-1 text-[11px] text-ink-200">
+    <select
+      aria-label={label}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="h-6 border border-ink-600 bg-ink-900 px-1 text-[11px] text-ink-200"
+    >
       {COMPARE_DAYS.map((d) => (
         <option key={d} value={d}>
           {formatDateLabel(d)}
@@ -78,9 +83,9 @@ export function GeospatialModule() {
         </Button>
         {compare.enabled && (
           <div className="flex items-center gap-1 text-[11px] text-ink-400">
-            <DaySelect value={compare.dayA} onChange={(d) => setCompare({ dayA: d })} />
+            <DaySelect label="First comparison day" value={compare.dayA} onChange={(d) => setCompare({ dayA: d })} />
             <span>vs</span>
-            <DaySelect value={compare.dayB} onChange={(d) => setCompare({ dayB: d })} />
+            <DaySelect label="Second comparison day" value={compare.dayB} onChange={(d) => setCompare({ dayB: d })} />
           </div>
         )}
         <Button variant={follow ? "active" : "secondary"} size="sm" onClick={() => setFollow(!follow)} title="Pan the map to the selected event">

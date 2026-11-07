@@ -79,7 +79,7 @@ export function DomainPieChart({ events }: { events: TimedEvent[] }) {
             strokeWidth={2}
           >
             {data.map((d) => (
-              <Cell key={d.key} fill={d.color} />
+              <Cell key={d.key} fill={d.color} aria-label={`${d.name}: ${d.value} events`} />
             ))}
           </Pie>
           <Tooltip {...TOOLTIP} />

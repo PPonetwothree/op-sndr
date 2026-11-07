@@ -60,10 +60,10 @@ export function ExportFrame() {
 }
 
 const LINES: [string, string | undefined, number, string][] = [
-  ["#4f8fe6", undefined, 2, "Indian-reported offensive (illustrative)"],
-  ["#5fbf7a", undefined, 2, "Indian defensive"],
-  ["#e05252", undefined, 2, "Pakistani attack (as reported by India)"],
-  ["#e3a83b", "6 6", 2, "UAV activity"],
+  ["#5e78e6", undefined, 2, "Indian-reported offensive (illustrative)"],
+  ["#16a08a", undefined, 2, "Indian defensive"],
+  ["#d24848", undefined, 2, "Pakistani attack (as reported by India)"],
+  ["#b28c16", "6 6", 2, "UAV activity"],
   ["#8a8f98", "4 6", 2, "Unverified / disputed claim"],
   ["#efe6c4", "12 4 2 4", 1.8, "Boundary of India (official view)"],
   ["#e3a83b", "6 4", 1.6, "LoC (de facto)"],
