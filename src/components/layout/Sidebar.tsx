@@ -1,4 +1,4 @@
-import { LayoutDashboard, Map, Plane, Crosshair, TrendingUp, ClipboardCheck, Library } from "lucide-react";
+import { LayoutDashboard, Map, Plane, Crosshair, TrendingUp, ClipboardCheck, Library, BookOpen } from "lucide-react";
 import { useSim } from "@/store/simulationStore";
 import type { ModuleId } from "@/types";
 import { cn } from "@/utils/cn";
@@ -11,6 +11,7 @@ const MODULES: { id: ModuleId; code: string; label: string; icon: typeof Map; ph
   { id: "escalation", code: "E", label: "Escalation Matrix", icon: TrendingUp, phase: 2 },
   { id: "after-action", code: "F", label: "After-Action Review", icon: ClipboardCheck, phase: 2 },
   { id: "sources", code: "S", label: "Source Management", icon: Library, phase: 2 },
+  { id: "methods", code: "M", label: "Methods & Data", icon: BookOpen, phase: 1 },
 ];
 
 export function Sidebar() {

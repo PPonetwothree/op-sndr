@@ -24,7 +24,7 @@ export type { Source, WeaponSystem, UsageStatus } from "@/schemas/referenceSchem
 
 export type CampaignDay = "2025-04-22" | "2025-04-23" | "2025-05-07" | "2025-05-08" | "2025-05-09" | "2025-05-10" | "2025-05-11" | "2025-05-12";
 
-export type ModuleId = "overview" | "geospatial" | "forces" | "assessment" | "escalation" | "after-action" | "sources";
+export type ModuleId = "overview" | "geospatial" | "forces" | "assessment" | "escalation" | "after-action" | "sources" | "methods";
 
 export type PlaybackSpeed = 1 | 2 | 5 | 10;
 

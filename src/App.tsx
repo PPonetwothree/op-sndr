@@ -9,6 +9,7 @@ const ForcesModule = lazy(() => import("@/modules/forces/ForcesModule").then((m)
 const AssessmentModule = lazy(() => import("@/modules/assessment/AssessmentModule").then((m) => ({ default: m.AssessmentModule })));
 const EscalationModule = lazy(() => import("@/modules/escalation/EscalationModule").then((m) => ({ default: m.EscalationModule })));
 const AfterActionModule = lazy(() => import("@/modules/after-action/AfterActionModule").then((m) => ({ default: m.AfterActionModule })));
+const MethodsModule = lazy(() => import("@/modules/methods/MethodsModule").then((m) => ({ default: m.MethodsModule })));
 const SourcesModule = lazy(() => import("@/modules/sources/SourcesModule").then((m) => ({ default: m.SourcesModule })));
 import type { ModuleId } from "@/types";
 import { DATA_ISSUES } from "@/data";
@@ -23,6 +24,7 @@ const MODULES: Record<ModuleId, ComponentType> = {
   escalation: EscalationModule,
   "after-action": AfterActionModule,
   sources: SourcesModule,
+  methods: MethodsModule,
 };
 
 export default function App() {
