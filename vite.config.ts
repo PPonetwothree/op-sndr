@@ -14,6 +14,8 @@ export default defineConfig({
         // Long-lived vendor chunks cache separately from app code and data.
         manualChunks(id) {
           const p = id.split(String.fromCharCode(92)).join("/"); // normalise Windows paths
+          if (p.includes("/src/data/geo/")) return "data-geo"; // basemap layers and pre-rendered symbols
+          if (/\/src\/data\/(events|targets|weapons|sources)\.json/.test(p)) return "data-campaign";
           if (!p.includes("/node_modules/")) return undefined;
           const pkg = (names: string[]) => names.some((n) => p.includes(`/node_modules/${n}/`));
           if (pkg(["leaflet", "react-leaflet", "@react-leaflet"])) return "vendor-map";
