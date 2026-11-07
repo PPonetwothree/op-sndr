@@ -4,6 +4,22 @@ All notable changes to this project. Format: [Keep a Changelog](https://keepacha
 
 ## [Unreleased]
 
+## [0.2.0] – 2026-11-08 · Credibility and traceability
+
+### Added
+
+- Field-level provenance: 126 citations across all 54 events (source, locator, verbatim excerpt ≤ 30 words, note; Hindi excerpts glossed). Quote markers on each event field open an Evidence trail. Tests require citations for every stated time, casualty figure, damage level and named system.
+- Source health check (`npm run check-sources`): live-URL probe and closest Internet Archive capture; 15 of 21 sources now link to archived copies.
+- Methods & Data module: scope, sources and retrieval, evidence rules, provenance, time, locations and uncertainty, damage and claims, map representation, exclusions, known limitations, how to cite, and a full data dictionary (tested against the schemas).
+- Audit log with analyst name and field-level before/after values for BDA edits, source changes and session loads; BDA revision history; audit CSV export; audit carried in sessions.
+- Five new end-to-end tests (21 in total).
+
+### Changed
+
+- Events CSV includes citations. Version constant and data-as-of date shown on the Methods page.
+
+## [0.1.1] – 2026-11-08 · Engineering foundation
+
 ### Added
 
 - Git repository, `.gitattributes` (LF line endings) and this changelog.

@@ -38,7 +38,10 @@ test.describe("Modules", () => {
     const [dl] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "BDA CSV" }).click()]);
     expect(dl.suggestedFilename()).toBe("sindoor-bda-records.csv");
     await page.getByRole("button", { name: "Baseline" }).click();
-    await expect(page.locator("main")).not.toContainText("E2E edit");
+    const status = page.locator("main").getByText("Functional status", { exact: true }).locator("..");
+    await expect(status).toContainText("UNKNOWN");
+    // the revision history keeps the past change
+    await expect(page.locator("main")).toContainText("Revision history (2)");
   });
 
   test("escalation: rung highlights map and timeline; matrix PDF; tabletop inject", async ({ page }) => {
