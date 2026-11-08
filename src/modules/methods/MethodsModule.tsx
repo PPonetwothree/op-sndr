@@ -273,7 +273,10 @@ export function MethodsModule() {
                 Independent corroboration covers the occurrence of most strikes and, for a few sites, damage. Casualty figures on both sides and most damage
                 levels remain unverified.
               </Li>
-              <Li>The 11 and 12 May DGMO briefing transcripts were not retrieved; figures from them come from later PIB backgrounders.</Li>
+              <Li>
+                No official transcript of the 11 and 12 May briefings was found. The 11 May briefing is cited from a PTI wire report (AMBER); other figures come
+                from later PIB backgrounders.
+              </Li>
               <Li>
                 Pakistani accounts come from DG ISPR statements as carried by Dawn and Radio Pakistan; ispr.gov.pk itself could not be read. The Washington Post
                 imagery analysis is cited by headline only (paywalled).

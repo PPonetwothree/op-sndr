@@ -2613,6 +2613,7 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A",
+      "SRC-PIB-YER2025",
       "SRC-PAK-RP-0513"
     ],
     "provenance": [
@@ -2634,6 +2635,13 @@
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "Indian Armed Forces successfully neutralised these threats and majority of the vectors.",
         "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
+      },
+      {
+        "field": "time",
+        "sourceId": "SRC-PIB-YER2025",
+        "locator": "Operation Sindoor section",
+        "excerpt": "On May 10, 2025 at approx. 1:30 am, Pakistan launched a massive attack on Indian Air Force bases",
+        "note": "Approximate only, so no clock time is set; consistent with the 01:40 missile attacks (EVT-028)."
       }
     ],
     "accounts": [
@@ -3103,6 +3111,7 @@
     "sources": [
       "SRC-MEA-0510A",
       "SRC-PIB-0518",
+      "SRC-PIB-YER2025",
       "SRC-PAK-RP-0510",
       "SRC-IND-STIMSON",
       "SRC-IND-WAPO"
@@ -3119,6 +3128,12 @@
         "sourceId": "SRC-PIB-0518",
         "locator": "Introduction, IAF paragraph",
         "excerpt": "Nur Khan Air Base and the Rahimyar Khan Air Base, with visual evidence of damage presented during official briefings"
+      },
+      {
+        "field": "location",
+        "sourceId": "SRC-PIB-YER2025",
+        "locator": "Operation Sindoor section",
+        "excerpt": "Major airbases like Chaklala, Sargodha, Rafiqui, Rahimyar Khan, Jacobabad, Sukkur, and Bholari were struck"
       }
     ],
     "accounts": [
@@ -4532,6 +4547,7 @@
     "sources": [
       "SRC-PIB-1206",
       "SRC-PIB-0514A",
+      "SRC-MED-PTI-0511",
       "SRC-PAK-RP-0513"
     ],
     "provenance": [
@@ -4546,6 +4562,20 @@
         "sourceId": "SRC-PIB-0514A",
         "locator": "What Operation SINDOOR Achieved",
         "excerpt": "High-value targets eliminated include Yusuf Azhar, Abdul Malik Rauf, Mudassir Ahmad."
+      },
+      {
+        "field": "casualties",
+        "sourceId": "SRC-MED-PTI-0511",
+        "locator": "Paragraph on Pakistani losses",
+        "excerpt": "On losses to the Pakistani military, the DGMO said there are reports of 35-40 fatalities.",
+        "note": "Media report (AMBER) of the 11 May briefing; no official transcript was found."
+      },
+      {
+        "field": "casualties",
+        "sourceId": "SRC-MED-PTI-0511",
+        "locator": "Paragraph on Indian losses",
+        "excerpt": "DGMO Lt Gen Ghai also paid tribute to five Indian fallen heroes",
+        "note": "Media report (AMBER) of the 11 May briefing; no official transcript was found."
       }
     ],
     "accounts": [
@@ -4554,6 +4584,12 @@
         "sourceId": "SRC-PAK-RP-0513",
         "stance": "disputes_target",
         "summary": "Pakistan says those killed on 6–7 May were 40 civilians, including 7 women and 15 children – not terrorists."
+      },
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-RP-0513",
+        "stance": "claims_other",
+        "summary": "Pakistan's own figure for its armed forces is 11 personnel killed over the conflict, against the 35–40 military fatalities India's DGMO cited."
       }
     ]
   },
@@ -4604,7 +4640,8 @@
     "escalationLevel": 7,
     "sources": [
       "SRC-MEA-0510B",
-      "SRC-PIB-0514A"
+      "SRC-PIB-0514A",
+      "SRC-PIB-YER2025"
     ],
     "provenance": [
       {
@@ -4612,6 +4649,12 @@
         "sourceId": "SRC-MEA-0510B",
         "locator": "Statement, paragraph 4",
         "excerpt": "The Director Generals of Military Operations will talk again on the 12th of May at 1200 hours."
+      },
+      {
+        "field": "description",
+        "sourceId": "SRC-PIB-YER2025",
+        "locator": "Operation Sindoor section",
+        "excerpt": "On May 12, formal talks took place between the two DGMOs"
       }
     ],
     "accounts": []
@@ -4674,7 +4717,8 @@
     "weaponCategory": "air defence (multiple)",
     "escalationLevel": 7,
     "sources": [
-      "SRC-PIB-0514B"
+      "SRC-PIB-0514B",
+      "SRC-PIB-AKASHTEER"
     ],
     "provenance": [
       {
@@ -4688,6 +4732,13 @@
         "sourceId": "SRC-PIB-0514B",
         "locator": "Evidence of Neutralized Threats",
         "excerpt": "Pieces of PL-15 missiles (of Chinese origin)"
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-PIB-AKASHTEER",
+        "locator": "Opening section",
+        "excerpt": "Akashteer is India’s fully indigenous, automated Air Defence Control and Reporting System",
+        "note": "Promotional backgrounder; the claim that it intercepted every projectile is not independently verified."
       }
     ],
     "accounts": []
@@ -4799,7 +4850,8 @@
     "sources": [
       "SRC-IND-AJ-CDS",
       "SRC-IND-AJ-IAF",
-      "SRC-PAK-DAWN-0507"
+      "SRC-PAK-DAWN-0507",
+      "SRC-MED-PTI-0511"
     ],
     "provenance": [
       {
@@ -4838,6 +4890,22 @@
         "stance": "claims_other",
         "summary": "India's air chief later claimed five Pakistani fighters and one large aircraft were shot down during May, mostly by the S-400.",
         "excerpt": "India shot down five Pakistani fighter jets and one other military aircraft"
+      },
+      {
+        "party": "indian_official",
+        "sourceId": "SRC-MED-PTI-0511",
+        "stance": "concedes",
+        "summary": "At the 11 May briefing the Director General of Air Operations acknowledged losses without detail and said all pilots were back home.",
+        "excerpt": "Losses are a part of combat.",
+        "locator": "DGAO Air Marshal AK Bharti, 11 May (PTI)"
+      },
+      {
+        "party": "indian_official",
+        "sourceId": "SRC-MED-PTI-0511",
+        "stance": "claims_other",
+        "summary": "The same briefing claimed 'a few' Pakistani planes were downed, without a number or wreckage.",
+        "excerpt": "definitely we have downed a few planes",
+        "locator": "DGAO Air Marshal AK Bharti, 11 May (PTI)"
       },
       {
         "party": "pakistan_official",

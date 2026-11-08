@@ -256,6 +256,12 @@ export const ACCOUNTS = {
       "disputes_target",
       "Pakistan says those killed on 6–7 May were 40 civilians, including 7 women and 15 children – not terrorists."
     ),
+    a(
+      "pakistan_official",
+      PAK13,
+      "claims_other",
+      "Pakistan's own figure for its armed forces is 11 personnel killed over the conflict, against the 35–40 military fatalities India's DGMO cited."
+    ),
   ],
   "EVT-055": [
     a(
@@ -278,6 +284,22 @@ export const ACCOUNTS = {
       "claims_other",
       "India's air chief later claimed five Pakistani fighters and one large aircraft were shot down during May, mostly by the S-400.",
       "India shot down five Pakistani fighter jets and one other military aircraft"
+    ),
+    a(
+      "indian_official",
+      "SRC-MED-PTI-0511",
+      "concedes",
+      "At the 11 May briefing the Director General of Air Operations acknowledged losses without detail and said all pilots were back home.",
+      "Losses are a part of combat.",
+      "DGAO Air Marshal AK Bharti, 11 May (PTI)"
+    ),
+    a(
+      "indian_official",
+      "SRC-MED-PTI-0511",
+      "claims_other",
+      "The same briefing claimed 'a few' Pakistani planes were downed, without a number or wreckage.",
+      "definitely we have downed a few planes",
+      "DGAO Air Marshal AK Bharti, 11 May (PTI)"
     ),
     a("pakistan_official", "SRC-IND-AJ-IAF", "denies", "Pakistan has denied that India downed any Pakistani aircraft (as reported by Al Jazeera)."),
   ],

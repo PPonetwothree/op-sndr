@@ -158,11 +158,23 @@
     "sourceType": "official_press_release",
     "evidenceClass": "BLUE",
     "retrieval": "cited_not_retrieved",
-    "notes": "Photo record of briefing by Lt Gen Rajiv Ghai (DGMO), Air Marshal AK Bharti (DGAO), Vice Adm AN Pramod, Maj Gen SS Sharda. Transcript content not retrieved in this build.",
+    "notes": "Photo record of briefing by Lt Gen Rajiv Ghai (DGMO), Air Marshal AK Bharti (DGAO), Vice Adm AN Pramod, Maj Gen SS Sharda. No official transcript found online; the briefing content is cited from the PTI wire report (SRC-MED-PTI-0511).",
     "archiveUrl": "https://web.archive.org/web/20250909030656/https://www.pib.gov.in/EventDetail.aspx?ID=1206",
     "archivedAt": "2025-09-09",
     "lastChecked": "2026-11-07",
     "archiveStatus": "unchecked"
+  },
+  {
+    "id": "SRC-MED-PTI-0511",
+    "title": "India inflicted heavy losses on Pakistan military: Armed Forces",
+    "publisher": "PTI (via The Week wire updates)",
+    "publicationDate": "2025-05-11",
+    "url": "https://www.theweek.in/wire-updates/national/2025/05/12/del120-indopak-pakistani-2ndld-losses.html",
+    "sourceType": "media",
+    "evidenceClass": "AMBER",
+    "retrieval": "read_in_full",
+    "notes": "Wire report of the 11 May tri-service briefing (DGMO Lt Gen Rajiv Ghai, DGAO Air Marshal AK Bharti, DGNO Vice Adm AN Pramod). Reports: 35–40 Pakistani military fatalities ('reports of'), five Indian military personnel killed, losses acknowledged without detail, 'a few' Pakistani planes downed. Media report of Indian official statements; no official transcript located.",
+    "lastChecked": "2026-11-08"
   },
   {
     "id": "SRC-PIB-0514A",
@@ -217,11 +229,11 @@
     "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2129132",
     "sourceType": "official_backgrounder",
     "evidenceClass": "BLUE",
-    "retrieval": "cited_not_retrieved",
-    "notes": "Backgrounder on Akashteer air-defence control and reporting system. Publication date to be confirmed against page; content not retrieved in this build.",
+    "retrieval": "read_in_full",
+    "notes": "PIB backgrounder (Ministry of I&B), 16 May 2025, 17:54. Describes Akashteer as the Army's indigenous automated AD control and reporting system, integrated with IACCS (IAF) and TRIGUN (Navy), credited with countering the 9–10 May attack. Promotional in tone; capability claims are not operational detail.",
     "archiveUrl": "https://web.archive.org/web/20251008004623/https://www.pib.gov.in/PressReleasePage.aspx?PRID=2129132",
     "archivedAt": "2025-10-08",
-    "lastChecked": "2026-11-07",
+    "lastChecked": "2026-11-08",
     "archiveStatus": "unchecked"
   },
   {
@@ -247,9 +259,9 @@
     "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2210154",
     "sourceType": "official_backgrounder",
     "evidenceClass": "BLUE",
-    "retrieval": "cited_not_retrieved",
-    "notes": "Search excerpt: airbases struck include Chaklala, Sargodha, Rafiqui, Rahimyar Khan, Jacobabad, Sukkur and Bholari; DGMO call and 17:00 cessation. Publication date approximate (year-end); content not retrieved in full.",
-    "lastChecked": "2026-11-07"
+    "retrieval": "read_in_full",
+    "notes": "MoD Year End Review 2025 (PIB, 31 Dec 2025, 16:25). Operation Sindoor section: nine camps, over 100 terrorists killed; Pakistan's attack of 10 May 'at approx. 1:30 am'; airbases struck include Chaklala, Sargodha, Rafiqui, Rahimyar Khan, Jacobabad, Sukkur and Bholari; DGMO call 10 May; formal DGMO talks 12 May.",
+    "lastChecked": "2026-11-08"
   },
   {
     "id": "SRC-UNSC-0425",

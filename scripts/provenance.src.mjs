@@ -449,3 +449,44 @@ add(
     "Indian claim; Pakistan rejects it."
   )
 );
+
+// ── Phase 6: primary-source gaps (Year End Review, Akashteer, 11 May briefing via PTI) ──
+const YER = "SRC-PIB-YER2025";
+const PTI11 = "SRC-MED-PTI-0511";
+const PTI_NOTE = "Media report (AMBER) of the 11 May briefing; no official transcript was found.";
+add(
+  "EVT-027",
+  c(
+    "time",
+    YER,
+    "Operation Sindoor section",
+    "On May 10, 2025 at approx. 1:30 am, Pakistan launched a massive attack on Indian Air Force bases",
+    "Approximate only, so no clock time is set; consistent with the 01:40 missile attacks (EVT-028)."
+  )
+);
+add(
+  "EVT-033",
+  c("location", YER, "Operation Sindoor section", "Major airbases like Chaklala, Sargodha, Rafiqui, Rahimyar Khan, Jacobabad, Sukkur, and Bholari were struck")
+);
+add("EVT-052", c("description", YER, "Operation Sindoor section", "On May 12, formal talks took place between the two DGMOs"));
+add(
+  "EVT-053",
+  c(
+    "weapons",
+    "SRC-PIB-AKASHTEER",
+    "Opening section",
+    "Akashteer is India’s fully indigenous, automated Air Defence Control and Reporting System",
+    "Promotional backgrounder; the claim that it intercepted every projectile is not independently verified."
+  )
+);
+add(
+  "EVT-051",
+  c(
+    "casualties",
+    PTI11,
+    "Paragraph on Pakistani losses",
+    "On losses to the Pakistani military, the DGMO said there are reports of 35-40 fatalities.",
+    PTI_NOTE
+  ),
+  c("casualties", PTI11, "Paragraph on Indian losses", "DGMO Lt Gen Ghai also paid tribute to five Indian fallen heroes", PTI_NOTE)
+);
