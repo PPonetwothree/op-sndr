@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { RECORD_HISTORY, releaseSummary } from "@/data/recordHistory";
 import { IMAGERY, IMAGERY_KIND_LABEL } from "@/data/imagery";
 import { Copy, Check } from "lucide-react";
 import { BASE_SOURCES, EVENTS, TARGETS, WEAPONS } from "@/data";
@@ -20,6 +21,7 @@ const SECTIONS = [
   ["provenance", "Field-level provenance"],
   ["corroboration", "Corroboration and other accounts"],
   ["imagery", "Published imagery"],
+  ["history", "Changes in the record"],
   ["time", "Time"],
   ["location", "Locations and uncertainty"],
   ["damage", "Damage and claims"],
@@ -177,6 +179,43 @@ export function MethodsModule() {
                 </Li>
               ))}
             </ul>
+
+            <H id="history">Changes in the record</H>
+            <P>
+              Every event card has a Record history: what changed in that event from one release to the next (evidence class, time, casualties, damage,
+              citations, other accounts) and which sources came in with the change. It is generated from the project's git history (
+              <code className="mono">npm run build-history</code>), comparing release snapshots; tracking starts at version{" "}
+              {RECORD_HISTORY.releases[0]?.version}. When citing a figure, name the version you read – figures and classes can change between releases.
+            </P>
+            <div className="mt-2 overflow-x-auto">
+              <table className="w-full text-[12px]" data-testid="release-summary">
+                <thead>
+                  <tr className="text-left text-ink-400">
+                    {["Version", "Date", "Events changed", "Evidence-class changes", "Events added", "Sources added"].map((h) => (
+                      <th key={h} className="border-b border-ink-700 px-2 py-1 font-medium">
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {releaseSummary().map((r) => (
+                    <tr key={r.version} className="border-b border-ink-800">
+                      <td className="mono px-2 py-1">{r.version}</td>
+                      <td className="mono px-2 py-1">{r.date}</td>
+                      <td className="px-2 py-1">{r.eventsChanged}</td>
+                      <td className="px-2 py-1">
+                        {Object.entries(r.classChanges)
+                          .map(([k, n]) => `${n} × ${k}`)
+                          .join(", ") || "–"}
+                      </td>
+                      <td className="mono px-2 py-1">{r.added.join(", ") || "–"}</td>
+                      <td className="px-2 py-1">{r.sourcesAdded}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
             <H id="time">Time</H>
             <ul className="mt-2 list-disc pl-5">

@@ -1,0 +1,1092 @@
+{
+ "releases": [
+  {
+   "version": "0.1.0",
+   "ref": "c222831",
+   "date": "2026-11-08",
+   "how": "last-commit"
+  },
+  {
+   "version": "0.2.0",
+   "ref": "658c768",
+   "date": "2026-11-08",
+   "how": "release-commit"
+  },
+  {
+   "version": "0.3.0",
+   "ref": "308d3bf",
+   "date": "2026-11-08",
+   "how": "release-commit"
+  },
+  {
+   "version": "0.4.0",
+   "ref": "bb25f30",
+   "date": "2026-11-08",
+   "how": "release-commit"
+  },
+  {
+   "version": "0.5.0",
+   "ref": "ac058e7",
+   "date": "2026-11-08",
+   "how": "release-commit"
+  },
+  {
+   "version": "0.6.0",
+   "ref": "738da9b",
+   "date": "2026-11-08",
+   "how": "tag"
+  },
+  {
+   "version": "0.7.0",
+   "ref": "dfd4b05",
+   "date": "2026-11-08",
+   "how": "tag"
+  },
+  {
+   "version": "0.8.0",
+   "ref": "65bd724",
+   "date": "2026-11-08",
+   "how": "tag"
+  },
+  {
+   "version": "0.9.0",
+   "ref": "f59c916",
+   "date": "2026-11-08",
+   "how": "tag"
+  },
+  {
+   "version": "0.10.0",
+   "ref": "working-tree",
+   "date": "2026-11-08",
+   "how": "working-tree"
+  }
+ ],
+ "events": {
+  "EVT-001": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-003": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "3"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-DAWN-0507",
+     "SRC-PAK-RP-0513",
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-004": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-DAWN-0507"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-005": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-DAWN-0507"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-006": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-DAWN-0507"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-007": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-DAWN-0507"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-008": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-DAWN-0507"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-009": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-DAWN-0507"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-010": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-DAWN-0507"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-011": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "2"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-DAWN-0507",
+     "SRC-IND-AJ-MURIDKE"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-012": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "2"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-DAWN-0507",
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-015": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "2"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-017": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "2"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-027": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-RP-0513"
+    ],
+    "sourcesRemoved": []
+   },
+   {
+    "version": "0.7.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "citations",
+      "from": "3",
+      "to": "4"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PIB-YER2025"
+    ],
+    "sourcesRemoved": []
+   },
+   {
+    "version": "0.9.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "citations",
+      "from": "4",
+      "to": "5"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PIB-RM-LS-0728"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-029": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   },
+   {
+    "version": "0.9.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "citations",
+      "from": "1",
+      "to": "2"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PIB-RM-LS-0728"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-031": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "2"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-RP-0510",
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-032": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-RP-0510"
+    ],
+    "sourcesRemoved": []
+   },
+   {
+    "version": "0.9.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "accounts",
+      "from": "1",
+      "to": "2"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-IMG-MANORAMA-0526"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-033": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "3"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-RP-0510",
+     "SRC-IND-STIMSON",
+     "SRC-IND-WAPO"
+    ],
+    "sourcesRemoved": []
+   },
+   {
+    "version": "0.7.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "citations",
+      "from": "2",
+      "to": "3"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PIB-YER2025"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-034": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-035": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-036": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-037": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-040": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-041": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-042": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "evidenceClass",
+      "from": "BLUE",
+      "to": "GREEN"
+     },
+     {
+      "field": "evidenceType",
+      "from": "official_claim",
+      "to": "independent_corroboration"
+     },
+     {
+      "field": "verified",
+      "from": "false",
+      "to": "true"
+     },
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "2"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-IND-STIMSON",
+     "SRC-PAK-RP-0513"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-046": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-IND-STIMSON"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-051": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "accounts",
+      "from": "0",
+      "to": "1"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PAK-RP-0513"
+    ],
+    "sourcesRemoved": []
+   },
+   {
+    "version": "0.7.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "citations",
+      "from": "2",
+      "to": "4"
+     },
+     {
+      "field": "accounts",
+      "from": "1",
+      "to": "2"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-MED-PTI-0511"
+    ],
+    "sourcesRemoved": []
+   },
+   {
+    "version": "0.9.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "citations",
+      "from": "4",
+      "to": "7"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PIB-RM-LS-0728",
+     "SRC-PIB-MOD-260627"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-055": [
+   {
+    "version": "0.6.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "event",
+      "from": null,
+      "to": "added"
+     }
+    ],
+    "sourcesAdded": [],
+    "sourcesRemoved": []
+   },
+   {
+    "version": "0.7.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "accounts",
+      "from": "4",
+      "to": "6"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-MED-PTI-0511"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-052": [
+   {
+    "version": "0.7.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "citations",
+      "from": "1",
+      "to": "2"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PIB-YER2025"
+    ],
+    "sourcesRemoved": []
+   }
+  ],
+  "EVT-053": [
+   {
+    "version": "0.7.0",
+    "date": "2026-11-08",
+    "changes": [
+     {
+      "field": "citations",
+      "from": "2",
+      "to": "3"
+     }
+    ],
+    "sourcesAdded": [
+     "SRC-PIB-AKASHTEER"
+    ],
+    "sourcesRemoved": []
+   }
+  ]
+ },
+ "sources": [
+  {
+   "version": "0.3.0",
+   "sourceId": "SRC-MEDIA-PRINT-SARJAL",
+   "change": "retrieval",
+   "detail": "partially_read → read_in_full"
+  },
+  {
+   "version": "0.6.0",
+   "sourceId": "SRC-IND-STIMSON",
+   "change": "added",
+   "detail": "Stimson Center (Christopher Clary, working paper) · read_in_full"
+  },
+  {
+   "version": "0.6.0",
+   "sourceId": "SRC-IND-AJ-MURIDKE",
+   "change": "added",
+   "detail": "Al Jazeera (Abid Hussain, on site) · read_in_full"
+  },
+  {
+   "version": "0.6.0",
+   "sourceId": "SRC-IND-WAPO",
+   "change": "added",
+   "detail": "The Washington Post · cited_not_retrieved"
+  },
+  {
+   "version": "0.6.0",
+   "sourceId": "SRC-IND-AJ-CDS",
+   "change": "added",
+   "detail": "Al Jazeera (news agencies) · read_in_full"
+  },
+  {
+   "version": "0.6.0",
+   "sourceId": "SRC-IND-AJ-IAF",
+   "change": "added",
+   "detail": "Al Jazeera · read_in_full"
+  },
+  {
+   "version": "0.6.0",
+   "sourceId": "SRC-PAK-DAWN-0507",
+   "change": "added",
+   "detail": "Dawn (quoting DG ISPR) · read_in_full"
+  },
+  {
+   "version": "0.6.0",
+   "sourceId": "SRC-PAK-RP-0510",
+   "change": "added",
+   "detail": "Radio Pakistan (DG ISPR) · read_in_full"
+  },
+  {
+   "version": "0.6.0",
+   "sourceId": "SRC-PAK-RP-0513",
+   "change": "added",
+   "detail": "Radio Pakistan (ISPR statement) · read_in_full"
+  },
+  {
+   "version": "0.7.0",
+   "sourceId": "SRC-MED-PTI-0511",
+   "change": "added",
+   "detail": "PTI (via The Week wire updates) · read_in_full"
+  },
+  {
+   "version": "0.7.0",
+   "sourceId": "SRC-PIB-AKASHTEER",
+   "change": "retrieval",
+   "detail": "cited_not_retrieved → read_in_full"
+  },
+  {
+   "version": "0.7.0",
+   "sourceId": "SRC-PIB-YER2025",
+   "change": "retrieval",
+   "detail": "cited_not_retrieved → read_in_full"
+  },
+  {
+   "version": "0.7.0",
+   "sourceId": "SRC-IND-WAPO",
+   "change": "title",
+   "detail": "Indian strikes on Pakistan damaged six airfields, Washington Post finds → Indian strikes on Pakistan damaged six airfields, Post analysis finds"
+  },
+  {
+   "version": "0.7.0",
+   "sourceId": "SRC-IND-NYT-0514",
+   "change": "added",
+   "detail": "The New York Times · cited_not_retrieved"
+  },
+  {
+   "version": "0.7.0",
+   "sourceId": "SRC-IMG-IT-0513",
+   "change": "added",
+   "detail": "India Today · partially_read"
+  },
+  {
+   "version": "0.7.0",
+   "sourceId": "SRC-IMG-PRINT-0526",
+   "change": "added",
+   "detail": "ThePrint · partially_read"
+  },
+  {
+   "version": "0.9.0",
+   "sourceId": "SRC-PIB-RM-LS-0728",
+   "change": "added",
+   "detail": "Press Information Bureau (Ministry of Defence) · read_in_full"
+  },
+  {
+   "version": "0.9.0",
+   "sourceId": "SRC-PIB-MOD-260627",
+   "change": "added",
+   "detail": "Press Information Bureau (Ministry of Defence) · read_in_full"
+  },
+  {
+   "version": "0.9.0",
+   "sourceId": "SRC-IMG-MANORAMA-0526",
+   "change": "added",
+   "detail": "Onmanorama (with IANS) · read_in_full"
+  }
+ ]
+}

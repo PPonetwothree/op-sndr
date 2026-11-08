@@ -4,6 +4,19 @@ All notable changes to this project. Format: [Keep a Changelog](https://keepacha
 
 ## [Unreleased]
 
+## [0.10.0] – 2026-11-08 · Record history
+
+### Added
+
+- Record history on every event card: what changed in that event in each release (evidence class, evidence type, verified, time, location, casualties, damage, citations, other accounts) and which sources came in with the change.
+- Methods → Changes in the record: a per-release table of events changed, evidence-class changes, events added and sources added. Tracking starts at 0.1.0.
+- `npm run build-history` (also run by `npm run build-data`): builds `src/data/recordHistory.json` from git, taking each release from its tag, else its "Release X.Y.Z" commit, else the last commit carrying that version; the working tree stands in for the version being prepared. It stops with an error if an event ID ever points to a different event.
+- Tests: the history must reach the current version, refer only to existing events and sources, and record the 0.6.0 upgrades (18 × BLUE→GREEN, EVT-055 added).
+
+### Changed
+
+- User guide and maintainer guide: record history, versioned citing, and the release steps (build the history; commit as "Release X.Y.Z" and tag).
+
 ## [0.9.0] – 2026-11-08 · Later official statements and remaining evidence gaps
 
 ### Added

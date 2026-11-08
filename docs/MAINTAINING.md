@@ -16,6 +16,7 @@ How to add or correct events, sources, citations and other accounts without brea
 | Published imagery register              | `src/data/imagery.ts`                     | –                                    |
 | Guided briefing narration               | `src/data/briefing.ts`                    | –                                    |
 | Data dictionary (Methods page)          | `src/data/dataDictionary.ts`              | –                                    |
+| Record history (generated from git)     | `scripts/build-history.mjs`               | `src/data/recordHistory.json`        |
 
 After editing any `scripts/*.src.mjs`, run `npm run build-data`.
 
@@ -27,7 +28,8 @@ After editing any `scripts/*.src.mjs`, run `npm run build-data`.
 4. `npm run check` – lint, formatting, type-check, unit and data tests, build. Check its exit code; do not pipe it through `grep`, which hides failures.
 5. `npm run test:e2e` – browser tests against the production build.
 6. Optional: `npm run check-sources -- --write` to record archive captures for new sources.
-7. Add a CHANGELOG entry. For a release, bump the version in both `package.json` and `src/version.ts` (a test checks they match), then `npm run build:offline` and `npm run test:offline`.
+7. Add a CHANGELOG entry. For a release, bump the version in both `package.json` and `src/version.ts` (a test checks they match), run `npm run build-history` (a test checks the history reaches the new version), then `npm run build:offline` and `npm run test:offline`.
+8. Commit the release as "Release X.Y.Z: …" and tag it `vX.Y.Z`. The record history finds releases by tag, then by that commit title, so both matter.
 
 Several browser tests assert totals (number of events, citations, CSV rows). When you add records, update those numbers in `e2e/` deliberately rather than loosening the assertions.
 

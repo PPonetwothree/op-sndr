@@ -1,7 +1,7 @@
 {
   "name": "operation-sindoor-simulator",
   "private": true,
-  "version": "0.9.0",
+  "version": "0.10.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,8 @@
     "typecheck": "tsc -b --noEmit",
     "test": "vitest run",
     "validate-data": "vitest run src/schemas",
-    "build-data": "node scripts/build-geo.mjs && node scripts/targets.src.mjs && node scripts/events.src.mjs && node scripts/weapons.src.mjs && node scripts/build-symbols.mjs",
+    "build-data": "node scripts/build-geo.mjs && node scripts/targets.src.mjs && node scripts/events.src.mjs && node scripts/weapons.src.mjs && node scripts/build-symbols.mjs && node scripts/build-history.mjs",
+    "build-history": "node scripts/build-history.mjs",
     "build-boundaries": "node scripts/build-boundaries.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",

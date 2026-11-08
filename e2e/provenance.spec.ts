@@ -22,6 +22,18 @@ test.describe("Provenance, methods and audit", () => {
     await expect(page.locator("aside").last()).toContainText("Not acknowledged");
   });
 
+  test("event card shows the record history and Methods summarises each release", async ({ page }) => {
+    await selectEvent(page, "EVT-011");
+    const history = page.locator("aside").last().getByTestId("record-history");
+    await expect(history).toContainText("v0.6.0");
+    await expect(history).toContainText("Evidence class: BLUE → GREEN");
+    await expect(history).toContainText("Muridke");
+    await selectEvent(page, "EVT-002");
+    await expect(page.locator("aside").last()).toContainText("Unchanged since version 0.1.0");
+    await openModule(page, "Methods & Data");
+    await expect(page.getByTestId("release-summary")).toContainText("18 × BLUE→GREEN");
+  });
+
   test("Hindi excerpts carry an English gloss", async ({ page }) => {
     await selectEvent(page, "EVT-004");
     const info = page.locator("aside").last();

@@ -29,6 +29,7 @@ Select an event in the list or on the map. The card shows:
 - **Quote markers** next to fields (time, location, casualties, damage, weapons). Click one to open its citations in the **Evidence trail**: source, where in the source, and a verbatim excerpt. Hindi excerpts carry an English gloss.
 - **Accounts compared** – the Indian official account beside Pakistani official statements and independent analyses, each with its stance (confirms, disputes damage, not acknowledged, concedes, denies, competing claim).
 - **Published imagery** – links to satellite imagery published elsewhere, with who collected it and when. The app never reproduces or generates imagery.
+- **Record history** – what changed in this event in each release (evidence class, time, casualties, damage, citations, other accounts) and which sources came in with the change. **Methods & Data → Changes in the record** summarises each release.
 
 ## Geospatial Operations (the map)
 
@@ -76,7 +77,7 @@ Nothing in the exercise changes the historical events, sources or damage records
 
 ## Citing
 
-Cite the original source from the event's Evidence trail, not this app. To cite the app itself, use the wording under **Methods & Data → How to cite**, which includes the version and data date.
+Cite the original source from the event's Evidence trail, not this app. To cite the app itself, use the wording under **Methods & Data → How to cite**, which includes the version and data date. Name the version: evidence classes and figures can change between releases, and each event's Record history shows how.
 
 ## Keyboard shortcuts
 

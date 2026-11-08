@@ -7,6 +7,7 @@ import { EvidenceBadge } from "./EvidenceBadge";
 import { CiteMark, EvidenceTrail } from "./Provenance";
 import { AccountsCompared } from "./AccountsCompared";
 import { PublishedImagery } from "./PublishedImagery";
+import { RecordHistory } from "./RecordHistory";
 import { imageryForEvent } from "@/data/imagery";
 import { useEffect, useRef, useState } from "react";
 import type { CitationField } from "@/types";
@@ -250,6 +251,11 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
             <PublishedImagery items={imageryForEvent(e.id)} />
           </section>
         )}
+
+        <section>
+          <div className="label-caps mb-1">Record history</div>
+          <RecordHistory eventId={e.id} />
+        </section>
 
         <section ref={trailRef}>
           <div className="label-caps mb-1">Evidence trail · {e.provenance.length} field-level citations</div>
