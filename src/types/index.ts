@@ -4,6 +4,8 @@
 export type {
   CampaignEvent,
   Citation,
+  Account,
+  AccountStance,
   CitationField,
   EventLocation,
   EventVector,

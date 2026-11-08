@@ -59,6 +59,12 @@ export const DATA_DICTIONARY: DatasetDoc[] = [
       { field: "targetIds", type: "TGT/IND/SEC/LOC-… []", description: "Locations affected by the event." },
       { field: "notes", type: "text", description: "Assessment notes and caveats." },
       { field: "sample", type: "boolean", description: "True if a record is illustrative sample data (none are)." },
+      {
+        field: "accounts",
+        type: "Account []",
+        description:
+          "Other parties' accounts: party (Pakistan official / independent / Indian official), source, stance (confirms, concedes, disputes, not acknowledged, no evidence found, …), summary and optional excerpt (≤ 15 words). Drives the corroboration rule.",
+      },
       { field: "provenance", type: "Citation []", description: "Field-level citations: field, sourceId, locator, verbatim excerpt (≤ 30 words), note." },
     ],
   },

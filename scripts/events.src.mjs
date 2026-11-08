@@ -3,6 +3,7 @@
 // Regenerate with: node scripts/events.src.mjs
 import { writeFileSync } from "node:fs";
 import { PROVENANCE } from "./provenance.src.mjs";
+import { ACCOUNTS, UPGRADES } from "./accounts.src.mjs";
 
 const E = [];
 let n = 0;
@@ -929,10 +930,47 @@ ev({
   sources: ["SRC-MEA-PM0512", "SRC-PIB-0514A"],
 });
 
+// ───────────── ADDED IN PHASE 5 (appended so earlier IDs stay stable) ─────────────
+ev({
+  date: "2025-05-07",
+  timeBasis: "unknown",
+  sortTime: "2025-05-07T01:30",
+  timeLabel: "First day of the conflict (7 May); time and place not disclosed",
+  title: "Air engagement: aircraft losses claimed and conceded",
+  eventType: "air_defence_engagement",
+  domain: "air",
+  location: { name: "Airspace along the LoC / IB (not disclosed)", region: "India–Pakistan", precision: "undisclosed" },
+  actor: "Bilateral",
+  reportedBy: "Indian CDS; Pakistani military; Indian Air Force chief",
+  description:
+    "Pakistan claimed it shot down five Indian jets on 7 May. India's Chief of Defence Staff later acknowledged initial aerial losses without giving a number and rejected the figure of five. In August, India's air chief claimed five Pakistani fighters and one large aircraft were shot down during May, mostly by S-400; Pakistan denies any losses.",
+  weaponCategory: "fighter aircraft; surface-to-air and air-to-air missiles (types not confirmed per engagement)",
+  weaponSystemIds: ["WPN-S400"],
+  formation: { status: "undisclosed", representation: "none", publicDescription: null },
+  damageAssessment: { status: "unknown", level: null, confidence: "low" },
+  escalationLevel: 1,
+  sources: ["SRC-IND-AJ-CDS"],
+  notes:
+    "GREEN applies only to the fact that India lost aircraft (an Indian concession). The number of Indian losses and every claim of Pakistani losses remain unverified. The air chief's claim covers the whole of 7–10 May, not only this engagement.",
+});
+
+const upgrades = new Set(UPGRADES);
 for (const e of E) {
   e.provenance = PROVENANCE[e.id] ?? [];
-  // a cited source must also be listed on the event
-  for (const cit of e.provenance) if (!e.sources.includes(cit.sourceId)) e.sources.push(cit.sourceId);
+  e.accounts = ACCOUNTS[e.id] ?? [];
+  // every cited or account source must also be listed on the event
+  for (const s of [...e.provenance, ...e.accounts]) if (!e.sources.includes(s.sourceId)) e.sources.push(s.sourceId);
+  if (upgrades.has(e.id)) {
+    e.evidenceClass = "GREEN";
+    e.evidenceType = "independent_corroboration";
+    e.verified = true;
+    e.notes = [
+      e.notes,
+      "GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
+    ]
+      .filter(Boolean)
+      .join(" ");
+  }
 }
 writeFileSync("src/data/events.json", JSON.stringify(E, null, 2));
 console.log("events:", E.length);

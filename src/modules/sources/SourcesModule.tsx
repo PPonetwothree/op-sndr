@@ -78,11 +78,13 @@ function AddSourceForm() {
         <label>
           <span className="label-caps">Source type</span>
           <select className={input} value={f.sourceType} onChange={(e) => setF({ ...f, sourceType: e.target.value as Source["sourceType"] })}>
-            {["official_transcript", "official_press_release", "official_backgrounder", "official_statement", "media", "independent"].map((t) => (
-              <option key={t} value={t}>
-                {t.replace(/_/g, " ")}
-              </option>
-            ))}
+            {["official_transcript", "official_press_release", "official_backgrounder", "official_statement", "media", "independent", "adversary_official"].map(
+              (t) => (
+                <option key={t} value={t}>
+                  {t.replace(/_/g, " ")}
+                </option>
+              )
+            )}
           </select>
         </label>
         <label>

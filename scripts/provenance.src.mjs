@@ -431,3 +431,21 @@ add(
   "EVT-049",
   c("weapons", MEA10C, "Wg Cdr Vyomika Singh", "our S-400 at a northern base was destroyed, which was completely false, and that it was destroyed by a JF-17")
 );
+
+add(
+  "EVT-055",
+  c(
+    "description",
+    "SRC-IND-AJ-CDS",
+    "Report on CDS Gen Anil Chauhan's interviews, 31 May 2025",
+    "suffered initial losses in the air during a recent military conflict",
+    "Media report (AMBER) of an Indian official statement."
+  ),
+  c(
+    "weapons",
+    "SRC-IND-AJ-IAF",
+    "Report on Air Chief Marshal A.P. Singh, 9 Aug 2025",
+    "India’s S-400 air defence systems took down most of the Pakistani planes",
+    "Indian claim; Pakistan rejects it."
+  )
+);

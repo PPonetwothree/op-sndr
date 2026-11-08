@@ -181,10 +181,10 @@ w({
   weaponClass: "Strategic air defence",
   force: "Indian Air Force",
   publicRole: "Long-range layered SAM.",
-  usageStatus: "adversary_claim_rejected",
+  usageStatus: "officially_confirmed_used",
   usageNote:
-    "Retrieved sources mention S-400 only to reject Pakistani claims that one was destroyed at Adampur. Its combat employment is not established in the sources retrieved for this build; later media accounts report statements on its use.",
-  sources: ["SRC-MEA-0510A", "SRC-MEA-0510C"],
+    "May 2025 briefings mention S-400 only to reject Pakistani claims that one was destroyed at Adampur. On 9 Aug 2025 India's air chief stated that S-400 systems shot down most of the Pakistani aircraft he claims were downed (reported by Al Jazeera). Use is an Indian official statement; the claimed kills are unverified and Pakistan rejects them.",
+  sources: ["SRC-MEA-0510A", "SRC-MEA-0510C", "SRC-IND-AJ-IAF"],
   confidence: "low",
 });
 w({

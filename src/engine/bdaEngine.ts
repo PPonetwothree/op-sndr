@@ -1,6 +1,7 @@
 // Builds baseline Battle Damage Assessment records from the event database.
 // Baselines restate what sources report; unknown fields are "UNKNOWN", never inferred.
 import { EVENTS, TARGETS, BASE_SOURCES } from "@/data";
+import { INDEPENDENT_ASSESSMENTS } from "@/data/independentAssessments";
 import type { CampaignEvent, Target } from "@/types";
 
 export type ClaimStatus =
@@ -131,6 +132,21 @@ export function buildBaselineBda(): BdaRecord[] {
       edited: false,
       editedAt: null,
     });
+  }
+  // Apply independent (GREEN) damage assessments. The Indian claim stays in the condition text.
+  for (const ia of INDEPENDENT_ASSESSMENTS) {
+    const r = out.find((x) => x.targetId === ia.targetId);
+    if (!r) continue;
+    const before = r.infrastructureCondition;
+    r.claimStatus = "independently_verified";
+    r.damageLevel = ia.level;
+    r.confidence = "medium";
+    r.infrastructureCondition = `${ia.finding} (independent). Indian account: ${before}`;
+    for (const sid of ia.sources) {
+      if (!r.evidenceSourceIds.includes(sid)) r.evidenceSourceIds.push(sid);
+      r.evidenceTimeline.push({ date: SRC_DATE.get(sid) ?? "", sourceId: sid, eventId: null, note: `Independent assessment: ${ia.finding}` });
+    }
+    r.evidenceTimeline.sort((a, b) => a.date.localeCompare(b.date));
   }
   return out;
 }

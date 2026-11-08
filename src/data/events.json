@@ -73,6 +73,14 @@
         "excerpt": "The need to hold perpetrators, organisers, financiers and sponsors of this reprehensible act of terrorism accountable",
         "note": "Independent body; confirms the attack occurred, not its attribution."
       }
+    ],
+    "accounts": [
+      {
+        "party": "independent",
+        "sourceId": "SRC-UNSC-0425",
+        "stance": "confirms_occurrence",
+        "summary": "The UN Security Council condemned the attack and called for those responsible to be held accountable; it did not attribute it to a group."
+      }
     ]
   },
   {
@@ -137,7 +145,8 @@
         "locator": "Non-Military Measures section",
         "excerpt": "The overall strength of the High Commissions will be brought down to 30 from the present 55"
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-003",
@@ -160,12 +169,12 @@
       "confidence": "medium"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [],
     "targetIds": [],
-    "notes": "Weapon-to-target pairing for individual sites has not been published.",
+    "notes": "Weapon-to-target pairing for individual sites has not been published. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-07",
@@ -189,7 +198,10 @@
     "sources": [
       "SRC-MEA-0507",
       "SRC-PIB-0507",
-      "SRC-PIB-0514A"
+      "SRC-PIB-0514A",
+      "SRC-PAK-DAWN-0507",
+      "SRC-PAK-RP-0513",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -216,6 +228,29 @@
         "sourceId": "SRC-MEA-0507",
         "locator": "Wg Cdr Vyomika Singh, opening remarks",
         "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-DAWN-0507",
+        "stance": "disputes_target",
+        "summary": "Pakistan's military acknowledged Indian strikes at six sites (India says nine) and said mosques and civilians were hit, not terrorist camps.",
+        "excerpt": "late-night strikes launched by its neighbouring country at six sites"
+      },
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-RP-0513",
+        "stance": "disputes_target",
+        "summary": "Pakistan's final toll for the night of 6–7 May: 40 civilians killed, including 7 women and 15 children, and 121 injured.",
+        "excerpt": "Forty civilians, including seven women and fifteen children, were martyred"
+      },
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "confirms_occurrence",
+        "summary": "Stimson's independent review describes the 7 May strikes on nine sites, including the deep strikes at Muridke and Bahawalpur.",
+        "excerpt": "India struck nine sites across Pakistan shortly after midnight"
       }
     ]
   },
@@ -274,7 +309,8 @@
     "weaponCategory": "precision weapons – 'niche technology weapons with careful selection of warheads' (briefing); specific weapon not attributed",
     "escalationLevel": 1,
     "sources": [
-      "SRC-MEA-0507"
+      "SRC-MEA-0507",
+      "SRC-PAK-DAWN-0507"
     ],
     "provenance": [
       {
@@ -303,6 +339,15 @@
         "locator": "Wg Cdr Vyomika Singh, opening remarks",
         "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
       }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-DAWN-0507",
+        "stance": "not_acknowledged",
+        "summary": "Pakistan's site-by-site account of the 7 May strikes does not list a separate site at Sawai Nala – for Muzaffarabad it names only the Bilal mosque.",
+        "locator": "DG ISPR site list"
+      }
     ]
   },
   {
@@ -322,9 +367,9 @@
       "confidence": "medium"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-NORTH",
@@ -336,7 +381,7 @@
     "targetIds": [
       "TGT-SYEDNA-BILAL"
     ],
-    "notes": "Sequence within the strike window is illustrative (north to south, as briefed).",
+    "notes": "Sequence within the strike window is illustrative (north to south, as briefed). GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-07",
@@ -360,7 +405,8 @@
     "weaponCategory": "precision weapons – 'niche technology weapons with careful selection of warheads' (briefing); specific weapon not attributed",
     "escalationLevel": 1,
     "sources": [
-      "SRC-MEA-0507"
+      "SRC-MEA-0507",
+      "SRC-PAK-DAWN-0507"
     ],
     "provenance": [
       {
@@ -382,6 +428,15 @@
         "sourceId": "SRC-MEA-0507",
         "locator": "Wg Cdr Vyomika Singh, opening remarks",
         "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-DAWN-0507",
+        "stance": "disputes_target",
+        "summary": "Pakistan said the Bilal mosque in Muzaffarabad was hit by seven impacts and destroyed, with a girl injured. Treating it as India's 'Syedna Bilal camp' is a name match (analytical).",
+        "excerpt": "In Muzaffarabad, Bilal mosque was targeted. There were seven impacts"
       }
     ]
   },
@@ -441,7 +496,8 @@
     "escalationLevel": 1,
     "sources": [
       "SRC-MEA-0507",
-      "SRC-OSM-GEOCODE"
+      "SRC-OSM-GEOCODE",
+      "SRC-PAK-DAWN-0507"
     ],
     "provenance": [
       {
@@ -471,6 +527,15 @@
         "locator": "Wg Cdr Vyomika Singh, opening remarks",
         "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
       }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-DAWN-0507",
+        "stance": "not_acknowledged",
+        "summary": "Pakistan's site-by-site account of the 7 May strikes does not list a separate site at Gulpur – for Kotli it names only the Abbas mosque.",
+        "locator": "DG ISPR site list"
+      }
     ]
   },
   {
@@ -490,9 +555,9 @@
       "confidence": "medium"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-NORTH",
@@ -504,7 +569,7 @@
     "targetIds": [
       "TGT-ABBAS"
     ],
-    "notes": "Sequence within the strike window is illustrative (north to south, as briefed).",
+    "notes": "Sequence within the strike window is illustrative (north to south, as briefed). GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-07",
@@ -528,7 +593,8 @@
     "weaponCategory": "precision weapons – 'niche technology weapons with careful selection of warheads' (briefing); specific weapon not attributed",
     "escalationLevel": 1,
     "sources": [
-      "SRC-MEA-0507"
+      "SRC-MEA-0507",
+      "SRC-PAK-DAWN-0507"
     ],
     "provenance": [
       {
@@ -550,6 +616,15 @@
         "sourceId": "SRC-MEA-0507",
         "locator": "Wg Cdr Vyomika Singh, opening remarks",
         "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-DAWN-0507",
+        "stance": "disputes_target",
+        "summary": "Pakistan said the Abbas mosque in Kotli was hit by five impacts and two people were killed, including a 16-year-old girl.",
+        "excerpt": "In Kotli, Abbat Mosque was targeted. There were five impacts"
       }
     ]
   },
@@ -608,7 +683,8 @@
     "weaponCategory": "precision weapons – 'niche technology weapons with careful selection of warheads' (briefing); specific weapon not attributed",
     "escalationLevel": 1,
     "sources": [
-      "SRC-MEA-0507"
+      "SRC-MEA-0507",
+      "SRC-PAK-DAWN-0507"
     ],
     "provenance": [
       {
@@ -631,6 +707,15 @@
         "locator": "Wg Cdr Vyomika Singh, opening remarks",
         "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
       }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-DAWN-0507",
+        "stance": "not_acknowledged",
+        "summary": "Pakistan's site-by-site account of the 7 May strikes does not list a separate site at Barnala / Bhimber.",
+        "locator": "DG ISPR site list"
+      }
     ]
   },
   {
@@ -650,9 +735,9 @@
       "confidence": "medium"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-PUNJAB",
@@ -664,7 +749,7 @@
     "targetIds": [
       "TGT-SARJAL"
     ],
-    "notes": "Sequence within the strike window is illustrative (north to south, as briefed).",
+    "notes": "Sequence within the strike window is illustrative (north to south, as briefed). GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-07",
@@ -689,7 +774,8 @@
     "escalationLevel": 1,
     "sources": [
       "SRC-MEA-0507",
-      "SRC-MEDIA-PRINT-SARJAL"
+      "SRC-MEDIA-PRINT-SARJAL",
+      "SRC-PAK-DAWN-0507"
     ],
     "provenance": [
       {
@@ -719,6 +805,16 @@
         "locator": "Wg Cdr Vyomika Singh, opening remarks",
         "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
       }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-DAWN-0507",
+        "stance": "disputes_damage",
+        "summary": "Pakistan said there were two strikes near Shakargarh with no damage except minor damage to a dispensary – consistent in place with India's claim of a facility in a health centre.",
+        "excerpt": "There was minor damage to a dispensary",
+        "locator": "DG ISPR site list"
+      }
     ]
   },
   {
@@ -738,9 +834,9 @@
       "confidence": "medium"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-PUNJAB",
@@ -752,7 +848,7 @@
     "targetIds": [
       "TGT-MEHMOONA-JOYA"
     ],
-    "notes": "Sequence within the strike window is illustrative (north to south, as briefed).",
+    "notes": "Sequence within the strike window is illustrative (north to south, as briefed). GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-07",
@@ -777,7 +873,8 @@
     "escalationLevel": 1,
     "sources": [
       "SRC-MEA-0507",
-      "SRC-MEDIA-OB-9CAMPS"
+      "SRC-MEDIA-OB-9CAMPS",
+      "SRC-PAK-DAWN-0507"
     ],
     "provenance": [
       {
@@ -807,6 +904,15 @@
         "locator": "Wg Cdr Vyomika Singh, opening remarks",
         "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
       }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-DAWN-0507",
+        "stance": "disputes_damage",
+        "summary": "Pakistan said two strikes hit Kotki Lohara village in Sialkot district – one missile misfired, one fell in an open field, no damage. The village differs from the media-reported site, so the match with Mehmoona Joya is uncertain.",
+        "excerpt": "In Sialkot district, in the village of Kotki Lohara, there were two strikes"
+      }
     ]
   },
   {
@@ -826,9 +932,9 @@
       "confidence": "medium"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-PUNJAB",
@@ -840,7 +946,7 @@
     "targetIds": [
       "TGT-MURIDKE"
     ],
-    "notes": "Sequence within the strike window is illustrative (north to south, as briefed).",
+    "notes": "Sequence within the strike window is illustrative (north to south, as briefed). GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-07",
@@ -864,7 +970,9 @@
     "weaponCategory": "precision weapons – 'niche technology weapons with careful selection of warheads' (briefing); specific weapon not attributed",
     "escalationLevel": 1,
     "sources": [
-      "SRC-MEA-0507"
+      "SRC-MEA-0507",
+      "SRC-PAK-DAWN-0507",
+      "SRC-IND-AJ-MURIDKE"
     ],
     "provenance": [
       {
@@ -887,6 +995,23 @@
         "locator": "Wg Cdr Vyomika Singh, opening remarks",
         "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
       }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-DAWN-0507",
+        "stance": "disputes_target",
+        "summary": "Pakistan said the Umm-ul-Qura mosque at Muridke took four strikes and was destroyed; one man killed, one injured, two missing.",
+        "excerpt": "In Muridke, Umalkura Mosque was targeted and there were four strikes"
+      },
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-AJ-MURIDKE",
+        "stance": "confirms_damage",
+        "summary": "Al Jazeera's reporter at the compound hours later found the administrative block and the mosque struck, with a collapsed roof section; three clerical staff were killed. The compound was founded by Hafiz Saeed (JuD, widely seen as an LeT front).",
+        "excerpt": "Two gaping holes in the ceiling marked the spots where missiles had struck.",
+        "locator": "On-site report"
+      }
     ]
   },
   {
@@ -906,9 +1031,9 @@
       "confidence": "medium"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-RAJ",
@@ -920,7 +1045,7 @@
     "targetIds": [
       "TGT-BAHAWALPUR"
     ],
-    "notes": "Sequence within the strike window is illustrative (north to south, as briefed).",
+    "notes": "Sequence within the strike window is illustrative (north to south, as briefed). GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-07",
@@ -945,7 +1070,9 @@
     "escalationLevel": 1,
     "sources": [
       "SRC-MEA-0507",
-      "SRC-MEA-0509"
+      "SRC-MEA-0509",
+      "SRC-PAK-DAWN-0507",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -979,6 +1106,22 @@
         "sourceId": "SRC-MEA-0507",
         "locator": "Wg Cdr Vyomika Singh, opening remarks",
         "excerpt": "Nine terrorist camps were targeted and successfully destroyed."
+      }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-DAWN-0507",
+        "stance": "disputes_target",
+        "summary": "Pakistan said the Subhan mosque in Ahmedpur East (Bahawalpur) took four strikes and was destroyed; five killed, including a three-year-old girl, and 31 injured. India names the site Markaz Subhan Allah, Bahawalpur.",
+        "excerpt": "five innocent Pakistanis were slain, including a three-year-old girl"
+      },
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "confirms_occurrence",
+        "summary": "Stimson's review notes the strikes deep in Pakistani Punjab at Muridke and Bahawalpur as a deliberate political signal.",
+        "excerpt": "strikes deeper into Pakistan at Muridke and Bahawalpur"
       }
     ]
   },
@@ -1077,7 +1220,8 @@
         "excerpt": "Another Pakistani shell struck a Christian Convent",
         "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-014",
@@ -1211,7 +1355,8 @@
         "excerpt": "Sixteen innocent lives have been lost",
         "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-015",
@@ -1230,9 +1375,9 @@
       "confidence": "medium"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-PK-NORTH",
@@ -1342,7 +1487,7 @@
       "IND-UTTARLAI",
       "IND-BHUJ"
     ],
-    "notes": "Damage 'denied' = Indian sources state the attempts were neutralised; no independent damage assessment.",
+    "notes": "Damage 'denied' = Indian sources state the attempts were neutralised; no independent damage assessment. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-07",
@@ -1381,7 +1526,8 @@
     "escalationLevel": 2,
     "sources": [
       "SRC-PIB-0508",
-      "SRC-MEA-0509"
+      "SRC-MEA-0509",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -1401,6 +1547,21 @@
         "sourceId": "SRC-PIB-0508",
         "locator": "Paragraph 2",
         "excerpt": "These were neutralised by the Integrated Counter UAS Grid and Air Defence systems."
+      }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "denies",
+        "summary": "Pakistan publicly denied launching drone attacks on India on the night of 7–8 May (as reported by Stimson)."
+      },
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "confirms_occurrence",
+        "summary": "Stimson treats the drone attacks as having occurred and finds the evidence, including satellite imagery, supports India's claim that they largely failed with minimal damage.",
+        "excerpt": "The bulk of the evidence, including satellite imagery, supports that claim."
       }
     ]
   },
@@ -1576,7 +1737,8 @@
         "locator": "Air Defence Capabilities",
         "excerpt": "The Integrated Air Command and Control System (IACCS) of the Indian Air Force brought all these elements together"
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-017",
@@ -1595,9 +1757,9 @@
       "confidence": "low"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-PUNJAB",
@@ -1609,7 +1771,7 @@
     "targetIds": [
       "TGT-LAHORE-AD"
     ],
-    "notes": "Other locations not named. PIB 14 May says loitering munitions destroyed radar and missile systems during the operation, without tying them to this date.",
+    "notes": "Other locations not named. PIB 14 May says loitering munitions destroyed radar and missile systems during the operation, without tying them to this date. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-08",
@@ -1634,7 +1796,8 @@
     "escalationLevel": 3,
     "sources": [
       "SRC-PIB-0508",
-      "SRC-PIB-0514B"
+      "SRC-PIB-0514B",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -1648,6 +1811,21 @@
         "sourceId": "SRC-PIB-0508",
         "locator": "Paragraph 3",
         "excerpt": "It has been reliably learnt that an Air Defence system at Lahore has been neutralised."
+      }
+    ],
+    "accounts": [
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "confirms_occurrence",
+        "summary": "Stimson finds overwhelming evidence of the Lahore strike from videos and recovered debris, reportedly from Harpy/Harop loitering munitions.",
+        "excerpt": "There is overwhelming evidence—videos and subsequent debris—of this attack taking place."
+      },
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "confirms_damage",
+        "summary": "Pakistan said the attack injured four soldiers and caused 'partial damage' to equipment (as reported by Stimson)."
       }
     ]
   },
@@ -1722,7 +1900,8 @@
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "Preliminary reports suggest them to be of ASISGUARD SONGAR drone of Turkey."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-019",
@@ -1789,7 +1968,8 @@
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "using kinetic and non-kinetic means."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-020",
@@ -1862,7 +2042,8 @@
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "an armed UAV of Pakistan attempted to target Bathinda military station"
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-021",
@@ -1931,7 +2112,8 @@
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "armed drones were launched at four air defence sites in Pakistan."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-022",
@@ -2064,7 +2246,8 @@
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "artillery shelling across the Line of Control using heavy-caliber artillery guns and armed drones"
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-023",
@@ -2119,7 +2302,8 @@
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "Pakistan did not close its civil airspace despite it launching a failed unprovoked drone and missile attack"
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-024",
@@ -2182,7 +2366,8 @@
         "locator": "Foreign Secretary, closing points",
         "excerpt": "India targeting the Nankana Sahib Gurdwara through a drone attack. This is again yet another blatant lie"
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-025",
@@ -2250,7 +2435,8 @@
         "locator": "Introduction, BSF paragraph",
         "excerpt": "a major infiltration attempt along the International Border in the Samba district"
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-026",
@@ -2315,7 +2501,8 @@
         "locator": "Introduction, Navy paragraph",
         "excerpt": "Carrier Battle Group (CBG) equipped with MiG-29K fighter jets and airborne early warning helicopters"
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-027",
@@ -2339,9 +2526,9 @@
       "confidence": "medium"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-PK-NORTH",
@@ -2394,7 +2581,7 @@
       "IND-NALIYA",
       "IND-JALANDHAR"
     ],
-    "notes": "Only the locations named in the briefing are plotted; the full list of 26 was not published.",
+    "notes": "Only the locations named in the briefing are plotted; the full list of 26 was not published. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-10",
@@ -2425,7 +2612,8 @@
     "weaponCategory": "UCAVs, drones, long-range weapons, loitering munitions, fighter aircraft",
     "escalationLevel": 6,
     "sources": [
-      "SRC-MEA-0510A"
+      "SRC-MEA-0510A",
+      "SRC-PAK-RP-0513"
     ],
     "provenance": [
       {
@@ -2446,6 +2634,15 @@
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "Indian Armed Forces successfully neutralised these threats and majority of the vectors.",
         "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
+      }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-RP-0513",
+        "stance": "confirms_occurrence",
+        "summary": "Pakistan describes its own retaliatory strikes on India as Operation Bunyanum Marsoos.",
+        "excerpt": "delivering precise and notch-up retributive strikes through Operation Bunyanum Marsoos"
       }
     ]
   },
@@ -2517,7 +2714,8 @@
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "several high-speed missile attacks"
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-029",
@@ -2594,7 +2792,8 @@
     "weaponCategory": "not stated",
     "escalationLevel": 6,
     "sources": [
-      "SRC-MEA-0510A"
+      "SRC-MEA-0510A",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -2602,6 +2801,14 @@
         "sourceId": "SRC-MEA-0510A",
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "limited damage was sustained to equipment and personnel at Indian Air Force stations at Udhampur, Pathankot, Adampur and Bhuj."
+      }
+    ],
+    "accounts": [
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "no_evidence_found",
+        "summary": "Stimson found no commercial imagery showing meaningful damage at Indian facilities; a building at Udhampur may show damage but the imagery is ambiguous. Consistent with India's 'limited damage' acknowledgement."
       }
     ]
   },
@@ -2673,7 +2880,8 @@
         "excerpt": "attacked the medicare centre and school premises",
         "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-031",
@@ -2692,9 +2900,9 @@
       "confidence": "low"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-RAJ",
@@ -2706,7 +2914,7 @@
     "targetIds": [
       "TGT-RAFIQUI"
     ],
-    "notes": "Damage level not stated for individual sites in the morning briefing; sequence illustrative.",
+    "notes": "Damage level not stated for individual sites in the morning briefing; sequence illustrative. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-10",
@@ -2730,7 +2938,9 @@
     "weaponCategory": "air-launched precision weapons (type not stated)",
     "escalationLevel": 6,
     "sources": [
-      "SRC-MEA-0510A"
+      "SRC-MEA-0510A",
+      "SRC-PAK-RP-0510",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -2738,6 +2948,24 @@
         "sourceId": "SRC-MEA-0510A",
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "Pakistan military targets at Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur and Chunian were engaged using air-launched precision weapons"
+      }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-RP-0510",
+        "stance": "disputes_damage",
+        "summary": "Pakistan's military acknowledged that India fired air-to-surface missiles at Nur Khan, Murid and Shorkot, but said all air force assets were safe and most missiles were intercepted.",
+        "excerpt": "India has targeted the Pakistan Air Force’s Nur Khan, Murid and Shorkot air bases",
+        "locator": "DG ISPR, 10 May"
+      },
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "no_evidence_found",
+        "summary": "Stimson's review knew of no commercial satellite imagery validating the Indian claim at this site.",
+        "excerpt": "no commercial imagery validating Indian claims at Chunian, Arifwala, Pasrur, or Rafiqui",
+        "locator": "Section on 9–10 May strikes"
       }
     ]
   },
@@ -2758,9 +2986,9 @@
       "confidence": "low"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-NORTH",
@@ -2772,7 +3000,7 @@
     "targetIds": [
       "TGT-MURID"
     ],
-    "notes": "Damage level not stated for individual sites in the morning briefing; sequence illustrative.",
+    "notes": "Damage level not stated for individual sites in the morning briefing; sequence illustrative. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-10",
@@ -2796,7 +3024,8 @@
     "weaponCategory": "air-launched precision weapons (type not stated)",
     "escalationLevel": 6,
     "sources": [
-      "SRC-MEA-0510A"
+      "SRC-MEA-0510A",
+      "SRC-PAK-RP-0510"
     ],
     "provenance": [
       {
@@ -2804,6 +3033,16 @@
         "sourceId": "SRC-MEA-0510A",
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "Pakistan military targets at Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur and Chunian were engaged using air-launched precision weapons"
+      }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-RP-0510",
+        "stance": "disputes_damage",
+        "summary": "Pakistan's military acknowledged that India fired air-to-surface missiles at Nur Khan, Murid and Shorkot, but said all air force assets were safe and most missiles were intercepted.",
+        "excerpt": "India has targeted the Pakistan Air Force’s Nur Khan, Murid and Shorkot air bases",
+        "locator": "DG ISPR, 10 May"
       }
     ]
   },
@@ -2824,9 +3063,9 @@
       "confidence": "low"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-NORTH",
@@ -2838,7 +3077,7 @@
     "targetIds": [
       "TGT-CHAKLALA"
     ],
-    "notes": "Damage level not stated for individual sites in the morning briefing; sequence illustrative.",
+    "notes": "Damage level not stated for individual sites in the morning briefing; sequence illustrative. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-10",
@@ -2863,7 +3102,10 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A",
-      "SRC-PIB-0518"
+      "SRC-PIB-0518",
+      "SRC-PAK-RP-0510",
+      "SRC-IND-STIMSON",
+      "SRC-IND-WAPO"
     ],
     "provenance": [
       {
@@ -2877,6 +3119,29 @@
         "sourceId": "SRC-PIB-0518",
         "locator": "Introduction, IAF paragraph",
         "excerpt": "Nur Khan Air Base and the Rahimyar Khan Air Base, with visual evidence of damage presented during official briefings"
+      }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-RP-0510",
+        "stance": "disputes_damage",
+        "summary": "Pakistan's military acknowledged that India fired air-to-surface missiles at Nur Khan, Murid and Shorkot, but said all air force assets were safe and most missiles were intercepted.",
+        "excerpt": "India has targeted the Pakistan Air Force’s Nur Khan, Murid and Shorkot air bases",
+        "locator": "DG ISPR, 10 May"
+      },
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "confirms_occurrence",
+        "summary": "Stimson places the Nur Khan strike at about 02:30 Pakistan time; the blasts woke residents in Islamabad.",
+        "excerpt": "Around 2:30 am Pakistan time, India struck the Nur Khan airbase"
+      },
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-WAPO",
+        "stance": "confirms_damage",
+        "summary": "The Washington Post's imagery analysis found damage at six airfields (headline finding only; article not read)."
       }
     ]
   },
@@ -2897,9 +3162,9 @@
       "confidence": "low"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-RAJ",
@@ -2911,7 +3176,7 @@
     "targetIds": [
       "TGT-RAHIM-YAR-KHAN"
     ],
-    "notes": "Damage level not stated for individual sites in the morning briefing; sequence illustrative.",
+    "notes": "Damage level not stated for individual sites in the morning briefing; sequence illustrative. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-10",
@@ -2936,7 +3201,8 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A",
-      "SRC-PIB-0518"
+      "SRC-PIB-0518",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -2950,6 +3216,16 @@
         "sourceId": "SRC-PIB-0518",
         "locator": "Introduction, IAF paragraph",
         "excerpt": "Nur Khan Air Base and the Rahimyar Khan Air Base, with visual evidence of damage presented during official briefings"
+      }
+    ],
+    "accounts": [
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "confirms_damage",
+        "summary": "Commercial imagery shows runways cratered to halt take-offs temporarily; the bases were damaged but not disabled.",
+        "excerpt": "India decided to crater runways to temporarily halt takeoffs",
+        "locator": "Section on 9–10 May strikes"
       }
     ]
   },
@@ -2970,9 +3246,9 @@
       "confidence": "low"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-GUJ",
@@ -2984,7 +3260,7 @@
     "targetIds": [
       "TGT-SUKKUR"
     ],
-    "notes": "Damage level not stated for individual sites in the morning briefing; sequence illustrative.",
+    "notes": "Damage level not stated for individual sites in the morning briefing; sequence illustrative. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-10",
@@ -3008,7 +3284,8 @@
     "weaponCategory": "air-launched precision weapons (type not stated)",
     "escalationLevel": 6,
     "sources": [
-      "SRC-MEA-0510A"
+      "SRC-MEA-0510A",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -3016,6 +3293,16 @@
         "sourceId": "SRC-MEA-0510A",
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "Pakistan military targets at Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur and Chunian were engaged using air-launched precision weapons"
+      }
+    ],
+    "accounts": [
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "confirms_damage",
+        "summary": "Commercial imagery shows large hangars hit; there is no clear evidence that aircraft were hit, and the base was not disabled.",
+        "excerpt": "large hangers were hit that could have housed aircraft",
+        "locator": "Section on 9–10 May strikes"
       }
     ]
   },
@@ -3074,7 +3361,8 @@
     "weaponCategory": "air-launched precision weapons (type not stated)",
     "escalationLevel": 6,
     "sources": [
-      "SRC-MEA-0510A"
+      "SRC-MEA-0510A",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -3082,6 +3370,16 @@
         "sourceId": "SRC-MEA-0510A",
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "Pakistan military targets at Rafiqui, Murid, Chaklala, Rahim Yar Khan, Sukkur and Chunian were engaged using air-launched precision weapons"
+      }
+    ],
+    "accounts": [
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "no_evidence_found",
+        "summary": "Stimson's review knew of no commercial satellite imagery validating the Indian claim at this site.",
+        "excerpt": "no commercial imagery validating Indian claims at Chunian, Arifwala, Pasrur, or Rafiqui",
+        "locator": "Section on 9–10 May strikes"
       }
     ]
   },
@@ -3140,7 +3438,8 @@
     "weaponCategory": "precision munitions (type not stated)",
     "escalationLevel": 6,
     "sources": [
-      "SRC-MEA-0510A"
+      "SRC-MEA-0510A",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -3148,6 +3447,16 @@
         "sourceId": "SRC-MEA-0510A",
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "Radar sites at Pasrur and Sialkot aviation base were also targeted using precision munitions."
+      }
+    ],
+    "accounts": [
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "no_evidence_found",
+        "summary": "Stimson's review knew of no commercial satellite imagery validating the Indian claim at this site.",
+        "excerpt": "no commercial imagery validating Indian claims at Chunian, Arifwala, Pasrur, or Rafiqui",
+        "locator": "Section on 9–10 May strikes"
       }
     ]
   },
@@ -3215,7 +3524,8 @@
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "Radar sites at Pasrur and Sialkot aviation base were also targeted using precision munitions."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-039",
@@ -3281,7 +3591,8 @@
         "locator": "Wg Cdr Vyomika Singh, evening MoD briefing",
         "excerpt": "extensive damage to the crucial Pakistani airbases like Skardu in Pakistan occupied Jammu and Kashmir, Sargodha, Jacobabad and Bholari"
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-040",
@@ -3300,9 +3611,9 @@
       "confidence": "low"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-PUNJAB",
@@ -3314,7 +3625,7 @@
     "targetIds": [
       "TGT-SARGODHA"
     ],
-    "notes": "The timing of these strikes was not stated; sequenced after the morning-briefing list for display only.",
+    "notes": "The timing of these strikes was not stated; sequenced after the morning-briefing list for display only. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-10",
@@ -3338,7 +3649,8 @@
     "weaponCategory": "not stated",
     "escalationLevel": 6,
     "sources": [
-      "SRC-MEA-0510C"
+      "SRC-MEA-0510C",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -3346,6 +3658,16 @@
         "sourceId": "SRC-MEA-0510C",
         "locator": "Wg Cdr Vyomika Singh, evening MoD briefing",
         "excerpt": "extensive damage to the crucial Pakistani airbases like Skardu in Pakistan occupied Jammu and Kashmir, Sargodha, Jacobabad and Bholari"
+      }
+    ],
+    "accounts": [
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "confirms_damage",
+        "summary": "Commercial imagery shows runways cratered to halt take-offs temporarily; the bases were damaged but not disabled. Imagery of 11 May shows repairs under way at Sargodha.",
+        "excerpt": "India decided to crater runways to temporarily halt takeoffs",
+        "locator": "Section on 9–10 May strikes"
       }
     ]
   },
@@ -3366,9 +3688,9 @@
       "confidence": "low"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-GUJ",
@@ -3380,7 +3702,7 @@
     "targetIds": [
       "TGT-JACOBABAD"
     ],
-    "notes": "The timing of these strikes was not stated; sequenced after the morning-briefing list for display only.",
+    "notes": "The timing of these strikes was not stated; sequenced after the morning-briefing list for display only. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-10",
@@ -3404,7 +3726,8 @@
     "weaponCategory": "not stated",
     "escalationLevel": 6,
     "sources": [
-      "SRC-MEA-0510C"
+      "SRC-MEA-0510C",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -3412,6 +3735,16 @@
         "sourceId": "SRC-MEA-0510C",
         "locator": "Wg Cdr Vyomika Singh, evening MoD briefing",
         "excerpt": "extensive damage to the crucial Pakistani airbases like Skardu in Pakistan occupied Jammu and Kashmir, Sargodha, Jacobabad and Bholari"
+      }
+    ],
+    "accounts": [
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "confirms_damage",
+        "summary": "Commercial imagery shows large hangars hit; there is no clear evidence that aircraft were hit, and the base was not disabled.",
+        "excerpt": "large hangers were hit that could have housed aircraft",
+        "locator": "Section on 9–10 May strikes"
       }
     ]
   },
@@ -3432,9 +3765,9 @@
       "confidence": "low"
     },
     "casualties": null,
-    "evidenceType": "official_claim",
-    "evidenceClass": "BLUE",
-    "verified": false,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
     "vectors": [
       {
         "from": "ANC-IN-GUJ",
@@ -3446,7 +3779,7 @@
     "targetIds": [
       "TGT-BHOLARI"
     ],
-    "notes": "The timing of these strikes was not stated; sequenced after the morning-briefing list for display only.",
+    "notes": "The timing of these strikes was not stated; sequenced after the morning-briefing list for display only. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
     "sample": false,
     "reportedBy": "Government of India",
     "date": "2025-05-10",
@@ -3471,7 +3804,9 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510C",
-      "SRC-PIB-0514A"
+      "SRC-PIB-0514A",
+      "SRC-IND-STIMSON",
+      "SRC-PAK-RP-0513"
     ],
     "provenance": [
       {
@@ -3485,6 +3820,23 @@
         "sourceId": "SRC-PIB-0514A",
         "locator": "What Operation SINDOOR Achieved",
         "excerpt": "High casualties were inflicted at Bhoolari Airbase"
+      }
+    ],
+    "accounts": [
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "confirms_damage",
+        "summary": "Commercial imagery shows large hangars hit; there is no clear evidence that aircraft were hit, and the base was not disabled.",
+        "excerpt": "large hangers were hit that could have housed aircraft",
+        "locator": "Section on 9–10 May strikes"
+      },
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-RP-0513",
+        "stance": "concedes",
+        "summary": "Pakistan's list of personnel killed includes Squadron Leader Usman Yousuf, whom PIB names as killed at Bholari; Pakistan does not state where he died.",
+        "excerpt": "Squadron Leader Usman Yousuf"
       }
     ]
   },
@@ -3571,7 +3923,8 @@
         "excerpt": "adding to the civilian casualties and the damage in that state.",
         "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-044",
@@ -3643,7 +3996,8 @@
         "locator": "Foreign Secretary, closing points",
         "excerpt": "injuries to civilians in Ferozepur and Jalandhar, among other places."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-045",
@@ -3757,7 +4111,8 @@
         "excerpt": "Indian Army has responded effectively and proportionately, causing extensive damage to Pakistan Army.",
         "note": "The 0–5 damage level is this reconstruction's classification of the reported impact, not a figure from the source."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-046",
@@ -3834,7 +4189,8 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A",
-      "SRC-MEA-0510C"
+      "SRC-MEA-0510C",
+      "SRC-IND-STIMSON"
     ],
     "provenance": [
       {
@@ -3854,6 +4210,14 @@
         "sourceId": "SRC-MEA-0510A",
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "destruction of Indian S-400 system at Adampur"
+      }
+    ],
+    "accounts": [
+      {
+        "party": "independent",
+        "sourceId": "SRC-IND-STIMSON",
+        "stance": "no_evidence_found",
+        "summary": "Stimson found no imagery showing meaningful damage at Indian facilities, and notes Pakistan's claim of destroying an S-400 element at Adampur – supporting India's rejection."
       }
     ]
   },
@@ -3912,7 +4276,8 @@
         "locator": "Statement, paragraph 1",
         "excerpt": "called the Director General of Military Operations of India at 1535 hours IST earlier today."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-048",
@@ -3970,7 +4335,8 @@
         "locator": "Statement, paragraph 2",
         "excerpt": "stop all firing and military action on land and in the air and sea with effect from 1700 hours Indian Standard Time today."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-049",
@@ -4043,7 +4409,8 @@
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "our S-400 at a northern base was destroyed, which was completely false, and that it was destroyed by a JF-17"
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-050",
@@ -4109,7 +4476,8 @@
         "locator": "Pakistani Response after ceasefire",
         "excerpt": "Wave of UAVs and small drones intruded into Indian civilian and military areas."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-051",
@@ -4163,7 +4531,8 @@
     "escalationLevel": 7,
     "sources": [
       "SRC-PIB-1206",
-      "SRC-PIB-0514A"
+      "SRC-PIB-0514A",
+      "SRC-PAK-RP-0513"
     ],
     "provenance": [
       {
@@ -4177,6 +4546,14 @@
         "sourceId": "SRC-PIB-0514A",
         "locator": "What Operation SINDOOR Achieved",
         "excerpt": "High-value targets eliminated include Yusuf Azhar, Abdul Malik Rauf, Mudassir Ahmad."
+      }
+    ],
+    "accounts": [
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-RP-0513",
+        "stance": "disputes_target",
+        "summary": "Pakistan says those killed on 6–7 May were 40 civilians, including 7 women and 15 children – not terrorists."
       }
     ]
   },
@@ -4236,7 +4613,8 @@
         "locator": "Statement, paragraph 4",
         "excerpt": "The Director Generals of Military Operations will talk again on the 12th of May at 1200 hours."
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-053",
@@ -4311,7 +4689,8 @@
         "locator": "Evidence of Neutralized Threats",
         "excerpt": "Pieces of PL-15 missiles (of Chinese origin)"
       }
-    ]
+    ],
+    "accounts": []
   },
   {
     "id": "EVT-054",
@@ -4368,6 +4747,103 @@
         "sourceId": "SRC-PIB-0514A",
         "locator": "PM's address, first point",
         "excerpt": "if there is a terrorist attack on India, a fitting reply will be given."
+      }
+    ],
+    "accounts": []
+  },
+  {
+    "id": "EVT-055",
+    "time": null,
+    "timeBasis": "unknown",
+    "phase": "campaign",
+    "weaponSystemIds": [
+      "WPN-S400"
+    ],
+    "formation": {
+      "status": "undisclosed",
+      "representation": "none",
+      "publicDescription": null
+    },
+    "damageAssessment": {
+      "status": "unknown",
+      "level": null,
+      "confidence": "low"
+    },
+    "casualties": null,
+    "evidenceType": "independent_corroboration",
+    "evidenceClass": "GREEN",
+    "verified": true,
+    "vectors": [],
+    "targetIds": [],
+    "notes": "GREEN applies only to the fact that India lost aircraft (an Indian concession). The number of Indian losses and every claim of Pakistani losses remain unverified. The air chief's claim covers the whole of 7–10 May, not only this engagement. GREEN = occurrence corroborated outside Indian official accounts (see Accounts compared). Damage and casualty figures remain as claimed unless a BDA record says otherwise.",
+    "sample": false,
+    "reportedBy": "Indian CDS; Pakistani military; Indian Air Force chief",
+    "date": "2025-05-07",
+    "sortTime": "2025-05-07T01:30",
+    "timeLabel": "First day of the conflict (7 May); time and place not disclosed",
+    "title": "Air engagement: aircraft losses claimed and conceded",
+    "eventType": "air_defence_engagement",
+    "domain": "air",
+    "location": {
+      "lat": null,
+      "lng": null,
+      "locationIds": [],
+      "name": "Airspace along the LoC / IB (not disclosed)",
+      "region": "India–Pakistan",
+      "precision": "undisclosed"
+    },
+    "actor": "Bilateral",
+    "description": "Pakistan claimed it shot down five Indian jets on 7 May. India's Chief of Defence Staff later acknowledged initial aerial losses without giving a number and rejected the figure of five. In August, India's air chief claimed five Pakistani fighters and one large aircraft were shot down during May, mostly by S-400; Pakistan denies any losses.",
+    "weaponCategory": "fighter aircraft; surface-to-air and air-to-air missiles (types not confirmed per engagement)",
+    "escalationLevel": 1,
+    "sources": [
+      "SRC-IND-AJ-CDS",
+      "SRC-IND-AJ-IAF",
+      "SRC-PAK-DAWN-0507"
+    ],
+    "provenance": [
+      {
+        "field": "description",
+        "sourceId": "SRC-IND-AJ-CDS",
+        "locator": "Report on CDS Gen Anil Chauhan's interviews, 31 May 2025",
+        "excerpt": "suffered initial losses in the air during a recent military conflict",
+        "note": "Media report (AMBER) of an Indian official statement."
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-IND-AJ-IAF",
+        "locator": "Report on Air Chief Marshal A.P. Singh, 9 Aug 2025",
+        "excerpt": "India’s S-400 air defence systems took down most of the Pakistani planes",
+        "note": "Indian claim; Pakistan rejects it."
+      }
+    ],
+    "accounts": [
+      {
+        "party": "indian_official",
+        "sourceId": "SRC-IND-AJ-CDS",
+        "stance": "concedes",
+        "summary": "India's Chief of Defence Staff acknowledged initial aerial losses on the first day without giving a number, and called Pakistan's figure of five 'absolutely incorrect'.",
+        "excerpt": "suffered initial losses in the air during a recent military conflict"
+      },
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-PAK-DAWN-0507",
+        "stance": "claims_other",
+        "summary": "Pakistan claimed five Indian jets were shot down on 7 May.",
+        "excerpt": "Pakistani military has brought down five Indian jets"
+      },
+      {
+        "party": "indian_official",
+        "sourceId": "SRC-IND-AJ-IAF",
+        "stance": "claims_other",
+        "summary": "India's air chief later claimed five Pakistani fighters and one large aircraft were shot down during May, mostly by the S-400.",
+        "excerpt": "India shot down five Pakistani fighter jets and one other military aircraft"
+      },
+      {
+        "party": "pakistan_official",
+        "sourceId": "SRC-IND-AJ-IAF",
+        "stance": "denies",
+        "summary": "Pakistan has denied that India downed any Pakistani aircraft (as reported by Al Jazeera)."
       }
     ]
   }

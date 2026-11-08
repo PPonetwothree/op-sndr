@@ -310,5 +310,93 @@
     "archivedAt": "2026-07-11",
     "lastChecked": "2026-11-07",
     "archiveStatus": "content_verified"
+  },
+  {
+    "id": "SRC-IND-STIMSON",
+    "title": "Four Days in May: The India-Pakistan Crisis of 2025",
+    "publisher": "Stimson Center (Christopher Clary, working paper)",
+    "publicationDate": "2025-05-28",
+    "url": "https://www.stimson.org/2025/four-days-in-may-the-india-pakistan-crisis-of-2025/",
+    "sourceType": "independent",
+    "evidenceClass": "GREEN",
+    "retrieval": "read_in_full",
+    "notes": "Independent early assessment drawing on commercial satellite imagery: attacks confirmed at most named Pakistani air bases; runways cratered at Sargodha and Rahim Yar Khan; hangars hit at Sukkur, Bholari, Jacobabad; no commercial imagery known for Chunian, Pasrur, Rafiqui; overwhelming evidence of the 8 May Lahore AD strike; no imagery showing meaningful damage at Indian facilities."
+  },
+  {
+    "id": "SRC-IND-AJ-MURIDKE",
+    "title": "Inside Muridke: Did India hit a 'terror base' or a mosque?",
+    "publisher": "Al Jazeera (Abid Hussain, on site)",
+    "publicationDate": "2025-05-08",
+    "url": "https://www.aljazeera.com/features/2025/5/8/inside-muridke-did-india-hit-a-terror-base-or-a-mosque",
+    "sourceType": "independent",
+    "evidenceClass": "GREEN",
+    "retrieval": "read_in_full",
+    "notes": "Reporter at the Muridke compound hours after the strike: administrative block and mosque hit, roof collapse and holes, three clerical staff killed; compound founded by Hafiz Saeed (JuD/LeT)."
+  },
+  {
+    "id": "SRC-IND-WAPO",
+    "title": "Indian strikes on Pakistan damaged six airfields, Washington Post finds",
+    "publisher": "The Washington Post",
+    "publicationDate": "2025-05-14",
+    "url": "https://www.washingtonpost.com/world/2025/05/14/india-pakistan-strikes-conflict-damage/",
+    "sourceType": "independent",
+    "evidenceClass": "GREEN",
+    "retrieval": "cited_not_retrieved",
+    "notes": "Paywalled; only the headline finding is used. Base-level details are not taken from this source."
+  },
+  {
+    "id": "SRC-IND-AJ-CDS",
+    "title": "India top general admits aerial 'losses' in recent conflict with Pakistan",
+    "publisher": "Al Jazeera (news agencies)",
+    "publicationDate": "2025-05-31",
+    "url": "https://www.aljazeera.com/news/2025/5/31/india-top-general-admits-losses-in-recent-conflict-with-pakistan",
+    "sourceType": "media",
+    "evidenceClass": "AMBER",
+    "retrieval": "read_in_full",
+    "notes": "Reports Gen Anil Chauhan (CDS) acknowledging initial aerial losses without numbers and calling Pakistan's claim of five jets 'absolutely incorrect'; also notes Islamabad acknowledged its air bases suffered some hits."
+  },
+  {
+    "id": "SRC-IND-AJ-IAF",
+    "title": "India says six Pakistani aircraft shot down during May conflict",
+    "publisher": "Al Jazeera",
+    "publicationDate": "2025-08-09",
+    "url": "https://www.aljazeera.com/news/2025/8/9/india-says-six-pakistani-aircraft-shot-down-during-kashmir-conflict",
+    "sourceType": "media",
+    "evidenceClass": "AMBER",
+    "retrieval": "read_in_full",
+    "notes": "Reports Air Chief Marshal A.P. Singh claiming five Pakistani fighters and one large aircraft shot down, mostly by S-400; Pakistan rejects the claim."
+  },
+  {
+    "id": "SRC-PAK-DAWN-0507",
+    "title": "Pakistan downs 5 Indian jets as retaliation for late-night strikes at 6 sites: officials",
+    "publisher": "Dawn (quoting DG ISPR)",
+    "publicationDate": "2025-05-06",
+    "url": "https://www.dawn.com/news/1908824",
+    "sourceType": "adversary_official",
+    "evidenceClass": "GREY",
+    "retrieval": "read_in_full",
+    "notes": "Pakistani military account of the 7 May strikes: six sites with strikes, casualties and damage per site; claim of five Indian jets downed. Publication date as shown (US time)."
+  },
+  {
+    "id": "SRC-PAK-RP-0510",
+    "title": "Now you just wait for our response, DG ISPR warns India",
+    "publisher": "Radio Pakistan (DG ISPR)",
+    "publicationDate": "2025-05-10",
+    "url": "https://www.radio.gov.pk/10-05-2025/now-you-just-wait-for-our-response-dg-ispr-warns-india",
+    "sourceType": "adversary_official",
+    "evidenceClass": "GREY",
+    "retrieval": "read_in_full",
+    "notes": "DG ISPR: India targeted Nur Khan, Murid and Shorkot air bases with air-to-surface missiles; says all air force assets are safe and most missiles were intercepted."
+  },
+  {
+    "id": "SRC-PAK-RP-0513",
+    "title": "Marka-e-Haq: 40 civilians, 11 personnel of armed forces embraced martyrdom",
+    "publisher": "Radio Pakistan (ISPR statement)",
+    "publicationDate": "2025-05-13",
+    "url": "https://www.radio.gov.pk/13-05-2025/40-civilians-martyred-in-unprovoked-reprehensible-dastardly-indian-attacks",
+    "sourceType": "adversary_official",
+    "evidenceClass": "GREY",
+    "retrieval": "read_in_full",
+    "notes": "ISPR: 40 civilians (7 women, 15 children) killed and 121 injured on the night of 6–7 May; 11 armed forces personnel killed (6 Army, 5 Air Force, incl. Sqn Ldr Usman Yousuf) and 78 wounded."
   }
 ]

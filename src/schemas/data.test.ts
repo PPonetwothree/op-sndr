@@ -64,3 +64,22 @@ describe("source archives", () => {
     BASE_SOURCES.filter((s) => s.archiveUrl).forEach((s) => expect(s.archiveStatus, s.id).toBeDefined());
   });
 });
+
+describe("corroboration", () => {
+  it("every GREEN event carries a corroborating non-Indian account or an Indian concession", () => {
+    EVENTS.filter((e) => e.evidenceClass === "GREEN").forEach((e) => {
+      const ok = e.accounts.some(
+        (a) =>
+          (a.party !== "indian_official" && ["confirms_occurrence", "confirms_damage", "disputes_damage", "disputes_target"].includes(a.stance)) ||
+          a.stance === "concedes"
+      );
+      expect(ok, e.id).toBe(true);
+    });
+  });
+  it("sites Pakistan did not acknowledge and sites without imagery stay BLUE", () => {
+    for (const id of ["EVT-004", "EVT-006", "EVT-008", "EVT-036", "EVT-037"]) expect(EVENTS.find((e) => e.id === id)!.evidenceClass, id).toBe("BLUE");
+  });
+  it("account excerpts from non-government sources stay within 15 words", () => {
+    EVENTS.flatMap((e) => e.accounts).forEach((a) => a.excerpt && expect(a.excerpt.split(/\s+/).length).toBeLessThanOrEqual(15));
+  });
+});

@@ -64,6 +64,32 @@ export const DamageAssessmentSummarySchema = z.object({
 
 export const CitationFieldSchema = z.enum(["time", "location", "description", "casualties", "damage", "weapons", "formation", "attribution"]);
 
+export const AccountStanceSchema = z.enum([
+  "confirms_occurrence", // the source states the event happened
+  "confirms_damage", // the source shows or states damage
+  "concedes", // a statement against the speaker's own interest (e.g. India acknowledging losses)
+  "disputes_damage", // occurrence accepted, damage denied or minimised
+  "disputes_target", // occurrence accepted, nature of the target disputed
+  "not_acknowledged", // the adversary's own list omits it
+  "no_evidence_found", // an independent review found no supporting imagery
+  "denies", // the source denies the event
+  "claims_other", // a competing claim
+]);
+export const AccountPartySchema = z.enum(["pakistan_official", "independent", "indian_official"]);
+
+/** One party's account of an event (comparison view and corroboration rule). */
+export const AccountSchema = z.object({
+  party: AccountPartySchema,
+  sourceId: z.string(),
+  stance: AccountStanceSchema,
+  summary: z.string().min(10), // paraphrase
+  excerpt: z
+    .string()
+    .refine((t) => t.trim().split(/\s+/).length <= 15, "Account excerpts are limited to 15 words")
+    .optional(),
+  locator: z.string().optional(),
+});
+
 /** A field-level citation: which source supports which field, where, with a short verbatim excerpt. */
 export const CitationSchema = z.object({
   field: CitationFieldSchema,
@@ -113,6 +139,7 @@ export const CampaignEventSchema = z
     notes: z.string().default(""),
     sample: z.boolean().default(false),
     provenance: z.array(CitationSchema).default([]),
+    accounts: z.array(AccountSchema).default([]),
   })
   .superRefine((e, ctx) => {
     if (e.evidenceClass === "GREEN" && e.evidenceType === "official_claim") {
@@ -124,6 +151,24 @@ export const CampaignEventSchema = z
     if (e.time !== null && e.timeBasis !== "stated") {
       ctx.addIssue({ code: z.ZodIssueCode.custom, message: "A clock time may only be set when it is stated by a source" });
     }
+    // Corroboration rule: GREEN needs a non-Indian confirming account, or an Indian statement against interest.
+    if (e.evidenceClass === "GREEN") {
+      const ok = e.accounts.some(
+        (a) =>
+          (a.party !== "indian_official" && ["confirms_occurrence", "confirms_damage", "disputes_damage", "disputes_target"].includes(a.stance)) ||
+          a.stance === "concedes"
+      );
+      if (!ok)
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["evidenceClass"],
+          message: "GREEN requires a corroborating non-Indian account or an Indian concession",
+        });
+    }
+    e.accounts.forEach((a, i) => {
+      if (!e.sources.includes(a.sourceId))
+        ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["accounts", i], message: `Account source ${a.sourceId} is not listed in sources` });
+    });
     e.provenance.forEach((c, i) => {
       if (!e.sources.includes(c.sourceId))
         ctx.addIssue({ code: z.ZodIssueCode.custom, path: ["provenance", i], message: `Citation source ${c.sourceId} is not listed in sources` });
@@ -147,4 +192,6 @@ export type Formation = z.infer<typeof FormationSchema>;
 export type DamageAssessmentSummary = z.infer<typeof DamageAssessmentSummarySchema>;
 export type CampaignEvent = z.infer<typeof CampaignEventSchema>;
 export type Citation = z.infer<typeof CitationSchema>;
+export type Account = z.infer<typeof AccountSchema>;
+export type AccountStance = z.infer<typeof AccountStanceSchema>;
 export type CitationField = z.infer<typeof CitationFieldSchema>;
