@@ -4,6 +4,20 @@ All notable changes to this project. Format: [Keep a Changelog](https://keepacha
 
 ## [Unreleased]
 
+## [0.8.0] – 2026-11-08 · Guides and in-app help
+
+### Added
+
+- [User guide](docs/USER_GUIDE.md): opening the app, reading an event card, the map, the guided briefing, each module, the tabletop exercise, saving and sharing, citing, shortcuts and troubleshooting. Shipped beside the offline file as `USER_GUIDE.md`.
+- [Maintaining the data](docs/MAINTAINING.md): where each kind of record lives, the edit–build–check workflow, and how to add sources, events, citations, accounts, GREEN upgrades, independent assessments and imagery without breaking the evidence rules.
+- In-app help panel (**?** key or the header's **Help** button): quick start, evidence classes, keyboard shortcuts and a link to the Methods page. It is modal, keyboard-accessible and audited with axe-core.
+- Tests: the guide must list every shortcut the help panel shows, and the offline package must include the guide.
+
+### Changed
+
+- README: links to both guides; source count and description updated.
+- Offline `README.txt` points to the help panel and the bundled guide.
+
 ## [0.7.0] – 2026-11-08 · Primary-source gaps, published imagery, decluttered map
 
 ### Added

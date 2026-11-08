@@ -1,11 +1,13 @@
 # Operation Sindoor – Multi-Domain Campaign Reconstruction Simulator
 
-Locally hosted operational-history simulator reconstructing Operation Sindoor (7–10 May 2025) from public Indian government accounts.
+Locally hosted operational-history simulator reconstructing Operation Sindoor (7–10 May 2025) from public accounts: Indian official, Pakistani official and independent.
 
 ```bash
 npm install
 npm run dev          # http://127.0.0.1:5173
 ```
+
+**Guides:** [User guide](docs/USER_GUIDE.md) for analysts and instructors (press **?** in the app for the short version) · [Maintaining the data](docs/MAINTAINING.md) for adding events, sources, citations and accounts without breaking the evidence rules.
 
 ### Offline edition (no server, no internet)
 
@@ -13,7 +15,7 @@ npm run dev          # http://127.0.0.1:5173
 npm run build:offline
 ```
 
-Produces `dist-offline/operation-sindoor-v<version>.html` – a single ~5.6 MB file with everything inlined – plus a `README.txt` with opening instructions and a SHA-256 checksum. Copy it to any computer or USB stick and double-click it to open in Chrome, Edge or Firefox. Everything works offline except the optional online tile layer and the external source links. Saved work stays in that browser; move it with Session → Export/Import JSON. `npm run test:offline` verifies the file from `file://` with the network blocked; CI publishes it as a build artifact.
+Produces `dist-offline/operation-sindoor-v<version>.html` – a single ~5.6 MB file with everything inlined – plus a `README.txt` with opening instructions and a SHA-256 checksum, and the user guide. Copy it to any computer or USB stick and double-click it to open in Chrome, Edge or Firefox. Everything works offline except the optional online tile layer and the external source links. Saved work stays in that browser; move it with Session → Export/Import JSON. `npm run test:offline` verifies the file from `file://` with the network blocked; CI publishes it as a build artifact.
 
 ### Quality checks
 
@@ -52,7 +54,7 @@ Rules enforced in code: an official claim can never be GREEN; GREEN needs a Paki
 - `src/data/events.json` – 55 events (22 Apr – 12 May 2025), each citing ≥1 source.
 - `src/data/targets.json` – 58 locations at **town/district level** (public gazetteer points, not impact points).
 - `src/data/weapons.json` – 30 systems; usage status reflects only what retrieved sources state.
-- `src/data/sources.json` – 18 sources with retrieval status (read in full / partially read / cited, not retrieved).
+- `src/data/sources.json` – 33 sources (Indian official, Pakistani official, media and independent) with retrieval status (read in full / partially read / cited, not retrieved).
 - The JSON files are generated from `scripts/*.src.mjs` (edit those, then `npm run build-data`).
 
 Evidence classes: **GREEN** independently corroborated · **BLUE** official Indian account · **AMBER** media/analytical reconstruction · **GREY** unverified/disputed. Schema rules prevent official claims being marked GREEN and clock times being set unless a source states them.

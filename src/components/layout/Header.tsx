@@ -4,6 +4,7 @@ import { PlaybackControls } from "@/components/timeline/PlaybackControls";
 import { ConfidenceIndicator } from "./ConfidenceIndicator";
 import { SessionMenu } from "./SessionMenu";
 import { ShareButton } from "./ShareButton";
+import { HelpButton } from "./HelpPanel";
 import { APP_VERSION } from "@/version";
 import { cn } from "@/utils/cn";
 
@@ -58,6 +59,7 @@ export function Header() {
 
       <div className="flex-1" />
       <ConfidenceIndicator />
+      <HelpButton />
       <ShareButton />
       <SessionMenu />
     </header>

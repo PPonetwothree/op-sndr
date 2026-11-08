@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, type ComponentType } from "react";
+import { HelpPanel, useHelp } from "@/components/layout/HelpPanel";
 import { GeospatialModule } from "@/modules/geospatial/GeospatialModule";
 import { Header } from "@/components/layout/Header";
 import { Sidebar } from "@/components/layout/Sidebar";
@@ -36,6 +37,15 @@ export default function App() {
     const onKey = (e: KeyboardEvent) => {
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      const help = useHelp.getState();
+      if (e.key === "?") {
+        e.preventDefault();
+        return help.toggle();
+      }
+      if (help.open) {
+        if (e.key === "Escape") help.setOpen(false);
+        return; // the help panel is modal
+      }
       const s = useSim.getState();
       if (s.briefingStep !== null) {
         // the guided briefing owns the arrow keys while it runs
@@ -58,6 +68,7 @@ export default function App() {
     <div className="flex h-full flex-col">
       <MapPatternDefs />
       <Header />
+      <HelpPanel />
       {mode === "hypothetical" && (
         <div className="no-print border-b border-warn/40 bg-warn/10 px-4 py-1 text-[11px] text-warn">
           HYPOTHETICAL MODE — educational tabletop analysis, separate from the historical reconstruction. Tabletop tools: Escalation Matrix (injects and trace)
