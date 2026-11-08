@@ -2614,6 +2614,7 @@
     "sources": [
       "SRC-MEA-0510A",
       "SRC-PIB-YER2025",
+      "SRC-PIB-RM-LS-0728",
       "SRC-PAK-RP-0513"
     ],
     "provenance": [
@@ -2642,6 +2643,12 @@
         "locator": "Operation Sindoor section",
         "excerpt": "On May 10, 2025 at approx. 1:30 am, Pakistan launched a massive attack on Indian Air Force bases",
         "note": "Approximate only, so no clock time is set; consistent with the 01:40 missile attacks (EVT-028)."
+      },
+      {
+        "field": "weapons",
+        "sourceId": "SRC-PIB-RM-LS-0728",
+        "locator": "Paragraph on 10 May",
+        "excerpt": "Pakistan used missiles, drones, rockets and other long-range weapons on India, in addition to technologies related to electronic warfare"
       }
     ],
     "accounts": [
@@ -2801,6 +2808,7 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A",
+      "SRC-PIB-RM-LS-0728",
       "SRC-IND-STIMSON"
     ],
     "provenance": [
@@ -2809,6 +2817,13 @@
         "sourceId": "SRC-MEA-0510A",
         "locator": "Wg Cdr Vyomika Singh",
         "excerpt": "limited damage was sustained to equipment and personnel at Indian Air Force stations at Udhampur, Pathankot, Adampur and Bhuj."
+      },
+      {
+        "field": "damage",
+        "sourceId": "SRC-PIB-RM-LS-0728",
+        "locator": "Paragraph on 10 May",
+        "excerpt": "Pakistan was unable to hit any of the Indian targets and none of the important assets were damaged",
+        "note": "Later and broader than the 10 May briefing, which acknowledged limited damage at four air force stations."
       }
     ],
     "accounts": [
@@ -3033,7 +3048,8 @@
     "escalationLevel": 6,
     "sources": [
       "SRC-MEA-0510A",
-      "SRC-PAK-RP-0510"
+      "SRC-PAK-RP-0510",
+      "SRC-IMG-MANORAMA-0526"
     ],
     "provenance": [
       {
@@ -3051,6 +3067,14 @@
         "summary": "Pakistan's military acknowledged that India fired air-to-surface missiles at Nur Khan, Murid and Shorkot, but said all air force assets were safe and most missiles were intercepted.",
         "excerpt": "India has targeted the Pakistan Air Force’s Nur Khan, Murid and Shorkot air bases",
         "locator": "DG ISPR, 10 May"
+      },
+      {
+        "party": "independent",
+        "sourceId": "SRC-IMG-MANORAMA-0526",
+        "stance": "confirms_damage",
+        "summary": "OSINT analyst Damien Symon's satellite imagery shows structural damage to a command-and-control building at Murid, with part of the roof collapsed (as reported by Onmanorama/IANS).",
+        "excerpt": "the Indian Air Force strike has caused structural damage to a Command & Control building",
+        "locator": "Damien Symon, quoted"
       }
     ]
   },
@@ -4548,6 +4572,8 @@
       "SRC-PIB-1206",
       "SRC-PIB-0514A",
       "SRC-MED-PTI-0511",
+      "SRC-PIB-RM-LS-0728",
+      "SRC-PIB-MOD-260627",
       "SRC-PAK-RP-0513"
     ],
     "provenance": [
@@ -4576,6 +4602,26 @@
         "locator": "Paragraph on Indian losses",
         "excerpt": "DGMO Lt Gen Ghai also paid tribute to five Indian fallen heroes",
         "note": "Media report (AMBER) of the 11 May briefing; no official transcript was found."
+      },
+      {
+        "field": "casualties",
+        "sourceId": "SRC-PIB-RM-LS-0728",
+        "locator": "Paragraph on the 7 May strikes",
+        "excerpt": "over 100 terrorists, their trainers, handlers and associates were killed in well-coordinated strikes by our forces at nine terror infrastructure targets"
+      },
+      {
+        "field": "casualties",
+        "sourceId": "SRC-PIB-RM-LS-0728",
+        "locator": "Paragraph on the retaliatory strikes",
+        "excerpt": "asserting that none of soldiers suffered any casualties during the operation",
+        "note": "PIB paraphrase. The Ministry later said this answered claims that pilots were lost (SRC-PIB-MOD-260627); the DGMO had paid tribute to five fallen on 11 May."
+      },
+      {
+        "field": "casualties",
+        "sourceId": "SRC-PIB-MOD-260627",
+        "locator": "Paragraph 2",
+        "excerpt": "falsely imply that the Raksha Mantri claimed that no Indian soldier lost his life during Operation Sindoor",
+        "note": "Ministry of Defence clarification, 27 Jun 2026."
       }
     ],
     "accounts": [

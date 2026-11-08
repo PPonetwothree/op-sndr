@@ -208,7 +208,17 @@ export const ACCOUNTS = {
     ),
   ],
   "EVT-031": [PAK_AIRBASES, STIM_AIRBASE_NO_IMAGERY],
-  "EVT-032": [PAK_AIRBASES],
+  "EVT-032": [
+    PAK_AIRBASES,
+    a(
+      "independent",
+      "SRC-IMG-MANORAMA-0526",
+      "confirms_damage",
+      "OSINT analyst Damien Symon's satellite imagery shows structural damage to a command-and-control building at Murid, with part of the roof collapsed (as reported by Onmanorama/IANS).",
+      "the Indian Air Force strike has caused structural damage to a Command & Control building",
+      "Damien Symon, quoted"
+    ),
+  ],
   "EVT-033": [
     PAK_AIRBASES,
     a(

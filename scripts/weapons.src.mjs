@@ -92,8 +92,9 @@ w({
   force: "Integrated air-defence assets",
   publicRole: "Short-range SAM protecting vulnerable areas/points; group or autonomous mode; ECCM.",
   usageStatus: "officially_confirmed_used",
-  usageNote: "PIB 14 May / 18 May: used in the layered AD grid; 'stellar performance'. Operation-wide statement, not tied to specific engagements.",
-  sources: ["SRC-PIB-0514B", "SRC-PIB-0518"],
+  usageNote:
+    "PIB 14 May / 18 May: used in the layered AD grid; 'stellar performance'. Named by the Defence Minister in the Lok Sabha (28 Jul 2025) among the systems that foiled the 10 May attack. Operation-wide statements, not tied to specific engagements.",
+  sources: ["SRC-PIB-0514B", "SRC-PIB-0518", "SRC-PIB-RM-LS-0728"],
   confidence: "medium",
 });
 w({
@@ -183,8 +184,8 @@ w({
   publicRole: "Long-range layered SAM.",
   usageStatus: "officially_confirmed_used",
   usageNote:
-    "May 2025 briefings mention S-400 only to reject Pakistani claims that one was destroyed at Adampur. On 9 Aug 2025 India's air chief stated that S-400 systems shot down most of the Pakistani aircraft he claims were downed (reported by Al Jazeera). Use is an Indian official statement; the claimed kills are unverified and Pakistan rejects them.",
-  sources: ["SRC-MEA-0510A", "SRC-MEA-0510C", "SRC-IND-AJ-IAF"],
+    "May 2025 briefings mention S-400 only to reject Pakistani claims that one was destroyed at Adampur. On 28 Jul 2025 the Defence Minister told the Lok Sabha that S-400, Akash and AD guns foiled the 10 May attack. On 9 Aug 2025 India's air chief stated that S-400 systems shot down most of the Pakistani aircraft he claims were downed (reported by Al Jazeera). Use is an Indian official statement; the claimed kills are unverified and Pakistan rejects them.",
+  sources: ["SRC-MEA-0510A", "SRC-MEA-0510C", "SRC-IND-AJ-IAF", "SRC-PIB-RM-LS-0728"],
   confidence: "low",
 });
 w({

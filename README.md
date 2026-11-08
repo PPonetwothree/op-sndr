@@ -54,7 +54,7 @@ Rules enforced in code: an official claim can never be GREEN; GREEN needs a Paki
 - `src/data/events.json` – 55 events (22 Apr – 12 May 2025), each citing ≥1 source.
 - `src/data/targets.json` – 58 locations at **town/district level** (public gazetteer points, not impact points).
 - `src/data/weapons.json` – 30 systems; usage status reflects only what retrieved sources state.
-- `src/data/sources.json` – 33 sources (Indian official, Pakistani official, media and independent) with retrieval status (read in full / partially read / cited, not retrieved).
+- `src/data/sources.json` – 36 sources (Indian official, Pakistani official, media and independent) with retrieval status (read in full / partially read / cited, not retrieved).
 - The JSON files are generated from `scripts/*.src.mjs` (edit those, then `npm run build-data`).
 
 Evidence classes: **GREEN** independently corroborated · **BLUE** official Indian account · **AMBER** media/analytical reconstruction · **GREY** unverified/disputed. Schema rules prevent official claims being marked GREEN and clock times being set unless a source states them.

@@ -446,5 +446,41 @@
     "evidenceClass": "GREY",
     "retrieval": "read_in_full",
     "notes": "ISPR: 40 civilians (7 women, 15 children) killed and 121 injured on the night of 6–7 May; 11 armed forces personnel killed (6 Army, 5 Air Force, incl. Sqn Ldr Usman Yousuf) and 78 wounded."
+  },
+  {
+    "id": "SRC-PIB-RM-LS-0728",
+    "title": "Overall politico-military objective of Operation Sindoor was to punish Pakistan for fighting a proxy war; Pak-sponsored terrorism is a well-planned strategy & fundamental rage: Raksha Mantri in Lok Sabha",
+    "publisher": "Press Information Bureau (Ministry of Defence)",
+    "publicationDate": "2025-07-28",
+    "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2149356",
+    "sourceType": "official_press_release",
+    "evidenceClass": "BLUE",
+    "retrieval": "read_in_full",
+    "notes": "PIB account of the Defence Minister's Lok Sabha speech, 28 Jul 2025 (17:30). Over 100 killed at nine targets; 10 May Pakistani attack foiled, naming S-400, Akash and AD guns; 'none of the important assets were damaged'; 'none of soldiers suffered any casualties' (see SRC-PIB-MOD-260627 for the Ministry's later clarification). Press coverage that reported 'seven camps' is not supported by this text.",
+    "lastChecked": "2026-11-08"
+  },
+  {
+    "id": "SRC-PIB-MOD-260627",
+    "title": "Statement on misrepresentation of Raksha Mantri's Parliamentary address of July 28, 2025",
+    "publisher": "Press Information Bureau (Ministry of Defence)",
+    "publicationDate": "2026-06-27",
+    "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2278444",
+    "sourceType": "official_statement",
+    "evidenceClass": "BLUE",
+    "retrieval": "read_in_full",
+    "notes": "Ministry of Defence, 27 Jun 2026. Says the 'no casualties' remark answered false claims that Indian pilots were lost, not a claim that no soldier died; the fallen are inscribed at the National War Memorial. Also states 'more than 100 terrorists and Pakistani soldiers were neutralised' – a combined figure, unlike the separate figures given in May 2025.",
+    "lastChecked": "2026-11-08"
+  },
+  {
+    "id": "SRC-IMG-MANORAMA-0526",
+    "title": "New satellite imagery reveals structural damage to Command & Control building at Pak's Murid airbase",
+    "publisher": "Onmanorama (with IANS)",
+    "publicationDate": "2025-05-26",
+    "url": "https://www.onmanorama.com/news/india/2025/05/26/satellite-imagery-reveals-structural-damage-to-pak-murid-airbase.html",
+    "sourceType": "media",
+    "evidenceClass": "AMBER",
+    "retrieval": "read_in_full",
+    "notes": "Reports satellite imagery shared by OSINT analyst Damien Symon showing structural damage to a command-and-control building at Murid with part of the roof collapsed. Media relay of an analyst's post; the imagery date is not stated.",
+    "lastChecked": "2026-11-08"
   }
 ]

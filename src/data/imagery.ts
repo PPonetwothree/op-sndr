@@ -46,6 +46,17 @@ export const IMAGERY: ImageryRecord[] = [
     read: true,
   },
   {
+    id: "IMG-SYMON-MURID",
+    sourceId: "SRC-IMG-MANORAMA-0526",
+    kind: "osint_analyst",
+    provider: "Damien Symon (The Intel Lab), reported by Onmanorama / IANS",
+    collected: "not stated (shared 26 May 2025)",
+    shows: "Structural damage to a command-and-control building at Murid, with a section of the roof collapsed.",
+    targetIds: ["TGT-MURID"],
+    eventIds: ["EVT-032"],
+    read: true,
+  },
+  {
     id: "IMG-STIMSON",
     sourceId: "SRC-IND-STIMSON",
     kind: "commercial",

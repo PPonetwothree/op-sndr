@@ -490,3 +490,49 @@ add(
   ),
   c("casualties", PTI11, "Paragraph on Indian losses", "DGMO Lt Gen Ghai also paid tribute to five Indian fallen heroes", PTI_NOTE)
 );
+
+// ── Phase 8: Parliament, July 2025, and the Ministry's June 2026 clarification ──
+const RMLS = "SRC-PIB-RM-LS-0728";
+const MOD26 = "SRC-PIB-MOD-260627";
+add(
+  "EVT-051",
+  c(
+    "casualties",
+    RMLS,
+    "Paragraph on the 7 May strikes",
+    "over 100 terrorists, their trainers, handlers and associates were killed in well-coordinated strikes by our forces at nine terror infrastructure targets"
+  ),
+  c(
+    "casualties",
+    RMLS,
+    "Paragraph on the retaliatory strikes",
+    "asserting that none of soldiers suffered any casualties during the operation",
+    "PIB paraphrase. The Ministry later said this answered claims that pilots were lost (SRC-PIB-MOD-260627); the DGMO had paid tribute to five fallen on 11 May."
+  ),
+  c(
+    "casualties",
+    MOD26,
+    "Paragraph 2",
+    "falsely imply that the Raksha Mantri claimed that no Indian soldier lost his life during Operation Sindoor",
+    "Ministry of Defence clarification, 27 Jun 2026."
+  )
+);
+add(
+  "EVT-027",
+  c(
+    "weapons",
+    RMLS,
+    "Paragraph on 10 May",
+    "Pakistan used missiles, drones, rockets and other long-range weapons on India, in addition to technologies related to electronic warfare"
+  )
+);
+add(
+  "EVT-029",
+  c(
+    "damage",
+    RMLS,
+    "Paragraph on 10 May",
+    "Pakistan was unable to hit any of the Indian targets and none of the important assets were damaged",
+    "Later and broader than the 10 May briefing, which acknowledged limited damage at four air force stations."
+  )
+);

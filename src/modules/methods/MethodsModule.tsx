@@ -303,6 +303,15 @@ export function MethodsModule() {
                 Pakistani accounts come from DG ISPR statements as carried by Dawn and Radio Pakistan; ispr.gov.pk itself could not be read. The Washington Post
                 imagery analysis is cited by headline only (paywalled).
               </Li>
+              <Li>
+                The radar sites at Chunian and Pasrur, and the bases at Sialkot and Skardu, rest on Indian official accounts and imagery the Indian Air Force
+                released. No independent imagery was found for them; a reported independent challenge to the Chunian image could only be found second-hand and
+                is not used.
+              </Li>
+              <Li>
+                Later official statements are recorded beside earlier ones rather than replacing them – for example the Defence Minister's July 2025 statement
+                that no important assets were damaged, beside the 10 May acknowledgement of limited damage.
+              </Li>
               <Li>Several camp positions are village-level; facility locations are not public.</Li>
               <Li>Escalation-level tagging, political implications and significance are analytical judgements (AMBER).</Li>
             </ul>

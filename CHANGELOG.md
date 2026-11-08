@@ -4,6 +4,22 @@ All notable changes to this project. Format: [Keep a Changelog](https://keepacha
 
 ## [Unreleased]
 
+## [0.9.0] – 2026-11-08 · Later official statements and remaining evidence gaps
+
+### Added
+
+- The Defence Minister's Lok Sabha speech of 28 Jul 2025 (PIB, read in full): over 100 killed at nine targets; the 10 May attack "foiled" with S-400, Akash and AD guns named; "none of the important assets were damaged"; "none of soldiers suffered any casualties". Cited on the outcome, 10 May attack and Indian-damage events; S-400 and Akash entries updated.
+- The Ministry of Defence statement of 27 Jun 2026 (PIB): the "no casualties" remark answered false claims of lost pilots; the fallen are inscribed at the National War Memorial. Recorded beside the speech and the DGMO's 11 May tribute to five fallen, so the apparent contradiction is visible and explained.
+- Damien Symon's imagery of a damaged command-and-control building at Murid (via Onmanorama/IANS) as an independent account and an imagery-register entry. The damage level is unchanged because the report is a media relay.
+
+### Changed
+
+- Methods → Known limitations: Chunian, Pasrur, Sialkot and Skardu rest on Indian accounts and IAF-released imagery only; later official statements are shown beside earlier ones rather than replacing them.
+
+### Not changed
+
+- No new GREEN upgrades: no independent source was found for the remaining official-only events. Press reports that the Minister said "seven camps" were not used; the official text says nine.
+
 ## [0.8.0] – 2026-11-08 · Guides and in-app help
 
 ### Added
