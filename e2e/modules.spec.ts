@@ -3,7 +3,7 @@ import { test, expect, openModule, clock } from "./fixtures";
 test.describe("Modules", () => {
   test("overview: KPIs, charts, day drill-down and chart filter", async ({ page }) => {
     await openModule(page, "Campaign Overview");
-    await expect(page.locator("main .mono.text-\\[22px\\]").first()).toHaveText("54");
+    await expect(page.locator("main .mono.text-\\[22px\\]").first()).toHaveText("55");
     await expect.poll(() => page.locator(".recharts-bar-rectangle").count()).toBeGreaterThan(30);
     await page.getByRole("button", { name: /^8 MAY/ }).click();
     await expect(page.getByRole("button", { name: "Open on map" })).toBeVisible();

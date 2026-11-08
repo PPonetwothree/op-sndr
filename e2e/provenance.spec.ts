@@ -11,6 +11,17 @@ test.describe("Provenance, methods and audit", () => {
     await expect(info.getByRole("link", { name: /Archived copy|No archive/ }).or(info.getByText("No archive capture found"))).toHaveCount(1);
   });
 
+  test("event card compares Indian, Pakistani and independent accounts", async ({ page }) => {
+    await selectEvent(page, "EVT-011");
+    const panel = page.locator("aside").last().getByTestId("accounts-compared");
+    await expect(panel).toContainText("Indian official");
+    await expect(panel).toContainText("Pakistani official");
+    await expect(panel).toContainText("Independent");
+    await expect(panel).toContainText("Two gaping holes in the ceiling marked the spots where missiles had struck.");
+    await selectEvent(page, "EVT-004");
+    await expect(page.locator("aside").last()).toContainText("Not acknowledged");
+  });
+
   test("Hindi excerpts carry an English gloss", async ({ page }) => {
     await selectEvent(page, "EVT-004");
     const info = page.locator("aside").last();
@@ -22,7 +33,7 @@ test.describe("Provenance, methods and audit", () => {
     await openModule(page, "Methods & Data");
     await expect(page.getByRole("heading", { name: "Evidence classification" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Deliberately excluded" })).toBeAttached();
-    await expect(page.locator("article")).toContainText("126 citations");
+    await expect(page.locator("article")).toContainText("128 citations");
     await expect(page.locator("article td.mono", { hasText: "provenance" })).toHaveCount(1);
     await expect(page.locator("article td.mono", { hasText: "archiveUrl" })).toHaveCount(1);
   });

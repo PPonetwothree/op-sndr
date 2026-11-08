@@ -13,6 +13,7 @@ import { BdaEditor } from "@/components/bda/BdaEditor";
 import { DamageDistributionChart, InfrastructureStatusChart, ClaimsChart } from "@/components/charts/CampaignCharts";
 import { ModuleHeader } from "../ModuleHeader";
 import { RevisionHistory } from "@/components/audit/AuditLog";
+import { AccountsCompared } from "@/components/event-cards/AccountsCompared";
 import { cn } from "@/utils/cn";
 import { exportBdaCsv } from "@/utils/exports";
 
@@ -170,6 +171,19 @@ function RecordView({ r }: { r: BdaRecord }) {
             <CardHeader title="Evidence timeline & sources" />
             <div className="p-3">
               <EvidenceTimeline r={r} />
+            </div>
+          </Card>
+          <Card>
+            <CardHeader title="Accounts compared (associated events)" />
+            <div className="space-y-3 p-3">
+              {events.map((e) => (
+                <div key={e.id}>
+                  <div className="mono mb-1 text-[10px] text-ink-400">
+                    {e.id} · {e.title}
+                  </div>
+                  <AccountsCompared accounts={e.accounts} />
+                </div>
+              ))}
             </div>
           </Card>
           <RevisionHistory target={r.targetId} />

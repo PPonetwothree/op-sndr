@@ -50,13 +50,13 @@ test.describe("Geospatial operations", () => {
   });
 
   test("actor filter narrows the list and clears", async ({ page }) => {
-    await expect(page.locator("[data-evt]")).toHaveCount(54);
+    await expect(page.locator("[data-evt]")).toHaveCount(55);
     await page.getByRole("button", { name: "Pakistan", exact: true }).click();
     const n = await page.locator("[data-evt]").count();
     expect(n).toBeGreaterThan(5);
-    expect(n).toBeLessThan(54);
+    expect(n).toBeLessThan(55);
     await page.getByRole("button", { name: "Clear" }).click();
-    await expect(page.locator("[data-evt]")).toHaveCount(54);
+    await expect(page.locator("[data-evt]")).toHaveCount(55);
   });
 
   test("layer toggles remove vectors and markers", async ({ page }) => {
@@ -73,7 +73,7 @@ test.describe("Geospatial operations", () => {
   test("compare mode shows two synced maps", async ({ page }) => {
     await page.getByRole("button", { name: "Compare days" }).click();
     await expect(page.locator(".leaflet-container")).toHaveCount(2);
-    await expect(page.getByText("7 MAY 2025 · 15 events")).toBeVisible();
+    await expect(page.getByText("7 MAY 2025 · 16 events")).toBeVisible();
     await expect(page.getByText("10 MAY 2025 · 24 events")).toBeVisible();
   });
 
@@ -81,7 +81,7 @@ test.describe("Geospatial operations", () => {
     const [csv] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "Events CSV" }).click()]);
     expect(csv.suggestedFilename()).toBe("sindoor-event-timeline.csv");
     const text = await (await csv.createReadStream()).toArray().then((c) => Buffer.concat(c).toString("utf8"));
-    expect(text.split("\r\n")).toHaveLength(55);
+    expect(text.split("\r\n")).toHaveLength(56);
     const [tg] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "Targets CSV" }).click()]);
     expect(tg.suggestedFilename()).toBe("sindoor-target-database.csv");
     const [png] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "Map PNG" }).click()]);

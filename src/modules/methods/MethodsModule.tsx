@@ -17,6 +17,7 @@ const SECTIONS = [
   ["sources", "Sources and retrieval"],
   ["evidence", "Evidence classification"],
   ["provenance", "Field-level provenance"],
+  ["corroboration", "Corroboration and other accounts"],
   ["time", "Time"],
   ["location", "Locations and uncertainty"],
   ["damage", "Damage and claims"],
@@ -128,6 +129,32 @@ export function MethodsModule() {
               Tests require that every event has at least one citation, and that every stated time, casualty figure, damage level and named system carries its
               own citation.
             </P>
+
+            <H id="corroboration">Corroboration and other accounts</H>
+            <P>
+              Each event can carry accounts from other parties: Pakistani official statements (from DG ISPR, through Dawn and Radio Pakistan), independent
+              analyses (the Stimson Center's commercial-imagery review, on-site reporting by Al Jazeera) and Indian statements made against India's own
+              interest. Event cards and damage records show them side by side under “Accounts compared”, with each party's stance.
+            </P>
+            <ul className="mt-2 list-disc pl-5">
+              <Li>
+                An event is GREEN only when a non-Indian source confirms that it happened, or when India concedes something against its interest. The schema
+                refuses any other GREEN. At present {stats.byClass.GREEN ?? 0} events qualify.
+              </Li>
+              <Li>
+                GREEN means the <em>occurrence</em> is corroborated. Damage and casualty figures stay as claimed unless a damage record carries an independent
+                assessment, and each such record keeps the Indian account beside the independent finding.
+              </Li>
+              <Li>
+                When Pakistan acknowledges a strike, that is treated as a statement against interest about occurrence only; its descriptions of the targets
+                (mosques, civilians) and of damage are recorded as disputes, not facts. Matching a Pakistani site name to an Indian one (for example “Bilal
+                mosque” and “Syedna Bilal camp”) is analytical and is noted where it happens.
+              </Li>
+              <Li>
+                Sites that Pakistan's own list omits (Sawai Nala, Gulpur, Barnala) and bases where independent imagery is not known (Chunian, Pasrur, Rafiqui
+                damage) stay BLUE. Excerpts from non-government sources are limited to 15 words. Paywalled reporting is cited by headline only.
+              </Li>
+            </ul>
 
             <H id="time">Time</H>
             <ul className="mt-2 list-disc pl-5">
@@ -243,11 +270,14 @@ export function MethodsModule() {
             <H id="limits">Known limitations</H>
             <ul className="mt-2 list-disc pl-5">
               <Li>
-                The record rests almost entirely on Indian official accounts. Independent corroboration (GREEN) is limited to the occurrence of the Pahalgam
-                attack.
+                Independent corroboration covers the occurrence of most strikes and, for a few sites, damage. Casualty figures on both sides and most damage
+                levels remain unverified.
               </Li>
               <Li>The 11 and 12 May DGMO briefing transcripts were not retrieved; figures from them come from later PIB backgrounders.</Li>
-              <Li>Pakistani official statements are not yet registered as adversary-account sources.</Li>
+              <Li>
+                Pakistani accounts come from DG ISPR statements as carried by Dawn and Radio Pakistan; ispr.gov.pk itself could not be read. The Washington Post
+                imagery analysis is cited by headline only (paywalled).
+              </Li>
               <Li>Several camp positions are village-level; facility locations are not public.</Li>
               <Li>Escalation-level tagging, political implications and significance are analytical judgements (AMBER).</Li>
             </ul>

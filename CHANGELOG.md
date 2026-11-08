@@ -4,6 +4,23 @@ All notable changes to this project. Format: [Keep a Changelog](https://keepacha
 
 ## [Unreleased]
 
+## [0.6.0] – 2026-11-08 · Other accounts and independent corroboration
+
+### Added
+
+- Events carry `accounts[]` from other parties: Pakistani official statements (DG ISPR, via Dawn and Radio Pakistan), independent analyses (Stimson Center imagery review, Al Jazeera on-site reporting at Muridke) and Indian statements against interest. 41 accounts across 28 events, each with a stance (confirms, disputes damage/target, not acknowledged, denies, competing claim…).
+- "Accounts compared" panel on event cards and on damage-assessment records.
+- New event EVT-055: 7 May air engagement – aircraft losses claimed by both sides; Indian losses conceded by the CDS (number not given).
+- Eight sources, including a new `adversary_official` source type. The Washington Post imagery analysis is cited by headline only (paywalled).
+- Methods page section "Corroboration and other accounts".
+
+### Changed
+
+- 19 events upgraded to GREEN (occurrence corroborated outside Indian official accounts): 20 GREEN, 32 BLUE, 1 AMBER, 2 GREY. Sites Pakistan does not acknowledge (Sawai Nala, Gulpur, Barnala) and bases without independent imagery stay BLUE.
+- Schema rule: GREEN requires a non-Indian confirming account or a statement against interest.
+- Seven BDA records independently verified with independent damage levels (Sargodha, Rahim Yar Khan, Sukkur, Bholari, Jacobabad, Lahore AD, Muridke); the Indian account stays visible alongside.
+- S-400 usage status: officially confirmed used (IAF chief, Aug 2025); kill claims unverified.
+
 ## [0.5.0] – 2026-11-08 · Offline edition
 
 ### Added

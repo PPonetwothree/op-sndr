@@ -5,6 +5,7 @@ import { Badge, KV } from "@/components/ui/primitives";
 import { Button } from "@/components/ui/button";
 import { EvidenceBadge } from "./EvidenceBadge";
 import { CiteMark, EvidenceTrail } from "./Provenance";
+import { AccountsCompared } from "./AccountsCompared";
 import { useEffect, useRef, useState } from "react";
 import type { CitationField } from "@/types";
 import { damageLabel, DOMAIN_LABEL, EVENT_TYPE_LABEL, ESCALATION_LEVELS, EVIDENCE } from "@/engine/assessmentEngine";
@@ -235,6 +236,11 @@ export function EventDetail({ e, onClose }: { e: TimedEvent; onClose?: () => voi
             </div>
           </section>
         )}
+
+        <section>
+          <div className="label-caps mb-1">Accounts compared · {e.accounts.length}</div>
+          <AccountsCompared accounts={e.accounts} indianSummary={e.description} />
+        </section>
 
         <section ref={trailRef}>
           <div className="label-caps mb-1">Evidence trail · {e.provenance.length} field-level citations</div>

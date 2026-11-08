@@ -45,11 +45,11 @@ CI (`.github/workflows/ci.yml`) runs the same checks on every push and pull requ
 
 Sessions (header → Session) save/load to the browser or export/import JSON, including BDA edits, the tabletop exercise, analyst-linked sources and the audit log. **Copy link** (header) gives a URL that reopens the current view – module, briefing step or event, filters, layers and map position.
 
-Rules enforced in code: an official claim can never be GREEN; a BDA record can only be set to "independently verified" when a GREEN source is attached; attaching or linking a source never changes an evidence class by itself.
+Rules enforced in code: an official claim can never be GREEN; GREEN needs a Pakistani acknowledgement, an independent account or an Indian statement against interest (shown under "Accounts compared"); a BDA record can only be set to "independently verified" when a GREEN source is attached; attaching or linking a source never changes an evidence class by itself.
 
 ## Data and provenance
 
-- `src/data/events.json` – 54 events (22 Apr – 12 May 2025), each citing ≥1 source.
+- `src/data/events.json` – 55 events (22 Apr – 12 May 2025), each citing ≥1 source.
 - `src/data/targets.json` – 58 locations at **town/district level** (public gazetteer points, not impact points).
 - `src/data/weapons.json` – 30 systems; usage status reflects only what retrieved sources state.
 - `src/data/sources.json` – 18 sources with retrieval status (read in full / partially read / cited, not retrieved).
