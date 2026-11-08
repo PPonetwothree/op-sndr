@@ -4,6 +4,24 @@ All notable changes to this project. Format: [Keep a Changelog](https://keepacha
 
 ## [Unreleased]
 
+## [0.7.0] – 2026-11-08 · Primary-source gaps, published imagery, decluttered map
+
+### Added
+
+- Published-imagery register (`src/data/imagery.ts`): Maxar imagery of six air bases (India Today, 13 May), Damien Symon's 23 May imagery of Nur Khan (ThePrint), the Stimson Center's imagery review, IAF-released imagery, and the New York Times and Washington Post analyses by headline only. Shown on event cards, damage records and the Methods page; images are linked to their publishers, never reproduced.
+- Map decluttering (on by default, layer "Group nearby markers & hide overlapping labels"): inactive markers within 22 px group into a numbered badge below zoom 8, and a click zooms in to them. Selected and active markers are never grouped. Region labels that would overlap a more important label are hidden.
+- Sources: PTI wire report of the 11 May tri-service briefing (AMBER), NYT imagery analysis (headline only), India Today and ThePrint imagery reports.
+
+### Changed
+
+- MoD Year End Review 2025 and the PIB Akashteer backgrounder are now read in full and cited: Pakistan's 10 May attack "at approx. 1:30 am", the air bases struck, the 12 May DGMO talks, and Akashteer as the Army's AD control and reporting system.
+- 11 May briefing (via PTI): DGMO's "reports of 35–40" Pakistani military fatalities and five Indian fallen, with Pakistan's own figure (11 personnel) alongside; DGAO's "Losses are a part of combat" and "a few" Pakistani planes downed added to the air-engagement accounts.
+- Washington Post source title corrected to "…Post analysis finds", with authors.
+
+### Fixed
+
+- A fresh load wrote the starting clock into the URL, so a reload or a shared link moved the playhead past the prelude and the first step skipped the Pahalgam attack. An untouched clock is no longer written. This was the cause of an intermittent e2e failure.
+
 ## [0.6.0] – 2026-11-08 · Other accounts and independent corroboration
 
 ### Added

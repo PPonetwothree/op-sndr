@@ -25,7 +25,10 @@ test("opens from disk with no network: map, relief, boundaries and symbols rende
   await expect(relief).toHaveAttribute("src", /^data:image\/png;base64,/);
   await expect.poll(() => relief.evaluate((i: HTMLImageElement) => i.naturalWidth)).toBe(1680);
   await expect(page.locator(".contested-label")).toHaveCount(6);
-  expect(await page.locator(".leaflet-marker-icon svg").count()).toBeGreaterThan(40);
+  // Inactive markers are grouped at the opening zoom: count single markers plus the members of each group.
+  const singles = await page.locator(".leaflet-marker-icon svg").count();
+  const grouped = (await page.locator(".marker-cluster-badge").allTextContents()).reduce((n, t) => n + Number(t), 0);
+  expect(singles + grouped).toBeGreaterThan(50);
   expect(errors).toEqual([]);
   expect(requests, "no network requests in the offline edition").toEqual([]);
 });

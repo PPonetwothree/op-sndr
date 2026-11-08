@@ -168,7 +168,12 @@ export function MethodsModule() {
               {IMAGERY.map((i) => (
                 <Li key={i.id}>
                   <strong>{IMAGERY_KIND_LABEL[i.kind]}</strong> – {i.provider}; collected {i.collected}. {i.shows}
-                  {i.targetIds.length > 0 && <span className="text-ink-400"> ({i.targetIds.length} target records)</span>}
+                  {i.targetIds.length > 0 && (
+                    <span className="text-ink-400">
+                      {" "}
+                      ({i.targetIds.length} target record{i.targetIds.length === 1 ? "" : "s"})
+                    </span>
+                  )}
                 </Li>
               ))}
             </ul>

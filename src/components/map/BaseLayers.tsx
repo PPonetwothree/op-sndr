@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { GeoJSON, TileLayer, CircleMarker, Tooltip, Polygon, Circle, Pane, ImageOverlay, useMapEvents } from "react-leaflet";
+import { useMemo, useState } from "react";
+import { GeoJSON, TileLayer, CircleMarker, Tooltip, Polygon, Circle, Pane, ImageOverlay, useMap, useMapEvents } from "react-leaflet";
+import { labelWidth, placeLabels } from "@/engine/declutter";
 import admin1Raw from "@/data/geo/admin1.json";
 import reliefUrl from "@/assets/relief/hillshade.png"; // bundled asset (inlined in the offline build)
 import type { FeatureCollection } from "geojson";
@@ -92,21 +93,41 @@ const COUNTRY_LABELS: [string, [number, number]][] = [
   ["ARABIAN SEA", [21.3, 65.0]],
 ];
 
-/** Country and sea labels plus state / province labels from Natural Earth label points. */
-export function RegionLabels() {
+/** Country and sea labels plus state / province labels from Natural Earth label points.
+ *  With decluttering on, a label that would overlap a more important one is left out. */
+export function RegionLabels({ declutter = true }: { declutter?: boolean }) {
+  const map = useMap();
   const [zoom, setZoom] = useState(5.5);
-  useMapEvents({ zoomend: (e) => setZoom(e.target.getZoom()) });
+  const [view, setView] = useState(0);
+  useMapEvents({ zoomend: (e) => setZoom(e.target.getZoom()), moveend: () => setView((v) => v + 1) });
+  const admin = admin1.labels.filter((l) => zoom >= l.minZoom).sort((a, b) => a.minZoom - b.minZoom);
+  const shown = useMemo(() => {
+    if (!declutter) return null;
+    const boxes = [
+      ...COUNTRY_LABELS.map(([name, pos]) => {
+        const p = map.latLngToContainerPoint(pos);
+        return { id: `c-${name}`, x: p.x, y: p.y, w: labelWidth(name, 12, 0.4), h: 15 };
+      }),
+      ...admin.map((l) => {
+        const p = map.latLngToContainerPoint([l.lat, l.lng]);
+        return { id: `a-${l.country}-${l.name}`, x: p.x, y: p.y, w: labelWidth(l.name, 10, 0.18), h: 13 };
+      }),
+    ];
+    return placeLabels(boxes);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [declutter, zoom, view, map]);
+  const keep = (id: string) => !shown || shown.has(id);
   return (
     <>
-      {COUNTRY_LABELS.map(([name, pos]) => (
+      {COUNTRY_LABELS.filter(([name]) => keep(`c-${name}`)).map(([name, pos]) => (
         <CircleMarker key={name} center={pos} radius={0} stroke={false} interactive={false}>
           <Tooltip permanent direction="center" className="region-label country">
             {name}
           </Tooltip>
         </CircleMarker>
       ))}
-      {admin1.labels
-        .filter((l) => zoom >= l.minZoom)
+      {admin
+        .filter((l) => keep(`a-${l.country}-${l.name}`))
         .map((l) => (
           <CircleMarker key={`${l.country}-${l.name}`} center={[l.lat, l.lng]} radius={0} stroke={false} interactive={false}>
             <Tooltip permanent direction="center" className="region-label">

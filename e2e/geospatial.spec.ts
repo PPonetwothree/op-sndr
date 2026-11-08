@@ -9,7 +9,26 @@ test.describe("Geospatial operations", () => {
     const relief = page.locator(".leaflet-relief-pane img");
     await expect(relief).toBeAttached();
     expect(await relief.evaluate((i: HTMLImageElement) => i.naturalWidth)).toBe(1680);
-    expect(await page.locator(".leaflet-marker-icon svg").count()).toBeGreaterThan(40);
+    expect(await page.locator(".leaflet-marker-icon svg").count()).toBeGreaterThan(15);
+  });
+
+  test("nearby markers group at low zoom, expand on click and can be switched off", async ({ page }) => {
+    const badges = page.locator(".marker-cluster-badge");
+    await expect.poll(() => badges.count()).toBeGreaterThan(0);
+    const total = async () => {
+      const singles = await page.locator(".leaflet-marker-pane .leaflet-marker-icon:not(:has(.marker-cluster-badge))").count();
+      const grouped = (await badges.allTextContents()).reduce((a, t) => a + Number(t), 0);
+      return singles + grouped;
+    };
+    const all = await total();
+    expect(all).toBeGreaterThan(50);
+    const before = await badges.count();
+    await badges.first().click({ force: true });
+    await expect.poll(() => badges.count()).toBeLessThan(before);
+    await page.getByRole("button", { name: "Layers" }).click();
+    await page.getByLabel("Group nearby markers & hide overlapping labels").click();
+    await expect(badges).toHaveCount(0);
+    await expect.poll(() => page.locator(".leaflet-marker-pane .leaflet-marker-icon").count()).toBeGreaterThanOrEqual(all);
   });
 
   test("playback advances the clock and pause stops it", async ({ page }) => {
@@ -29,6 +48,20 @@ test.describe("Geospatial operations", () => {
     await page.getByTitle("Step forward (→)").click();
     await expect(infoTitle(page)).toHaveText("CCS non-military measures against Pakistan");
     await page.getByTitle("Step backward (←)").click();
+    await expect(infoTitle(page)).toHaveText("Pahalgam terrorist attack");
+  });
+
+  test("a reload after panning still starts the walk at the first event", async ({ page }) => {
+    const map = page.locator(".leaflet-container").first();
+    const box = (await map.boundingBox())!;
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width / 2 + 80, box.y + box.height / 2 + 40, { steps: 5 });
+    await page.mouse.up();
+    await expect.poll(() => page.evaluate(() => location.hash)).toContain("c=");
+    expect(await page.evaluate(() => location.hash)).not.toContain("t=");
+    await page.reload();
+    await page.getByTitle("Step forward (→)").click();
     await expect(infoTitle(page)).toHaveText("Pahalgam terrorist attack");
   });
 

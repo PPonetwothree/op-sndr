@@ -1,13 +1,15 @@
 // Keeps the URL hash in step with the view and restores it on load.
 import { useSim, DEFAULT_LAYERS } from "./simulationStore";
 import { decodeUrlState, encodeUrlState } from "@/utils/urlState";
+import { CAMPAIGN_START } from "@/engine/timelineEngine";
 
 function currentHash(): string {
   const s = useSim.getState();
   return encodeUrlState(
     {
       module: s.module,
-      simTime: s.simTime,
+      // An untouched clock is not written: restoring it would move the playhead past the prelude.
+      simTime: s.playIdx < 0 && s.simTime === CAMPAIGN_START ? undefined : s.simTime,
       eventId: s.selectedEventId ?? undefined,
       filters: s.filters,
       layers: s.layers,

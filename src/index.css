@@ -120,6 +120,19 @@ body {
   letter-spacing: 0.4em;
   color: rgba(200, 206, 190, 0.35);
 }
+.marker-cluster-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1.5px solid;
+  background: #0f1113e6;
+  font:
+    600 10px/1 ui-monospace,
+    monospace;
+  box-shadow: 0 0 0 2px #0f111399;
+  cursor: pointer;
+}
 .leaflet-tooltip.region-label::before {
   display: none;
 }

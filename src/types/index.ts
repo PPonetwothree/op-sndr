@@ -53,6 +53,7 @@ export interface LayerVisibility {
   dayNight: boolean;
   milSymbols: boolean;
   uncertainty: boolean;
+  declutter: boolean;
   onlineTiles: boolean;
 }
 

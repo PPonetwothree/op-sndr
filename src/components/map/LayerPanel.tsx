@@ -37,6 +37,7 @@ const GROUPS: { title: string; items: [keyof LayerVisibility, string][] }[] = [
       ["dayNight", "Day / night at simulation clock"],
       ["milSymbols", "APP-6 / MIL-STD-2525 symbols"],
       ["uncertainty", "Position uncertainty & stated distances"],
+      ["declutter", "Group nearby markers & hide overlapping labels"],
       ["onlineTiles", "Online dark tiles (needs internet)"],
     ],
   },

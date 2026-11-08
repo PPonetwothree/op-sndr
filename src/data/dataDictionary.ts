@@ -112,7 +112,8 @@ export const DATA_DICTIONARY: DatasetDoc[] = [
       {
         field: "sourceType",
         type: "enum",
-        description: "official_transcript, official_press_release, official_backgrounder, official_statement, media, independent, user_added.",
+        description:
+          "official_transcript, official_press_release, official_backgrounder, official_statement, adversary_official, media, independent, user_added.",
       },
       { field: "evidenceClass", type: "GREEN | BLUE | AMBER | GREY", description: "Class of evidence this source can provide." },
       {

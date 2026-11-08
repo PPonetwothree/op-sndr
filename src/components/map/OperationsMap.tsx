@@ -98,7 +98,7 @@ export function OperationsMap({ dayOverride, sync = false, follow = true, captio
         {layers.indiaBoundary && <IndiaBoundaryLayer />}
         {layers.boundaries && <BoundaryLayer />}
         {layers.coverage && <CoverageLayer />}
-        {layers.labels && <RegionLabels />}
+        {layers.labels && <RegionLabels declutter={layers.declutter} />}
         <VectorLayer set={set} layers={layers} />
         {layers.uncertainty && <UncertaintyLayer set={set} visible={(t) => layers[LAYER_OF[t.markerLayer]]} />}
         <MarkerLayer set={set} layers={layers} />

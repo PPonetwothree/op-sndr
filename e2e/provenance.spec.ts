@@ -33,7 +33,7 @@ test.describe("Provenance, methods and audit", () => {
     await openModule(page, "Methods & Data");
     await expect(page.getByRole("heading", { name: "Evidence classification" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Deliberately excluded" })).toBeAttached();
-    await expect(page.locator("article")).toContainText("128 citations");
+    await expect(page.locator("article")).toContainText("134 citations");
     await expect(page.locator("article td.mono", { hasText: "provenance" })).toHaveCount(1);
     await expect(page.locator("article td.mono", { hasText: "archiveUrl" })).toHaveCount(1);
   });

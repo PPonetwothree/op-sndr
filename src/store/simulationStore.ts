@@ -30,6 +30,7 @@ export const DEFAULT_LAYERS: LayerVisibility = {
   dayNight: true,
   milSymbols: true,
   uncertainty: true,
+  declutter: true,
   onlineTiles: false,
 };
 
