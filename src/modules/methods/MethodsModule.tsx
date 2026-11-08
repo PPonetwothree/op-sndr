@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { IMAGERY, IMAGERY_KIND_LABEL } from "@/data/imagery";
 import { Copy, Check } from "lucide-react";
 import { BASE_SOURCES, EVENTS, TARGETS, WEAPONS } from "@/data";
 import { DATA_DICTIONARY } from "@/data/dataDictionary";
@@ -18,6 +19,7 @@ const SECTIONS = [
   ["evidence", "Evidence classification"],
   ["provenance", "Field-level provenance"],
   ["corroboration", "Corroboration and other accounts"],
+  ["imagery", "Published imagery"],
   ["time", "Time"],
   ["location", "Locations and uncertainty"],
   ["damage", "Damage and claims"],
@@ -154,6 +156,21 @@ export function MethodsModule() {
                 Sites that Pakistan's own list omits (Sawai Nala, Gulpur, Barnala) and bases where independent imagery is not known (Chunian, Pasrur, Rafiqui
                 damage) stay BLUE. Excerpts from non-government sources are limited to 15 words. Paywalled reporting is cited by headline only.
               </Li>
+            </ul>
+
+            <H id="imagery">Published imagery</H>
+            <P>
+              Satellite imagery is linked to its publisher, never copied, traced or generated. The register below records who collected each set, when, and what
+              the publication says it shows. Imagery does not change a damage level by itself: levels change only through an independent assessment recorded on
+              the damage record.
+            </P>
+            <ul className="mt-2 list-disc pl-5" data-testid="imagery-register">
+              {IMAGERY.map((i) => (
+                <Li key={i.id}>
+                  <strong>{IMAGERY_KIND_LABEL[i.kind]}</strong> – {i.provider}; collected {i.collected}. {i.shows}
+                  {i.targetIds.length > 0 && <span className="text-ink-400"> ({i.targetIds.length} target records)</span>}
+                </Li>
+              ))}
             </ul>
 
             <H id="time">Time</H>

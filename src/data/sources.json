@@ -347,14 +347,50 @@
   },
   {
     "id": "SRC-IND-WAPO",
-    "title": "Indian strikes on Pakistan damaged six airfields, Washington Post finds",
+    "title": "Indian strikes on Pakistan damaged six airfields, Post analysis finds",
     "publisher": "The Washington Post",
     "publicationDate": "2025-05-14",
     "url": "https://www.washingtonpost.com/world/2025/05/14/india-pakistan-strikes-conflict-damage/",
     "sourceType": "independent",
     "evidenceClass": "GREEN",
     "retrieval": "cited_not_retrieved",
-    "notes": "Paywalled; only the headline finding is used. Base-level details are not taken from this source."
+    "notes": "Imogen Piper, Evan Hill, Maham Javaid and Rick Noack (title and authors as cited by Stimson, note 70). Paywalled; only the headline finding is used. Base-level details are not taken from this source."
+  },
+  {
+    "id": "SRC-IND-NYT-0514",
+    "title": "India and Pakistan Talked Big, but Satellite Imagery Shows Limited Damage",
+    "publisher": "The New York Times",
+    "publicationDate": "2025-05-14",
+    "url": "https://www.nytimes.com/interactive/2025/05/14/world/asia/india-pakistan-attack-damage-satellite-images.html",
+    "sourceType": "independent",
+    "evidenceClass": "GREEN",
+    "retrieval": "cited_not_retrieved",
+    "notes": "Agnes Chang, Pablo Robles and Mujib Mashal (as cited by Stimson, note 70). Not retrieved (paywalled). Listed in the imagery register by headline only; no finding is taken from it.",
+    "lastChecked": "2026-11-08"
+  },
+  {
+    "id": "SRC-IMG-IT-0513",
+    "title": "Clear satellite pics show extensive damage to Pak bases after Indian strikes",
+    "publisher": "India Today",
+    "publicationDate": "2025-05-13",
+    "url": "https://www.indiatoday.in/india/story/satellite-images-pakistan-air-bases-nur-khan-india-operation-sindoor-2723934-2025-05-13",
+    "sourceType": "media",
+    "evidenceClass": "AMBER",
+    "retrieval": "partially_read",
+    "notes": "Subham Tiwari and Bidisha Saha. Publishes Maxar Technologies imagery collected on 10 and 11 May of Sukkur, Nur Khan, Rahim Yar Khan, Sargodha (Mushaf), Jacobabad and Bholari. Only the opening was readable. The imagery is commercial; the 'extensive damage' reading is the outlet's.",
+    "lastChecked": "2026-11-08"
+  },
+  {
+    "id": "SRC-IMG-PRINT-0526",
+    "title": "Fresh satellite images reveal extent of damage at Nur Khan airbase, Pakistan takes down damaged structures",
+    "publisher": "ThePrint",
+    "publicationDate": "2025-05-26",
+    "url": "https://theprint.in/defence/fresh-satellite-images-reveal-extent-of-damage-at-nur-khan-airbase-pakistan-takes-down-damaged-structures/2637522/",
+    "sourceType": "media",
+    "evidenceClass": "AMBER",
+    "retrieval": "partially_read",
+    "notes": "Javaria Rana. Reports imagery dated 23 May shared by OSINT analyst Damien Symon (The Intel Lab) showing a complex near the Nur Khan strike site had been demolished. Partial paywall; the opening paragraphs were read.",
+    "lastChecked": "2026-11-08"
   },
   {
     "id": "SRC-IND-AJ-CDS",

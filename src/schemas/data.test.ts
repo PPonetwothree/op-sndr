@@ -83,3 +83,26 @@ describe("corroboration", () => {
     EVENTS.flatMap((e) => e.accounts).forEach((a) => a.excerpt && expect(a.excerpt.split(/\s+/).length).toBeLessThanOrEqual(15));
   });
 });
+
+describe("published imagery register", () => {
+  it("references real sources, targets and events", async () => {
+    const { IMAGERY } = await import("@/data/imagery");
+    const src = new Set(BASE_SOURCES.map((s) => s.id));
+    const tgt = new Set(TARGETS.map((t) => t.id));
+    const evt = new Set(EVENTS.map((e) => e.id));
+    IMAGERY.forEach((i) => {
+      expect(src.has(i.sourceId), i.id).toBe(true);
+      i.targetIds.forEach((t) => expect(tgt.has(t), `${i.id} ${t}`).toBe(true));
+      i.eventIds.forEach((e) => expect(evt.has(e), `${i.id} ${e}`).toBe(true));
+    });
+  });
+  it("takes nothing from imagery publications that were not read", async () => {
+    const { IMAGERY } = await import("@/data/imagery");
+    const byId = new Map(BASE_SOURCES.map((s) => [s.id, s]));
+    IMAGERY.filter((i) => !i.read).forEach((i) => {
+      expect(i.targetIds, i.id).toEqual([]);
+      expect(i.eventIds, i.id).toEqual([]);
+      expect(byId.get(i.sourceId)?.retrieval, i.id).toBe("cited_not_retrieved");
+    });
+  });
+});

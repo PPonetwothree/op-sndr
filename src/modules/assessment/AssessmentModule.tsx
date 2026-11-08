@@ -14,6 +14,8 @@ import { DamageDistributionChart, InfrastructureStatusChart, ClaimsChart } from 
 import { ModuleHeader } from "../ModuleHeader";
 import { RevisionHistory } from "@/components/audit/AuditLog";
 import { AccountsCompared } from "@/components/event-cards/AccountsCompared";
+import { PublishedImagery } from "@/components/event-cards/PublishedImagery";
+import { imageryForTarget } from "@/data/imagery";
 import { cn } from "@/utils/cn";
 import { exportBdaCsv } from "@/utils/exports";
 
@@ -171,6 +173,12 @@ function RecordView({ r }: { r: BdaRecord }) {
             <CardHeader title="Evidence timeline & sources" />
             <div className="p-3">
               <EvidenceTimeline r={r} />
+            </div>
+          </Card>
+          <Card>
+            <CardHeader title="Published imagery (linked, not reproduced)" />
+            <div className="p-3">
+              <PublishedImagery items={imageryForTarget(r.targetId)} />
             </div>
           </Card>
           <Card>
